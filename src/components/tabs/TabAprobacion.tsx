@@ -9,13 +9,14 @@ export default function TabAprobacion() {
   const { citizenApproval, scorecardPeriodoAnterior, approvalTrend, serviceApprovals, sentimentKPI, periodo } = useReport()
   const diffAprobacion = citizenApproval - scorecardPeriodoAnterior.citizenApproval;
 
-  // Derivar tabla de áreas desde serviceApprovals (JSON dinámico)
+  // Derivar tabla de áreas desde serviceApprovals — solo áreas con quejas reales (neg > 0)
   const ACTORS_SHORT = serviceApprovals
     .map((s) => ({
       name: s.service,
       pos: Math.round(s.approval),
       neg: Math.round(100 - s.approval),
     }))
+    .filter((a) => a.neg > 0)
     .sort((a, b) => b.pos - a.pos);
 
   const chartAprobacionTrend = useMemo(
@@ -62,7 +63,7 @@ export default function TabAprobacion() {
         },
       },
     }),
-    []
+    [approvalTrend]
   );
 
   return (

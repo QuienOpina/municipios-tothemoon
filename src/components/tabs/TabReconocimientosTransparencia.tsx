@@ -5,10 +5,10 @@ function formatViews(n: number) {
 }
 
 export default function TabReconocimientosTransparencia() {
-  const { reconocimientosTemas } = useReport()
+  const { reconocimientosTemas, periodo } = useReport()
   return (
     <>
-      <div className="section-label">Reconocimientos y Transparencia · 3–5 Mar 2026</div>
+      <div className="section-label">Reconocimientos y Transparencia · {periodo}</div>
 
       {/* ─── Reconocimientos ─── */}
       <div className="card" style={{ marginBottom: 24 }}>

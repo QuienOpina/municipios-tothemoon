@@ -411,40 +411,44 @@
       ],
       "serviceApprovals": [
         {
-          "service": "Gestión Municipal",
-          "approval": 68
+          "service": "Salud Pública",
+          "approval": 100
         },
         {
-          "service": "Atención Ciudadana",
-          "approval": 66
+          "service": "Transparencia Municipal",
+          "approval": 97
         },
         {
           "service": "Transporte Público",
-          "approval": 66
+          "approval": 95
         },
         {
           "service": "Seguridad Pública",
-          "approval": 64
+          "approval": 93
         },
         {
-          "service": "Bienestar y Control Animal",
-          "approval": 60
+          "service": "Atención Ciudadana",
+          "approval": 92
         },
         {
-          "service": "Agua y Saneamiento (SAPAL)",
-          "approval": 60
+          "service": "Agua y Saneamiento",
+          "approval": 88
+        },
+        {
+          "service": "Programas Sociales",
+          "approval": 88
         },
         {
           "service": "Infraestructura Educativa",
-          "approval": 59
+          "approval": 86
         },
         {
           "service": "Infraestructura Vial",
-          "approval": 53
+          "approval": 79
         },
         {
-          "service": "Espacios Públicos Urbanos",
-          "approval": 53
+          "service": "Servicios Públicos",
+          "approval": 79
         }
       ],
       "alliedActors": 0,
@@ -531,7 +535,7 @@
           "lng": -101.6720405
         },
         {
-          "location": "Kiosko, León",
+          "location": "Kiosko, León, Guanajuato, México",
           "location_original": "Kiosko",
           "count": 1,
           "posts": [
@@ -553,7 +557,7 @@
           "lng": -101.6421231
         },
         {
-          "location": "Colonia Obregón, León",
+          "location": "Colonia Obregón, León, Guanajuato, México",
           "location_original": "Colonia Obregón",
           "count": 1,
           "posts": [
@@ -568,9 +572,7 @@
                 "preocupacion"
               ]
             }
-          ],
-          "lat": 19.3990759,
-          "lng": -99.2082191
+          ]
         },
         {
           "location": "colonias populares, León",
@@ -593,7 +595,7 @@
           ]
         },
         {
-          "location": "Pox los agaves, León",
+          "location": "Pox los agaves, León, Guanajuato, México",
           "location_original": "Pox los agaves",
           "count": 1,
           "posts": [
@@ -632,7 +634,7 @@
           ]
         },
         {
-          "location": "manzanares, León",
+          "location": "manzanares, León, Guanajuato, México",
           "location_original": "manzanares",
           "count": 1,
           "posts": [
@@ -653,7 +655,7 @@
           "lng": -101.6491418
         },
         {
-          "location": "paseos de las torres, León",
+          "location": "paseos de las torres, León, Guanajuato, México",
           "location_original": "paseos de las torres",
           "count": 1,
           "posts": [
@@ -669,11 +671,11 @@
               ]
             }
           ],
-          "lat": 21.1439639,
-          "lng": -101.6334843
+          "lat": 21.1602754,
+          "lng": -101.6774802
         },
         {
-          "location": "Calle Cerro de Culiacán, Cerrito de Jerez, León",
+          "location": "Calle Cerro de Culiacán, Cerrito de Jerez, León, Guanajuato, México",
           "location_original": "Calle Cerro de Culiacán, Cerrito de Jerez",
           "count": 1,
           "posts": [
@@ -690,11 +692,11 @@
               ]
             }
           ],
-          "lat": 21.0850945,
-          "lng": -101.6305664
+          "lat": 21.0874322,
+          "lng": -101.6323339
         },
         {
-          "location": "Colonia Pedregales de Echeveste, León",
+          "location": "Colonia Pedregales de Echeveste, León, Guanajuato, México",
           "location_original": "Colonia Pedregales de Echeveste",
           "count": 1,
           "posts": [
@@ -712,7 +714,7 @@
           ]
         },
         {
-          "location": "área de donación, Colonia Arboledas de San José, León",
+          "location": "área de donación, Colonia Arboledas de San José, León, Guanajuato, México",
           "location_original": "área de donación, Colonia Arboledas de San José",
           "count": 1,
           "posts": [
@@ -731,7 +733,7 @@
           ]
         },
         {
-          "location": "Colonia Joyas de Castilla, León",
+          "location": "Colonia Joyas de Castilla, León, Guanajuato, México",
           "location_original": "Colonia Joyas de Castilla",
           "count": 1,
           "posts": [
@@ -749,7 +751,7 @@
           ]
         },
         {
-          "location": "Colonia Quinta los Castillos, León",
+          "location": "Colonia Quinta los Castillos, León, Guanajuato, México",
           "location_original": "Colonia Quinta los Castillos",
           "count": 1,
           "posts": [
@@ -768,7 +770,7 @@
           ]
         },
         {
-          "location": "santa ana del conde, León",
+          "location": "santa ana del conde, León, Guanajuato, México",
           "location_original": "santa ana del conde",
           "count": 1,
           "posts": [
@@ -785,11 +787,11 @@
               ]
             }
           ],
-          "lat": 25.728483,
-          "lng": -100.3679199
+          "lat": 20.9575183,
+          "lng": -101.5710764
         },
         {
-          "location": "colonia san jose de cementos - inaeba, León",
+          "location": "colonia san jose de cementos - inaeba, León, Guanajuato, México",
           "location_original": "colonia san jose de cementos - inaeba",
           "count": 1,
           "posts": [
@@ -808,7 +810,7 @@
           ]
         },
         {
-          "location": "Telesecundaria 6, León",
+          "location": "Telesecundaria 6, León, Guanajuato, México",
           "location_original": "Telesecundaria 6",
           "count": 1,
           "posts": [
@@ -826,7 +828,7 @@
           ]
         },
         {
-          "location": "Lomas de La Paz, León",
+          "location": "Lomas de La Paz, León, Guanajuato, México",
           "location_original": "Lomas de La Paz",
           "count": 1,
           "posts": [
@@ -843,11 +845,11 @@
               ]
             }
           ],
-          "lat": 25.7120016,
-          "lng": -100.1335863
+          "lat": 21.1297545,
+          "lng": -101.7333094
         },
         {
-          "location": "Santa María de cementos, León",
+          "location": "Santa María de cementos, León, Guanajuato, México",
           "location_original": "Santa María de cementos",
           "count": 1,
           "posts": [
@@ -867,7 +869,7 @@
           "lng": -101.6759266
         },
         {
-          "location": "UTL Campus II, León",
+          "location": "UTL Campus II, León, Guanajuato, México",
           "location_original": "UTL Campus II",
           "count": 1,
           "posts": [
@@ -885,7 +887,7 @@
           ]
         },
         {
-          "location": "los separos de cepol, León",
+          "location": "los separos de cepol, León, Guanajuato, México",
           "location_original": "los separos de cepol",
           "count": 1,
           "posts": [
@@ -905,7 +907,7 @@
           ]
         },
         {
-          "location": "La rio mayo, León",
+          "location": "La rio mayo, León, Guanajuato, México",
           "location_original": "La rio mayo",
           "count": 1,
           "posts": [
@@ -1010,40 +1012,40 @@
       ],
       "quejasPorCategoria": [
         {
-          "categoria": "Infraestructura Vial y Banquetas",
-          "count": 14
+          "categoria": "Transparencia Municipal",
+          "count": 2
         },
         {
-          "categoria": "Espacios Públicos, Parques y Permisos Urbanos",
-          "count": 14
+          "categoria": "Transporte Público",
+          "count": 3
         },
         {
-          "categoria": "Infraestructura y Equipamiento Educativo",
-          "count": 10
-        },
-        {
-          "categoria": "Servicios de Agua Potable y Drenaje (SAPAL)",
-          "count": 8
-        },
-        {
-          "categoria": "Bienestar y Control Animal",
-          "count": 8
-        },
-        {
-          "categoria": "Seguridad Pública y Actuación Policial",
+          "categoria": "Seguridad Pública",
           "count": 5
         },
         {
-          "categoria": "Transporte Público y Rutas",
-          "count": 3
+          "categoria": "Atención Ciudadana",
+          "count": 5
         },
         {
-          "categoria": "Atención Ciudadana y Trámites",
-          "count": 3
+          "categoria": "Agua y Saneamiento",
+          "count": 8
         },
         {
-          "categoria": "Gestión y Administración Municipal",
-          "count": 2
+          "categoria": "Programas Sociales",
+          "count": 8
+        },
+        {
+          "categoria": "Infraestructura Educativa",
+          "count": 9
+        },
+        {
+          "categoria": "Infraestructura Vial",
+          "count": 14
+        },
+        {
+          "categoria": "Servicios Públicos",
+          "count": 14
         }
       ],
       "alertasReputacionales": [

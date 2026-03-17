@@ -19,7 +19,7 @@ const FALLBACK_SENTIMENT_BY_PLATFORM: Record<string, { positive: number; neutral
 };
 
 export default function TabSentimiento() {
-  const { sentimentKPI, sentimentTrend, scorecardPeriodoAnterior, serviceApprovals, sentimentByPlatform, periodo } = useReport()
+  const { sentimentKPI, sentimentTrend, scorecardPeriodoAnterior, serviceApprovals, sentimentByPlatform, quejasPorCategoria, periodo } = useReport()
   const diffPositivo = sentimentKPI.positive - scorecardPeriodoAnterior.sentimentPositive;
 
   // Determinar qué plataformas y datos usar (JSON dinámico con fallback)
@@ -93,21 +93,17 @@ export default function TabSentimiento() {
     [hasSentimentByPlatform]
   );
 
-  // Gráfica de temas con mayor rechazo — derivada de serviceApprovals (dinámico)
+  // Gráfica de temas con mayor rechazo — usa conteos absolutos de quejasPorCategoria
+  // Silencio = satisfacción: solo se grafican categorías con quejas reales (count > 0)
   const temasNegativos = useMemo(() => {
-    if (serviceApprovals.length === 0) {
-      // Fallback hardcodeado si no hay serviceApprovals
-      return {
-        labels: ['Transparencia Municipal', 'Seguridad Pública', 'Infraest. Educativa', 'Agua y Saneamiento', 'Infraest. Vial', 'Programas Sociales'],
-        data: [69, 62, 48, 47, 39, 36],
-      };
-    }
-    const sorted = [...serviceApprovals].sort((a, b) => (100 - a.approval) - (100 - b.approval));
+    const sorted = [...quejasPorCategoria]
+      .filter((c) => c.count > 0)
+      .sort((a, b) => b.count - a.count); // descendente → el mayor queda arriba en la barra horizontal
     return {
-      labels: sorted.map((s) => s.service),
-      data: sorted.map((s) => Math.round(100 - s.approval)),
+      labels: sorted.map((c) => c.categoria),
+      data: sorted.map((c) => c.count),
     };
-  }, []);
+  }, [quejasPorCategoria]);
 
   const chartTemasNegativos = useMemo(
     () => ({
@@ -116,7 +112,7 @@ export default function TabSentimiento() {
         labels: temasNegativos.labels,
         datasets: [
           {
-            label: '% de rechazo',
+            label: 'Quejas',
             data: temasNegativos.data,
             backgroundColor: temasNegativos.data.map((_, i) => {
               const opacity = Math.round(255 - i * 25).toString(16).padStart(2, '0');
@@ -138,7 +134,7 @@ export default function TabSentimiento() {
             ticks: {
               callback(_scale: unknown, tickValue: string | number) {
                 const v = typeof tickValue === 'string' ? Number(tickValue) : tickValue;
-                return `${v}%`;
+                return Number.isInteger(v) ? v : '';
               },
             },
           },
@@ -146,7 +142,7 @@ export default function TabSentimiento() {
         },
       },
     }),
-    []
+    [temasNegativos]
   );
 
   return (

@@ -172,16 +172,16 @@ export default function TabMapa() {
             <h3 style={{ margin: '0 0 10px', fontSize: '13px', fontWeight: 700, color: '#1a2c3d' }}>
               Categorías de quejas
             </h3>
-            {quejasPorCategoria.map((cat, i) => {
+            {[...quejasPorCategoria].sort((a, b) => b.count - a.count).map((cat, i) => {
               const pct = Math.round((cat.count / maxCat) * 100);
               const color = BAR_COLORS[i % BAR_COLORS.length];
               return (
                 <div key={cat.categoria} style={{ marginBottom: '8px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '3px' }}>
-                    <span style={{ fontSize: '11px', color: '#1a2c3d', fontWeight: 600 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3px', gap: '12px' }}>
+                    <span style={{ fontSize: '11px', color: '#1a2c3d', fontWeight: 600, flex: 1 }}>
                       {cat.categoria}
                     </span>
-                    <span style={{ fontSize: '11px', color: '#6b7d8c', fontWeight: 700 }}>
+                    <span style={{ fontSize: '11px', color: '#6b7d8c', fontWeight: 700, flexShrink: 0 }}>
                       {cat.count}
                     </span>
                   </div>

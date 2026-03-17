@@ -418,32 +418,44 @@
       ],
       "serviceApprovals": [
         {
+          "service": "Transporte Público",
+          "approval": 100
+        },
+        {
+          "service": "Atención Ciudadana",
+          "approval": 100
+        },
+        {
           "service": "Infraestructura Educativa",
-          "approval": 69
+          "approval": 99
         },
         {
           "service": "Servicios Públicos",
-          "approval": 68
+          "approval": 97
         },
         {
           "service": "Seguridad Pública",
-          "approval": 66
+          "approval": 95
         },
         {
           "service": "Programas Sociales",
-          "approval": 62
+          "approval": 90
         },
         {
           "service": "Transparencia Municipal",
-          "approval": 56
-        },
-        {
-          "service": "Salud Pública",
-          "approval": 51
+          "approval": 82
         },
         {
           "service": "Infraestructura Vial",
-          "approval": 39
+          "approval": 80
+        },
+        {
+          "service": "Agua y Saneamiento",
+          "approval": 80
+        },
+        {
+          "service": "Salud Pública",
+          "approval": 76
         }
       ],
       "alliedActors": 36,
@@ -774,12 +786,10 @@
                 "frustracion"
               ]
             }
-          ],
-          "lat": 24.0293878,
-          "lng": -104.681249
+          ]
         },
         {
-          "location": "Jose vasconselos, Gómez Palacio",
+          "location": "Jose vasconselos, Gómez Palacio, Durango, México",
           "location_original": "Jose vasconselos",
           "count": 1,
           "posts": [
@@ -797,7 +807,7 @@
           ]
         },
         {
-          "location": "Jose Santos Valdez, Gómez Palacio",
+          "location": "Jose Santos Valdez, Gómez Palacio, Durango, México",
           "location_original": "Jose Santos Valdez",
           "count": 1,
           "posts": [
@@ -817,7 +827,7 @@
           "lng": -103.5127731
         },
         {
-          "location": "Escuela Poetisa Adela Ayala, Gómez Palacio",
+          "location": "Escuela Poetisa Adela Ayala, Gómez Palacio, Durango, México",
           "location_original": "Escuela Poetisa Adela Ayala",
           "count": 1,
           "posts": [
@@ -836,7 +846,7 @@
           ]
         },
         {
-          "location": "Carretera Arcinas Valle de Eruka, Gómez Palacio",
+          "location": "Carretera Arcinas Valle de Eruka, Gómez Palacio, Durango, México",
           "location_original": "Carretera Arcinas Valle de Eruka",
           "count": 1,
           "posts": [
@@ -854,7 +864,7 @@
           ]
         },
         {
-          "location": "Colonia Felipe angeles, Gómez Palacio",
+          "location": "Colonia Felipe angeles, Gómez Palacio, Durango, México",
           "location_original": "Colonia Felipe angeles",
           "count": 1,
           "posts": [
@@ -873,7 +883,7 @@
           ]
         },
         {
-          "location": "Calle 27 de marzo, Gómez Palacio",
+          "location": "Calle 27 de marzo, Gómez Palacio, Durango, México",
           "location_original": "Calle 27 de marzo",
           "count": 1,
           "posts": [
@@ -894,7 +904,7 @@
           "lng": -103.4877421
         },
         {
-          "location": "el refugio, Gómez Palacio",
+          "location": "el refugio, Gómez Palacio, Durango, México",
           "location_original": "el refugio",
           "count": 1,
           "posts": [
@@ -914,7 +924,7 @@
           "lng": -103.4303731
         },
         {
-          "location": "La Jaramillo, Gómez Palacio",
+          "location": "La Jaramillo, Gómez Palacio, Durango, México",
           "location_original": "La Jaramillo",
           "count": 1,
           "posts": [
@@ -933,7 +943,7 @@
           ]
         },
         {
-          "location": "San Alberto, Gómez Palacio",
+          "location": "San Alberto, Gómez Palacio, Durango, México",
           "location_original": "San Alberto",
           "count": 1,
           "posts": [
@@ -974,7 +984,7 @@
           ]
         },
         {
-          "location": "Periférico en Gómez, Gómez Palacio",
+          "location": "Periférico en Gómez, Gómez Palacio, Durango, México",
           "location_original": "Periférico en Gómez",
           "count": 1,
           "posts": [
@@ -1084,11 +1094,11 @@
               ]
             }
           ],
-          "lat": 25.6786644,
-          "lng": -103.4619945
+          "lat": 25.5686969,
+          "lng": -103.502543
         },
         {
-          "location": "carretera jabonoso-esmeralda, Gómez Palacio",
+          "location": "carretera jabonoso-esmeralda, Gómez Palacio, Durango, México",
           "location_original": "carretera jabonoso-esmeralda",
           "count": 1,
           "posts": [
@@ -1109,7 +1119,7 @@
           "lng": -103.4565385
         },
         {
-          "location": "Calzada Conquistadores y calle Benito, Miravalle, Gómez Palacio",
+          "location": "Calzada Conquistadores y calle Benito, Miravalle, Gómez Palacio, Durango, México",
           "location_original": "Calzada Conquistadores y calle Benito, Miravalle",
           "count": 1,
           "posts": [
@@ -1127,7 +1137,7 @@
           ]
         },
         {
-          "location": "Fraccionamiento Morelos 2 - Colonia 15 de Diciembre, Gómez Palacio",
+          "location": "Fraccionamiento Morelos 2 - Colonia 15 de Diciembre, Gómez Palacio, Durango, México",
           "location_original": "Fraccionamiento Morelos 2 - Colonia 15 de Diciembre",
           "count": 1,
           "posts": [
@@ -1164,7 +1174,7 @@
           ]
         },
         {
-          "location": "fraccionamiento Morelos 1, Gómez Palacio",
+          "location": "fraccionamiento Morelos 1, Gómez Palacio, Durango, México",
           "location_original": "fraccionamiento Morelos 1",
           "count": 1,
           "posts": [
@@ -1185,7 +1195,7 @@
           ]
         },
         {
-          "location": "Salud Municipal, Gómez Palacio",
+          "location": "Salud Municipal, Gómez Palacio, Durango, México",
           "location_original": "Salud Municipal",
           "count": 1,
           "posts": [
@@ -1270,7 +1280,7 @@
           "lng": -103.494779
         },
         {
-          "location": "varias colonias de Gómez, Gómez Palacio",
+          "location": "varias colonias de Gómez, Gómez Palacio, Durango, México",
           "location_original": "varias colonias de Gómez",
           "count": 1,
           "posts": [
@@ -1306,38 +1316,42 @@
               ]
             }
           ],
-          "lat": 24.2131571,
-          "lng": -104.4731113
+          "lat": 24.2143405,
+          "lng": -104.4719384
         }
       ],
       "quejasPorCategoria": [
         {
-          "categoria": "Infraestructura: Drenaje, Baches, Calles y Agua Potable",
-          "count": 33
+          "categoria": "Infraestructura Educativa",
+          "count": 1
         },
         {
-          "categoria": "Salud Municipal: Abuso de Poder del Director de Salud Luis Bañuelos",
-          "count": 20
-        },
-        {
-          "categoria": "Corrupción y Mala Gestión Municipal",
-          "count": 15
-        },
-        {
-          "categoria": "Programas Municipales: Distribución de Tenis y Útiles en Escuelas",
-          "count": 8
-        },
-        {
-          "categoria": "Seguridad Pública y Respuesta Policial",
-          "count": 4
-        },
-        {
-          "categoria": "Servicios Públicos: Limpieza y Fumigación",
+          "categoria": "Servicios Públicos",
           "count": 3
         },
         {
-          "categoria": "Educación: Seguridad en Instalaciones Escolares",
-          "count": 1
+          "categoria": "Seguridad Pública",
+          "count": 4
+        },
+        {
+          "categoria": "Programas Sociales",
+          "count": 8
+        },
+        {
+          "categoria": "Transparencia Municipal",
+          "count": 15
+        },
+        {
+          "categoria": "Infraestructura Vial",
+          "count": 16
+        },
+        {
+          "categoria": "Agua y Saneamiento",
+          "count": 16
+        },
+        {
+          "categoria": "Salud Pública",
+          "count": 20
         }
       ],
       "alertasReputacionales": [

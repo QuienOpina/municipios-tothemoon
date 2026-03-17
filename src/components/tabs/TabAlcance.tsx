@@ -15,7 +15,7 @@ const MENTION_SOURCES_STYLE: { icon: string; bg: string; barColor?: string }[] =
 ];
 
 export default function TabAlcance() {
-  const { mentionsBySource, top5MediosRecurrentes, topPersonasMencionadas, topDependenciasMencionadas, topPublicacionesImpacto, botsVsReal, followersActual, scorecardPeriodoAnterior, seguidoresTrend } = useReport()
+  const { mentionsBySource, top5MediosRecurrentes, topPersonasMencionadas, topDependenciasMencionadas, topPublicacionesImpacto, botsVsReal, followersActual, scorecardPeriodoAnterior, seguidoresTrend, periodo } = useReport()
   const totalMentions = mentionsBySource.reduce((s, m) => s + m.mentions, 0);
 
   const chartPersonas = useMemo(
@@ -141,7 +141,7 @@ export default function TabAlcance() {
 
   return (
     <>
-      <div className="section-label">Alcance y Cobertura · 3–5 Mar 2026</div>
+      <div className="section-label">Alcance y Cobertura · {periodo}</div>
 
       <div className="mentions-grid" style={{ marginBottom: 24 }}>
         <div className="card">
