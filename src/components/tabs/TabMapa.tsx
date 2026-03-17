@@ -1,5 +1,5 @@
 /// <reference types="@types/google.maps" />
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useReport, type QuejaUbicacion } from '../../data/dgoData';
 
 // Color por nivel de queja
