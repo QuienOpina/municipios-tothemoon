@@ -19,7 +19,7 @@ const FALLBACK_SENTIMENT_BY_PLATFORM: Record<string, { positive: number; neutral
 };
 
 export default function TabSentimiento() {
-  const { sentimentKPI, sentimentTrend, scorecardPeriodoAnterior, serviceApprovals, sentimentByPlatform, quejasPorCategoria, periodo } = useReport()
+  const { sentimentKPI, sentimentTrend, scorecardPeriodoAnterior, sentimentByPlatform, quejasPorCategoria, periodo } = useReport()
   const diffPositivo = sentimentKPI.positive - scorecardPeriodoAnterior.sentimentPositive;
 
   // Determinar qué plataformas y datos usar (JSON dinámico con fallback)
