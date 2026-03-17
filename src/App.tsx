@@ -13,13 +13,15 @@ import { useReportContext } from './context/ReportContext';
 
 const TABS = [
   { id: 'toc',             label: 'Tabla de Contenidos',          Component: TabTOC },
-  { id: 'scorecard',       label: 'Scorecard',                    Component: TabScorecard },
+  { id: 'scorecard',       label: 'Scorecard',                    Component: TabScorecard, hidden: true },
   { id: 'sentimiento',     label: 'Sentimiento',                  Component: TabSentimiento },
   { id: 'aprobacion',      label: 'Aprobación Ciudadana',         Component: TabAprobacion },
   { id: 'alcance',         label: 'Alcance y Cobertura',             Component: TabAlcance },
   { id: 'reconocimientos', label: 'Reconocimientos y Transparencia', Component: TabReconocimientosTransparencia },
   { id: 'mapa',            label: 'Mapa de Quejas',                  Component: TabMapa },
 ] as const;
+
+const VISIBLE_TABS = TABS.filter((t) => !('hidden' in t && t.hidden));
 
 type TabId = (typeof TABS)[number]['id'];
 
@@ -168,7 +170,7 @@ function App() {
 
       {/* ── Tabs bar ── */}
       <div className="tabs-bar">
-        {TABS.map(({ id, label }) => (
+        {VISIBLE_TABS.map(({ id, label }) => (
           <button
             key={id}
             type="button"
@@ -182,18 +184,19 @@ function App() {
 
       {/* ── Contenido ── */}
       <main>
-        {TABS.map(({ id, Component }) => (
-          <div
-            key={id}
-            id={id}
-            className={`tab-content ${activeTab === id ? 'active' : ''}`}
-            style={{ display: activeTab === id ? 'block' : 'none' }}
-          >
-            {/* key={tabKey} fuerza remount de cada tab al cambiar municipio,
-                limpiando useMemo/useEffect internos */}
-            <Component key={tabKey} onSwitchTab={switchTab} />
-          </div>
-        ))}
+        {VISIBLE_TABS.map(({ id, Component }) => {
+          const isActive = activeTab === id || (activeTab === 'scorecard' && id === 'toc');
+          return (
+            <div
+              key={id}
+              id={id}
+              className={`tab-content ${isActive ? 'active' : ''}`}
+              style={{ display: isActive ? 'block' : 'none' }}
+            >
+              <Component key={tabKey} onSwitchTab={switchTab} />
+            </div>
+          );
+        })}
       </main>
     </div>
   );
