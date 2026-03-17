@@ -1,0 +1,16 @@
+{
+  "municipios": [
+    {
+      "slug": "leon",
+      "nombre": "León",
+      "periodo": "11–16 Mar 2026",
+      "report_id": "4c6dbff6-c12c-4e93-bc64-79715249b4ee"
+    },
+    {
+      "slug": "gomez-palacio",
+      "nombre": "Gómez Palacio",
+      "periodo": "11–16 Mar 2026",
+      "report_id": "d2c4d142-9aec-4a57-bf16-ae9135066b65"
+    }
+  ]
+}

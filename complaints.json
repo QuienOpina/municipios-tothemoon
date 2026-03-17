@@ -1,0 +1,204 @@
+{
+    "categories": [
+      {
+        "titulo": "Seguridad Pública y Amenazas en Planteles Educativos",
+        "porcentaje": 40,
+        "items": [
+          {
+            "descripcion": "Amenaza de tiroteo escrita en sanitario de varones del Instituto 18 de Marzo, provocó evacuación de más de 1,500 alumnos y personal docente",
+            "location": "Instituto 18 de Marzo, colonia Felipe Carrillo Puerto, Gómez Palacio, Durango",
+            "coord": " 25.58152704529931, -103.49946847771812 ",
+            "tipo": "Seguridad Pública"
+          },
+          {
+            "descripcion": "Múltiples reportes de movilización policiaca y de Guardia Nacional por amenaza de tiroteo difundida en grupos de WhatsApp",
+            "location": "Instituto 18 de Marzo, colonia Felipe Carrillo Puerto, Gómez Palacio, Durango",
+            "coord": "25.58152704529931, -103.49946847771812 ",
+            "tipo": "Seguridad Pública"
+          },
+          {
+            "descripcion": "Presuntas detonaciones en el exterior de la secundaria 18 de Marzo, con alumnos resguardados al interior del plantel",
+            "location": "Secundaria 18 de Marzo, Gómez Palacio, Durango",
+            "coord": "25.581797620914084, -103.49924321409452 ",
+            "tipo": "Seguridad Pública"
+          },
+          {
+            "descripcion": "Alumno portando arma de fuego y amenazando a compañeros",
+            "location": "Secundaria 18 de Marzo, Gómez Palacio, Durango",
+            "coord": "25.581797620914084, -103.49924321409452 ",
+            "tipo": "Seguridad Pública"
+          },
+          {
+            "descripcion": "Alumno portando arma de fuego en primaria",
+            "location": "Primaria 18 de Marzo, Gómez Palacio, Durango",
+            "coord": "25.581797620914084, -103.49924321409452 ",
+            "tipo": "Seguridad Pública"
+          },
+          {
+            "descripcion": "Ciudadanos exigen atención a problemática de seguridad recurrente",
+            "location": "Escuela 18 de Marzo, Gómez Palacio, Durango",
+            "coord": "25.581797620914084, -103.49924321409452 ",
+            "tipo": "Seguridad Pública"
+          }
+        ]
+      },
+      {
+        "titulo": "Infraestructura y Abandono en Planteles Escolares",
+        "porcentaje": 22,
+        "items": [
+          {
+            "descripcion": "Primaria en estado de deterioro estructural grave, clases impartidas en línea por malas condiciones del inmueble",
+            "location": "Primaria 18 de Marzo, Gómez Palacio, Durango",
+            "coord": "25.581797620914084, -103.49924321409452 ",
+            "tipo": "Infraest. Educativa"
+          },
+          {
+            "descripcion": "Colegio sin techumbre, exposición extrema al sol y falta de agua recurrente, sin atención municipal",
+            "location": "Colegio Mundo de Paz, Gómez Palacio, Durango",
+            "coord": "25.57440955348846, -103.50704434525333 ",
+            "tipo": "Infraest. Educativa"
+          },
+          {
+            "descripcion": "Escuela completamente olvidada y sin ningún tipo de apoyo por parte del municipio",
+            "location": "Ejido Filadelfia, Gómez Palacio, Durango",
+            "coord": "25.61744168419056, -103.48255297408791 ",
+            "tipo": "Infraest. Educativa"
+          },
+          {
+            "descripcion": "Escuela primaria sin visitas ni atención por parte de la presidenta municipal",
+            "location": "Primaria Vicente Guerrero, Ejido Cuba, Gómez Palacio, Durango",
+            "coord": "25.59221769716728, -103.45721089325323 ",
+            "tipo": "Infraest. Educativa"
+          },
+          {
+            "descripcion": "Kinder con necesidad urgente de más árboles y equipo deportivo, sin respuesta del gobierno municipal",
+            "location": "Kinder Frida Kahlo, Gómez Palacio, Durango",
+            "coord": "25.588327461818714, -103.46463653360833 ",
+            "tipo": "Infraest. Educativa"
+          },
+          {
+            "descripcion": "Padres de familia reportan que la presidenta municipal no ha visitado sus escuelas",
+            "location": "Gómez Palacio, Durango",
+            "coord": "25.588327461818714, -103.46463653360833 ",
+            "tipo": "Infraest. Educativa"
+          },
+          {
+            "descripcion": "Escuela sin recibir atención ni visitas por parte de las autoridades del municipio",
+            "location": "Colonia La Independencia, Gómez Palacio, Durango",
+            "coord": "25.56667058812553, -103.4817159010585 ",
+            "tipo": "Infraest. Educativa"
+          }
+        ]
+      },
+      {
+        "titulo": "Abandono de Colonias y Espacios Públicos",
+        "porcentaje": 13,
+        "items": [
+          {
+            "descripcion": "Colonia sin atención ni mejoras en infraestructura por parte del gobierno municipal",
+            "location": "Colonia La Esperanza, Gómez Palacio, Durango",
+            "coord": " 25.57370465362783, -103.50985497308383",
+            "tipo": "Espacios Públicos"
+          },
+          {
+            "descripcion": "Parque sin mantenimiento ni visitas de la presidenta municipal",
+            "location": "Colonia 5 de Mayo, Gómez Palacio, Durango",
+            "coord": " 25.576036308434126, -103.4874470957998",
+            "tipo": "Espacios Públicos"
+          },
+          {
+            "descripcion": "Colonia esperando la atención prometida por la presidenta municipal tras haber votado por ella",
+            "location": "Colonia Santa Rosa, Gómez Palacio, Durango",
+            "coord": " 25.568537215150737, -103.4731773185573 ",
+            "tipo": "Espacios Públicos"
+          },
+          {
+            "descripcion": "Ciudadanos piden visita urgente de la presidenta municipal, condiciones de abandono",
+            "location": "Las Agavias, Gómez Palacio, Durango",
+            "coord": " 25.6203057829107, -103.4894326471009",
+            "tipo": "Espacios Públicos"
+          },
+          {
+            "descripcion": "Parque solicitado para intervención y mantenimiento por parte del gobierno municipal",
+            "location": "Parque Hundido, Gómez Palacio, Durango",
+            "coord": " 25.59106847558036, -103.46928264830734 ",
+            "tipo": "Espacios Públicos"
+          }
+        ]
+      },
+      {
+        "titulo": "Infraestructura Vial y Estado de Calles",
+        "porcentaje": 11,
+        "items": [
+          {
+            "descripcion": "Ninguna calle en buen estado, abandono vial total por parte del municipio",
+            "location": "Colonia 5 de Mayo, Gómez Palacio, Durango",
+            "coord": " 25.577385193793514, -103.48687167320483 ",
+            "tipo": "Infraest. Vial"
+          },
+          {
+            "descripcion": "Bulevar en mal estado, requiere reparación urgente",
+            "location": "Bulevar Los Maestros, entre Colonia San Antonio y San Alberto, Gómez Palacio, Durango",
+            "coord": " 25.599986014562724, -103.48492249612102",
+            "tipo": "Infraest. Vial"
+          },
+          {
+            "descripcion": "Arteria principal en condiciones deplorables pese a alto flujo vehicular diario",
+            "location": "Calle Nacional, Colonia Felipe Ángeles, Gómez Palacio, Durango",
+            "coord": " 25.579647124273702, -103.48401255929966",
+            "tipo": "Infraest. Vial"
+          },
+          {
+            "descripcion": "Carreteras en estado de deterioro que requieren atención prioritaria del gobierno municipal",
+            "location": "El Manantial, Gómez Palacio, Durango",
+            "coord": "25.588839783039408, -103.48523568893197 ",
+            "tipo": "Infraest. Vial"
+          }
+        ]
+      },
+      {
+        "titulo": "Drenaje, Saneamiento y Aguas Negras",
+        "porcentaje": 8,
+        "items": [
+          {
+            "descripcion": "Graves problemas de aguas negras sin solución por parte del gobierno municipal",
+            "location": "Rinconada Villa Nápoles, Gómez Palacio, Durango",
+            "coord": " 25.566554395575587, -103.47311634525356 ",
+            "tipo": "Agua y Saneamiento"
+          },
+          {
+            "descripcion": "Canal utilizado como tiradero de animales muertos, foco de infección sin atención municipal",
+            "location": "Ejido Filadelfia, junto a Alsuper, Gómez Palacio, Durango",
+            "coord": " 25.61738366161842, -103.48265489510192",
+            "tipo": "Agua y Saneamiento"
+          },
+          {
+            "descripcion": "Drenajes completamente tapados pese a que ciudadanos pagan puntualmente el servicio",
+            "location": "Colonia Hamburgo, Gómez Palacio, Durango",
+            "coord": " 25.593959338367423, -103.50138713102943 ",
+            "tipo": "Agua y Saneamiento"
+          }
+        ]
+      },
+      {
+        "titulo": "Condiciones del Personal Policial y Respuesta de Seguridad",
+        "porcentaje": 6,
+        "items": [
+          {
+            "descripcion": "Policías sin seguro social, sin acceso a créditos de vivienda y con salarios insuficientes, exigiendo mejores condiciones laborales",
+            "location": "Gómez Palacio, Durango",
+            "coord": " 25.58377563264869, -103.49867747055453 ",
+            "tipo": "Seguridad Pública"
+          },
+          {
+            "descripcion": "Línea de emergencias 9-1-1 no contesta durante emergencias reportadas",
+            "location": "Colonia Miravalle, Gómez Palacio, Durango",
+            "coord": " 25.581106388886962, -103.51652306059536 ",
+            "tipo": "Seguridad Pública"
+          }
+        ]
+      }
+    ],
+    "confidence": 0.83,
+    "total_complaints_analyzed": 39
+  }

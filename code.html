@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tablero Inteligente · Gómez Palacio</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNzBDNDgOqQ60PmFx5_AN102w9auXWaGE&callback=initMap"></script>
+<style>
+  :root {
+    --bg: #f0f2f5;
+    --card: #ffffff;
+    --teal-dark: #1b4f62;
+    --teal-mid: #247a8a;
+    --teal-light: #2e9db5;
+    --gold: #e8a020;
+    --text: #1e2d3a;
+    --muted: #6b7d8c;
+    --border: #dde3ea;
+    --positive: #1a9650;
+    --negative: #d62728;
+    --neutral: #f4a018;
+    --shadow: 0 2px 12px rgba(27,79,98,0.09);
+    --radius: 10px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--teal-dark);
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 58px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  }
+  .header-left { display: flex; align-items: center; gap: 14px; }
+  .header-logo {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .header-sep { width: 1px; height: 24px; background: rgba(255,255,255,0.2); }
+  .header-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.3px;
+  }
+  .header-period {
+    font-size: 12px;
+    color: rgba(255,255,255,0.65);
+    background: rgba(255,255,255,0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* ── TABS ── */
+  .tabs-bar {
+    background: #fff;
+    border-bottom: 2px solid var(--border);
+    padding: 0 32px;
+    display: flex;
+    gap: 0;
+    position: sticky;
+    top: 58px;
+    z-index: 99;
+    overflow-x: auto;
+  }
+  .tab-btn {
+    padding: 16px 22px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--muted);
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s;
+    white-space: nowrap;
+    font-family: 'Outfit', sans-serif;
+  }
+  .tab-btn:hover { color: var(--teal-mid); }
+  .tab-btn.active {
+    color: var(--teal-dark);
+    border-bottom-color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* ── CONTENT ── */
+  .tab-content { display: none; padding: 28px 32px 48px; }
+  .tab-content.active { display: block; }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .section-label:first-child { margin-top: 0; }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .card-header {
+    background: var(--teal-dark);
+    padding: 14px 20px 10px;
+  }
+  .card-header.mid { background: var(--teal-mid); }
+  .card-header.lighter { background: #2e7f8f; }
+  .card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.2px;
+  }
+  .card-question {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.8);
+    margin-top: 4px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.4;
+  }
+  .card-body {
+    padding: 18px 20px;
+  }
+
+  /* ── GRID ── */
+  .grid { display: grid; gap: 18px; }
+  .g2 { grid-template-columns: repeat(2, 1fr); }
+  .g3 { grid-template-columns: repeat(3, 1fr); }
+  .g4 { grid-template-columns: repeat(4, 1fr); }
+  .g-auto { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+
+  /* ── KPI CARDS ── */
+  .kpi-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 18px 20px;
+    border-top: 3px solid var(--teal-mid);
+    position: relative;
+    overflow: hidden;
+  }
+  .kpi-label {
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .kpi-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--teal-dark);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .kpi-delta {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 20px;
+  }
+  .kpi-delta.up { background: #e8f5ec; color: var(--positive); }
+  .kpi-delta.down { background: #fde8e8; color: var(--negative); }
+  .kpi-delta.neutral { background: #fef6e4; color: #c47a00; }
+  .kpi-period {
+    font-size: 11px;
+    color: var(--muted);
+    margin-left: 6px;
+  }
+  .kpi-card.accent-gold { border-top-color: var(--gold); }
+  .kpi-card.accent-green { border-top-color: var(--positive); }
+  .kpi-card.accent-red { border-top-color: var(--negative); }
+
+  /* ── CHART WRAPPERS ── */
+  .chart-wrap { position: relative; }
+  .chart-wrap canvas { max-height: 220px; }
+  .chart-wrap-tall canvas { max-height: 300px; }
+
+  /* ── SENTIMENT BAR ── */
+  .sentiment-bar {
+    display: flex;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 28px;
+    margin: 12px 0 6px;
+  }
+  .sentiment-bar div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    transition: width 0.8s ease;
+  }
+  .sent-pos { background: var(--positive); }
+  .sent-neu { background: var(--neutral); }
+  .sent-neg { background: var(--negative); }
+
+  .sentiment-legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .leg-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .leg-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── ACTORS TABLE ── */
+  .actors-table { width: 100%; border-collapse: collapse; }
+  .actors-table th {
+    text-align: left;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0 10px 10px;
+    border-bottom: 2px solid var(--border);
+  }
+  .actors-table th:last-child { text-align: right; }
+  .actors-table td {
+    padding: 10px 10px;
+    font-size: 13.5px;
+    border-bottom: 1px solid #f0f2f5;
+    vertical-align: middle;
+  }
+  .actors-table tr:last-child td { border-bottom: none; }
+  .actor-name { font-weight: 600; color: var(--text); }
+  .bar-cell { min-width: 140px; }
+  .bar-track {
+    height: 8px;
+    background: #eef1f4;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .bar-track-stacked {
+    display: flex;
+    background: transparent;
+  }
+  .bar-track-stacked .bar-fill.pos { border-radius: 4px 0 0 4px; }
+  .bar-track-stacked .bar-fill.neg { border-radius: 0 4px 4px 0; }
+  .bar-fill { height: 100%; border-radius: 4px; transition: width 0.6s; flex-shrink: 0; }
+  .bar-fill.pos { background: var(--positive); }
+  .bar-fill.neg { background: var(--negative); }
+  .pct-badge {
+    display: inline-block;
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 12px;
+    min-width: 52px;
+    text-align: center;
+  }
+  .pct-badge.pos { background: #e8f5ec; color: var(--positive); }
+  .pct-badge.neg { background: #fde8e8; color: var(--negative); }
+
+  /* ── TABLE OF CONTENTS ── */
+  .toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .toc-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.18s, box-shadow 0.18s;
+  }
+  .toc-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 24px rgba(27,79,98,0.14);
+  }
+  .toc-header {
+    background: var(--teal-dark);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .toc-header.mid { background: var(--teal-mid); }
+  .toc-header.light { background: #2e7f8f; }
+  .toc-header.slate { background: #3a5a6a; }
+  .toc-number {
+    width: 28px; height: 28px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; color: #fff; flex-shrink: 0;
+  }
+  .toc-card-title { font-size: 15px; font-weight: 700; color: #fff; }
+  .toc-body { padding: 16px 20px; }
+  .toc-desc { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 12px; }
+  .toc-links { display: flex; flex-direction: column; gap: 6px; }
+  .toc-link {
+    font-size: 13px;
+    color: var(--teal-mid);
+    font-weight: 500;
+    cursor: pointer;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .toc-link::before { content: '→'; font-size: 11px; }
+  .toc-link:hover { color: var(--teal-dark); text-decoration: underline; }
+
+  /* ── HERO STATS on TOC ── */
+  .toc-hero {
+    background: var(--teal-dark);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 16px rgba(27,79,98,0.2);
+  }
+  .toc-hero-title h2 {
+    font-size: 22px; font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .toc-hero-title p { font-size: 13px; color: rgba(255,255,255,0.7); }
+  .toc-hero-kpis { display: flex; gap: 28px; flex-wrap: wrap; }
+  .toc-hero-kpi { text-align: center; }
+  .toc-hero-kpi .val { font-size: 28px; font-weight: 700; line-height: 1; }
+  .toc-hero-kpi .lbl { font-size: 11px; color: rgba(255,255,255,0.65); margin-top: 4px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .gold-accent { color: var(--gold); }
+
+  /* ── MENTIONS TABLE ── */
+  .mentions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .mention-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f2f5;
+  }
+  .mention-row:last-child { border-bottom: none; }
+  .mention-icon {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; flex-shrink: 0;
+  }
+  .mention-name { font-size: 13.5px; font-weight: 500; flex: 1; }
+  .mention-val { font-size: 14px; font-weight: 700; color: var(--teal-dark); }
+  .mention-pct { font-size: 11px; color: var(--muted); margin-left: 4px; }
+  .mention-bar {
+    height: 5px;
+    background: #eef1f4;
+    border-radius: 3px;
+    margin-top: 3px;
+    overflow: hidden;
+  }
+  .mention-bar-fill { height: 100%; border-radius: 3px; background: var(--teal-mid); }
+
+  /* ── MAPA DE QUEJAS ── */
+  #map-container { position: relative; height: calc(100vh - 140px); min-height: 480px; }
+  #map { width: 100%; height: 100%; }
+  .map-legend {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    background: #fff;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    z-index: 10;
+    font-size: 12px;
+    max-height: 40vh;
+    overflow-y: auto;
+  }
+  .map-legend h3 { margin-bottom: 8px; font-size: 13px; color: var(--teal-dark); }
+  .map-legend-item { display: flex; align-items: center; gap: 8px; margin: 4px 0; }
+  .map-legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .tabs-bar { padding: 0 16px; }
+    .tab-content { padding: 20px 16px 40px; }
+    .header { padding: 0 16px; }
+    .g2, .g3, .g4 { grid-template-columns: 1fr; }
+    .mentions-grid { grid-template-columns: 1fr; }
+    .toc-hero { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-left">
+    <span class="header-logo">QuienOpina</span>
+    <div class="header-sep"></div>
+    <span class="header-title">Tablero Inteligente · Gómez Palacio</span>
+  </div>
+  <span class="header-period">3–5 Mar 2026</span>
+</div>
+
+<!-- TABS -->
+<div class="tabs-bar">
+  <button class="tab-btn active" onclick="switchTab('toc', this)">Tabla de Contenidos</button>
+  <button class="tab-btn" onclick="switchTab('scorecard', this)">Scorecard</button>
+  <button class="tab-btn" onclick="switchTab('sentimiento', this)">Sentimiento</button>
+  <button class="tab-btn" onclick="switchTab('aprobacion', this)">Aprobación Ciudadana</button>
+  <button class="tab-btn" onclick="switchTab('mapa', this)">Mapa de Quejas</button>
+  <button class="tab-btn" onclick="switchTab('alcance', this)">Alcance y Cobertura</button>
+  <button class="tab-btn" onclick="switchTab('reconocimientos', this)">Reconocimientos y Transparencia</button>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TAB 1: TABLA DE CONTENIDOS                  -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="toc" class="tab-content active">
+
+  <div class="toc-hero">
+    <div class="toc-hero-title">
+      <h2>Tablero Inteligente · <span class="gold-accent">Gómez Palacio</span></h2>
+      <p>Reporte de desempeño digital y percepción ciudadana · 3–5 Marzo 2026</p>
+    </div>
+    <div class="toc-hero-kpis">
+      <div class="toc-hero-kpi">
+        <div class="val gold-accent">615</div>
+        <div class="lbl">Menciones totales</div>
+      </div>
+      <div class="toc-hero-kpi">
+        <div class="val">26.8%</div>
+        <div class="lbl">Sentimiento positivo</div>
+      </div>
+      <div class="toc-hero-kpi">
+        <div class="val gold-accent">1.89%</div>
+        <div class="lbl">Tasa de interacción</div>
+      </div>
+      <div class="toc-hero-kpi">
+        <div class="val">65.4%</div>
+        <div class="lbl">Aprobación ciudadana</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toc-brief" style="margin-top:20px;margin-bottom:28px;padding:24px 28px;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;">
+    <div style="font-size:16px;font-weight:700;margin-bottom:14px;color:var(--teal-dark);">Resumen del período (3–5 Mar 2026)</div>
+    <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:var(--text);">El período combinó alta actividad gubernamental con una escalada de tensiones: arrancó con el impacto emocional del fallecimiento de una figura popular local y la celebración del Maratón LALA; siguió con aprobaciones en Cabildo y obras; y culminó el 5 de marzo con la amenaza de tiroteo en el Instituto 18 de Marzo (evacuación masiva, más de 441K vistas) y la viralización de acusaciones graves contra la alcaldesa por presuntos vínculos con el crimen organizado. En paralelo, la controversia del maratón —medios la señalaron de correr solo la mitad del recorrido— y el derecho de réplica del Ayuntamiento a GRADA marcaron el cierre del período.</p>
+    <ul style="margin:0;padding-left:22px;font-size:14px;line-height:1.65;color:var(--muted);">
+      <li>Crisis de seguridad: amenaza de tiroteo en el Instituto 18 de Marzo (máximo impacto del período).</li>
+      <li>Crisis reputacional: acusaciones virales de vínculos con la familia Herrera; difusión coordinada en varias páginas.</li>
+      <li>Controversia maratón: acusación de «trampa» a la alcaldesa por correr solo la mitad del recorrido.</li>
+      <li>Obras y programas activos: Transformadora Full, pavimentación Bulevar San Carlos, Transformando a Pasitos.</li>
+      <li>Cabildo unánime: aprobación de mecanismo ambiental gobierno-empresa-ciudadanía.</li>
+      <li>Brecha narrativa: gobierno comunica transformación; medios reportan fallas de agua, paros laborales y contaminación.</li>
+      <li>Sentimiento: 59% neutral, 26.8% positivo, 14.2% negativo. Comunicación oficial 58% positivo vs 16.6% en audiencia externa (brecha de 41 pp).</li>
+      <li>Seguidores oficiales: +2K en el período (44K a 46K); tasa de interacción 1.89%.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TAB 2: SCORECARD                            -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="scorecard" class="tab-content">
+
+  <div class="section-label">Indicadores Clave · 3–5 Mar 2026</div>
+
+  <div class="grid g4" style="margin-bottom:24px;">
+    <div class="kpi-card">
+      <div class="kpi-label">Total Menciones</div>
+      <div class="kpi-value">615</div>
+      <span class="kpi-delta up">▲ +94 menciones</span>
+      <span class="kpi-period">vs. periodo anterior</span>
+    </div>
+    <div class="kpi-card accent-red">
+      <div class="kpi-label">Sentimiento Positivo</div>
+      <div class="kpi-value">26.8%</div>
+      <span class="kpi-delta down">▼ −3.4 pts</span>
+      <span class="kpi-period">vs. periodo anterior</span>
+    </div>
+    <div class="kpi-card accent-gold">
+      <div class="kpi-label">Tasa de Interacción</div>
+      <div class="kpi-value">1.89%</div>
+      <span class="kpi-delta up">▲ +0.44 pts</span>
+      <span class="kpi-period">vs. periodo anterior</span>
+    </div>
+    <div class="kpi-card accent-green">
+      <div class="kpi-label">Seguidores Canales Of.</div>
+      <div class="kpi-value">46K</div>
+      <span class="kpi-delta up">▲ +2K</span>
+      <span class="kpi-period">vs. periodo anterior</span>
+    </div>
+  </div>
+
+  <div class="section-label">Tendencia del Período (3–5 Mar 2026)</div>
+
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Menciones Totales</div>
+        <div class="card-question">¿Cómo evolucionó el volumen de menciones durante el período de monitoreo?</div>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrap">
+          <canvas id="chartMenciones"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header mid">
+        <div class="card-title">Tasa de Interacción</div>
+        <div class="card-question">¿Qué tan activa es la audiencia en respuesta al contenido publicado?</div>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrap">
+          <canvas id="chartInteraccion"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:18px;" class="grid g2">
+    <div class="card">
+      <div class="card-header lighter">
+        <div class="card-title">Seguidores Canales Oficiales</div>
+        <div class="card-question">¿Cómo evolucionaron los seguidores en canales oficiales durante el período?</div>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrap">
+          <canvas id="chartAlcance"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Distribución de Sentimiento</div>
+        <div class="card-question">¿Cuál es la proporción de menciones positivas, neutrales y negativas este mes?</div>
+      </div>
+      <div class="card-body">
+        <div class="sentiment-bar">
+          <div class="sent-pos" style="width:26.8%">26.8%</div>
+          <div class="sent-neu" style="width:59%">59%</div>
+          <div class="sent-neg" style="width:14.2%">14.2%</div>
+        </div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:14px;">Distribución sobre el total de 615 menciones del período</div>
+        <div class="sentiment-legend">
+          <div class="leg-item"><div class="leg-dot" style="background:var(--positive)"></div>Positivo — 26.8% <strong style="margin-left:4px;color:var(--negative)">▼ −3.4 pts</strong></div>
+          <div class="leg-item"><div class="leg-dot" style="background:var(--neutral)"></div>Neutral — 59%</div>
+          <div class="leg-item"><div class="leg-dot" style="background:var(--negative)"></div>Negativo — 14.2%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TAB 3: SENTIMIENTO                          -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="sentimiento" class="tab-content">
+
+  <div class="section-label">Análisis de Sentimiento · 3–5 Mar 2026</div>
+
+  <div class="grid g3" style="margin-bottom:24px;">
+    <div class="kpi-card accent-green">
+      <div class="kpi-label">Sentimiento Positivo</div>
+      <div class="kpi-value">26.8%</div>
+      <span class="kpi-delta down">▼ −3.4 pts</span>
+      <span class="kpi-period">vs. periodo anterior</span>
+    </div>
+    <div class="kpi-card accent-gold">
+      <div class="kpi-label">Sentimiento Neutral</div>
+      <div class="kpi-value">59%</div>
+      <span class="kpi-delta neutral">→ mayoría sin postura</span>
+      <span class="kpi-period">del total de menciones</span>
+    </div>
+    <div class="kpi-card accent-red">
+      <div class="kpi-label">Sentimiento Negativo</div>
+      <div class="kpi-value">14.2%</div>
+      <span class="kpi-delta down">▼ con pico el 05 Mar</span>
+      <span class="kpi-period">tiroteo escuela 18 de Marzo</span>
+    </div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Tendencia de Sentimiento</div>
+        <div class="card-question">¿Cómo ha variado el sentimiento ciudadano mes a mes?</div>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrap chart-wrap-tall">
+          <canvas id="chartSentimientoTrend"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header mid">
+        <div class="card-title">Sentimiento por Red Social</div>
+        <div class="card-question">¿En qué plataformas se concentra el mayor sentimiento positivo o negativo?</div>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrap chart-wrap-tall">
+          <canvas id="chartSentimientoRedes"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:18px;" class="card">
+    <div class="card-header lighter">
+      <div class="card-title">Temas con Mayor Sentimiento Negativo</div>
+      <div class="card-question">¿Qué temas están generando mayor rechazo o inconformidad ciudadana?</div>
+    </div>
+    <div class="card-body">
+      <div class="chart-wrap">
+        <canvas id="chartTemasNegativos"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TAB 4: ALCANCE Y COBERTURA                  -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="alcance" class="tab-content">
+
+  <div class="section-label">Alcance y Cobertura · 3–5 Mar 2026</div>
+
+  <div class="grid g2" style="margin-bottom:24px;">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Menciones por Red Social</div>
+        <div class="card-question">¿En qué plataformas se habla más del municipio?</div>
+      </div>
+      <div class="card-body">
+        <div style="margin-bottom:12px;">
+          <div class="mention-row">
+            <div class="mention-icon" style="background:#fce4ec">📸</div>
+            <div style="flex:1">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span class="mention-name">Instagram</span>
+                <span class="mention-val">207 <span class="mention-pct">55%</span></span>
+              </div>
+              <div class="mention-bar"><div class="mention-bar-fill" style="width:55%;background:#e91e8c"></div></div>
+            </div>
+          </div>
+          <div class="mention-row">
+            <div class="mention-icon" style="background:#fff3e0">📰</div>
+            <div style="flex:1">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span class="mention-name">Google News</span>
+                <span class="mention-val">63 <span class="mention-pct">17%</span></span>
+              </div>
+              <div class="mention-bar"><div class="mention-bar-fill" style="width:17%;background:var(--gold)"></div></div>
+            </div>
+          </div>
+          <div class="mention-row">
+            <div class="mention-icon" style="background:#e8eaf6">🎵</div>
+            <div style="flex:1">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span class="mention-name">TikTok</span>
+                <span class="mention-val">42 <span class="mention-pct">11%</span></span>
+              </div>
+              <div class="mention-bar"><div class="mention-bar-fill" style="width:11%;background:#5c6bc0"></div></div>
+            </div>
+          </div>
+          <div class="mention-row">
+            <div class="mention-icon" style="background:#e8f5e9">📘</div>
+            <div style="flex:1">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span class="mention-name">Facebook</span>
+                <span class="mention-val">37 <span class="mention-pct">10%</span></span>
+              </div>
+              <div class="mention-bar"><div class="mention-bar-fill" style="width:10%"></div></div>
+            </div>
+          </div>
+          <div class="mention-row">
+            <div class="mention-icon" style="background:#e7f3ff">🐦</div>
+            <div style="flex:1">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span class="mention-name">X / Twitter</span>
+                <span class="mention-val">27 <span class="mention-pct">7%</span></span>
+              </div>
+              <div class="mention-bar"><div class="mention-bar-fill" style="width:7%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header mid">
+        <div class="card-title">Menciones en Medios y Noticias</div>
+        <div class="card-question">¿Qué medios de comunicación y noticias están cubriendo al municipio?</div>
+      </div>
+      <div class="card-body">
+        <div>
+          <div class="mention-row">
+            <div class="mention-icon" style="background:#fff3e0">📰</div>
+            <div style="flex:1">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span class="mention-name">El Siglo de Torreón</span>
+                <span class="mention-val">9 <span class="mention-pct">notas</span></span>
+              </div>
+              <div class="mention-bar"><div class="mention-bar-fill" style="width:100%;background:var(--gold)"></div></div>
+            </div>
+          </div>
+          <div class="mention-row">
+            <div class="mention-icon" style="background:#fff3e0">📡</div>
+            <div style="flex:1">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span class="mention-name">Noticieros Grem</span>
+                <span class="mention-val">6 <span class="mention-pct">notas</span></span>
+              </div>
+              <div class="mention-bar"><div class="mention-bar-fill" style="width:67%;background:var(--gold)"></div></div>
+            </div>
+          </div>
+          <div class="mention-row">
+            <div class="mention-icon" style="background:#fff3e0">📰</div>
+            <div style="flex:1">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span class="mention-name">OEM / El Sol de La Laguna</span>
+                <span class="mention-val">5 <span class="mention-pct">notas</span></span>
+              </div>
+              <div class="mention-bar"><div class="mention-bar-fill" style="width:56%;background:var(--gold)"></div></div>
+            </div>
+          </div>
+          <div class="mention-row">
+            <div class="mention-icon" style="background:#fff3e0">🌐</div>
+            <div style="flex:1">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span class="mention-name">Reporte Laguna</span>
+                <span class="mention-val">5 <span class="mention-pct">notas</span></span>
+              </div>
+              <div class="mention-bar"><div class="mention-bar-fill" style="width:56%;background:var(--gold)"></div></div>
+            </div>
+          </div>
+          <div class="mention-row">
+            <div class="mention-icon" style="background:#fff3e0">📰</div>
+            <div style="flex:1">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span class="mention-name">Milenio</span>
+                <span class="mention-val">4 <span class="mention-pct">notas</span></span>
+              </div>
+              <div class="mention-bar"><div class="mention-bar-fill" style="width:44%;background:var(--gold)"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid g2" style="margin-bottom:24px;">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Top Personas del Municipio más mencionadas</div>
+        <div class="card-question">¿Qué figuras públicas y actores aparecen más en la conversación?</div>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrap chart-wrap-tall">
+          <canvas id="chartPersonas"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header mid">
+        <div class="card-title">Top Dependencias del Municipio más mencionadas</div>
+        <div class="card-question">¿Qué áreas y dependencias municipales concentran más menciones?</div>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrap chart-wrap-tall">
+          <canvas id="chartDependencias"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:24px;">
+    <div class="card-header">
+      <div class="card-title">Top Publicaciones con mayor impacto</div>
+      <div class="card-question">¿Qué publicaciones generaron más vistas y engagement en el período?</div>
+    </div>
+    <div class="card-body" style="padding:14px 20px;">
+      <div style="overflow-x:auto;">
+        <table class="actors-table">
+          <thead>
+            <tr>
+              <th style="width:28px">#</th>
+              <th>Publicación</th>
+              <th style="width:80px">Plataforma</th>
+              <th style="width:80px;text-align:right">Vistas</th>
+              <th style="width:70px;text-align:right">Likes</th>
+              <th style="width:44px"></th>
+            </tr>
+          </thead>
+          <tbody id="topPublicacionesBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid g2" style="margin-bottom:24px;">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">% Bots vs Reales</div>
+        <div class="card-question">¿Qué proporción de la interacción proviene de cuentas reales frente a posibles bots o coordinación?</div>
+      </div>
+      <div class="card-body">
+        <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+          <div style="width:160px;height:160px;flex-shrink:0;">
+            <canvas id="chartBotsVsReal"></canvas>
+          </div>
+          <div style="flex:1;min-width:140px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+              <div style="width:12px;height:12px;border-radius:2px;background:#1a9650"></div>
+              <span><strong>86.2%</strong> Reales</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="width:12px;height:12px;border-radius:2px;background:#888"></div>
+              <span><strong>13.8%</strong> Bots / coordinados</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header mid">
+        <div class="card-title">Incremento en Seguidores</div>
+        <div class="card-question">¿Cómo evolucionaron los seguidores de canales oficiales del municipio?</div>
+      </div>
+      <div class="card-body">
+        <div style="margin-bottom:16px;">
+          <div style="font-size:28px;font-weight:700;color:var(--teal-dark)">46K</div>
+          <div style="font-size:12px;color:var(--muted)">Seguidores actuales (canales oficiales)</div>
+          <span class="kpi-delta up" style="display:inline-block;margin-top:4px">▲ +2.0K vs. periodo anterior</span>
+        </div>
+        <div class="chart-wrap" style="height:120px;">
+          <canvas id="chartSeguidores"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TAB 5: APROBACIÓN CIUDADANA                 -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="aprobacion" class="tab-content">
+
+  <div class="section-label">Aprobación Ciudadana · 3–5 Mar 2026</div>
+
+  <div class="grid g3" style="margin-bottom:24px;">
+    <div class="kpi-card accent-green">
+      <div class="kpi-label">Aprobación (entre quienes opinan)</div>
+      <div class="kpi-value">65.4%</div>
+      <span class="kpi-delta down">▼ −6.7 pts</span>
+      <span class="kpi-period">vs. periodo anterior</span>
+    </div>
+    <div class="kpi-card accent-red">
+      <div class="kpi-label">Rechazo (entre quienes opinan)</div>
+      <div class="kpi-value">34.6%</div>
+      <span class="kpi-delta down">▼ pico el 05 Mar</span>
+      <span class="kpi-period">tiroteo + acusaciones</span>
+    </div>
+    <div class="kpi-card accent-gold">
+      <div class="kpi-label">Sin Opinión (neutral)</div>
+      <div class="kpi-value">59%</div>
+      <span class="kpi-delta neutral">→ mayoría del total</span>
+      <span class="kpi-period">del total de menciones</span>
+    </div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Áreas Municipales · Aprobación Ciudadana</div>
+        <div class="card-question">¿Qué áreas y servicios del municipio tienen mayor aprobación ciudadana?</div>
+      </div>
+      <div class="card-body" style="padding:14px 20px;">
+        <table class="actors-table">
+              <thead>
+                <tr>
+                  <th style="width:36px">#</th>
+                  <th>Área / Dependencia</th>
+                  <th class="bar-cell">Distribución (a favor / en contra)</th>
+                  <th>A favor</th>
+                  <th>En contra</th>
+                </tr>
+              </thead>
+          <tbody id="actorsTableBody">
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header mid">
+        <div class="card-title">Tendencia de Aprobación General</div>
+        <div class="card-question">¿Cómo ha evolucionado la aprobación ciudadana en los últimos meses?</div>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrap chart-wrap-tall">
+          <canvas id="chartAprobacionTrend"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TAB 6: RECONOCIMIENTOS Y TRANSPARENCIA      -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="reconocimientos" class="tab-content">
+  <div class="section-label">Reconocimientos y Transparencia · 3–5 Mar 2026</div>
+
+  <div class="card" style="margin-bottom:24px;">
+    <div class="card-header">
+      <div class="card-title">Reconocimientos</div>
+      <div class="card-question">Temas y acciones municipales con mayor reconocimiento ciudadano (vistas y likes).</div>
+    </div>
+    <div class="card-body" style="padding:14px 20px;">
+      <div style="display:grid;gap:12px;">
+        <div style="padding:14px;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;">
+            <div style="flex:1;min-width:0;">
+              <div style="font-weight:600;margin-bottom:4px;">Mejora de infraestructura, movilidad y espacios públicos en colonias</div>
+              <div style="font-size:12px;color:var(--muted);line-height:1.45;">La administración de Betzabé impulsa la "Transformadora Full" en colonias como Santa Teresa, con limpieza, deshierbe, pintura, desazolve y bacheo, ligada al Plan Integral de Transformación Sanitaria. Se suma la pavimentación del bulevar San Carlos, la rehabilitación integral del Parque Morelos con el Gobierno del Estado y trabajos de remozamiento y limpieza en parques de Santa Rosa y Valle del Nazas.</div>
+            </div>
+            <div style="display:flex;gap:16px;flex-shrink:0;"><span style="font-size:12px"><strong>59K</strong> vistas</span><span style="font-size:12px"><strong>1.3K</strong> likes</span></div>
+          </div>
+        </div>
+        <div style="padding:14px;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;">
+            <div style="flex:1;min-width:0;">
+              <div style="font-weight:600;margin-bottom:4px;">Impulso ambiental y coordinación gobierno–empresa–ciudadanía</div>
+              <div style="font-size:12px;color:var(--muted);line-height:1.45;">El Cabildo de Gómez Palacio, con respaldo de la presidenta Betzabé Martínez Arango, aprobó por unanimidad un mecanismo que articula gobierno municipal, sector empresarial y ciudadanía para fortalecer el cuidado ambiental, iniciando en escuelas. Además, el Ayuntamiento facilitó la Expo Feria para capacitar a más de 100 bomberos y cuerpos de emergencia en manejo de Gas Natural Licuado (GNL), una tecnología más limpia.</div>
+            </div>
+            <div style="display:flex;gap:16px;flex-shrink:0;"><span style="font-size:12px"><strong>55K</strong> vistas</span><span style="font-size:12px"><strong>476</strong> likes</span></div>
+          </div>
+        </div>
+        <div style="padding:14px;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;">
+            <div style="flex:1;min-width:0;">
+              <div style="font-weight:600;margin-bottom:4px;">Programas sociales para la niñez: 'Transformando a Pasitos'</div>
+              <div style="font-size:12px;color:var(--muted);line-height:1.45;">Con el programa municipal "Transformando a Pasitos", impulsado por Betzabé y la Dirección de Bienestar Social, se entregan tenis a niñas y niños, especialmente en la Escuela Lázaro Cárdenas de la colonia 5 de Mayo. Las publicaciones destacan la convivencia directa con la alcaldesa, la emoción de los menores y el objetivo de motivar su permanencia escolar, "pasito a pasito".</div>
+            </div>
+            <div style="display:flex;gap:16px;flex-shrink:0;"><span style="font-size:12px"><strong>27K</strong> vistas</span><span style="font-size:12px"><strong>891</strong> likes</span></div>
+          </div>
+        </div>
+        <div style="padding:14px;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;">
+            <div style="flex:1;min-width:0;">
+              <div style="font-weight:600;margin-bottom:4px;">Fortalecimiento educativo y oportunidades para juventudes y comunidades</div>
+              <div style="font-size:12px;color:var(--muted);line-height:1.45;">Bajo el lema de transformación, el municipio articula el programa federal "La Escuela es Nuestra" en los CETIS 88 y 47, con renovación de aulas y entrega de equipo de cómputo y comunicación. Paralelamente, el Instituto Municipal de la Juventud ofrece plazas de practicantes en el centro de la ciudad y los Centros Comunitarios brindan talleres de danza, deporte y oficios por una cuota accesible de 30 pesos.</div>
+            </div>
+            <div style="display:flex;gap:16px;flex-shrink:0;"><span style="font-size:12px"><strong>23K</strong> vistas</span><span style="font-size:12px"><strong>205</strong> likes</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:16px;padding:12px;background:var(--bg);border-radius:8px;font-size:13px;">
+        <strong>Resumen:</strong> extraordinario — 12 posts con oportunidad de 87 analizados. Aprovechar inmediatamente estas tendencias positivas para mejorar imagen.
+      </div>
+      <div style="margin-top:12px;">
+        <div style="font-size:12px;font-weight:600;margin-bottom:8px;">Oportunidades destacadas</div>
+        <ul style="margin:0;padding-left:18px;font-size:12px;color:var(--muted);list-style:disc;">
+          <li style="margin-bottom:10px;"><a href="https://www.facebook.com/reel/989509230070460/" target="_blank" rel="noopener noreferrer" style="color:var(--teal-mid);font-weight:600;">bientv.com.mx</a> — Medio local destaca que las actividades impulsadas por el Ayuntamiento durante el Maratón Lala lograron una gran participación ciudadana, mostrando al gobierno como facilitador de convivencia y deporte.</li>
+          <li style="margin-bottom:10px;"><a href="https://instagram.com/p/DVe8H-jkrsD" target="_blank" rel="noopener noreferrer" style="color:var(--teal-mid);font-weight:600;">caro26221218wera</a> — Testimonio ciudadano espontáneo que reconoce que el registro a la Beca Rita Cetina en Gómez Palacio está 'bien fácil y rápido', validando la eficiencia del programa y del gobierno municipal.</li>
+          <li style="margin-bottom:10px;"><a href="https://instagram.com/p/DVg7xsEgb5s" target="_blank" rel="noopener noreferrer" style="color:var(--teal-mid);font-weight:600;">sitrak_laguna</a> — Agradecimiento directo al Ayuntamiento de Gómez Palacio por facilitar espacio en la feria para una capacitación de primeros respondientes; es una mención positiva de un tercero que resalta colaboración y compromiso con la seguridad.</li>
+          <li style="margin-bottom:10px;"><a href="https://twitter.com/AyuntamientoGP/status/2029309188904452570" target="_blank" rel="noopener noreferrer" style="color:var(--teal-mid);font-weight:600;">AyuntamientoGP</a> — Actividad formativa donde niñas y niños conocen de cerca la labor policial y se refuerzan valores de respeto, prevención y confianza; permite amplificar una historia positiva y humana de la seguridad pública municipal, mostrando cercanía con la niñez.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:24px;">
+    <div class="card-header mid">
+      <div class="card-title">Compromisos y Transparencia (Brecha Narrativa)</div>
+      <div class="card-question">Comparación entre la narrativa oficial y la opinión pública/medios.</div>
+    </div>
+    <div class="card-body">
+      <div class="grid g3" style="margin-bottom:20px;">
+        <div class="kpi-card"><div class="kpi-label">Alineación Agenda–Medios</div><div class="kpi-value">20%</div><span class="kpi-delta down">▼</span></div>
+        <div class="kpi-card"><div class="kpi-label">Percepción Ciudadana (medios)</div><div class="kpi-value">16.6%</div><span class="kpi-delta down">▼</span></div>
+        <div class="kpi-card"><div class="kpi-label">Brecha Narrativa</div><div class="kpi-value">-41.4pp</div><span class="kpi-delta down">▼</span></div>
+        <div class="kpi-card"><div class="kpi-label">Obras con Eco Mediático</div><div class="kpi-value">25%</div><span class="kpi-delta neutral">→</span></div>
+        <div class="kpi-card"><div class="kpi-label">Publicaciones Oficiales</div><div class="kpi-value">40</div><span class="kpi-delta neutral">→</span></div>
+        <div class="kpi-card"><div class="kpi-label">Quejas Digitales</div><div class="kpi-value">39</div><span class="kpi-delta down">▼</span></div>
+      </div>
+      <div style="margin-bottom:20px;padding:14px;background:var(--bg);border-radius:8px;font-size:13px;">
+        <div style="font-weight:600;margin-bottom:6px;">Síntesis</div>
+        <p style="margin:0;line-height:1.5;">La administración de Gómez Palacio opera en una burbuja comunicacional celebratoria desconectada de los problemas urgentes que documentan los medios locales.</p>
+        <div style="margin-top:8px;font-weight:600;">Hallazgo principal</div>
+        <p style="margin:0;line-height:1.5;">El gap más crítico es el silencio oficial absoluto ante la falla del pozo de agua en la zona Centro y la escasez hídrica en varias zonas del municipio.</p>
+        <div style="margin-top:8px;font-size:12px;color:var(--muted)">Overlap temático: bajo · Nivel de desconexión: alto</div>
+      </div>
+      <div>
+        <div style="font-weight:600;margin-bottom:10px;">Contrastes narrativos</div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="padding:14px;border-left:4px solid var(--negative);background:var(--card-bg);border:1px solid var(--border);border-radius:8px;">
+            <div style="font-weight:600;margin-bottom:4px;">Suministro de agua potable</div>
+            <div style="font-size:11px;color:var(--muted);text-transform:uppercase;margin-bottom:6px;">Contraste crítico</div>
+            <p style="margin:0 0 8px;font-size:13px;line-height:1.45;">El gobierno celebra intervenciones estéticas en colonias mientras guarda silencio total ante la falla de infraestructura hídrica.</p>
+          </div>
+          <div style="padding:14px;border-left:4px solid #e85d20;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;">
+            <div style="font-weight:600;margin-bottom:4px;">Conflictos laborales en servicios públicos</div>
+            <div style="font-size:11px;color:var(--muted);text-transform:uppercase;margin-bottom:6px;">Contraste alto</div>
+            <p style="margin:0;font-size:13px;line-height:1.45;">La entidad proyecta armonía institucional mientras los servicios educativos y de salud están en conflicto laboral activo.</p>
+          </div>
+          <div style="padding:14px;border-left:4px solid var(--gold);background:var(--card-bg);border:1px solid var(--border);border-radius:8px;">
+            <div style="font-weight:600;margin-bottom:4px;">Pavimentación e infraestructura vial</div>
+            <div style="font-size:11px;color:var(--muted);text-transform:uppercase;margin-bottom:6px;">Contraste bajo</div>
+            <p style="margin:0;font-size:13px;line-height:1.45;">Único tema donde la narrativa oficial y la cobertura mediática coinciden en contenido.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TAB 7: MAPA DE QUEJAS                       -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="mapa" class="tab-content">
+  <div id="map-container">
+    <div id="map"></div>
+    <div class="map-legend" id="mapLegend"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SCRIPTS                                     -->
+<!-- ═══════════════════════════════════════════ -->
+<script>
+/* ── TAB SWITCHING ── */
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if (btn) btn.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+  if (id === 'mapa' && typeof mapQuejas !== 'undefined' && mapQuejas) setTimeout(function() { google.maps.event.trigger(mapQuejas, 'resize'); }, 100);
+}
+function switchTabById(id) {
+  const btn = [...document.querySelectorAll('.tab-btn')].find(b => b.getAttribute('onclick')?.includes(`'${id}'`));
+  switchTab(id, btn);
+}
+
+/* ── CHART DEFAULTS ── */
+Chart.defaults.font.family = "'Outfit', sans-serif";
+Chart.defaults.font.size = 12;
+Chart.defaults.color = '#6b7d8c';
+Chart.defaults.plugins.legend.labels.boxWidth = 10;
+Chart.defaults.plugins.legend.labels.padding = 14;
+
+// Período real: 3 días de monitoreo (3–5 Mar 2026)
+const months = ['03 Mar', '04 Mar', '05 Mar'];
+const TEAL = '#247a8a';
+const GOLD = '#e8a020';
+const GREEN = '#1a9650';
+const RED = '#d62728';
+const ORANGE = '#f4a018';
+
+function defaultLine(labels, datasets, container) {
+  return new Chart(document.getElementById(container), {
+    type: 'line',
+    data: { labels, datasets },
+    options: {
+      responsive: true,
+      plugins: { legend: { position: 'top' } },
+      scales: {
+        x: { grid: { display: false } },
+        y: { grid: { color: '#f0f2f5' }, border: { dash: [4,4] } }
+      }
+    }
+  });
+}
+
+/* ── SCORECARD CHARTS ── */
+// Menciones diarias: Mar3=115, Mar4=223, Mar5=262 items (total 600~615)
+defaultLine(months,
+  [{label:'Menciones', data:[115, 223, 262],
+    borderColor: TEAL, backgroundColor: TEAL+'22', fill:true, tension:0.4, pointRadius:4, pointHoverRadius:6}],
+  'chartMenciones');
+
+// Tasa de interacción ponderada por día (fuente: interactionTrendData)
+defaultLine(months,
+  [{label:'Tasa de Interacción (%)', data:[1.4, 1.7, 2.6],
+    borderColor: GOLD, backgroundColor: GOLD+'22', fill:true, tension:0.4, pointRadius:4, pointHoverRadius:6}],
+  'chartInteraccion');
+
+// Seguidores canales oficiales (K) — tendencia hacia 46K actual vs 44K anterior
+new Chart(document.getElementById('chartAlcance'), {
+  type: 'bar',
+  data: {
+    labels: months,
+    datasets:[{label:'Seguidores (K)',data:[44, 45, 46],
+      backgroundColor: TEAL+'cc', borderRadius:5, borderSkipped:false}]
+  },
+  options:{
+    responsive:true,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{grid:{display:false}},
+      y:{grid:{color:'#f0f2f5'}, border:{dash:[4,4]}, ticks:{callback:v=>`${v}K`}}
+    }
+  }
+});
+
+/* ── SENTIMIENTO CHARTS ── */
+// Tendencia diaria real (fuente: sentimentTrend en dgoData.ts)
+defaultLine(months,
+  [
+    {label:'Positivo',data:[33,31,21],borderColor:GREEN,backgroundColor:GREEN+'22',fill:false,tension:0.4,pointRadius:4},
+    {label:'Neutral', data:[60,61,57],borderColor:ORANGE,backgroundColor:ORANGE+'22',fill:false,tension:0.4,pointRadius:4},
+    {label:'Negativo',data:[7, 9, 22],borderColor:RED,  backgroundColor:RED+'22',  fill:false,tension:0.4,pointRadius:4}
+  ], 'chartSentimientoTrend');
+
+// Sentimiento por plataforma (fuente: vocesSegmentos + actorsBalance en dgoData.ts)
+// Instagram oficial: 82.8% pos | Twitter: 62.2% pos | TikTok: mixto ~45% pos
+// Facebook páginas críticas: 84% neg | Google News: 36.5% neg (16.6% pos)
+new Chart(document.getElementById('chartSentimientoRedes'), {
+  type:'bar',
+  data:{
+    labels:['Instagram','X / Twitter','TikTok','Google News','Facebook'],
+    datasets:[
+      {label:'Positivo',data:[83,62,45,17,10],backgroundColor:GREEN+'cc',borderRadius:4},
+      {label:'Neutral', data:[12,20,30,47, 6],backgroundColor:ORANGE+'cc',borderRadius:4},
+      {label:'Negativo',data:[ 5,18,25,36,84],backgroundColor:RED+'cc',  borderRadius:4}
+    ]
+  },
+  options:{
+    responsive:true,
+    scales:{
+      x:{grid:{display:false},stacked:false},
+      y:{grid:{color:'#f0f2f5'},border:{dash:[4,4]},ticks:{callback:v=>`${v}%`}}
+    }
+  }
+});
+
+// Temas con mayor % de rechazo (fuente: serviceApprovals → 100 - approval)
+new Chart(document.getElementById('chartTemasNegativos'), {
+  type:'bar',
+  data:{
+    labels:['Transparencia Municipal','Seguridad Pública','Infraest. Educativa','Agua y Saneamiento','Infraest. Vial','Programas Sociales'],
+    datasets:[{label:'% de rechazo',
+      data:[69, 62, 48, 47, 39, 36],
+      backgroundColor:[RED+'dd',RED+'cc',RED+'bb',RED+'aa',RED+'88',RED+'66'],
+      borderRadius:5, borderSkipped:false}]
+  },
+  options:{
+    indexAxis:'y', responsive:true,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{grid:{color:'#f0f2f5'},border:{dash:[4,4]},ticks:{callback:v=>`${v}%`}},
+      y:{grid:{display:false}}
+    }
+  }
+});
+
+/* ── ALCANCE: Top Personas y Top Dependencias ── */
+const topPersonasAlcance = [
+  {name:'Betzabé Martínez Arango (Presidenta Municipal)', mentions:89},
+  {name:'Carlos Manuel Herrera (referencias en acusaciones)', mentions:24},
+  {name:'Sindicato de Trabajadores Municipales', mentions:12},
+  {name:'Representantes medios (Azteca Laguna, Código Rojo)', mentions:11},
+  {name:'Trabajadores sector salud (protestas)', mentions:8},
+  {name:'Pavel Casas Navarro (deportista)', mentions:4},
+];
+const topDependenciasAlcance = [
+  {name:'Presidencia Municipal / Alcaldía', mentions:76},
+  {name:'Obras Públicas / Transformadora Full', mentions:34},
+  {name:'DIF / Bienestar Social', mentions:22},
+  {name:'Seguridad Pública', mentions:18},
+  {name:'Agua y Saneamiento (SAPD)', mentions:14},
+  {name:'Instituto de Cultura / Juventud', mentions:9},
+  {name:'Tránsito Municipal', mentions:6},
+];
+
+new Chart(document.getElementById('chartPersonas'), {
+  type:'bar',
+  data:{
+    labels: topPersonasAlcance.map(p=>p.name),
+    datasets:[{label:'Menciones',data:topPersonasAlcance.map(p=>p.mentions),backgroundColor:'#1a9650cc',borderRadius:4}]
+  },
+  options:{
+    indexAxis:'y',
+    responsive:true,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{grid:{color:'#f0f2f5'},border:{dash:[4,4]}},
+      y:{grid:{display:false},ticks:{maxRotation:0,autoSkip:false}}
+    }
+  }
+});
+
+new Chart(document.getElementById('chartDependencias'), {
+  type:'bar',
+  data:{
+    labels: topDependenciasAlcance.map(d=>d.name),
+    datasets:[{label:'Menciones',data:topDependenciasAlcance.map(d=>d.mentions),backgroundColor:'#e85d20cc',borderRadius:4}]
+  },
+  options:{
+    indexAxis:'y',
+    responsive:true,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{grid:{color:'#f0f2f5'},border:{dash:[4,4]}},
+      y:{grid:{display:false},ticks:{maxRotation:0,autoSkip:false}}
+    }
+  }
+});
+
+/* ── ALCANCE: Top Publicaciones, Bots vs Real, Incremento Seguidores ── */
+const topPublicacionesAlcance = [
+  {titulo:'Amenaza de tiroteo y evacuación en el Instituto 18 de Marzo',url:'https://www.facebook.com/elsiglo.mx/posts/pfbid026cWyyNqTNuVfyXqkvCeB58GNUj2gSz2qvJYmTQmtPE93ZY5mA83F2grSrKrDm1Ntl',platform:'Facebook',views:441472,likes:3377},
+  {titulo:"Fallecimiento de 'Jelipe el de las gordas', leyenda de Gómez Palacio",url:'https://www.facebook.com/reel/1973413253306751/',platform:'Facebook',views:155028,likes:1121},
+  {titulo:'Obras, iniciativas ambientales y mejoras educativas del ayuntamiento',url:'https://www.tiktok.com/@r.ayuntamientogp/video/7613137205753564436',platform:'TikTok',views:85523,likes:763},
+  {titulo:'Programa federal Casas del Bienestar y viviendas en Gómez Palacio',url:'https://www.tiktok.com/@aliceramos450/video/7613296561082223893',platform:'TikTok',views:66163,likes:1777},
+  {titulo:"Programa 'Transformadora Full' y servicios municipales en la colonia Santa Teresa",url:'https://www.tiktok.com/@betzabemtza/video/7613203260454735124',platform:'TikTok',views:49197,likes:1212},
+  {titulo:"Programa 'Transformando a Pasitos': entrega de tenis a niños en escuelas",url:'https://www.tiktok.com/@betzabemtza/video/7613614689989201172',platform:'TikTok',views:26383,likes:869},
+  {titulo:'Reunión de trabajo entre Presidenta Municipal y gremio sindical',url:'https://www.facebook.com/permalink.php?story_fbid=pfbid02gvSDVRW33LyE2L366PYDnnrMzHyVCrshP1AfADGUFUhzFZ8WTFtDYbf1j7dYZBRzl&id=100057658920755',platform:'Facebook',views:30620,likes:254},
+  {titulo:"Críticas y acusaciones: Betzabé Martínez señalada de vínculos con 'Los Herrera'",url:'https://www.facebook.com/permalink.php?story_fbid=pfbid08rv5wpXd8GZso2JcY8onBQy95SNJH4BtrL9VNmcsiZCjzvLAxZUMc567bE8Pgeetl&id=100090957070936',platform:'Facebook',views:19034,likes:174},
+];
+const formatViews = n => n >= 1000 ? (n/1000).toFixed(0)+'K' : String(n);
+const tbodyPub = document.getElementById('topPublicacionesBody');
+if (tbodyPub) topPublicacionesAlcance.forEach((p,i)=>{
+  tbodyPub.innerHTML += '<tr><td style="color:var(--muted);font-weight:700;font-size:12px">'+(i+1)+'</td><td><span class="actor-name" style="font-size:13px">'+p.titulo+'</span></td><td style="font-size:12px">'+p.platform+'</td><td style="text-align:right;font-weight:600">'+formatViews(p.views)+'</td><td style="text-align:right">'+formatViews(p.likes)+'</td><td><a href="'+p.url+'" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--teal-mid)">Ver</a></td></tr>';
+});
+
+new Chart(document.getElementById('chartBotsVsReal'), {
+  type:'doughnut',
+  data:{
+    labels:['Reales','Bots / coordinados'],
+    datasets:[{data:[86.2,13.8],backgroundColor:['#1a9650dd','#888888dd'],borderWidth:0}]
+  },
+  options:{responsive:true,cutout:'65%',plugins:{legend:{position:'bottom'}}}
+});
+
+new Chart(document.getElementById('chartSeguidores'), {
+  type:'line',
+  data:{
+    labels:['03 Mar','04 Mar','05 Mar'],
+    datasets:[{label:'Seguidores (K)',data:[44,45,46],borderColor:GOLD,backgroundColor:GOLD+'22',fill:true,tension:0.4,pointRadius:5,pointHoverRadius:7}]
+  },
+  options:{
+    responsive:true,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{grid:{display:false}},
+      y:{grid:{color:'#f0f2f5'},border:{dash:[4,4]},ticks:{callback:(_,v)=>v+'K'}}
+    }
+  }
+});
+
+/* ── ACTORS TABLE ── */
+// Áreas/servicios municipales ordenados de mayor a menor aprobación
+// Fuente: serviceApprovals en dgoData.ts
+const actors = [
+  {name:'Programas Sociales',       pos:64, neg:36},
+  {name:'Infraestructura Vial',     pos:61, neg:39},
+  {name:'Agua y Saneamiento',       pos:53, neg:47},
+  {name:'Infraest. Educativa',      pos:52, neg:48},
+  {name:'Seguridad Pública',        pos:38, neg:62},
+  {name:'Transparencia Municipal',  pos:31, neg:69},
+].sort((a,b)=>b.pos-a.pos);
+
+const tbody = document.getElementById('actorsTableBody');
+actors.forEach((a,i)=>{
+  tbody.innerHTML += `
+  <tr>
+    <td style="color:var(--muted);font-weight:700;font-size:12px;">${i+1}</td>
+    <td><span class="actor-name">${a.name}</span></td>
+    <td class="bar-cell">
+      <div class="bar-track bar-track-stacked">
+        <div class="bar-fill pos" style="width:${a.pos}%"></div>
+        <div class="bar-fill neg" style="width:${a.neg}%"></div>
+      </div>
+    </td>
+    <td><span class="pct-badge pos">${a.pos}%</span></td>
+    <td><span class="pct-badge neg">${a.neg}%</span></td>
+  </tr>`;
+});
+
+/* ── APROBACIÓN CHARTS ── */
+// Tendencia diaria de aprobación (fuente: approvalTrend en dgoData.ts)
+// Caída pronunciada el 05 Mar por tiroteo + acusaciones vs crimen organizado
+defaultLine(months,
+  [
+    {label:'Aprobación',data:[82.6, 77.3, 49.1],borderColor:GREEN,backgroundColor:GREEN+'22',fill:true,tension:0.4,pointRadius:4},
+    {label:'Rechazo',   data:[17.4, 22.7, 50.9],borderColor:RED,  backgroundColor:RED+'11',  fill:true,tension:0.4,pointRadius:4}
+  ], 'chartAprobacionTrend');
+
+/* ── MAPA DE QUEJAS (Google Maps) ── */
+// Colores por tipo de queja (mismo criterio que el gráfico de sentimiento negativo)
+var COLORES_POR_TIPO = {
+  'Seguridad Pública': '#c62828',
+  'Transparencia Municipal': '#b71c1c',
+  'Infraest. Educativa': '#e57373',
+  'Agua y Saneamiento': '#ef5350',
+  'Infraest. Vial': '#ff8a80',
+  'Programas Sociales': '#ffcdd2',
+  'Espacios Públicos': '#bf360c'
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// PEGA AQUÍ TU JSON: abre complaints.json, selecciona TODO (Ctrl+A), copia (Ctrl+C)
+// y reemplaza null por lo que pegaste. Debe quedar:  const QUEJAS_PARA_MAPA = { ... };
+// ═══════════════════════════════════════════════════════════════════════════════
+const QUEJAS_PARA_MAPA = {
+    "categories": [
+      {
+        "titulo": "Seguridad Pública y Amenazas en Planteles Educativos",
+        "porcentaje": 40,
+        "items": [
+          {
+            "descripcion": "Amenaza de tiroteo escrita en sanitario de varones del Instituto 18 de Marzo, provocó evacuación de más de 1,500 alumnos y personal docente",
+            "location": "Instituto 18 de Marzo, colonia Felipe Carrillo Puerto, Gómez Palacio, Durango",
+            "coord": " 25.58152704529931, -103.49946847771812 ",
+            "tipo": "Seguridad Pública"
+          },
+          {
+            "descripcion": "Múltiples reportes de movilización policiaca y de Guardia Nacional por amenaza de tiroteo difundida en grupos de WhatsApp",
+            "location": "Instituto 18 de Marzo, colonia Felipe Carrillo Puerto, Gómez Palacio, Durango",
+            "coord": "25.58152704529931, -103.49946847771812 ",
+            "tipo": "Seguridad Pública"
+          },
+          {
+            "descripcion": "Presuntas detonaciones en el exterior de la secundaria 18 de Marzo, con alumnos resguardados al interior del plantel",
+            "location": "Secundaria 18 de Marzo, Gómez Palacio, Durango",
+            "coord": "25.581797620914084, -103.49924321409452 ",
+            "tipo": "Seguridad Pública"
+          },
+          {
+            "descripcion": "Alumno portando arma de fuego y amenazando a compañeros",
+            "location": "Secundaria 18 de Marzo, Gómez Palacio, Durango",
+            "coord": "25.581797620914084, -103.49924321409452 ",
+            "tipo": "Seguridad Pública"
+          },
+          {
+            "descripcion": "Alumno portando arma de fuego en primaria",
+            "location": "Primaria 18 de Marzo, Gómez Palacio, Durango",
+            "coord": "25.581797620914084, -103.49924321409452 ",
+            "tipo": "Seguridad Pública"
+          },
+          {
+            "descripcion": "Ciudadanos exigen atención a problemática de seguridad recurrente",
+            "location": "Escuela 18 de Marzo, Gómez Palacio, Durango",
+            "coord": "25.581797620914084, -103.49924321409452 ",
+            "tipo": "Seguridad Pública"
+          }
+        ]
+      },
+      {
+        "titulo": "Infraestructura y Abandono en Planteles Escolares",
+        "porcentaje": 22,
+        "items": [
+          {
+            "descripcion": "Primaria en estado de deterioro estructural grave, clases impartidas en línea por malas condiciones del inmueble",
+            "location": "Primaria 18 de Marzo, Gómez Palacio, Durango",
+            "coord": "25.581797620914084, -103.49924321409452 ",
+            "tipo": "Infraest. Educativa"
+          },
+          {
+            "descripcion": "Colegio sin techumbre, exposición extrema al sol y falta de agua recurrente, sin atención municipal",
+            "location": "Colegio Mundo de Paz, Gómez Palacio, Durango",
+            "coord": "25.57440955348846, -103.50704434525333 ",
+            "tipo": "Infraest. Educativa"
+          },
+          {
+            "descripcion": "Escuela completamente olvidada y sin ningún tipo de apoyo por parte del municipio",
+            "location": "Ejido Filadelfia, Gómez Palacio, Durango",
+            "coord": "25.61744168419056, -103.48255297408792 ",
+            "tipo": "Infraest. Educativa"
+          },
+          {
+            "descripcion": "Escuela primaria sin visitas ni atención por parte de la presidenta municipal",
+            "location": "Primaria Vicente Guerrero, Ejido Cuba, Gómez Palacio, Durango",
+            "coord": "25.59221769716728, -103.45721089325323 ",
+            "tipo": "Infraest. Educativa"
+          },
+          {
+            "descripcion": "Kinder con necesidad urgente de más árboles y equipo deportivo, sin respuesta del gobierno municipal",
+            "location": "Kinder Frida Kahlo, Gómez Palacio, Durango",
+            "coord": "25.588327461818714, -103.46463653360833 ",
+            "tipo": "Infraest. Educativa"
+          },
+          {
+            "descripcion": "Padres de familia reportan que la presidenta municipal no ha visitado sus escuelas",
+            "location": "Gómez Palacio, Durango",
+            "coord": "25.588327461818714, -103.46463653360833 ",
+            "tipo": "Infraest. Educativa"
+          },
+          {
+            "descripcion": "Escuela sin recibir atención ni visitas por parte de las autoridades del municipio",
+            "location": "Colonia La Independencia, Gómez Palacio, Durango",
+            "coord": "25.56667058812553, -103.4817159010585 ",
+            "tipo": "Infraest. Educativa"
+          }
+        ]
+      },
+      {
+        "titulo": "Abandono de Colonias y Espacios Públicos",
+        "porcentaje": 13,
+        "items": [
+          {
+            "descripcion": "Colonia sin atención ni mejoras en infraestructura por parte del gobierno municipal",
+            "location": "Colonia La Esperanza, Gómez Palacio, Durango",
+            "coord": " 25.57370465362783, -103.50985497308383",
+            "tipo": "Espacios Públicos"
+          },
+          {
+            "descripcion": "Parque sin mantenimiento ni visitas de la presidenta municipal",
+            "location": "Colonia 5 de Mayo, Gómez Palacio, Durango",
+            "coord": " 25.576036308434126, -103.4874470957998",
+            "tipo": "Espacios Públicos"
+          },
+          {
+            "descripcion": "Colonia esperando la atención prometida por la presidenta municipal tras haber votado por ella",
+            "location": "Colonia Santa Rosa, Gómez Palacio, Durango",
+            "coord": " 25.568537215150737, -103.4731773185573 ",
+            "tipo": "Espacios Públicos"
+          },
+          {
+            "descripcion": "Ciudadanos piden visita urgente de la presidenta municipal, condiciones de abandono",
+            "location": "Las Agavias, Gómez Palacio, Durango",
+            "coord": " 25.6203057829107, -103.4894326471009",
+            "tipo": "Espacios Públicos"
+          },
+          {
+            "descripcion": "Parque solicitado para intervención y mantenimiento por parte del gobierno municipal",
+            "location": "Parque Hundido, Gómez Palacio, Durango",
+            "coord": " 25.59106847558036, -103.46928264830734 ",
+            "tipo": "Espacios Públicos"
+          }
+        ]
+      },
+      {
+        "titulo": "Infraestructura Vial y Estado de Calles",
+        "porcentaje": 11,
+        "items": [
+          {
+            "descripcion": "Ninguna calle en buen estado, abandono vial total por parte del municipio",
+            "location": "Colonia 5 de Mayo, Gómez Palacio, Durango",
+            "coord": " 25.577385193793514, -103.48687167320483 ",
+            "tipo": "Infraest. Vial"
+          },
+          {
+            "descripcion": "Bulevar en mal estado, requiere reparación urgente",
+            "location": "Bulevar Los Maestros, entre Colonia San Antonio y San Alberto, Gómez Palacio, Durango",
+            "coord": " 25.599986014562724, -103.48492249612102",
+            "tipo": "Infraest. Vial"
+          },
+          {
+            "descripcion": "Arteria principal en condiciones deplorables pese a alto flujo vehicular diario",
+            "location": "Calle Nacional, Colonia Felipe Ángeles, Gómez Palacio, Durango",
+            "coord": " 25.579647124273702, -103.48401255929966",
+            "tipo": "Infraest. Vial"
+          },
+          {
+            "descripcion": "Carreteras en estado de deterioro que requieren atención prioritaria del gobierno municipal",
+            "location": "El Manantial, Gómez Palacio, Durango",
+            "coord": "25.588839783039408, -103.48523568893197 ",
+            "tipo": "Infraest. Vial"
+          }
+        ]
+      },
+      {
+        "titulo": "Drenaje, Saneamiento y Aguas Negras",
+        "porcentaje": 8,
+        "items": [
+          {
+            "descripcion": "Graves problemas de aguas negras sin solución por parte del gobierno municipal",
+            "location": "Rinconada Villa Nápoles, Gómez Palacio, Durango",
+            "coord": " 25.566554395575587, -103.47311634525356 ",
+            "tipo": "Agua y Saneamiento"
+          },
+          {
+            "descripcion": "Canal utilizado como tiradero de animales muertos, foco de infección sin atención municipal",
+            "location": "Ejido Filadelfia, junto a Alsuper, Gómez Palacio, Durango",
+            "coord": " 25.61738366161842, -103.48265489510192",
+            "tipo": "Agua y Saneamiento"
+          },
+          {
+            "descripcion": "Drenajes completamente tapados pese a que ciudadanos pagan puntualmente el servicio",
+            "location": "Colonia Hamburgo, Gómez Palacio, Durango",
+            "coord": " 25.593959338367423, -103.50138713102943 ",
+            "tipo": "Agua y Saneamiento"
+          }
+        ]
+      },
+      {
+        "titulo": "Condiciones del Personal Policial y Respuesta de Seguridad",
+        "porcentaje": 6,
+        "items": [
+          {
+            "descripcion": "Policías sin seguro social, sin acceso a créditos de vivienda y con salarios insuficientes, exigiendo mejores condiciones laborales",
+            "location": "Gómez Palacio, Durango",
+            "coord": " 25.58377563264869, -103.49867747055453 ",
+            "tipo": "Seguridad Pública"
+          },
+          {
+            "descripcion": "Línea de emergencias 9-1-1 no contesta durante emergencias reportadas",
+            "location": "Colonia Miravalle, Gómez Palacio, Durango",
+            "coord": " 25.581106388886962, -103.51652306059536 ",
+            "tipo": "Seguridad Pública"
+          }
+        ]
+      }
+    ],
+    "confidence": 0.83,
+    "total_complaints_analyzed": 39
+  };
+var lol = "hola"; 
+var mapQuejas = null;
+var infoWindowQuejas = null;
+
+function parseCoord(coordStr) {
+  if (!coordStr || typeof coordStr !== 'string') return null;
+  var parts = coordStr.trim().split(/\s*,\s*/);
+  if (parts.length < 2) return null;
+  var lat = parseFloat(parts[0]);
+  var lng = parseFloat(parts[1]);
+  if (isNaN(lat) || isNaN(lng)) return null;
+  return { lat: lat, lng: lng };
+}
+
+function initMap() {
+  var center = { lat: 25.57, lng: -103.49 };
+  mapQuejas = new google.maps.Map(document.getElementById('map'), {
+    zoom: 13,
+    center: center,
+    mapTypeControl: true,
+    streetViewControl: false,
+    fullscreenControl: true
+  });
+  infoWindowQuejas = new google.maps.InfoWindow();
+
+  if (!QUEJAS_PARA_MAPA || !QUEJAS_PARA_MAPA.categories) {
+    document.getElementById('mapLegend').innerHTML = '<p style="color:#999;">No hay datos. Pega el JSON en la variable <code>QUEJAS_PARA_MAPA</code> en este archivo (busca "PEGA AQUÍ TU JSON").</p>';
+    return;
+  }
+
+  var allItems = [];
+  QUEJAS_PARA_MAPA.categories.forEach(function(cat) {
+    (cat.items || []).forEach(function(item) {
+      allItems.push(item);
+    });
+  });
+
+  var bounds = new google.maps.LatLngBounds();
+  allItems.forEach(function(item) {
+    var pos = parseCoord(item.coord);
+    if (!pos) return;
+    bounds.extend(pos);
+    var tipo = item.tipo || 'Otro';
+    var color = COLORES_POR_TIPO[tipo] || '#999';
+    var marker = new google.maps.Marker({
+      position: pos,
+      map: mapQuejas,
+      title: item.descripcion ? item.descripcion.substring(0, 60) + '…' : tipo,
+      icon: {
+        path: google.maps.SymbolPath.CIRCLE,
+        scale: 11,
+        fillColor: color,
+        fillOpacity: 1,
+        strokeColor: '#333',
+        strokeWeight: 1
+      }
+    });
+    marker.addListener('click', function() {
+      var content = '<div style="max-width:320px;font-family:Outfit,sans-serif;">' +
+        '<span style="display:inline-block;background:' + color + ';color:#fff;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700;margin-bottom:8px;">' + tipo + '</span>' +
+        '<p style="margin:8px 0;font-size:13px;line-height:1.4;">' + (item.descripcion || '') + '</p>' +
+        '<p style="margin:0;font-size:11px;color:#6b7d8c;">' + (item.location || '') + '</p></div>';
+      infoWindowQuejas.setContent(content);
+      infoWindowQuejas.open(mapQuejas, marker);
+    });
+  });
+
+  if (allItems.length > 0) mapQuejas.fitBounds(bounds, 48);
+
+  var legendHtml = '<h3>Tipo de queja</h3>';
+  Object.keys(COLORES_POR_TIPO).forEach(function(tipo) {
+    legendHtml += '<div class="map-legend-item"><span class="map-legend-dot" style="background:' + COLORES_POR_TIPO[tipo] + '"></span><span>' + tipo + '</span></div>';
+  });
+  document.getElementById('mapLegend').innerHTML = legendHtml;
+}
+</script>
+</body>
+</html>
