@@ -67,16 +67,19 @@ export default function TabTOC({
           Resumen del período ({periodo})
         </div>
 
-        {agentSummary.narrativa && (
-          <p style={{ margin: '0 0 16px', fontSize: 15, lineHeight: 1.6, color: 'var(--text)' }}>
-            {agentSummary.narrativa}
-          </p>
-        )}
-
         {agentSummary.bullets.length > 0 && (
-          <ul style={{ margin: 0, paddingLeft: 22, fontSize: 14, lineHeight: 1.65, color: 'var(--muted)' }}>
+          <ul
+            style={{
+              margin: 0,
+              paddingLeft: 24,
+              fontSize: 14,
+              lineHeight: 1.7,
+              color: 'var(--text)',
+              listStyleType: 'disc',
+            }}
+          >
             {agentSummary.bullets.map((bullet, i) => (
-              <li key={i}>{bullet}</li>
+              <li key={i} style={{ marginBottom: 6 }}>{bullet}</li>
             ))}
           </ul>
         )}
