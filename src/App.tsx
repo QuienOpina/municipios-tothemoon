@@ -9,6 +9,8 @@ import TabMapa from './components/tabs/TabMapa';
 import { useReport } from './data/dgoData';
 import { useReportContext } from './context/ReportContext';
 
+
+
 const TABS = [
   { id: 'toc',             label: 'Tabla de Contenidos',          Component: TabTOC },
   { id: 'scorecard',       label: 'Scorecard',                    Component: TabScorecard },
