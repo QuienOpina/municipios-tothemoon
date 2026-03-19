@@ -4,7 +4,6 @@ import { useReport } from '../../data/dgoData';
 
 const GREEN = '#1a9650';
 const RED = '#d62728';
-const ORANGE = '#f4a018';
 
 // Plataformas en el orden esperado por el frontend
 const PLATFORM_ORDER = ['Instagram', 'Twitter/X', 'TikTok', 'Google News', 'Facebook'];

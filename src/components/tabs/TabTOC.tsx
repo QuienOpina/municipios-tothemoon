@@ -14,7 +14,7 @@ export default function TabTOC({
 }: {
   onSwitchTab: (id: TabId) => void
 }) {
-  const { socialMentions, sentimentKPI, interactionRate, citizenApproval, agentSummary, municipio, periodo } = useReport()
+  const { socialMentions, interactionRate, citizenApproval, agentSummary, municipio, periodo } = useReport()
   return (
     <>
       <div className="toc-hero">

@@ -192,7 +192,6 @@ export default function TabAlcance() {
   );
 
   const maxMedios = top5MediosRecurrentes[0]?.menciones ?? 1;
-  const incrementoSeguidores = followersActual - scorecardPeriodoAnterior.followers;
   const formatViews = (n: number) => (n >= 1000 ? `${(n / 1000).toFixed(0)}K` : String(n));
 
   return (
