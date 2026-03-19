@@ -89,11 +89,11 @@ export default function TabAlcance() {
         responsive: true,
         cutout: '65%',
         plugins: {
-          legend: { position: 'bottom' as const },
+          legend: { display: false },
         },
       },
     }),
-    []
+    [botsVsReal]
   );
 
   const chartSeguidores = useMemo(
@@ -116,6 +116,7 @@ export default function TabAlcance() {
       },
       options: {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: {
           x: { grid: { display: false } },
@@ -123,7 +124,7 @@ export default function TabAlcance() {
             grid: { color: '#f0f2f5' },
             border: { dash: [4, 4] },
             ticks: {
-              callback(_: unknown, v: string | number) {
+              callback(v: string | number) {
                 const n = typeof v === 'string' ? Number(v) : v;
                 return `${n}K`;
               },
@@ -132,7 +133,7 @@ export default function TabAlcance() {
         },
       },
     }),
-    []
+    [seguidoresTrend]
   );
 
   const maxMedios = top5MediosRecurrentes[0]?.menciones ?? 1;
@@ -239,6 +240,52 @@ export default function TabAlcance() {
         </div>
       </div>
 
+      {/* % Bots vs Reales + Incremento en Seguidores */}
+      <div className="mentions-grid" style={{ marginBottom: 24 }}>
+        <div className="card">
+          <div className="card-header">
+            <div className="card-title">% Bots vs Reales</div>
+            <div className="card-question">¿Qué proporción de la interacción proviene de cuentas reales frente a posibles bots o coordinación?</div>
+          </div>
+          <div className="card-body">
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 32, flexWrap: 'wrap', minHeight: 180 }}>
+              <div style={{ width: 180, height: 180, flexShrink: 0 }}>
+                <ChartJSWrapper config={chartBotsVsReal} />
+              </div>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+                  <div style={{ width: 12, height: 12, borderRadius: 2, background: GREEN }} />
+                  <span><strong>{botsVsReal.real}%</strong> Reales</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <div style={{ width: 12, height: 12, borderRadius: 2, background: '#888' }} />
+                  <span><strong>{botsVsReal.bots}%</strong> Bots / coordinados</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="card">
+          <div className="card-header mid">
+            <div className="card-title">Incremento en Seguidores</div>
+            <div className="card-question">¿Cómo evolucionaron los seguidores de canales oficiales del municipio?</div>
+          </div>
+          <div className="card-body">
+            <div style={{ marginBottom: 12 }}>
+              <div style={{ fontSize: 28, fontWeight: 700, color: 'var(--teal-dark)' }}>{followersActual}K</div>
+              <div style={{ fontSize: 12, color: 'var(--muted)' }}>Seguidores actuales (canales oficiales)</div>
+              <span className="kpi-delta up" style={{ display: 'inline-block', marginTop: 4 }}>
+                ▲ 1.2% vs. periodo anterior
+              </span>
+            </div>
+            <div style={{ position: 'relative', height: 130 }}>
+              <ChartJSWrapper config={chartSeguidores} />
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Top Publicaciones con mayor impacto */}
       <div className="card" style={{ marginBottom: 24 }}>
         <div className="card-header">
@@ -275,52 +322,6 @@ export default function TabAlcance() {
                 ))}
               </tbody>
             </table>
-          </div>
-        </div>
-      </div>
-
-      {/* % Bots vs Reales + Incremento en Seguidores */}
-      <div className="mentions-grid" style={{ marginBottom: 24 }}>
-        <div className="card">
-          <div className="card-header">
-            <div className="card-title">% Bots vs Reales</div>
-            <div className="card-question">¿Qué proporción de la interacción proviene de cuentas reales frente a posibles bots o coordinación?</div>
-          </div>
-          <div className="card-body">
-            <div style={{ display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}>
-              <div style={{ width: 160, height: 160, flexShrink: 0 }}>
-                <ChartJSWrapper config={chartBotsVsReal} />
-              </div>
-              <div style={{ flex: 1, minWidth: 140 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-                  <div style={{ width: 12, height: 12, borderRadius: 2, background: GREEN }} />
-                  <span><strong>{botsVsReal.real}%</strong> Reales</span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <div style={{ width: 12, height: 12, borderRadius: 2, background: '#888' }} />
-                  <span><strong>{botsVsReal.bots}%</strong> Bots / coordinados</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="card">
-          <div className="card-header mid">
-            <div className="card-title">Incremento en Seguidores</div>
-            <div className="card-question">¿Cómo evolucionaron los seguidores de canales oficiales del municipio?</div>
-          </div>
-          <div className="card-body">
-            <div style={{ marginBottom: 16 }}>
-              <div style={{ fontSize: 28, fontWeight: 700, color: 'var(--teal-dark)' }}>{followersActual}K</div>
-              <div style={{ fontSize: 12, color: 'var(--muted)' }}>Seguidores actuales (canales oficiales)</div>
-              <span className={`kpi-delta ${incrementoSeguidores >= 0 ? 'up' : 'down'}`} style={{ display: 'inline-block', marginTop: 4 }}>
-                {incrementoSeguidores >= 0 ? '▲' : '▼'} {incrementoSeguidores >= 0 ? '+' : ''}{Math.round(incrementoSeguidores)}K vs. periodo anterior
-              </span>
-            </div>
-            <div className="chart-wrap" style={{ height: 120 }}>
-              <ChartJSWrapper config={chartSeguidores} />
-            </div>
           </div>
         </div>
       </div>

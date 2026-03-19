@@ -51,10 +51,13 @@ export default function TabAprobacion() {
         scales: {
           x: { grid: { display: false } },
           y: {
+            min: 0,
+            max: 100,
             grid: { color: '#f0f2f5' },
             border: { dash: [4, 4] },
             ticks: {
-              callback(_scale: unknown, tickValue: string | number) {
+              stepSize: 10,
+              callback(tickValue: string | number) {
                 const v = typeof tickValue === 'string' ? Number(tickValue) : tickValue;
                 return `${v}%`;
               },

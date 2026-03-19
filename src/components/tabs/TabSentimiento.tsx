@@ -8,6 +8,10 @@ const ORANGE = '#f4a018';
 
 // Plataformas en el orden esperado por el frontend
 const PLATFORM_ORDER = ['Instagram', 'Twitter/X', 'TikTok', 'Google News', 'Facebook'];
+// Para la gráfica "Sentimiento por Red Social": todas menos Google News (X se muestra aunque no tenga datos)
+const PLATFORM_ORDER_CHART = PLATFORM_ORDER.filter((p) => p !== 'Google News');
+// Etiqueta a mostrar en la gráfica (X en vez de Twitter/X)
+const PLATFORM_LABEL: Record<string, string> = { 'Twitter/X': 'X' };
 
 // Fallback hardcodeado — se usa solo si sentimentByPlatform viene vacío del JSON
 const FALLBACK_SENTIMENT_BY_PLATFORM: Record<string, { positive: number; neutral: number; negative: number }> = {
@@ -26,8 +30,25 @@ export default function TabSentimiento() {
   const hasSentimentByPlatform = Object.keys(sentimentByPlatform).length > 0;
   const byPlatform = hasSentimentByPlatform ? sentimentByPlatform : FALLBACK_SENTIMENT_BY_PLATFORM;
 
-  // Solo mostrar plataformas que existen en los datos
-  const platformLabels = PLATFORM_ORDER.filter((p) => p in byPlatform);
+  // Claves para datos (API puede enviar "Twitter/X"); etiquetas para el eje (mostramos "X")
+  const platformDataKeys = PLATFORM_ORDER_CHART;
+  const platformLabels = platformDataKeys.map((p) => PLATFORM_LABEL[p] ?? p);
+
+  // Normalizar datos que vengan en escala 0–10 a 0–100 para el gráfico
+  const trendScale = useMemo(() => {
+    const all = sentimentTrend.flatMap((d) => [d.positive, d.neutral, d.negative]);
+    const max = all.length ? Math.max(...all) : 0;
+    return max > 0 && max <= 10 ? 10 : 1;
+  }, [sentimentTrend]);
+
+  const platformScale = useMemo(() => {
+    const all = platformDataKeys.flatMap((p) => {
+      const e = byPlatform[p];
+      return e ? [e.positive, e.neutral, e.negative] : [];
+    });
+    const max = all.length ? Math.max(...all) : 0;
+    return max > 0 && max <= 10 ? 10 : 1;
+  }, [platformDataKeys, byPlatform]);
 
   const chartSentimientoTrend = useMemo(
     () => ({
@@ -35,9 +56,9 @@ export default function TabSentimiento() {
       data: {
         labels: sentimentTrend.map((d) => d.date),
         datasets: [
-          { label: 'Positivo', data: sentimentTrend.map((d) => d.positive), borderColor: GREEN, backgroundColor: GREEN + '22', fill: false, tension: 0.4, pointRadius: 4 },
-          { label: 'Neutral', data: sentimentTrend.map((d) => d.neutral), borderColor: ORANGE, backgroundColor: ORANGE + '22', fill: false, tension: 0.4, pointRadius: 4 },
-          { label: 'Negativo', data: sentimentTrend.map((d) => d.negative), borderColor: RED, backgroundColor: RED + '22', fill: false, tension: 0.4, pointRadius: 4 },
+          { label: 'Positivo', data: sentimentTrend.map((d) => d.positive * trendScale), borderColor: GREEN, backgroundColor: GREEN + '22', fill: false, tension: 0.4, pointRadius: 4 },
+          { label: 'Neutral', data: sentimentTrend.map((d) => d.neutral * trendScale), borderColor: ORANGE, backgroundColor: ORANGE + '22', fill: false, tension: 0.4, pointRadius: 4 },
+          { label: 'Negativo', data: sentimentTrend.map((d) => d.negative * trendScale), borderColor: RED, backgroundColor: RED + '22', fill: false, tension: 0.4, pointRadius: 4 },
         ],
       },
       options: {
@@ -46,10 +67,13 @@ export default function TabSentimiento() {
         scales: {
           x: { grid: { display: false } },
           y: {
+            min: 0,
+            max: 100,
             grid: { color: '#f0f2f5' },
             border: { dash: [4, 4] },
             ticks: {
-              callback(_scale: unknown, tickValue: string | number) {
+              stepSize: 10,
+              callback(tickValue: string | number) {
                 const v = typeof tickValue === 'string' ? Number(tickValue) : tickValue;
                 return `${v}%`;
               },
@@ -58,7 +82,7 @@ export default function TabSentimiento() {
         },
       },
     }),
-    []
+    [sentimentTrend, trendScale]
   );
 
   // Gráfica de sentimiento por red social — alimentada por sentimentByPlatform del JSON
@@ -68,9 +92,9 @@ export default function TabSentimiento() {
       data: {
         labels: platformLabels,
         datasets: [
-          { label: 'Positivo', data: platformLabels.map((p) => byPlatform[p]?.positive ?? 0), backgroundColor: GREEN + 'cc', borderRadius: 4 },
-          { label: 'Neutral',  data: platformLabels.map((p) => byPlatform[p]?.neutral  ?? 0), backgroundColor: ORANGE + 'cc', borderRadius: 4 },
-          { label: 'Negativo', data: platformLabels.map((p) => byPlatform[p]?.negative ?? 0), backgroundColor: RED + 'cc',    borderRadius: 4 },
+          { label: 'Positivo', data: platformDataKeys.map((p) => (byPlatform[p]?.positive ?? 0) * platformScale), backgroundColor: GREEN + 'cc', borderRadius: 4 },
+          { label: 'Neutral',  data: platformDataKeys.map((p) => (byPlatform[p]?.neutral  ?? 0) * platformScale), backgroundColor: ORANGE + 'cc', borderRadius: 4 },
+          { label: 'Negativo', data: platformDataKeys.map((p) => (byPlatform[p]?.negative ?? 0) * platformScale), backgroundColor: RED + 'cc',    borderRadius: 4 },
         ],
       },
       options: {
@@ -78,10 +102,13 @@ export default function TabSentimiento() {
         scales: {
           x: { grid: { display: false }, stacked: false },
           y: {
+            min: 0,
+            max: 100,
             grid: { color: '#f0f2f5' },
             border: { dash: [4, 4] },
             ticks: {
-              callback(_scale: unknown, tickValue: string | number) {
+              stepSize: 10,
+              callback(tickValue: string | number) {
                 const v = typeof tickValue === 'string' ? Number(tickValue) : tickValue;
                 return `${v}%`;
               },
@@ -90,7 +117,7 @@ export default function TabSentimiento() {
         },
       },
     }),
-    [hasSentimentByPlatform]
+    [platformLabels, platformDataKeys, byPlatform, platformScale]
   );
 
   // Gráfica de temas con mayor rechazo — usa conteos absolutos de quejasPorCategoria

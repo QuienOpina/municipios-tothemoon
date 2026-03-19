@@ -24,11 +24,12 @@ function markerScale(count: number): number {
 }
 
 const PLATFORM_EMOJI: Record<string, string> = {
-  TikTok:      '🎵',
-  Facebook:    '📘',
-  Instagram:   '📸',
-  'Twitter/X': '🐦',
-  YouTube:     '▶️',
+  TikTok:       '🎵',
+  Facebook:     '📘',
+  Instagram:    '📸',
+  'Twitter/X':  '🐦',
+  X:            '🐦',
+  YouTube:      '▶️',
   'Google News': '📰',
 };
 
