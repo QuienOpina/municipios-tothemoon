@@ -170,7 +170,7 @@ export function useReport() {
     // ── Sentimiento ────────────────────────────────────────────────────
     const sentimentTrend: TrendPoint[] = t.sentimiento?.sentimentTrend ?? [];
     const sentimentByPlatform: Record<string, SentimentByPlatformEntry> =
-      t.sentimiento?.sentimentByPlatform ?? {};
+      t.aprobacion?.sentimentByPlatform ?? t.sentimiento?.sentimentByPlatform ?? {};
     const topKeywords: { word: string; count: number }[] = t.sentimiento?.topKeywords ?? [];
 
     // ── Aprobación ─────────────────────────────────────────────────────
@@ -188,6 +188,8 @@ export function useReport() {
     const top5MediosRecurrentes: { nombre: string; menciones: number }[] = t.alcance?.top5MediosRecurrentes ?? [];
     const botsVsReal: { bots: number; real: number } = t.alcance?.botsVsReal ?? { bots: 15, real: 85 };
     const topPeople: TopPerson[]                     = (t.alcance?.topPeople ?? []) as TopPerson[];
+    const topTemas: { tema: string; mentions: number }[]   = t.alcance?.topTemas   ?? [];
+    const topEventos: { evento: string; mentions: number }[] = t.alcance?.topEventos ?? [];
 
     // ── Mapa ───────────────────────────────────────────────────────────
     const quejasPorUbicacion: QuejaUbicacion[] =
@@ -215,6 +217,7 @@ export function useReport() {
       approvalTrend, serviceApprovals, alliedActors, hostileActors, actorsBalance,
       mentionsBySource, topPublicacionesImpacto, topPersonasMencionadas,
       topDependenciasMencionadas, top5MediosRecurrentes, botsVsReal, topPeople,
+      topTemas, topEventos,
       quejasPorUbicacion, quejasPorCategoria,
       reconocimientosTemas, resumenOportunidades,
     };

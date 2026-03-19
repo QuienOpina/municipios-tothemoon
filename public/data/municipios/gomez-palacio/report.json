@@ -151,243 +151,6 @@
         }
       ]
     },
-    "sentimiento": {
-      "sentimentKPI": {
-        "positive": 22,
-        "neutral": 70,
-        "negative": 8
-      },
-      "sentimentTrend": [
-        {
-          "date": "11 Mar",
-          "positive": 33,
-          "neutral": 61,
-          "negative": 6
-        },
-        {
-          "date": "12 Mar",
-          "positive": 41,
-          "neutral": 50,
-          "negative": 9
-        },
-        {
-          "date": "13 Mar",
-          "positive": 24,
-          "neutral": 64,
-          "negative": 12
-        },
-        {
-          "date": "14 Mar",
-          "positive": 9,
-          "neutral": 88,
-          "negative": 4
-        },
-        {
-          "date": "15 Mar",
-          "positive": 4,
-          "neutral": 89,
-          "negative": 7
-        },
-        {
-          "date": "16 Mar",
-          "positive": 11,
-          "neutral": 78,
-          "negative": 11
-        }
-      ],
-      "sentimentByPlatform": {
-        "TikTok": {
-          "positive": 5,
-          "neutral": 89,
-          "negative": 6
-        },
-        "Twitter/X": {
-          "positive": 44,
-          "neutral": 42,
-          "negative": 15
-        },
-        "Facebook": {
-          "positive": 27,
-          "neutral": 63,
-          "negative": 10
-        },
-        "Instagram": {
-          "positive": 21,
-          "neutral": 76,
-          "negative": 2
-        },
-        "Google News": {
-          "positive": 0,
-          "neutral": 0,
-          "negative": 0
-        }
-      },
-      "topEmociones": [
-        {
-          "emotion": "satisfaccion",
-          "count": 213
-        },
-        {
-          "emotion": "esperanza",
-          "count": 162
-        },
-        {
-          "emotion": "alegria",
-          "count": 154
-        },
-        {
-          "emotion": "orgullo",
-          "count": 137
-        },
-        {
-          "emotion": "gratitud",
-          "count": 122
-        },
-        {
-          "emotion": "frustracion",
-          "count": 92
-        },
-        {
-          "emotion": "preocupacion",
-          "count": 82
-        },
-        {
-          "emotion": "enojo",
-          "count": 80
-        }
-      ],
-      "topHashtags": [
-        {
-          "hashtag": "#gomezpalacio",
-          "count": 156
-        },
-        {
-          "hashtag": "#elcorazóndelatransformación",
-          "count": 96
-        },
-        {
-          "hashtag": "#gómezpalacio",
-          "count": 64
-        },
-        {
-          "hashtag": "#durango",
-          "count": 48
-        },
-        {
-          "hashtag": "#torreón",
-          "count": 33
-        },
-        {
-          "hashtag": "#torreon",
-          "count": 32
-        },
-        {
-          "hashtag": "#lerdo",
-          "count": 28
-        },
-        {
-          "hashtag": "#lalaguna",
-          "count": 22
-        },
-        {
-          "hashtag": "#gomezpalaciodurango",
-          "count": 22
-        },
-        {
-          "hashtag": "#betzabépresidenta",
-          "count": 20
-        },
-        {
-          "hashtag": "#bar",
-          "count": 18
-        },
-        {
-          "hashtag": "#comarcalagunera",
-          "count": 17
-        },
-        {
-          "hashtag": "#coahuila",
-          "count": 17
-        },
-        {
-          "hashtag": "#fiesta",
-          "count": 15
-        },
-        {
-          "hashtag": "#musicaenvivo",
-          "count": 12
-        }
-      ],
-      "topKeywords": [
-        {
-          "word": "palacio",
-          "count": 352
-        },
-        {
-          "word": "gómez",
-          "count": 344
-        },
-        {
-          "word": "municipal",
-          "count": 164
-        },
-        {
-          "word": "gomezpalacio",
-          "count": 160
-        },
-        {
-          "word": "presidenta",
-          "count": 150
-        },
-        {
-          "word": "seguridad",
-          "count": 130
-        },
-        {
-          "word": "betzabé",
-          "count": 101
-        },
-        {
-          "word": "elcorazóndelatransformación",
-          "count": 100
-        },
-        {
-          "word": "durango",
-          "count": 93
-        },
-        {
-          "word": "martínez",
-          "count": 84
-        },
-        {
-          "word": "salud",
-          "count": 80
-        },
-        {
-          "word": "bañuelos",
-          "count": 69
-        },
-        {
-          "word": "gómezpalacio",
-          "count": 69
-        },
-        {
-          "word": "arango",
-          "count": 64
-        },
-        {
-          "word": "torreón",
-          "count": 63
-        }
-      ],
-      "crisisPotential": {
-        "promedio": 0,
-        "bajo": 0,
-        "medio": 0,
-        "alto": 0,
-        "total": 0
-      }
-    },
     "aprobacion": {
       "citizenApproval": 74,
       "approvalTrend": [
@@ -460,7 +223,34 @@
       ],
       "alliedActors": 36,
       "hostileActors": 12,
-      "actorsBalance": []
+      "actorsBalance": [],
+      "sentimentByPlatform": {
+        "TikTok": {
+          "positive": 5,
+          "neutral": 89,
+          "negative": 6
+        },
+        "Twitter/X": {
+          "positive": 44,
+          "neutral": 42,
+          "negative": 15
+        },
+        "Facebook": {
+          "positive": 27,
+          "neutral": 63,
+          "negative": 10
+        },
+        "Instagram": {
+          "positive": 21,
+          "neutral": 76,
+          "negative": 2
+        },
+        "Google News": {
+          "positive": 0,
+          "neutral": 0,
+          "negative": 0
+        }
+      }
     },
     "mapa": {
       "quejasPorUbicacion": [
@@ -943,28 +733,6 @@
           ]
         },
         {
-          "location": "San Alberto, Gómez Palacio, Durango, México",
-          "location_original": "San Alberto",
-          "count": 1,
-          "posts": [
-            {
-              "text": "y los drenajes se sale el agua sucia en San Alberto",
-              "url": "https://www.tiktok.com/@betzabemtza/video/7616227222080212245",
-              "platform": "TikTok",
-              "username": "nuriaarmijo",
-              "nivel": "alto",
-              "emotions": [
-                "frustracion",
-                "enojo",
-                "preocupacion",
-                "disgusto"
-              ]
-            }
-          ],
-          "lat": 25.826326,
-          "lng": -103.3446014
-        },
-        {
           "location": "bulevares San Carlos en Gómez palacio - campanario 2",
           "location_original": "bulevares San Carlos en Gómez palacio - campanario 2",
           "count": 1,
@@ -1115,8 +883,8 @@
               ]
             }
           ],
-          "lat": 25.6337538,
-          "lng": -103.4565385
+          "lat": 25.6167741,
+          "lng": -103.4600803
         },
         {
           "location": "Calzada Conquistadores y calle Benito, Miravalle, Gómez Palacio, Durango, México",
@@ -1254,8 +1022,8 @@
               ]
             }
           ],
-          "lat": 25.6628804,
-          "lng": -103.4246572
+          "lat": 25.6550676,
+          "lng": -103.4412796
         },
         {
           "location": "gomez palacio",
@@ -1297,27 +1065,6 @@
               ]
             }
           ]
-        },
-        {
-          "location": "rancho de Gómez Palacio",
-          "location_original": "rancho de Gómez Palacio",
-          "count": 1,
-          "posts": [
-            {
-              "text": "Por eso y el rancho de Gómez Palacio está muriendo avísale al pueblo que para el rancho nada de progreso para usted todo jajajaja jajajaja jajajaja",
-              "url": "https://www.facebook.com/DiarioExpresion.net/posts/pfbid02Qc2WCPvXYaxr3TzSER9Xj2wQes8RXyAWYdeUuHWuyhcauK9eAGwwGEfLZ6dtbdERl",
-              "platform": "Facebook",
-              "username": "Juan Betancourt",
-              "nivel": "medio",
-              "emotions": [
-                "enojo",
-                "frustracion",
-                "indignacion"
-              ]
-            }
-          ],
-          "lat": 24.2143405,
-          "lng": -104.4719384
         }
       ],
       "quejasPorCategoria": [
@@ -1669,11 +1416,11 @@
       ],
       "topPersonasMencionadas": [
         {
-          "name": "Betzabe Martinez Arango",
+          "name": "Betzabé Martínez Arango",
           "mentions": 171
         },
         {
-          "name": "Claudia Sheinbaum",
+          "name": "Claudia Sheinbaum Pardo",
           "mentions": 14
         },
         {
@@ -1681,7 +1428,7 @@
           "mentions": 9
         },
         {
-          "name": "Luis Banuelos Garza",
+          "name": "Luis Bañuelos Garza",
           "mentions": 8
         },
         {
@@ -1689,12 +1436,8 @@
           "mentions": 7
         },
         {
-          "name": "Genaro Beltran Galindo",
+          "name": "Genaro Beltrán Galindo",
           "mentions": 5
-        },
-        {
-          "name": "Luis Juarez",
-          "mentions": 2
         },
         {
           "name": "Leticia Herrera",
@@ -1705,37 +1448,53 @@
           "mentions": 2
         },
         {
-          "name": "Hector Ivan Guajardo Zabaleta",
+          "name": "Luis Juárez",
+          "mentions": 2
+        },
+        {
+          "name": "Héctor Iván Guajardo Zabaleta",
           "mentions": 2
         }
       ],
       "topDependenciasMencionadas": [
         {
-          "name": "Ayuntamiento Gomez Palacio",
+          "name": "Ayuntamiento de Gómez Palacio",
           "mentions": 37
         },
         {
-          "name": "Direccion Seguridad Publica Municipal",
+          "name": "Dirección de Seguridad Pública Municipal de Gómez Palacio",
           "mentions": 32
         },
         {
-          "name": "Direccion Salud Municipal",
+          "name": "Ejército Mexicano",
+          "mentions": 24
+        },
+        {
+          "name": "Morena",
+          "mentions": 18
+        },
+        {
+          "name": "Dirección de Salud Municipal",
           "mentions": 12
         },
         {
-          "name": "Imss",
+          "name": "IMSS",
           "mentions": 10
         },
         {
-          "name": "Direccion Ecologia",
+          "name": "Universidad Juárez del Estado de Durango",
+          "mentions": 9
+        },
+        {
+          "name": "Dirección de Ecología y Protección al Ambiente",
           "mentions": 5
         },
         {
-          "name": "Heroico Cuerpo Bomberos Gomez Palacio",
+          "name": "Dirección de Servicios Públicos",
           "mentions": 4
         },
         {
-          "name": "Dif Gomez Palacio",
+          "name": "DIF Gómez Palacio",
           "mentions": 4
         }
       ],
@@ -1799,11 +1558,11 @@
           "mentions": 16
         },
         {
-          "tema": "Drenaje Pluvial",
+          "tema": "Pavimentacion Calles",
           "mentions": 15
         },
         {
-          "tema": "Pavimentacion Calles",
+          "tema": "Drenaje Pluvial",
           "mentions": 15
         },
         {
@@ -1811,16 +1570,98 @@
           "mentions": 14
         },
         {
-          "tema": "Aumento Salarial Policias",
+          "tema": "Panteon Municipal",
           "mentions": 11
         },
         {
-          "tema": "Panteon Municipal",
+          "tema": "Aumento Salarial Policias",
           "mentions": 11
         },
         {
           "tema": "Hallazgo Objeto Explosivo",
           "mentions": 10
+        },
+        {
+          "tema": "Comedores Escolares",
+          "mentions": 10
+        },
+        {
+          "tema": "Fumigacion Plagas",
+          "mentions": 8
+        },
+        {
+          "tema": "Abuso De Poder",
+          "mentions": 8
+        },
+        {
+          "tema": "Extorsion Policial",
+          "mentions": 7
+        },
+        {
+          "tema": "Areas Verdes",
+          "mentions": 6
+        }
+      ],
+      "topEventos": [
+        {
+          "evento": "Curso Tacticas Tecnicas Reaccion",
+          "mentions": 9
+        },
+        {
+          "evento": "Desfile Identidad Universitaria Ujed 2026",
+          "mentions": 9
+        },
+        {
+          "evento": "Hallazgo Presunto Misil Miravalle",
+          "mentions": 8
+        },
+        {
+          "evento": "Construccion Panteon Municipal El Vergel",
+          "mentions": 7
+        },
+        {
+          "evento": "Reunion Nacional Seguridad Sheinbaum",
+          "mentions": 5
+        },
+        {
+          "evento": "Inicio Rehabilitacion Calle Nacional",
+          "mentions": 4
+        },
+        {
+          "evento": "Volcadura Carretera Jimenez Gomez Palacio",
+          "mentions": 3
+        },
+        {
+          "evento": "Pelea Motociclista Soldado Gomez Palacio",
+          "mentions": 3
+        },
+        {
+          "evento": "Clausura Curso Tacticas Tacticas",
+          "mentions": 2
+        },
+        {
+          "evento": "Entrega Pavimentacion Calle Cascada",
+          "mentions": 2
+        },
+        {
+          "evento": "Jornadas Pueblo Colonia Centenario",
+          "mentions": 1
+        },
+        {
+          "evento": "Sesion Ordinaria Cabildo Marzo 2026",
+          "mentions": 1
+        },
+        {
+          "evento": "Bailaton Dia Mujer Valle Chapala",
+          "mentions": 1
+        },
+        {
+          "evento": "Balacera Simulacro",
+          "mentions": 1
+        },
+        {
+          "evento": "Hallazgo Objeto Explosivo",
+          "mentions": 1
         }
       ],
       "topPeople": [

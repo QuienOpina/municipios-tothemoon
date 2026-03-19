@@ -1,113 +1,119 @@
 {
   "meta": {
-    "report_id": "645c8d5c-7e65-4f75-8d17-60f6d7693a8a",
-    "municipio": "Ciudad Juárez",
-    "periodo": "",
-    "date_start": "N/D",
-    "date_end": "N/D"
+    "report_id": "d2c4d142-9aec-4a57-bf16-ae9135066b65",
+    "municipio": "Gómez Palacio",
+    "periodo": "11–16 Mar 2026",
+    "date_start": "2026-03-11",
+    "date_end": "2026-03-16"
   },
   "tabs": {
     "toc": {
-      "socialMentions": 1545,
+      "socialMentions": 1691,
       "sentimentKPI": {
-        "positive": 16,
-        "neutral": 74,
-        "negative": 10
+        "positive": 22,
+        "neutral": 70,
+        "negative": 8
       },
-      "interactionRate": 3,
-      "citizenApproval": 61,
+      "interactionRate": 2,
+      "citizenApproval": 74,
       "agentSummary": {
         "bullets": [
-          "TikTok dominó la conversación con 140 posts y engagement rate de 1,002x, generando 682 comentarios y superando ampliamente a las demás plataformas en interacción.",
-          "El sentimiento fue mayoritariamente neutral (77%), con positivo en 14% y negativo en 9%, indicando percepción estable y sin crisis emocional visible en el municipio.",
-          "Hashtags #ElCambioSigue (27 usos) y #obras (17) señalan que obras públicas y gestión municipal fueron los temas centrales de la conversación ciudadana en el periodo.",
-          "Instagram fue la plataforma más positiva con 40% de sentimiento favorable, cuadruplicando el nivel de TikTok (10%), pese a concentrar apenas 43 comentarios totales.",
-          "231 usuarios únicos generaron 442 posts con 2 posts promedio por usuario, reflejando una audiencia diversa sin concentración excesiva en perfiles dominantes."
+          "La infraestructura urbana lideró el alcance con 357,622 views: drenaje en Urbi Villas y pavimentación de Av. Nacional en colonia Felipe Ángeles encabezaron el Plan de Transformación Sanitaria impulsado por Betzabé Martínez.",
+          "El 13 de marzo concentró el mayor impacto del periodo: artefacto explosivo en colonia Miravalle (321K views), primera certificación policial federal del país y acusación viral de trampa en maratón contra la alcaldesa coincidieron en un solo día.",
+          "Las quejas se concentraron en infraestructura básica (39%): baches, drenaje colapsado y hasta 3 semanas sin agua en colonias como Torremolinos; seguidas de denuncias de abuso de poder del Director de Salud Luis Bañuelos (24%).",
+          "El 35% de los comentarios elogió a Betzabé Martínez como presidenta activa y cercana; el 20% denunció infraestructura deficiente y el 8% acusó extorsiones policiales a transportistas de 1,500 a 3,000 pesos por tráiler.",
+          "Los megamedios con 4M+ seguidores publicaron contenido 100% de inseguridad sobre Gómez Palacio, mientras las cuentas oficiales dominaron el segmento mid-tier con narrativa de transformación, generando una brecha narrativa estructural sin respuesta pública."
         ],
-        "narrativa": "La conversación sobre Ciudad Juárez giró en torno a obras públicas y gestión municipal, impulsada por hashtags como #ElCambioSigue y #obras con más de 44 menciones combinadas. TikTok lideró el volumen con 140 posts y el mayor engagement del periodo, mientras 231 usuarios produjeron 1,545 piezas de contenido. Sin datos temporales disponibles, no fue posible identificar una fecha exacta de peak.\n\nEl sentimiento fue predominantemente neutral (77%), con balance moderado de 14% positivo frente a 9% negativo, reflejando la percepción relativamente estable del municipio fronterizo. Los emojis de afecto y humor lideraron las expresiones ciudadanas. El hallazgo sorprendente: Instagram, con apenas 43 comentarios, registró 40% de positividad, cuadruplicando el nivel de TikTok (10%), revelando que audiencias pequeñas generan reacciones emocionales más intensas que las masivas."
+        "narrativa": "La conversación sobre Gómez Palacio del 11 al 16 de marzo de 2026 estuvo tensionada entre la agenda activa de la alcaldesa Betzabé Martínez —obras de drenaje, pavimentación y primera certificación policial federal del país— y una crisis de seguridad persistente. El peak ocurrió el 13 de marzo, cuando el hallazgo de un artefacto explosivo en colonia Miravalle alcanzó 321K views amplificados por megamedios con más de 4 millones de seguidores.\n\nLa agenda municipal impulsó un 19% de sentimiento positivo, con reconocimientos al programa de calzado escolar y la profesionalización policial como principales detonadores. El 8% negativo se concentró en quejas de infraestructura básica (39%) y denuncias de corrupción. Dato sorprendente: los megamedios construyeron una narrativa 100% de inseguridad mientras las cuentas oficiales proyectaban transformación, una brecha estructural que el gobierno no reconoció en ninguno de sus 99 posts del periodo."
       }
     },
     "scorecard": {
-      "socialMentions": 1545,
+      "socialMentions": 1691,
       "socialMentionsTrend": [
         {
           "date": "11 Mar",
-          "mentions": 124
+          "mentions": 245
         },
         {
           "date": "12 Mar",
-          "mentions": 129
+          "mentions": 421
         },
         {
           "date": "13 Mar",
-          "mentions": 185
+          "mentions": 376
         },
         {
           "date": "14 Mar",
-          "mentions": 258
+          "mentions": 199
         },
         {
           "date": "15 Mar",
-          "mentions": 286
+          "mentions": 378
         },
         {
           "date": "16 Mar",
-          "mentions": 452
+          "mentions": 9
         }
       ],
       "sentimentKPI": {
-        "positive": 16,
-        "neutral": 74,
-        "negative": 10
+        "positive": 22,
+        "neutral": 70,
+        "negative": 8
       },
-      "followersActual": 268,
+      "followersActual": 150,
       "usuariosInternos": [
         {
           "platform": "facebook",
-          "username": "CdjrzMexico",
-          "full_name": "Cdjrz",
-          "followers": 141000
+          "username": "BetzabeMtzA",
+          "full_name": "Betzabé  Martínez Arango",
+          "followers": 57000
         },
         {
-          "platform": "instagram",
-          "username": "cruzperezcuellar",
-          "full_name": "Cruz Pérez Cuéllar",
-          "followers": 118517
+          "platform": "facebook",
+          "username": "ayuntamientogp",
+          "full_name": "Ayuntamiento de Gómez Palacio",
+          "followers": 47000
         },
         {
           "platform": "tiktok",
-          "username": "municipiocdjuarez",
-          "full_name": "Ciudad Juárez",
-          "followers": 4473
+          "username": "betzabemtza",
+          "full_name": "Betzabé Martínez Arango",
+          "followers": 24089
         },
         {
           "platform": "instagram",
-          "username": "heroicaciudadjuarez",
-          "full_name": "Ciudad Juárez",
-          "followers": 4298
+          "username": "betzabemtza",
+          "full_name": "Betzabé Martínez Arango",
+          "followers": 20588
+        },
+        {
+          "platform": "instagram",
+          "username": "ayuntamientogp",
+          "full_name": "Ayuntamiento Gómez Palacio",
+          "followers": 1705
         }
       ],
-      "interactionRate": 3,
-      "newsCount": 111,
+      "interactionRate": 2,
+      "newsCount": 63,
       "scorecardDiaAnterior": {
-        "sentimentPositive": 14,
-        "socialMentions": 286,
-        "interactionRate": 3,
-        "citizenApproval": 84,
+        "sentimentPositive": 4,
+        "socialMentions": 378,
+        "interactionRate": 1,
+        "citizenApproval": 38,
         "followers": 0
       },
       "interactionTrendData": [
         {
           "month": "11 Mar",
-          "rate": 3
+          "rate": 2
         },
         {
           "month": "12 Mar",
-          "rate": 5
+          "rate": 2
         },
         {
           "month": "13 Mar",
-          "rate": 2
+          "rate": 1
         },
         {
           "month": "14 Mar",
@@ -115,7 +121,7 @@
         },
         {
           "month": "15 Mar",
-          "rate": 3
+          "rate": 1
         },
         {
           "month": "16 Mar",
@@ -125,392 +131,338 @@
       "seguidoresTrend": [
         {
           "date": "11 Mar",
-          "followers": 249
+          "followers": 142
         },
         {
           "date": "12 Mar",
-          "followers": 253
+          "followers": 144
         },
         {
           "date": "13 Mar",
-          "followers": 257
+          "followers": 146
         },
         {
           "date": "14 Mar",
-          "followers": 260
+          "followers": 148
         },
         {
           "date": "15 Mar",
-          "followers": 264
-        },
-        {
-          "date": "16 Mar",
-          "followers": 268
+          "followers": 150
         }
       ]
     },
-    "sentimiento": {
-      "sentimentKPI": {
-        "positive": 16,
-        "neutral": 74,
-        "negative": 10
-      },
-      "sentimentTrend": [
-        {
-          "date": "11 Mar",
-          "positive": 17,
-          "neutral": 58,
-          "negative": 26
-        },
-        {
-          "date": "12 Mar",
-          "positive": 13,
-          "neutral": 72,
-          "negative": 15
-        },
-        {
-          "date": "13 Mar",
-          "positive": 10,
-          "neutral": 79,
-          "negative": 11
-        },
-        {
-          "date": "14 Mar",
-          "positive": 12,
-          "neutral": 75,
-          "negative": 12
-        },
-        {
-          "date": "15 Mar",
-          "positive": 14,
-          "neutral": 83,
-          "negative": 3
-        },
-        {
-          "date": "16 Mar",
-          "positive": 22,
-          "neutral": 70,
-          "negative": 8
-        }
-      ],
-      "sentimentByPlatform": {
-        "TikTok": {
-          "positive": 11,
-          "neutral": 78,
-          "negative": 12
-        },
-        "Facebook": {
-          "positive": 15,
-          "neutral": 77,
-          "negative": 8
-        },
-        "Instagram": {
-          "positive": 41,
-          "neutral": 51,
-          "negative": 8
-        },
-        "Google News": {
-          "positive": 0,
-          "neutral": 0,
-          "negative": 0
-        }
-      },
-      "topEmociones": [
-        {
-          "emotion": "alegria",
-          "count": 156
-        },
-        {
-          "emotion": "satisfaccion",
-          "count": 131
-        },
-        {
-          "emotion": "emocion",
-          "count": 100
-        },
-        {
-          "emotion": "orgullo",
-          "count": 92
-        },
-        {
-          "emotion": "esperanza",
-          "count": 82
-        },
-        {
-          "emotion": "frustracion",
-          "count": 78
-        },
-        {
-          "emotion": "preocupacion",
-          "count": 73
-        },
-        {
-          "emotion": "enojo",
-          "count": 56
-        }
-      ],
-      "topHashtags": [
-        {
-          "hashtag": "#ciudadjuárez",
-          "count": 106
-        },
-        {
-          "hashtag": "#ciudadjuarez",
-          "count": 57
-        },
-        {
-          "hashtag": "#noticias",
-          "count": 37
-        },
-        {
-          "hashtag": "#elcambiosigue",
-          "count": 28
-        },
-        {
-          "hashtag": "#fyp",
-          "count": 22
-        },
-        {
-          "hashtag": "#juarez",
-          "count": 19
-        },
-        {
-          "hashtag": "#cdjuarez",
-          "count": 18
-        },
-        {
-          "hashtag": "#obras",
-          "count": 17
-        },
-        {
-          "hashtag": "#trabajoyesfuerzo💯💪😎🎶",
-          "count": 16
-        },
-        {
-          "hashtag": "#chihuahua",
-          "count": 16
-        },
-        {
-          "hashtag": "#elcambiosigue👍",
-          "count": 13
-        },
-        {
-          "hashtag": "#viral",
-          "count": 13
-        },
-        {
-          "hashtag": "#cdjrz",
-          "count": 13
-        },
-        {
-          "hashtag": "#reconocimiento",
-          "count": 12
-        },
-        {
-          "hashtag": "#resultadosreales",
-          "count": 11
-        }
-      ],
-      "topKeywords": [
-        {
-          "word": "juárez",
-          "count": 320
-        },
-        {
-          "word": "ciudad",
-          "count": 197
-        },
-        {
-          "word": "ciudadjuárez",
-          "count": 112
-        },
-        {
-          "word": "chihuahua",
-          "count": 82
-        },
-        {
-          "word": "cruz",
-          "count": 69
-        },
-        {
-          "word": "ciudadjuarez",
-          "count": 62
-        },
-        {
-          "word": "frontera",
-          "count": 55
-        },
-        {
-          "word": "elcambiosigue",
-          "count": 55
-        },
-        {
-          "word": "pérez",
-          "count": 54
-        },
-        {
-          "word": "cuéllar",
-          "count": 47
-        },
-        {
-          "word": "noticias",
-          "count": 43
-        },
-        {
-          "word": "municipio",
-          "count": 42
-        },
-        {
-          "word": "años",
-          "count": 41
-        },
-        {
-          "word": "juarez",
-          "count": 40
-        },
-        {
-          "word": "méxico",
-          "count": 39
-        }
-      ],
-      "crisisPotential": {
-        "promedio": 0,
-        "bajo": 0,
-        "medio": 0,
-        "alto": 0,
-        "total": 0
-      }
-    },
     "aprobacion": {
-      "citizenApproval": 61,
+      "citizenApproval": 74,
       "approvalTrend": [
         {
           "month": "11 Mar",
-          "approval": 39
+          "approval": 85
         },
         {
           "month": "12 Mar",
-          "approval": 46
+          "approval": 82
         },
         {
           "month": "13 Mar",
-          "approval": 47
+          "approval": 67
         },
         {
           "month": "14 Mar",
-          "approval": 50
+          "approval": 70
         },
         {
           "month": "15 Mar",
-          "approval": 84
+          "approval": 38
         },
         {
           "month": "16 Mar",
-          "approval": 74
+          "approval": 50
         }
       ],
       "serviceApprovals": [
-        {
-          "service": "Agua y Saneamiento",
-          "approval": 100
-        },
         {
           "service": "Transporte Público",
           "approval": 100
         },
         {
-          "service": "Salud Pública",
+          "service": "Atención Ciudadana",
           "approval": 100
         },
         {
-          "service": "Programas Sociales",
-          "approval": 100
+          "service": "Infraestructura Educativa",
+          "approval": 99
         },
         {
           "service": "Servicios Públicos",
-          "approval": 96
+          "approval": 97
         },
         {
           "service": "Seguridad Pública",
           "approval": 95
         },
         {
-          "service": "Infraestructura Educativa",
-          "approval": 95
-        },
-        {
-          "service": "Atención Ciudadana",
-          "approval": 84
+          "service": "Programas Sociales",
+          "approval": 90
         },
         {
           "service": "Transparencia Municipal",
-          "approval": 78
+          "approval": 82
         },
         {
           "service": "Infraestructura Vial",
-          "approval": 52
+          "approval": 80
+        },
+        {
+          "service": "Agua y Saneamiento",
+          "approval": 80
+        },
+        {
+          "service": "Salud Pública",
+          "approval": 76
         }
       ],
-      "alliedActors": 50,
-      "hostileActors": 20,
-      "actorsBalance": []
+      "alliedActors": 36,
+      "hostileActors": 12,
+      "actorsBalance": [],
+      "sentimentByPlatform": {
+        "TikTok": {
+          "positive": 5,
+          "neutral": 89,
+          "negative": 6
+        },
+        "Twitter/X": {
+          "positive": 44,
+          "neutral": 42,
+          "negative": 15
+        },
+        "Facebook": {
+          "positive": 27,
+          "neutral": 63,
+          "negative": 10
+        },
+        "Instagram": {
+          "positive": 21,
+          "neutral": 76,
+          "negative": 2
+        },
+        "Google News": {
+          "positive": 0,
+          "neutral": 0,
+          "negative": 0
+        }
+      }
     },
     "mapa": {
       "quejasPorUbicacion": [
         {
-          "location": "Ciudad Juárez",
-          "location_original": "Ciudad Juárez",
-          "count": 12,
+          "location": "Salud Municipal, Gómez Palacio",
+          "location_original": "Salud Municipal, Gómez Palacio",
+          "count": 11,
           "posts": [
             {
-              "text": "🤦 y las calles de Juárez",
-              "url": "https://www.tiktok.com/@grilladalibre/video/7616836715033955585",
-              "platform": "TikTok",
-              "username": "malvado.dr.tocino0",
-              "nivel": "medio",
-              "emotions": [
-                "frustracion"
-              ]
-            },
-            {
-              "text": "habla de la revocación de mandato que está teniendo cruz en este precioso momento, es importante darla a conocer para que la gente vote a favor y se vaya antes del 2027, estoy seguro que ni en Juárez están enterados",
-              "url": "https://www.tiktok.com/@grilladalibre/video/7616836715033955585",
-              "platform": "TikTok",
-              "username": "alejandroestrada320",
-              "nivel": "medio",
+              "text": "DESEO CON EL CORAZON QUE EL KARMA TE PERSIGA LUIS BAÑUELOS \n\nPRECIDENTA MUNICIPAL NO A ECHO NADA AL RESPECTO CON EL TEMA DE CONTROL CANINO YA SON CASI 4 MESES PIDIENDO AYUDA POR EL ABUSO DE PODER Y REPRESARIAS POR PARTE DEL DOCTOR BAÑUELOS DIRECTOR DE SALUD MUNICIPAL LOS COMPAÑER",
+              "url": "https://www.facebook.com/joshuas78/posts/pfbid0gShiPE1kancBxA7jpnFp2ETTqTqXUv6qJkQZ8zGaad2SoUJaZZrXxdEmiz9iGDJnl",
+              "platform": "Facebook",
+              "username": "Anna Mattel",
+              "nivel": "alto",
               "emotions": [
                 "enojo",
+                "frustracion",
                 "indignacion",
-                "esperanza"
+                "decepcion",
+                "preocupacion"
               ]
             },
             {
-              "text": "Deja amigo los actos anticipados de campaña ya todos los partidos los están haciendo lo que a mí me tiene con la duda de donde sacan los recursos para las campañas anticipadas por qué Juárez está hecho pedazos 🤔🤔🤔🤔🤔🤔",
-              "url": "https://www.tiktok.com/@grilladalibre/video/7616836715033955585",
-              "platform": "TikTok",
-              "username": "lapatroncita79",
+              "text": "DESEO CON EL CORAZON QUE EL KARMA TE PERSIGA LUIS BAÑUELOS \n\nPRECIDENTA MUNICIPAL NO A ECHO NADA AL RESPECTO CON EL TEMA DE CONTROL CANINO YA SON CASI 4 MESES PIDIENDO AYUDA POR EL ABUSO DE PODER Y REPRESARIAS POR PARTE DEL DOCTOR BAÑUELOS DIRECTOR DE SALUD MUNICIPAL LOS COMPAÑER",
+              "url": "https://www.facebook.com/joshuas78/posts/pfbid0gShiPE1kancBxA7jpnFp2ETTqTqXUv6qJkQZ8zGaad2SoUJaZZrXxdEmiz9iGDJnl",
+              "platform": "Facebook",
+              "username": "Anna Mattel",
               "nivel": "alto",
+              "emotions": [
+                "enojo",
+                "frustracion",
+                "indignacion",
+                "decepcion",
+                "preocupacion"
+              ]
+            },
+            {
+              "text": "Precidenta asta cuando el abuso de poder de el director de salud municipal su protegido luis bañuelos garza ASTA CUANDO NOS PONDRA ATENCIÓN AQUIEN RECIBIENDO MALOS TRATOS POR PARTE DE LA FAMILIA BAÑUELOS Y REPRESARIAS Q AGARRO EN CONTRA DE LOS COMPAÑEROS Q X SUS PANTALOES DIO DE",
+              "url": "https://www.facebook.com/reel/1259752282212397/",
+              "platform": "Facebook",
+              "username": "Anna Mattel",
+              "nivel": "alto",
+              "emotions": [
+                "enojo",
+                "frustracion",
+                "indignacion",
+                "preocupacion",
+                "decepcion"
+              ]
+            },
+            {
+              "text": "DESEO CON EL CORAZON QUE EL KARMA TE PERSIGA LUIS BAÑUELOS \n\nPRECIDENTA MUNICIPAL NO A ECHO NADA AL RESPECTO CON EL TEMA DE CONTROL CANINO YA SON CASI 4 MESES PIDIENDO AYUDA POR EL ABUSO DE PODER Y REPRESARIAS POR PARTE DEL DOCTOR BAÑUELOS DIRECTOR DE SALUD MUNICIPAL LOS COMPAÑER",
+              "url": "https://www.facebook.com/reel/1259752282212397/",
+              "platform": "Facebook",
+              "username": "Anna Mattel",
+              "nivel": "alto",
+              "emotions": [
+                "enojo",
+                "frustracion",
+                "indignacion",
+                "preocupacion",
+                "decepcion"
+              ]
+            },
+            {
+              "text": "DESEO CON EL CORAZON QUE EL KARMA TE PERSIGA LUIS BAÑUELOS \n\nPRECIDENTA MUNICIPAL NO A ECHO NADA AL RESPECTO CON EL TEMA DE CONTROL CANINO YA SON CASI 4 MESES PIDIENDO AYUDA POR EL ABUSO DE PODER Y REPRESARIAS POR PARTE DEL DOCTOR BAÑUELOS DIRECTOR DE SALUD MUNICIPAL LOS COMPAÑER",
+              "url": "https://www.facebook.com/reel/1259752282212397/",
+              "platform": "Facebook",
+              "username": "Anna Mattel",
+              "nivel": "alto",
+              "emotions": [
+                "enojo",
+                "frustracion",
+                "indignacion",
+                "preocupacion",
+                "decepcion"
+              ]
+            },
+            {
+              "text": "DESEO CON EL CORAZON QUE EL KARMA TE PERSIGA LUIS BAÑUELOS \n\nPRECIDENTA MUNICIPAL NO A ECHO NADA AL RESPECTO CON EL TEMA DE CONTROL CANINO YA SON CASI 4 MESES PIDIENDO AYUDA POR EL ABUSO DE PODER Y REPRESARIAS POR PARTE DEL DOCTOR BAÑUELOS DIRECTOR DE SALUD MUNICIPAL LOS COMPAÑER",
+              "url": "https://www.facebook.com/reel/1259752282212397/",
+              "platform": "Facebook",
+              "username": "Anna Mattel",
+              "nivel": "alto",
+              "emotions": [
+                "enojo",
+                "frustracion",
+                "indignacion",
+                "preocupacion",
+                "decepcion"
+              ]
+            },
+            {
+              "text": "DESEO CON EL CORAZON QUE EL KARMA TE PERSIGA LUIS BAÑUELOS \n\nPRECIDENTA MUNICIPAL NO A ECHO NADA AL RESPECTO CON EL TEMA DE CONTROL CANINO YA SON CASI 4 MESES PIDIENDO AYUDA POR EL ABUSO DE PODER Y REPRESARIAS POR PARTE DEL DOCTOR BAÑUELOS DIRECTOR DE SALUD MUNICIPAL LOS COMPAÑER",
+              "url": "https://www.facebook.com/DiarioExpresion.net/posts/pfbid02Qc2WCPvXYaxr3TzSER9Xj2wQes8RXyAWYdeUuHWuyhcauK9eAGwwGEfLZ6dtbdERl",
+              "platform": "Facebook",
+              "username": "Anna Mattel",
+              "nivel": "alto",
+              "emotions": [
+                "enojo",
+                "frustracion",
+                "indignacion",
+                "preocupacion",
+                "decepcion"
+              ]
+            },
+            {
+              "text": "DESEO CON EL CORAZON QUE EL KARMA TE PERSIGA LUIS BAÑUELOS \n\nPRECIDENTA MUNICIPAL NO A ECHO NADA AL RESPECTO CON EL TEMA DE CONTROL CANINO YA SON CASI 4 MESES PIDIENDO AYUDA POR EL ABUSO DE PODER Y REPRESARIAS POR PARTE DEL DOCTOR BAÑUELOS DIRECTOR DE SALUD MUNICIPAL LOS COMPAÑER",
+              "url": "https://www.facebook.com/DiarioExpresion.net/posts/pfbid02Qc2WCPvXYaxr3TzSER9Xj2wQes8RXyAWYdeUuHWuyhcauK9eAGwwGEfLZ6dtbdERl",
+              "platform": "Facebook",
+              "username": "Anna Mattel",
+              "nivel": "alto",
+              "emotions": [
+                "enojo",
+                "frustracion",
+                "indignacion",
+                "preocupacion",
+                "decepcion"
+              ]
+            },
+            {
+              "text": "DESEO CON EL CORAZON QUE EL KARMA TE PERSIGA LUIS BAÑUELOS \n\nPRECIDENTA MUNICIPAL NO A ECHO NADA AL RESPECTO CON EL TEMA DE CONTROL CANINO YA SON CASI 4 MESES PIDIENDO AYUDA POR EL ABUSO DE PODER Y REPRESARIAS POR PARTE DEL DOCTOR BAÑUELOS DIRECTOR DE SALUD MUNICIPAL LOS COMPAÑER",
+              "url": "https://www.facebook.com/DiarioExpresion.net/posts/pfbid02Qc2WCPvXYaxr3TzSER9Xj2wQes8RXyAWYdeUuHWuyhcauK9eAGwwGEfLZ6dtbdERl",
+              "platform": "Facebook",
+              "username": "Anna Mattel",
+              "nivel": "alto",
+              "emotions": [
+                "enojo",
+                "frustracion",
+                "indignacion",
+                "preocupacion",
+                "decepcion"
+              ]
+            },
+            {
+              "text": "Precidenta asta cuando el abuso de poder de el director de salud municipal su protegido luis bañuelos garza ASTA CUANDO NOS PONDRA ATENCIÓN AQUIEN RECIBIENDO MALOS TRATOS POR PARTE DE LA FAMILIA BAÑUELOS Y REPRESARIAS Q AGARRO EN CONTRA DE LOS COMPAÑEROS Q X SUS PANTALOES DIO DE",
+              "url": "https://www.facebook.com/reel/26046317285010120/",
+              "platform": "Facebook",
+              "username": "Anna Mattel",
+              "nivel": "alto",
+              "emotions": [
+                "enojo",
+                "frustracion",
+                "indignacion",
+                "preocupacion",
+                "decepcion"
+              ]
+            },
+            {
+              "text": "DESEO CON EL CORAZON QUE EL KARMA TE PERSIGA LUIS BAÑUELOS \n\nPRECIDENTA MUNICIPAL NO A ECHO NADA AL RESPECTO CON EL TEMA DE CONTROL CANINO YA SON CASI 4 MESES PIDIENDO AYUDA POR EL ABUSO DE PODER Y REPRESARIAS POR PARTE DEL DOCTOR BAÑUELOS DIRECTOR DE SALUD MUNICIPAL LOS COMPAÑER",
+              "url": "https://www.facebook.com/RevistaDurangoInformativo/posts/pfbid02CgHmWhS3Fb88DrCoQugfLJ1oZWfATZtcymuCvLfyRhbCZTfktvkt8M9nS71225iCl",
+              "platform": "Facebook",
+              "username": "Anna Mattel",
+              "nivel": "alto",
+              "emotions": [
+                "enojo",
+                "frustracion",
+                "indignacion",
+                "preocupacion",
+                "decepcion"
+              ]
+            }
+          ]
+        },
+        {
+          "location": "Gómez Palacio",
+          "location_original": "Gómez Palacio",
+          "count": 10,
+          "posts": [
+            {
+              "text": "yo vivo en Gómez Palacio, traigo mi camioneta polarizada y nunca me han dicho nada, más bien lo hicieron porque traen placas de texas y querían algo 🤔",
+              "url": "https://www.tiktok.com/@anthonyalvarez646/video/7616119034760760607",
+              "platform": "TikTok",
+              "username": "leticiamtz02",
+              "nivel": "medio",
               "emotions": [
                 "preocupacion",
                 "frustracion"
               ]
             },
             {
-              "text": "Feo el aire deli el frio.... Asi las cosas en mi ciudad juárez 👌",
-              "url": "https://www.tiktok.com/@taniacrisloma/video/7617690454431141128",
-              "platform": "TikTok",
-              "username": "colunga777",
-              "nivel": "bajo",
+              "text": "#Extorcionando al Pueblo, #GomezPalacio #Durango así gobierna #Morena disfruten lo votado https://t.co/FQB3g0dr9D",
+              "url": "https://twitter.com/Naviaelo/status/2033417007995957315",
+              "platform": "Twitter/X",
+              "username": "Naviaelo",
+              "nivel": "alto",
               "emotions": [
+                "enojo",
+                "indignacion",
                 "frustracion",
                 "disgusto"
               ]
             },
             {
-              "text": "Lo que deberían contemplar es arreglar todas las calles de la cd 🤬",
-              "url": "https://www.tiktok.com/@eldiariodejuarez/video/7616120540402568456",
-              "platform": "TikTok",
-              "username": "brutalabel",
+              "text": "No se por qué claudia se deja en vabucar de esta zurra y el omar si gomez palacio está para la madre 😡 en la extensión y el cómplicismo con el crimen organizado y la desvío de recursos a sía la ciudad",
+              "url": "https://www.facebook.com/DiarioExpresion.net/posts/pfbid02Qc2WCPvXYaxr3TzSER9Xj2wQes8RXyAWYdeUuHWuyhcauK9eAGwwGEfLZ6dtbdERl",
+              "platform": "Facebook",
+              "username": "Jose Ramirez",
+              "nivel": "alto",
+              "emotions": [
+                "enojo",
+                "indignacion",
+                "preocupacion",
+                "frustracion",
+                "decepcion"
+              ]
+            },
+            {
+              "text": "Gomez esta lleno de baches",
+              "url": "https://www.facebook.com/DiarioExpresion.net/posts/pfbid02Qc2WCPvXYaxr3TzSER9Xj2wQes8RXyAWYdeUuHWuyhcauK9eAGwwGEfLZ6dtbdERl",
+              "platform": "Facebook",
+              "username": "Gissel Arreola",
               "nivel": "medio",
               "emotions": [
                 "frustracion",
@@ -518,646 +470,608 @@
               ]
             },
             {
-              "text": "🔴Sustrae ilegalmente a su sobrina de 8 años y genera persecución en Ciudad Juárez\n⬇️",
-              "url": "https://www.facebook.com/netnoticiasJRZ/posts/pfbid0acv8Equ2pCn9XFCB5aByonvjAyQy1JTn5nwLeeB5MQ2mG1qbtAkuQPafjFnhgCvtl",
+              "text": "Gomez Pabaches",
+              "url": "https://www.facebook.com/DiarioExpresion.net/posts/pfbid02Qc2WCPvXYaxr3TzSER9Xj2wQes8RXyAWYdeUuHWuyhcauK9eAGwwGEfLZ6dtbdERl",
               "platform": "Facebook",
-              "username": "netnoticiasJRZ",
-              "nivel": "alto",
-              "emotions": [
-                "miedo",
-                "preocupacion",
-                "indignacion"
-              ]
-            },
-            {
-              "text": "En este momento los niveles de calidad del aire en la ciudad son muy malos, con alta presencia de partículas PM10\n\nhttps://nortedigital.mx/muy-mala-calidad-del-aire-en-juarez-alertan-por-alto-nivel-de-polvo-en-el-ambiente/\n\n#Frontera #NorteDigital #HacemosPeriodismo #NorteDeCiuda",
-              "url": "https://www.facebook.com/nortedigital.mx/posts/pfbid0363YPriEy1pboByGecAses4ALgNRemM8sPCBY82CYJXur7x8S97QmWJagW6J2hXEKl",
-              "platform": "Facebook",
-              "username": "nortedigital.mx",
+              "username": "Luna Torres Paco",
               "nivel": "medio",
               "emotions": [
-                "preocupacion",
-                "ansiedad"
+                "enojo",
+                "disgusto"
               ]
             },
             {
-              "text": "Ciudad Juárez se encuentra en la cuerda floja ante la revisión del tratado comercial entre México, Estados Unidos y Canadá, un proceso que podría redefinir su economía. \n\nCon más de 300 plantas maquiladoras, la región es vital para el comercio trilateral y cualquier cambio normat",
-              "url": "https://instagram.com/p/DV8nYCHjLLu",
-              "platform": "Instagram",
-              "username": "contacto_noti",
+              "text": "Que van a saber ustedes de Gómez Palacio, ni siquiera viven aquí!\nArreglen el desabasto de agua pfff",
+              "url": "https://www.facebook.com/DiarioExpresion.net/posts/pfbid02Qc2WCPvXYaxr3TzSER9Xj2wQes8RXyAWYdeUuHWuyhcauK9eAGwwGEfLZ6dtbdERl",
+              "platform": "Facebook",
+              "username": "Aris Ramirez",
               "nivel": "alto",
               "emotions": [
-                "preocupacion",
-                "miedo",
-                "frustracion"
-              ]
-            },
-            {
-              "text": "CUANDO EN JUÁREZ SE RESPIRA ENFERMEDAD😷💨\n\nEn Ciudad Juárez, el polvo no es únicamente parte del paisaje desértico; es también el reflejo del abandono urbano.",
-              "url": "https://instagram.com/p/DV4DfdLEdI-",
-              "platform": "Instagram",
-              "username": "juarez.digital",
-              "nivel": "alto",
-              "emotions": [
+                "enojo",
                 "frustracion",
                 "preocupacion",
                 "indignacion"
               ]
             },
             {
-              "text": "💧🚨 ¡Atención, juarenses! Una familia en Ciudad Juárez fue sorprendida haciendo algo con el agua que les salió carísimo... 😱\n\nCon una simple acción que muchos creen inofensiva, terminaron con una multa fuerte. 👀\n\n🔗 Más detalles en el link en bio.\n\n#Multas #CiudadJuárez #CuidadoDel",
-              "url": "https://instagram.com/p/DV5clpxjzBy",
-              "platform": "Instagram",
-              "username": "tvaztecaciudadjuarez",
+              "text": "Les vasaleee los menzajes y Gómez p errregle el drenaje los semáforos viejos la corrupción en tránsito pol  etc etc etc etc",
+              "url": "https://www.facebook.com/DiarioExpresion.net/posts/pfbid02Qc2WCPvXYaxr3TzSER9Xj2wQes8RXyAWYdeUuHWuyhcauK9eAGwwGEfLZ6dtbdERl",
+              "platform": "Facebook",
+              "username": "Gonzalo Martínez",
               "nivel": "medio",
               "emotions": [
-                "sorpresa",
-                "preocupacion",
-                "frustracion"
-              ]
-            },
-            {
-              "text": "🚨🚗 ¡Cuidado con los parkeros en eventos masivos! No tienen derecho a exigirte cuotas obligatorias 😡 Aquí te contamos qué hacer para protegerte 🙌\n\n🔗 Más detalles en el link en bio.\n\n#CiudadJuárez #Parqueros #Eventos #Juárez",
-              "url": "https://instagram.com/p/DV5O16HEj2A",
-              "platform": "Instagram",
-              "username": "tvaztecaciudadjuarez",
-              "nivel": "medio",
-              "emotions": [
+                "frustracion",
                 "enojo",
                 "indignacion",
                 "preocupacion"
               ]
             },
             {
-              "text": "🚨 “No podemos salir…”: así pidieron ayuda dos mujeres encerradas en Ciudad Juárez 🗣️\n\nUn llamado al 9-1-1 reveló lo que pasaba dentro de una vivienda en Ciudad Juárez: dos mujeres estaban retenidas contra su voluntad.\n\nCuando finalmente lograron ser ubicadas, una de ellas resultó",
-              "url": "https://instagram.com/p/DV-AlCLmZ1Q",
-              "platform": "Instagram",
-              "username": "katherine.gallegos.noticias",
+              "text": "💀APARECE OTRO CRÁNEO CON MENSAJE DE BRUJERÍA EN GÓMEZ PALACIO 📝\n\n#GomezPalacio #Craneo #Brujeria #Chapala #FidelVelazquez #Noticias #ComarcaLagunera #LagunaPrensa",
+              "url": "https://www.facebook.com/LagunaPrensaOficial/posts/pfbid02g97sicEyXBebFDjeSGWyXesSJy5z3j6K3nXvQeGbkpCnipMTms7Ln1w5utRnfCo2l",
+              "platform": "Facebook",
+              "username": "LagunaPrensaOficial",
+              "nivel": "alto",
+              "emotions": [
+                "miedo",
+                "disgusto",
+                "sorpresa",
+                "preocupacion"
+              ]
+            },
+            {
+              "text": "En #GómezPalacio un motociclista andaba siguiendo a dos soldados del ejército Mexicano, al percatarse intentó detenerlo, aunque la gente solicitó apoyo a la policía municipal de Gómez Palacio, nadie llegó, hasta que llegaron más militares y lo arrestaron",
+              "url": "https://www.facebook.com/reel/2063038180912810/",
+              "platform": "Facebook",
+              "username": "Alerta-roja-en-la-Laguna",
               "nivel": "alto",
               "emotions": [
                 "preocupacion",
-                "miedo",
-                "indignacion"
+                "frustracion"
+              ]
+            },
+            {
+              "text": "Se les pelo bastasar en retén😬\n\n #GomezPalacio #ComarcaLagunera",
+              "url": "https://www.facebook.com/reel/1114611864127685/",
+              "platform": "Facebook",
+              "username": "brayan.hernandezrivera.3",
+              "nivel": "alto",
+              "emotions": [
+                "frustracion",
+                "sorpresa",
+                "preocupacion"
               ]
             }
           ],
-          "lat": 31.6907979,
-          "lng": -106.4253215
+          "lat": 25.5732473,
+          "lng": -103.494779
         },
         {
-          "location": "pequeño rincón del centro de la ciudad, Ciudad Juárez",
-          "location_original": "pequeño rincón del centro de la ciudad, Ciudad Juárez",
+          "location": "ISSSTE de Gómez Palacio",
+          "location_original": "ISSSTE de Gómez Palacio",
           "count": 2,
           "posts": [
             {
-              "text": "Tour class, un pequeño vistazo a lo que Juárez nos brinda en el pequeño rincón del centro de la ciudad en compañía de la Maestra Coordinadora Mary y las compañeras de Diseño de moda. Oficios tan especiales que se han ido perdiendo con la implementación del fast fashion y como ha",
-              "url": "https://instagram.com/p/DV9mMXWkVCg",
-              "platform": "Instagram",
-              "username": "aby_gram25",
-              "nivel": "medio",
+              "text": "⚠️ Negligencia en el ISSSTE de #GómezPalacio los suben a terapia intensiva y los abandonan hasta que fallecen!\n\nEstan reportando múltiples denuncias del personal del ISSSTE ya que las personas que están siendo tratadas de algún padecimiento los mandan a terapia intensiva pero ya",
+              "url": "https://www.facebook.com/permalink.php?story_fbid=pfbid0MhQachWfaLWhD3tdpphyqpBeJdtC4RmeJJu8kDU7dHYP7H11w2cr5JEkqjigL56pl&id=100090957070936",
+              "platform": "Facebook",
+              "username": "código-rojo-Gómez-Palacio",
+              "nivel": "alto",
               "emotions": [
-                "nostalgia",
-                "tristeza",
+                "enojo",
+                "miedo",
                 "preocupacion",
-                "decepcion"
+                "indignacion"
               ]
             },
             {
-              "text": "Tour class, un pequeño vistazo a lo que Juárez nos brinda en el pequeño rincón del centro de la ciudad en compañía de la Maestra Coordinadora Mary y las compañeras de Diseño de moda. Oficios tan especiales que se han ido perdiendo con la implementación del fast fashion y como ha",
-              "url": "https://instagram.com/p/DV9mKz0kVun",
-              "platform": "Instagram",
-              "username": "aby_gram25",
-              "nivel": "medio",
+              "text": "Si yo tuve una muy mala experiencia en el ISSSTE de Gómez Palacio 😔 igual me sacaron de con mi paciente y a las 2 horas me dijeron que mi paciente se había desconectado todo y al día siguiente falleció 😞",
+              "url": "https://www.facebook.com/permalink.php?story_fbid=pfbid0MhQachWfaLWhD3tdpphyqpBeJdtC4RmeJJu8kDU7dHYP7H11w2cr5JEkqjigL56pl&id=100090957070936",
+              "platform": "Facebook",
+              "username": "Gálvezz Nancy",
+              "nivel": "alto",
               "emotions": [
-                "nostalgia",
                 "tristeza",
-                "preocupacion",
-                "decepcion"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "Ciudad Juárez - El Paso",
-          "location_original": "Ciudad Juárez - El Paso",
-          "count": 2,
-          "posts": [
-            {
-              "text": "**La incertidumbre comercial se cierne sobre Ciudad Juárez ante la revisión del tratado entre México, Estados Unidos y Canadá.** \n\nCon más de 300 plantas maquiladoras y un comercio vital con El Paso, la región se enfrenta a posibles cambios que podrían afectar su economía. \n\nLa r",
-              "url": "https://instagram.com/p/DV8nWi1jJGG",
-              "platform": "Instagram",
-              "username": "fueguitonews",
-              "nivel": "alto",
-              "emotions": [
-                "preocupacion",
-                "miedo",
-                "frustracion",
-                "ansiedad"
-              ]
-            },
-            {
-              "text": "🇲🇽📦 CIUDAD JUÁREZ EN ALERTA POR REVISIÓN DEL T-MEC\n\nLa frontera de #CiudadJuárez se prepara para enfrentar los efectos de la revisión del T-MEC, el tratado comercial entre #México, #EstadosUnidos y #Canadá, un proceso que ha generado preocupación en la región donde operan más de",
-              "url": "https://instagram.com/p/DV9YyvSDsEg",
-              "platform": "Instagram",
-              "username": "themexicopost.mx",
-              "nivel": "alto",
-              "emotions": [
-                "preocupacion",
-                "miedo",
-                "frustracion"
-              ]
-            }
-          ],
-          "lat": 31.7476629,
-          "lng": -106.4868657
-        },
-        {
-          "location": "juarez, Ciudad Juárez, Chihuahua, México",
-          "location_original": "juarez",
-          "count": 1,
-          "posts": [
-            {
-              "text": "Y porque no lo hicieron desde que entraron al poder ..juarez ya seria otro\no solo por las eleciones próximas",
-              "url": "https://www.tiktok.com/@municipiocdjuarez/video/7617615186001710357",
-              "platform": "TikTok",
-              "username": "don.gato85",
-              "nivel": "medio",
-              "emotions": [
-                "frustracion",
-                "indignacion",
-                "decepcion"
-              ]
-            }
-          ],
-          "lat": 31.6907979,
-          "lng": -106.4253215
-        },
-        {
-          "location": "la zona de la portillo, Ciudad Juárez, Chihuahua, México",
-          "location_original": "la zona de la portillo",
-          "count": 1,
-          "posts": [
-            {
-              "text": "toda la zona de la portillo para esos rumbos las calles están fatales aquí no pavimentan ni se acercan",
-              "url": "https://www.tiktok.com/@jonnytamay/video/7616845845090143496",
-              "platform": "TikTok",
-              "username": "ochoamemo12",
-              "nivel": "medio",
-              "emotions": [
-                "frustracion",
-                "enojo",
-                "indignacion"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "a la altura de eloy cavazos antes de topar en San Mateo, Ciudad Juárez",
-          "location_original": "a la altura de eloy cavazos antes de topar en San Mateo, Ciudad Juárez",
-          "count": 1,
-          "posts": [
-            {
-              "text": "haber señor alcalde ,a la altura de eloy cavazos antes de topar en San Mateo,se inunda mucho,cuando llueve,podrá usted dar solución????",
-              "url": "https://www.tiktok.com/@felix_arratia/video/7613487103913086209",
-              "platform": "TikTok",
-              "username": "user2754614361978",
-              "nivel": "alto",
-              "emotions": [
-                "preocupacion",
-                "frustracion"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "Cd. Juárez, Ciudad Juárez, Chihuahua, México",
-          "location_original": "Cd. Juárez",
-          "count": 1,
-          "posts": [
-            {
-              "text": "Parece ser que se le olvida al alcalde Cruz Pérez Cuéllar que Cd. Juárez no está ni en la Sierra de Chihuahua ni en la CDMX, porque lleva varios días sin pisar la frontera donde se supone que gobierna #mexico #morena #4t #politica #Noticias #historia #CruzPerezCuellar #CdJuarez",
-              "url": "https://www.tiktok.com/@grilladalibre/video/7616049744099527944",
-              "platform": "TikTok",
-              "username": "grilladalibre",
-              "nivel": "alto",
-              "emotions": [
-                "frustracion",
-                "enojo",
-                "indignacion",
-                "preocupacion"
-              ]
-            }
-          ],
-          "lat": 31.7364867,
-          "lng": -106.426624
-        },
-        {
-          "location": "cd Juárez, Ciudad Juárez, Chihuahua, México",
-          "location_original": "cd Juárez",
-          "count": 1,
-          "posts": [
-            {
-              "text": "abandono el que nos tiene Maru, nunca se acuerda de cd Juárez, ese si es abandono",
-              "url": "https://www.tiktok.com/@grilladalibre/video/7616049744099527944",
-              "platform": "TikTok",
-              "username": "rodrigo.polo70",
-              "nivel": "alto",
-              "emotions": [
-                "enojo",
-                "frustracion",
-                "indignacion"
-              ]
-            }
-          ],
-          "lat": 31.7364867,
-          "lng": -106.426624
-        },
-        {
-          "location": "CDMX - Chihuahua - Juárez, Ciudad Juárez, Chihuahua, México",
-          "location_original": "CDMX - Chihuahua - Juárez",
-          "count": 1,
-          "posts": [
-            {
-              "text": "Pues en Juárez todos lo sabemos. Se la pasa más en CDMX y en gira por Chihuahua que en Juárez.",
-              "url": "https://www.tiktok.com/@grilladalibre/video/7616049744099527944",
-              "platform": "TikTok",
-              "username": "mr.rufian",
-              "nivel": "medio",
-              "emotions": [
-                "enojo",
-                "frustracion",
                 "decepcion",
-                "indignacion"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "CdJuarez, Ciudad Juárez, Chihuahua, México",
-          "location_original": "CdJuarez",
-          "count": 1,
-          "posts": [
-            {
-              "text": "Ya les explicaron las reglas a los guindas, pero tal parece que el crucito Pérez Cuéllar demuestra cómo no le importa hacer todo lo contrario #mexico #morena #4t #politica #Noticias #historia #CruzPerezCuellar #CdJuarez",
-              "url": "https://www.tiktok.com/@grilladalibre/video/7616836715033955585",
-              "platform": "TikTok",
-              "username": "grilladalibre",
-              "nivel": "alto",
-              "emotions": [
-                "enojo",
-                "indignacion",
                 "frustracion"
               ]
             }
           ]
         },
         {
-          "location": "warafil presidente, Ciudad Juárez, Chihuahua, México",
-          "location_original": "warafil presidente",
+          "location": "Jose vasconselos, Gómez Palacio, Durango, México",
+          "location_original": "Jose vasconselos",
           "count": 1,
           "posts": [
             {
-              "text": "los niños no tienen parque en warafil presidente 🥺🥺🥺",
-              "url": "https://www.tiktok.com/@biancaledezma4/video/7616831053826723093",
+              "text": "Porque no viniste a mi escuela Jose vasconselos?",
+              "url": "https://www.tiktok.com/@betzabemtza/video/7616602116848635156",
               "platform": "TikTok",
-              "username": "mendo4333",
+              "username": "aliss5609",
               "nivel": "medio",
               "emotions": [
-                "tristeza",
+                "frustracion",
+                "decepcion"
+              ]
+            }
+          ]
+        },
+        {
+          "location": "Jose Santos Valdez, Gómez Palacio, Durango, México",
+          "location_original": "Jose Santos Valdez",
+          "count": 1,
+          "posts": [
+            {
+              "text": "falta el turno de la tarde Jose Santos Valdez",
+              "url": "https://www.tiktok.com/@betzabemtza/video/7616602116848635156",
+              "platform": "TikTok",
+              "username": "alexvinculacuenta",
+              "nivel": "medio",
+              "emotions": [
                 "frustracion",
                 "preocupacion"
               ]
             }
-          ]
-        },
-        {
-          "location": "parque chamizal, Ciudad Juárez, Chihuahua, México",
-          "location_original": "parque chamizal",
-          "count": 1,
-          "posts": [
-            {
-              "text": "Don cortina de humo robo 40 millones de pesos que según invirtió en el parque chamizal que hasta hoy en día no hay nada nuevo o que alguien me calle con pruebas",
-              "url": "https://www.tiktok.com/@netnoticias.mx/video/7618009745105964309",
-              "platform": "TikTok",
-              "username": "www.joss86_.com",
-              "nivel": "alto",
-              "emotions": [
-                "enojo",
-                "indignacion",
-                "frustracion",
-                "decepcion",
-                "disgusto"
-              ]
-            }
           ],
-          "lat": 31.7565087,
-          "lng": -106.4582963
+          "lat": 25.564062,
+          "lng": -103.5127731
         },
         {
-          "location": "Cd Juárez, Ciudad Juárez, Chihuahua, México",
-          "location_original": "Cd Juárez",
+          "location": "Escuela Poetisa Adela Ayala, Gómez Palacio, Durango, México",
+          "location_original": "Escuela Poetisa Adela Ayala",
           "count": 1,
           "posts": [
             {
-              "text": "y cd Juárez cuando, cuando los baches porque transformar cd Juárez nunca sucedió",
-              "url": "https://www.tiktok.com/@rafagachihuahua/video/7617192963331902737",
+              "text": "y la escuela poetisa Adela Ayala nunca",
+              "url": "https://www.tiktok.com/@betzabemtza/video/7616602116848635156",
               "platform": "TikTok",
-              "username": "nany69223",
+              "username": "beln40699",
               "nivel": "medio",
               "emotions": [
-                "enojo",
-                "frustracion",
-                "decepcion"
-              ]
-            }
-          ],
-          "lat": 31.7364867,
-          "lng": -106.426624
-        },
-        {
-          "location": "camino viejo a San José - escuela para profesores - escuela Teresa de Ávila, Ciudad Juárez, Chihuahua, México",
-          "location_original": "camino viejo a San José - escuela para profesores - escuela Teresa de Ávila",
-          "count": 1,
-          "posts": [
-            {
-              "text": "y varios baches de años , por camino viejo a San José ! desde la escuela para profesores hasta la escuela Teresa de Ávila! esos baches tienen más de cinco años!",
-              "url": "https://www.tiktok.com/@ricardo_reporta/video/7617274339574025493",
-              "platform": "TikTok",
-              "username": "horacjdofzd",
-              "nivel": "alto",
-              "emotions": [
                 "frustracion",
                 "enojo",
-                "preocupacion",
                 "decepcion"
               ]
             }
           ]
         },
         {
-          "location": "todo el trebol, Ciudad Juárez, Chihuahua, México",
-          "location_original": "todo el trebol",
+          "location": "Carretera Arcinas Valle de Eruka, Gómez Palacio, Durango, México",
+          "location_original": "Carretera Arcinas Valle de Eruka",
           "count": 1,
           "posts": [
             {
-              "text": "hoy sabado 14 de Marzo 2026 a las 2 de la tarde . es triste que no exista supervision de las obras, por que gratis no son.\ndeveria de darle la Vuelta a todo el trebol con la camara y se expondra las cochinadas que hicieron..",
-              "url": "https://www.tiktok.com/@ricardo_reporta/video/7617274339574025493",
+              "text": "otro mensaje más apollanos con la carretera arcinas valle de eruka",
+              "url": "https://www.tiktok.com/@betzabemtza/video/7616602116848635156",
               "platform": "TikTok",
-              "username": "itsok_76",
-              "nivel": "medio",
-              "emotions": [
-                "tristeza",
-                "indignacion",
-                "enojo",
-                "frustracion",
-                "disgusto"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "puente de la Sanders, Ciudad Juárez, Chihuahua, México",
-          "location_original": "puente de la Sanders",
-          "count": 1,
-          "posts": [
-            {
-              "text": "Saludos. El puente de la Sanders es un peligro. en la parte alta ya no hay pavimento. A Pérez Cuellar solo le interesa invertir en contratar más agentes de tránsito para la polla de millones que recibe de las extensiones que sus agentes ratas le hacen a los ciudadanos.",
-              "url": "https://www.tiktok.com/@ricardo_reporta/video/7617274339574025493",
-              "platform": "TikTok",
-              "username": "gabobtk1",
-              "nivel": "alto",
-              "emotions": [
-                "enojo",
-                "indignacion",
-                "frustracion",
-                "preocupacion",
-                "disgusto"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "el canal - el bordo cristobendito, Ciudad Juárez, Chihuahua, México",
-          "location_original": "el canal - el bordo cristobendito",
-          "count": 1,
-          "posts": [
-            {
-              "text": "un puente muy medicreee son 4 carriles el puente va utilizar dos el 3ero donde lo pondrán porque esta el canal esta el bordo cristobendito",
-              "url": "https://www.tiktok.com/@eldiariodejuarez/video/7616120540402568456",
-              "platform": "TikTok",
-              "username": "rubenmorales4927",
+              "username": "user12onnn",
               "nivel": "medio",
               "emotions": [
                 "frustracion",
-                "enojo",
-                "indignacion"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "BOULEVARD ZARAGOZA - OSCAR FLORES, Ciudad Juárez, Chihuahua, México",
-          "location_original": "BOULEVARD ZARAGOZA - OSCAR FLORES",
-          "count": 1,
-          "posts": [
-            {
-              "text": "PARA QUE SE HACEN SI SON LAS MISMAS CONSTRUCTORAS PORQUE HAY MOCHES MEJOR QUE CONTEMPLEN BOULEVARD ZARAGOZA Y OSCAR FLORES",
-              "url": "https://www.tiktok.com/@eldiariodejuarez/video/7616120540402568456",
-              "platform": "TikTok",
-              "username": "lizett990806",
-              "nivel": "alto",
-              "emotions": [
-                "enojo",
-                "indignacion",
-                "frustracion"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "las torres, Ciudad Juárez, Chihuahua, México",
-          "location_original": "las torres",
-          "count": 1,
-          "posts": [
-            {
-              "text": "En las torres también se ase un montón de tráfico 👀👀😡😡😡",
-              "url": "https://www.tiktok.com/@eldiariodejuarez/video/7616120540402568456",
-              "platform": "TikTok",
-              "username": "normamota1",
-              "nivel": "medio",
-              "emotions": [
-                "enojo",
-                "frustracion"
-              ]
-            }
-          ],
-          "lat": 31.6492641,
-          "lng": -106.3883176
-        },
-        {
-          "location": "puente Torres y B. Zaragoza, Ciudad Juárez, Chihuahua, México",
-          "location_original": "puente Torres y B. Zaragoza",
-          "count": 1,
-          "posts": [
-            {
-              "text": "A ver si no los dejan sin pagar como Corral con el puente Torres y B. Zaragoza . Que duro sin terminar más del año 😡",
-              "url": "https://www.tiktok.com/@eldiariodejuarez/video/7616120540402568456",
-              "platform": "TikTok",
-              "username": "lglanderos",
-              "nivel": "alto",
-              "emotions": [
-                "enojo",
-                "indignacion",
-                "frustracion"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "Teófilo borunda entre Torres y Gómez Morín, Ciudad Juárez, Chihuahua, México",
-          "location_original": "Teófilo borunda entre Torres y Gómez Morín",
-          "count": 1,
-          "posts": [
-            {
-              "text": "Que habiliten la Teófilo borunda entre Torres y Gómez Morín @Cruz Perez Cuellar",
-              "url": "https://www.tiktok.com/@eldiariodejuarez/video/7616120540402568456",
-              "platform": "TikTok",
-              "username": "danielmajen0",
-              "nivel": "medio",
-              "emotions": [
-                "frustracion",
-                "enojo",
-                "preocupacion"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "alcalde de Ciudad Juárez",
-          "location_original": "alcalde de Ciudad Juárez",
-          "count": 1,
-          "posts": [
-            {
-              "text": "Ariadna Montiel, secretaria de Bienestar desobedece a la presidenta Sheinbaum, tiene metidas las manos y hasta los pies en la elección de los candidatos de Morena al gobierno de Chihuahua y la alcaldía de Ciudad Juárez.  La secretaria de Bienestar federal puso en manos del alcald",
-              "url": "https://www.tiktok.com/@silvestre.terraza7/video/7616880864911297812",
-              "platform": "TikTok",
-              "username": "silvestre.terraza7",
-              "nivel": "alto",
-              "emotions": [
-                "enojo",
-                "indignacion",
-                "preocupacion",
-                "frustracion",
-                "desgusto",
-                "decepcion"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "calle pavo real, Granjas de Chapultepec, Ciudad Juárez, Chihuahua, México",
-          "location_original": "calle pavo real, Granjas de Chapultepec",
-          "count": 1,
-          "posts": [
-            {
-              "text": "En Granjas de Chapultepec, exactamente en la calle pavo real y dos veces 😳 espero nunca más volverla escuchar 😩",
-              "url": "https://www.tiktok.com/@varondelashistorias/video/7616519815720635655",
-              "platform": "TikTok",
-              "username": "tanairymaldonado",
-              "nivel": "medio",
-              "emotions": [
-                "sorpresa",
-                "miedo",
-                "ansiedad",
                 "esperanza"
               ]
             }
           ]
         },
         {
-          "location": "Calle Guadalupe Victoria, entre Fernando Montes de Oca y Clemente Toquinto, San Isidro, Ciudad Juárez",
-          "location_original": "Calle Guadalupe Victoria, entre Fernando Montes de Oca y Clemente Toquinto, San Isidro, Ciudad Juárez",
+          "location": "Colonia Felipe angeles, Gómez Palacio, Durango, México",
+          "location_original": "Colonia Felipe angeles",
           "count": 1,
           "posts": [
             {
-              "text": "⚠️🚨 Hallan encobijado en San Isidro; es el homicidio 31 de marzo\n\nLa mañana de este lunes fue localizado el cuerpo de un hombre envuelto en bolsas y cobijas en el poblado de San Isidro, municipio de Juárez, lo que generó una fuerte movilización policiaca.  \n\nEl hallazgo ocurrió a",
-              "url": "https://www.facebook.com/Juarezalrojovivo/posts/pfbid02zZdaWkD2XamtNBYjcBzcufQjuw3DgS8oRAidn3gm19qQQpse41M8sxy16dFiaL4ql",
-              "platform": "Facebook",
-              "username": "Juarezalrojovivo",
-              "nivel": "alto",
-              "emotions": [
-                "tristeza",
-                "preocupacion",
-                "miedo",
-                "indignacion"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "Juarez, Ciudad Juárez, Chihuahua, México",
-          "location_original": "Juarez",
-          "count": 1,
-          "posts": [
-            {
-              "text": "Muy buen travajo y pa cuando se acabara la delincuencia en Juarez da asta miedo ya salir",
-              "url": "https://www.facebook.com/groups/865588566979917/posts/3183456605193090/",
-              "platform": "Facebook",
-              "username": "Flores Flores Karina",
-              "nivel": "alto",
+              "text": "Betzabepuedes venir a la colonia Felipe angeles están muy fea. Las calles",
+              "url": "https://www.tiktok.com/@betzabemtza/video/7616227222080212245",
+              "platform": "TikTok",
+              "username": "fernandalope65",
+              "nivel": "medio",
               "emotions": [
                 "frustracion",
-                "miedo",
-                "esperanza"
-              ]
-            }
-          ],
-          "lat": 31.6907979,
-          "lng": -106.4253215
-        },
-        {
-          "location": "maquila en Ciudad Juárez",
-          "location_original": "maquila en Ciudad Juárez",
-          "count": 1,
-          "posts": [
-            {
-              "text": "¡TERR0R EN LA FABRICA! 👻 Trabajadores de una maquila en Ciudad Juárez relatan experiencias escalofriantes: aseguran que fant4smas los llaman por su nombre e incluso han sufr1do agr3siones. 🏭\n\n¿Has escuchado algo similar en tu trabajo o te ha pasado? 🤔 Conoce los detalles aquí: ht",
-              "url": "https://instagram.com/p/DV4sv7GjqHC",
-              "platform": "Instagram",
-              "username": "tvaztecaciudadjuarez",
-              "nivel": "alto",
-              "emotions": [
-                "miedo",
-                "sorpresa",
-                "ansiedad",
+                "indignacion",
                 "preocupacion"
               ]
             }
           ]
         },
         {
-          "location": "Av. Las Torres, Ciudad Juárez",
-          "location_original": "Av. Las Torres, Ciudad Juárez",
+          "location": "Calle 27 de marzo, Gómez Palacio, Durango, México",
+          "location_original": "Calle 27 de marzo",
           "count": 1,
           "posts": [
             {
-              "text": "#VIDEO | ¡Mucha precaución si circula por la Av. Las Torres! ⚠️ Conductores captan el momento exacto en que una mujer arroja piedras contra los vehículos en movimiento. 🪨🚗\n\n🔗 Más detalles en el link en bio.\n\n#CiudadJuárez #LasTorres #Seguridad #TráficoJuárez",
-              "url": "https://instagram.com/p/DV4YEEXDPD4",
-              "platform": "Instagram",
-              "username": "tvaztecaciudadjuarez",
+              "text": "hola ayuda me con Agua potable y drenaje aqui called 27 de marzo",
+              "url": "https://www.tiktok.com/@betzabemtza/video/7616227222080212245",
+              "platform": "TikTok",
+              "username": "lucy.alvarado39",
               "nivel": "alto",
               "emotions": [
                 "preocupacion",
-                "miedo",
+                "frustracion",
+                "ansiedad"
+              ]
+            }
+          ],
+          "lat": 25.5600851,
+          "lng": -103.4877421
+        },
+        {
+          "location": "el refugio, Gómez Palacio, Durango, México",
+          "location_original": "el refugio",
+          "count": 1,
+          "posts": [
+            {
+              "text": "los drenajes del refugio",
+              "url": "https://www.tiktok.com/@betzabemtza/video/7616227222080212245",
+              "platform": "TikTok",
+              "username": "lokohuevo0",
+              "nivel": "medio",
+              "emotions": [
+                "preocupacion",
+                "frustracion"
+              ]
+            }
+          ],
+          "lat": 25.6818166,
+          "lng": -103.4303731
+        },
+        {
+          "location": "La Jaramillo, Gómez Palacio, Durango, México",
+          "location_original": "La Jaramillo",
+          "count": 1,
+          "posts": [
+            {
+              "text": "La Jaramillo por favor🥲",
+              "url": "https://www.tiktok.com/@betzabemtza/video/7616227222080212245",
+              "platform": "TikTok",
+              "username": "karladelatorre_0103",
+              "nivel": "medio",
+              "emotions": [
+                "tristeza",
+                "esperanza",
+                "preocupacion"
+              ]
+            }
+          ]
+        },
+        {
+          "location": "bulevares San Carlos en Gómez palacio - campanario 2",
+          "location_original": "bulevares San Carlos en Gómez palacio - campanario 2",
+          "count": 1,
+          "posts": [
+            {
+              "text": "Precisenta ya inició con la pavimentación en bulevares San Carlos en Gómez palacio pero ya tenemos 3dias que se está saliendo el agua de drenaje en campanario 2por ese mismo bulevar para que lo tenga en cuenta antes de seguir la pavimentación que de hecho ya está detenida",
+              "url": "https://www.tiktok.com/@betzabemtza/video/7616227222080212245",
+              "platform": "TikTok",
+              "username": "ingydra",
+              "nivel": "alto",
+              "emotions": [
+                "frustracion",
+                "preocupacion",
                 "enojo"
               ]
             }
+          ]
+        },
+        {
+          "location": "Periférico en Gómez, Gómez Palacio, Durango, México",
+          "location_original": "Periférico en Gómez",
+          "count": 1,
+          "posts": [
+            {
+              "text": "Reportan quema de llantas sobre el Periférico en Gómez. ⚠️ Las llamas y el humo llamaron bastante la atención de quienes pasaban por ahí. Tomen sus precauciones si circulan por la zona. ¿Les tocó el tráfico? 👇 #GomezPalacio #LaLaguna #ReporteCiudadano #Vialidad #Noticias #Enterat",
+              "url": "https://www.tiktok.com/@aztecalaguna/video/7617175517430631687",
+              "platform": "TikTok",
+              "username": "aztecalaguna",
+              "nivel": "alto",
+              "emotions": [
+                "preocupacion",
+                "sorpresa"
+              ]
+            }
+          ]
+        },
+        {
+          "location": "Escuela 18 de Marzo - Subsecretaría de Educación, Gómez Palacio",
+          "location_original": "Escuela 18 de Marzo - Subsecretaría de Educación, Gómez Palacio",
+          "count": 1,
+          "posts": [
+            {
+              "text": "🏫🛑 ¡Exigen una escuela segura! Hartos de llevar 3 semanas sin clases presenciales, padres de familia de la escuela 18 de Marzo tomaron la Subsecretaría de Educación en Gómez Palacio para exigir que revisen el edificio antiguo. 👇 #GómezPalacio #Educación #DenunciaCiudadana #Escuel",
+              "url": "https://www.tiktok.com/@aztecalaguna/video/7616594986255027477",
+              "platform": "TikTok",
+              "username": "aztecalaguna",
+              "nivel": "alto",
+              "emotions": [
+                "frustracion",
+                "indignacion",
+                "preocupacion"
+              ]
+            }
+          ]
+        },
+        {
+          "location": "Colonia Fidel Velázquez, Gómez Palacio",
+          "location_original": "Colonia Fidel Velázquez, Gómez Palacio",
+          "count": 1,
+          "posts": [
+            {
+              "text": "de la colonia Fidel Velázquez, se llevó terrible sorpresa, al observar un cráneo humano, por lo que tras reponerse del susto avisó al número de emergencias, llegaron elementos de las corporaciones policiacas, los que aparte de hallar la parte humana, localizaron un mensaje... htt",
+              "url": "https://twitter.com/pilaraguilarm/status/2033539090105131193",
+              "platform": "Twitter/X",
+              "username": "pilaraguilarm",
+              "nivel": "alto",
+              "emotions": [
+                "sorpresa",
+                "miedo"
+              ]
+            }
+          ]
+        },
+        {
+          "location": "Puente peatonal del bulevar Ejército Mexicano, Gómez Palacio - Plaza Fundadores, Gómez Palacio",
+          "location_original": "Puente peatonal del bulevar Ejército Mexicano, Gómez Palacio - Plaza Fundadores, Gómez Palacio",
+          "count": 1,
+          "posts": [
+            {
+              "text": "🚨 Dejan otro cráneo humano con mensaje esotérico en Gómez Palacio\n\nEl hallazgo ocurrió en un puente peatonal del bulevar Ejército Mexicano. Peritos trasladaron los restos al Semefo para analizar su origen.\n\n⚠️ Ocurre días después de otro caso similar en Plaza Fundadores.\n\n👉 https",
+              "url": "https://twitter.com/AlCafepolitico/status/2033392798590804430",
+              "platform": "Twitter/X",
+              "username": "AlCafepolitico",
+              "nivel": "alto",
+              "emotions": [
+                "preocupacion",
+                "sorpresa",
+                "miedo"
+              ]
+            }
+          ]
+        },
+        {
+          "location": "Miravalles, Gómez Palacio",
+          "location_original": "Miravalles, Gómez Palacio",
+          "count": 1,
+          "posts": [
+            {
+              "text": "💣 #Durango | Esta mañana, un objeto explosivo fue arrojado desde una avioneta en Miravalles, Gómez Palacio, sin embargo el artefacto no explotó y fue resguardado por el Ejército.\n\nEl artefacto no cayó sobre alguna vivienda, por lo que no hay lesionados.\nhttps://t.co/5b8FZe5Jwu",
+              "url": "https://twitter.com/lajornadaonline/status/2032602815168680204",
+              "platform": "Twitter/X",
+              "username": "lajornadaonline",
+              "nivel": "alto",
+              "emotions": [
+                "miedo",
+                "preocupacion",
+                "sorpresa"
+              ]
+            }
+          ]
+        },
+        {
+          "location": "escuela de Gómez Palacio",
+          "location_original": "escuela de Gómez Palacio",
+          "count": 1,
+          "posts": [
+            {
+              "text": "#Laguna | 🚨Reportan otra am3n4za de t1rot3o en escuela de Gómez Palacio.\n\nhttps://t.co/9WFoBETuVZ",
+              "url": "https://twitter.com/period_victoria/status/2032598329465458786",
+              "platform": "Twitter/X",
+              "username": "period_victoria",
+              "nivel": "alto",
+              "emotions": [
+                "miedo",
+                "preocupacion",
+                "indignacion"
+              ]
+            }
           ],
-          "lat": 31.6528812,
-          "lng": -106.3878687
+          "lat": 25.5686969,
+          "lng": -103.502543
+        },
+        {
+          "location": "carretera jabonoso-esmeralda, Gómez Palacio, Durango, México",
+          "location_original": "carretera jabonoso-esmeralda",
+          "count": 1,
+          "posts": [
+            {
+              "text": "Excelente trabajo al frente del Mpio. #BetzaPresidenta \nSiga cumpliendo los compromisos de campaña \nY siguiendo al pie de la letra los principios de la 4ta. Transformación...No mentir...No robar...No traicionar...\nY no se olvide de la carretera jabonoso-esmeralda...\nPorque ya son",
+              "url": "https://www.facebook.com/BetzabeMtzA/posts/pfbid0T7iNKye3RKco2gCdC1nL5HhTd4NGRDUhbzVw8jgi1jKpEAHkHB9u5vGDyuGVWwB6l",
+              "platform": "Facebook",
+              "username": "Ángel Delgado",
+              "nivel": "medio",
+              "emotions": [
+                "frustracion",
+                "preocupacion",
+                "indignacion"
+              ]
+            }
+          ],
+          "lat": 25.6167741,
+          "lng": -103.4600803
+        },
+        {
+          "location": "Calzada Conquistadores y calle Benito, Miravalle, Gómez Palacio, Durango, México",
+          "location_original": "Calzada Conquistadores y calle Benito, Miravalle",
+          "count": 1,
+          "posts": [
+            {
+              "text": "En Calzada Conquistadores y calle Benito. Miravalle\n Tbn hay problemas de drenaje.",
+              "url": "https://www.facebook.com/ayuntamientogp/posts/pfbid02MytxWqwNV6f2mfT6KfcXGsU5awGDCSLYK8upKGPgpBUxmdv56c69cCKczyYEeaEel",
+              "platform": "Facebook",
+              "username": "Iilyzabit RV",
+              "nivel": "medio",
+              "emotions": [
+                "frustracion",
+                "preocupacion"
+              ]
+            }
+          ]
+        },
+        {
+          "location": "Fraccionamiento Morelos 2 - Colonia 15 de Diciembre, Gómez Palacio, Durango, México",
+          "location_original": "Fraccionamiento Morelos 2 - Colonia 15 de Diciembre",
+          "count": 1,
+          "posts": [
+            {
+              "text": "Y como para cuando van a andar fumigando en el fraccionamiento Morelos 2y colonia 15 de diciembre sin estar echándose la pelota a un departamento y a otro",
+              "url": "https://www.facebook.com/ayuntamientogp/posts/pfbid0BXnHRG4MU5DQBpqMmYGDGsAwCuNEJk7EPQyBgWZzHx4xEQgKhrcet9DXMREqKV81l",
+              "platform": "Facebook",
+              "username": "NormaPatricia RodriguezMartinez",
+              "nivel": "medio",
+              "emotions": [
+                "frustracion",
+                "enojo",
+                "preocupacion"
+              ]
+            }
+          ]
+        },
+        {
+          "location": "Fracc San Vicente, Gómez Palacio",
+          "location_original": "Fracc San Vicente, Gómez Palacio",
+          "count": 1,
+          "posts": [
+            {
+              "text": "Todo muy bien !! Solo que cuando limpian dejan toda la basura ahí acumulada en fracc san Vicente tiene ya un mes que limpiaron y aún continúan los montones de basura.",
+              "url": "https://www.facebook.com/ayuntamientogp/posts/pfbid02Sw7tj6XjwGzAsVf3KqBGsioA785BGaFgmk2ymj9Re9hTiHBAJzGThUn9dVkjMM3Fl",
+              "platform": "Facebook",
+              "username": "Crownd JM",
+              "nivel": "medio",
+              "emotions": [
+                "frustracion",
+                "preocupacion"
+              ]
+            }
+          ]
+        },
+        {
+          "location": "fraccionamiento Morelos 1, Gómez Palacio, Durango, México",
+          "location_original": "fraccionamiento Morelos 1",
+          "count": 1,
+          "posts": [
+            {
+              "text": "Nuevamente les solicito atiendan las áreas verdes del fraccionamiento Morelos 1 para qué tanto video, apoco creen que la ciudadanía se los van a creer que están trabajando al 100, es su trabajo para eso se les paga, pero en el fraccionamiento nunca la han puesto atención, lámpara",
+              "url": "https://www.facebook.com/reel/1592845912006272/",
+              "platform": "Facebook",
+              "username": "Jesus Amaton Grajeda",
+              "nivel": "alto",
+              "emotions": [
+                "enojo",
+                "frustracion",
+                "decepcion",
+                "preocupacion",
+                "indignacion"
+              ]
+            }
+          ]
+        },
+        {
+          "location": "Salud Municipal, Gómez Palacio, Durango, México",
+          "location_original": "Salud Municipal",
+          "count": 1,
+          "posts": [
+            {
+              "text": "DESEO CON EL CORAZON QUE EL KARMA TE PERSIGA LUIS BAÑUELOS \n\nPRECIDENTA MUNICIPAL NO A ECHO NADA AL RESPECTO CON EL TEMA DE CONTROL CANINO YA SON CASI 4 MESES PIDIENDO AYUDA POR EL ABUSO DE PODER Y REPRESARIAS POR PARTE DEL DOCTOR BAÑUELOS DIRECTOR DE SALUD MUNICIPAL LOS COMPAÑER",
+              "url": "https://www.facebook.com/35mm.mx/posts/pfbid031jZRBa1k8k1iyHYQjKhc1SXj5o52Toe98Dz43JzwFiTTim2hpkDbv7XtuqSVEadfl",
+              "platform": "Facebook",
+              "username": "Anna Mattel",
+              "nivel": "alto",
+              "emotions": [
+                "enojo",
+                "frustracion",
+                "indignacion",
+                "preocupacion",
+                "decepcion"
+              ]
+            }
+          ]
+        },
+        {
+          "location": "Torreón - Alcaldía de Gómez Palacio",
+          "location_original": "Torreón - Alcaldía de Gómez Palacio",
+          "count": 1,
+          "posts": [
+            {
+              "text": "Acá en torreón un bombero vale 160 mil pesos si mueren en accidente laboral , sin derecho a vivienda y sin derecho a finiquito si se llegan a pencionar ,es un gran ejemplo de la alcaldía de Gómez Palacio en hora buena",
+              "url": "https://www.facebook.com/elsiglo.mx/posts/pfbid02yjMqsvyYMEB4F7n98zWpPyGSeQxXzW2m8tPfhKuuzYLMG7ubsLNK8hsp5XK7jZrvl",
+              "platform": "Facebook",
+              "username": "Ijaso Vega",
+              "nivel": "alto",
+              "emotions": [
+                "enojo",
+                "frustracion",
+                "indignacion",
+                "decepcion"
+              ]
+            }
+          ]
+        },
+        {
+          "location": "Libramiento, Gómez Palacio",
+          "location_original": "Libramiento, Gómez Palacio",
+          "count": 1,
+          "posts": [
+            {
+              "text": "Ahora si ya no le pedirán cuota a los transportistas foráneos ?? Les tumban de 1500 a 3000 por cada tráiler que pasa por Gómez. Ya mejor pongan caseta para agarrar libramiento 😒😒😒😒",
+              "url": "https://www.facebook.com/elsiglo.mx/posts/pfbid02yjMqsvyYMEB4F7n98zWpPyGSeQxXzW2m8tPfhKuuzYLMG7ubsLNK8hsp5XK7jZrvl",
+              "platform": "Facebook",
+              "username": "J. Alonso Ramirez",
+              "nivel": "alto",
+              "emotions": [
+                "enojo",
+                "frustracion",
+                "preocupacion",
+                "indignacion"
+              ]
+            }
+          ],
+          "lat": 25.6550676,
+          "lng": -103.4412796
+        },
+        {
+          "location": "gomez palacio",
+          "location_original": "gomez palacio",
+          "count": 1,
+          "posts": [
+            {
+              "text": "estos casos no se deben d quedar asi  gomez palacio estan igual justicia x todos y cada unos de los padres k sin ninguna razon sus hibos son arrebatados alzemos la voz  compartir no nos cuesta nada",
+              "url": "https://www.facebook.com/groups/466316277695226/posts/1682101319450043/",
+              "platform": "Facebook",
+              "username": "889472247254547",
+              "nivel": "alto",
+              "emotions": [
+                "indignacion",
+                "enojo",
+                "preocupacion",
+                "frustracion"
+              ]
+            }
+          ],
+          "lat": 25.5732473,
+          "lng": -103.494779
+        },
+        {
+          "location": "varias colonias de Gómez, Gómez Palacio, Durango, México",
+          "location_original": "varias colonias de Gómez",
+          "count": 1,
+          "posts": [
+            {
+              "text": "Ojalá venga Harfuch a buscar a este delincuente, que dicen que ha asaltado en varias colonias de Gómez",
+              "url": "https://www.facebook.com/DiarioExpresion.net/posts/pfbid02Qc2WCPvXYaxr3TzSER9Xj2wQes8RXyAWYdeUuHWuyhcauK9eAGwwGEfLZ6dtbdERl",
+              "platform": "Facebook",
+              "username": "Malenny Ortega",
+              "nivel": "alto",
+              "emotions": [
+                "enojo",
+                "frustracion",
+                "esperanza"
+              ]
+            }
+          ]
         }
       ],
       "quejasPorCategoria": [
+        {
+          "categoria": "Infraestructura Educativa",
+          "count": 1
+        },
         {
           "categoria": "Servicios Públicos",
           "count": 3
@@ -1167,49 +1081,114 @@
           "count": 4
         },
         {
-          "categoria": "Infraestructura Educativa",
-          "count": 4
-        },
-        {
-          "categoria": "Atención Ciudadana",
-          "count": 13
+          "categoria": "Programas Sociales",
+          "count": 8
         },
         {
           "categoria": "Transparencia Municipal",
-          "count": 18
+          "count": 15
         },
         {
           "categoria": "Infraestructura Vial",
-          "count": 39
+          "count": 16
+        },
+        {
+          "categoria": "Agua y Saneamiento",
+          "count": 16
+        },
+        {
+          "categoria": "Salud Pública",
+          "count": 20
         }
       ],
       "alertasReputacionales": [
         {
-          "tema": "CUANDO EN JUÁREZ SE RESPIRA ENFERMEDAD😷💨\n\nEn Ciudad Juárez, el polvo no es únicamente parte del pais",
+          "tema": "En #GómezPalacio un motociclista andaba siguiendo a dos soldados del ejército Mexicano, al percatars",
           "severidad": "media",
-          "descripcion": "Describe a Ciudad Juárez como una ciudad enferma y en abandono urbano, vinculando directamente la imagen de la ciudad con descuido estructural y riesgos a la salud.",
+          "descripcion": "Relato de incidente de seguridad donde se solicitó apoyo a la policía municipal de Gómez Palacio y 'nadie' respondió, lo que señala negligencia operativa y refuerza la percepción de falla institucional.",
           "presente_en_segmentos": []
         },
         {
-          "tema": "Parece ser que se le olvida al alcalde Cruz Pérez Cuéllar que Cd. Juárez no está ni en la Sierra de ",
+          "tema": "Acusan a la Alcaldesa de Gómez Palacio de hacer trampa en maratón  #chumel #laradiodelarepublica #ch",
           "severidad": "media",
-          "descripcion": "Acusación directa de ausencia y presunto abandono de la ciudad por parte del alcalde de Ciudad Juárez, lo que proyecta a la administración municipal como ausente y desinteresada en los problemas locales.",
+          "descripcion": "Acusación directa y viral contra la Alcaldesa de Gómez Palacio por hacer trampa en un maratón, dañando su credibilidad personal y, por extensión, la imagen del gobierno municipal.",
           "presente_en_segmentos": []
         },
         {
-          "tema": "SIN NOMBRE Y SIN FAMILIA, LA REALIDAD DE LA FOSA COMÚN\n\n🔎 Más de cuatro mil cuerpos permanecen en la",
+          "tema": "🏫🛑 ¡Exigen una escuela segura! Hartos de llevar 3 semanas sin clases presenciales, padres de familia",
           "severidad": "media",
-          "descripcion": "Enfatiza que más de cuatro mil cuerpos permanecen en la fosa común de Ciudad Juárez, reforzando una narrativa de violencia extrema, abandono institucional y crisis humanitaria asociada a la ciudad.",
+          "descripcion": "Padres de familia en Gómez Palacio toman oficinas de la Subsecretaría de Educación exigiendo escuelas seguras y el regreso a clases, configurando un foco de movilización social que puede escalar y salpicar al gobierno municipal por la situación de seguridad en planteles.",
           "presente_en_segmentos": []
         },
         {
-          "tema": "En este momento los niveles de calidad del aire en la ciudad son muy malos, con alta presencia de pa",
+          "tema": "#Extorcionando al Pueblo, #GomezPalacio #Durango así gobierna #Morena disfruten lo votado https://t.",
           "severidad": "media",
-          "descripcion": "Alerta sobre una calidad del aire 'muy mala' en Ciudad Juárez, asociando la ciudad con condiciones ambientales insalubres que afectan la vida diaria y la percepción externa.",
+          "descripcion": "Acusación abierta de que el gobierno de Morena en Gómez Palacio 'extorsiona al pueblo', vinculando directamente al municipio con presuntos abusos de poder y corrupción.",
           "presente_en_segmentos": []
         }
       ],
-      "topLugares": [],
+      "topLugares": [
+        {
+          "lugar": "Gomez Palacio",
+          "mentions": 397
+        },
+        {
+          "lugar": "Durango",
+          "mentions": 83
+        },
+        {
+          "lugar": "Torreon",
+          "mentions": 73
+        },
+        {
+          "lugar": "Comarca Lagunera",
+          "mentions": 39
+        },
+        {
+          "lugar": "Lerdo",
+          "mentions": 38
+        },
+        {
+          "lugar": "Colonia Miravalle",
+          "mentions": 11
+        },
+        {
+          "lugar": "Valle De Chapala",
+          "mentions": 7
+        },
+        {
+          "lugar": "Avenida Nacional",
+          "mentions": 6
+        },
+        {
+          "lugar": "Panteon Municipal El Vergel",
+          "mentions": 6
+        },
+        {
+          "lugar": "Colonia Felipe Angeles",
+          "mentions": 6
+        },
+        {
+          "lugar": "Colonia Urbi Villas",
+          "mentions": 6
+        },
+        {
+          "lugar": "Bulevar Ejercito Mexicano",
+          "mentions": 5
+        },
+        {
+          "lugar": "Carretera Jimenez Gomez Palacio",
+          "mentions": 4
+        },
+        {
+          "lugar": "Colonia Filadelfia",
+          "mentions": 3
+        },
+        {
+          "lugar": "Colonia Hamburgo",
+          "mentions": 3
+        }
+      ],
       "crisisPotential": {
         "promedio": 0,
         "bajo": 0,
@@ -1221,404 +1200,615 @@
     "alcance": {
       "mentionsBySource": [
         {
-          "source": "TikTok",
-          "mentions": 140
-        },
-        {
           "source": "Instagram",
-          "mentions": 129
-        },
-        {
-          "source": "Google News",
-          "mentions": 111
+          "mentions": 218
         },
         {
           "source": "Facebook",
-          "mentions": 62
+          "mentions": 96
+        },
+        {
+          "source": "Google News",
+          "mentions": 63
+        },
+        {
+          "source": "TikTok",
+          "mentions": 49
+        },
+        {
+          "source": "Twitter/X",
+          "mentions": 44
         }
       ],
       "topPublicacionesImpacto": [
         {
-          "titulo": "los homies de ciudad Juárez, bailando.",
-          "url": "https://www.facebook.com/reel/1212960500822457/",
+          "titulo": "¡Ubican artefacto explosivo en Gómez Palacio; causó gran alarma! ‼",
+          "url": "https://www.facebook.com/reel/1392869516215501/",
           "platform": "Facebook",
-          "username": "Juarez-al-100",
-          "views": 1170075,
-          "likes": 22456,
-          "alcance": 25
+          "username": "mmtv.laguna",
+          "views": 146171,
+          "likes": 1077,
+          "alcance": 13
         },
         {
-          "titulo": "Cuánto debe ganar y qué auto?💵 #caslper #viral #ciudadjuarez #cdjuarez #parati",
-          "url": "https://www.tiktok.com/@caslper/video/7616459628087463189",
-          "platform": "TikTok",
-          "username": "caslper",
-          "views": 634302,
-          "likes": 24319,
-          "alcance": 14
+          "titulo": "En #GómezPalacio un motociclista andaba siguiendo a dos soldados del ejército Mexicano, al percatarse intentó detenerlo,",
+          "url": "https://www.facebook.com/reel/2063038180912810/",
+          "platform": "Facebook",
+          "username": "Alerta-roja-en-la-Laguna",
+          "views": 145177,
+          "likes": 1053,
+          "alcance": 13
         },
         {
-          "titulo": "¡Infierno en la Autopista a Reynosa!  Un incendio en una pipa movilizó a los cuerpos de emergencia a la altura de la col",
-          "url": "https://www.tiktok.com/@aztecanoticias/video/7617918101589413140",
-          "platform": "TikTok",
-          "username": "aztecanoticias",
-          "views": 506588,
-          "likes": 15947,
+          "titulo": "🚨 Se registra una fuerte movilización y calles cerradas en #GómezPalacio tras el reporte del hallazgo de un presunto mis",
+          "url": "https://www.facebook.com/aztecalag/posts/pfbid0wYTaXesb1tapAJoeFbNUcstbmGFeFcnTHC5Qb16AhaSw2V5Q4tN7RVFAvf46RDfQl",
+          "platform": "Facebook",
+          "username": "aztecalag",
+          "views": 126636,
+          "likes": 929,
+          "alcance": 12
+        },
+        {
+          "titulo": "Pues si yo sé lo que me contesta el wey, nos entendemos mutuamente 🤣  #gatos #entendimiento #fypviralシ #mascotas #GomezP",
+          "url": "https://instagram.com/p/DV3vFSCE5Yj",
+          "platform": "Instagram",
+          "username": "wi.soto",
+          "views": 124997,
+          "likes": 7098,
           "alcance": 11
         },
         {
-          "titulo": "🚨😱 SE LLEVA A NIÑA Y POLICÍAS LO CAZAN TRAS INTENSA PERSECUCIÓN\n\nCiudad Juárez.– Un hombre fue detenido por policías mun",
-          "url": "https://www.facebook.com/61557136382008/videos/1416369173836439/",
+          "titulo": "Vuelca camioneta con empleados de seguridad privada en Gómez Palacio; dos mueren en el lugar 🚨",
+          "url": "https://www.facebook.com/mileniotorreon/posts/pfbid0cbuzu1zcYhwrps3Ljesj4HkbVqVrnmYttvXs6C8tZevXVvHgu8eDtPqJtcLWRgUvl",
           "platform": "Facebook",
-          "username": "Juárez-Indomable",
-          "views": 443715,
-          "likes": 2423,
+          "username": "mileniotorreon",
+          "views": 112775,
+          "likes": 843,
           "alcance": 10
         },
         {
-          "titulo": "¡El trabajo por Juárez no se detiene! 🏗️💪🏼 Aunque hoy es día de descanso, nuestra meta es clara: seguir transformando ca",
-          "url": "https://www.facebook.com/CruzPerezCuellarCh/videos/1451957116397542/",
+          "titulo": "Lo 4pl4stó parte de un cerro y le quitó la vid4🚨⚠️\n\nEl señor Genaro Beltrán Galindo, quien tuviera 55 años de edad y su",
+          "url": "https://www.facebook.com/permalink.php?story_fbid=pfbid02oSJr5wqexEmEzZ5xycDAjeviZkUuNEkYmJfwJ4h5pkD8noHZPHCc6gYHvVZLbrrrl&id=100064447973961",
           "platform": "Facebook",
-          "username": "CruzPerezCuellarCh",
-          "views": 403758,
-          "likes": 2747,
+          "username": "Gómez-palacio-al-momento",
+          "views": 99595,
+          "likes": 724,
           "alcance": 9
         },
         {
-          "titulo": "Este fin de semana, Juárez recibió a más de mil jóvenes atletas en el Duna Bowl 2026. 🏈💪🏽\n\nNuestra ciudad sigue consolid",
-          "url": "https://www.facebook.com/reel/1424677865495326/",
+          "titulo": "El Plan Integral de Transformación Sanitaria continúa en marcha. Hoy supervisamos los trabajos en el cárcamo de Urbi Vil",
+          "url": "https://www.facebook.com/reel/1200262382188589/",
           "platform": "Facebook",
-          "username": "CruzPerezCuellarCh",
-          "views": 389860,
-          "likes": 2837,
+          "username": "BetzabeMtzA",
+          "views": 94146,
+          "likes": 651,
+          "alcance": 9
+        },
+        {
+          "titulo": "#EnRedes Joven graba estrella en un cerro del Paso,Texas 🇺🇸 e internautas le aseguran que es es en Gómez Palacio, Dgo 🇲🇽",
+          "url": "https://www.tiktok.com/@telediarioradio.torreon/video/7616558630988516628",
+          "platform": "TikTok",
+          "username": "telediarioradio.torreon",
+          "views": 92357,
+          "likes": 3780,
           "alcance": 8
         },
         {
-          "titulo": "En nuestra rueda de prensa semanal anunciamos que Juárez será sede de la Copa SOCCA AmeriCup 2026, un torneo internacion",
-          "url": "https://www.facebook.com/CruzPerezCuellarCh/posts/pfbid032BfLYUg5hEpKaCSJPeKB4nd5g6XQfEz8exoxoMYjHM475XoCnGchR5f1KD8gPxmYl",
+          "titulo": "Así como ustedes, mi principal preocupación también es el drenaje. Y porque sé que es urgente lo estamos atendiendo de m",
+          "url": "https://www.facebook.com/BetzabeMtzA/posts/pfbid0Wk41cKFyTeXPFt16BYqeneQYsxhSaZnKRzaZDgpr1We9LUTvwPBae4M5u3snDoJtl",
           "platform": "Facebook",
-          "username": "CruzPerezCuellarCh",
-          "views": 345110,
-          "likes": 2648,
+          "username": "BetzabeMtzA",
+          "views": 86326,
+          "likes": 626,
+          "alcance": 8
+        },
+        {
+          "titulo": "La transformación no solo está en los grandes proyectos. La transformación también está en cada calle que rehabilitamos,",
+          "url": "https://www.facebook.com/BetzabeMtzA/posts/pfbid0T7iNKye3RKco2gCdC1nL5HhTd4NGRDUhbzVw8jgi1jKpEAHkHB9u5vGDyuGVWwB6l",
+          "platform": "Facebook",
+          "username": "BetzabeMtzA",
+          "views": 72697,
+          "likes": 538,
           "alcance": 7
-        },
-        {
-          "titulo": "🔥El buffet de tacos llega a la Gómez Morín 🌮 Y sí… seguimos siendo el único buffet de tacos a $99 pesitos. 🎉 Próxima ape",
-          "url": "https://www.tiktok.com/@buffetdetacossk/video/7616279753061960967",
-          "platform": "TikTok",
-          "username": "buffetdetacossk",
-          "views": 288645,
-          "likes": 12319,
-          "alcance": 6
-        },
-        {
-          "titulo": "📍 Grupo que busca concluir cargo de Cruz Pérez Cuéllar tiene 90 días para reunir rúbricas; si las consiguen se instalará",
-          "url": "https://www.facebook.com/eldiariodejuarez/posts/pfbid0bTqqje24j1rzpyCDqnQfKuVnorJMMzfTHpeBxTiQi8s6tDXnYajwAikTjp5uXfF1l",
-          "platform": "Facebook",
-          "username": "eldiariodejuarez",
-          "views": 232909,
-          "likes": 1743,
-          "alcance": 5
-        },
-        {
-          "titulo": "#fronteramexicousa #juarez #alberca #verano  📍 Armijo Swimming Pool",
-          "url": "https://www.tiktok.com/@nicolasa2022/video/7617186382963936519",
-          "platform": "TikTok",
-          "username": "nicolasa2022",
-          "views": 230216,
-          "likes": 15669,
-          "alcance": 5
         }
       ],
       "topPostsEngagement": [
         {
-          "platform": "facebook",
-          "url": "https://www.facebook.com/reel/1212960500822457/",
-          "text": "los homies de ciudad Juárez, bailando.",
-          "likes": 22456,
-          "views": 1170075,
-          "shares": 1737,
-          "comments": 313,
-          "engagement_score": 143407
-        },
-        {
-          "platform": "tiktok",
-          "url": "https://www.tiktok.com/@caslper/video/7616459628087463189",
-          "text": "Cuánto debe ganar y qué auto?💵 #caslper #viral #ciudadjuarez #cdjuarez #parati ",
-          "likes": 24319,
-          "views": 634302,
-          "shares": 2981,
-          "comments": 5436,
-          "engagement_score": 101865
-        },
-        {
-          "platform": "tiktok",
-          "url": "https://www.tiktok.com/@aztecanoticias/video/7617918101589413140",
-          "text": "¡Infierno en la Autopista a Reynosa!  Un incendio en una pipa movilizó a los cuerpos de emergencia a la altura de la colonia Ejido, en el municipio de Juárez, Nuevo León. De acuerdo con Protección Civ",
-          "likes": 15947,
-          "views": 506588,
-          "shares": 269,
+          "platform": "instagram",
+          "url": "https://instagram.com/p/DV3vFSCE5Yj",
+          "text": "Pues si yo sé lo que me contesta el wey, nos entendemos mutuamente 🤣  #gatos #entendimiento #fypviralシ #mascotas #GomezPalacio",
+          "likes": 7098,
+          "views": 124997,
+          "shares": 3610,
           "comments": 86,
-          "engagement_score": 67273
-        },
-        {
-          "platform": "tiktok",
-          "url": "https://www.tiktok.com/@nicolasa2022/video/7617186382963936519",
-          "text": "#fronteramexicousa #juarez #alberca #verano  📍 Armijo Swimming Pool",
-          "likes": 15669,
-          "views": 230216,
-          "shares": 6416,
-          "comments": 140,
-          "engagement_score": 51733
-        },
-        {
-          "platform": "tiktok",
-          "url": "https://www.tiktok.com/@buffetdetacossk/video/7616279753061960967",
-          "text": "🔥El buffet de tacos llega a la Gómez Morín 🌮 Y sí… seguimos siendo el único buffet de tacos a $99 pesitos. 🎉 Próxima apertura 📅 Jueves 19 de marzo ⏰ 3:00 PM 📍 Blvd. Gómez Morín 1645 👇 Etiqueta al que ",
-          "likes": 12319,
-          "views": 288645,
-          "shares": 3396,
-          "comments": 177,
-          "engagement_score": 48241
+          "engagement_score": 26947
         },
         {
           "platform": "facebook",
-          "url": "https://www.facebook.com/61557136382008/videos/1416369173836439/",
-          "text": "🚨😱 SE LLEVA A NIÑA Y POLICÍAS LO CAZAN TRAS INTENSA PERSECUCIÓN\n\nCiudad Juárez.– Un hombre fue detenido por policías municipales luego de presuntamente llevarse a una niña de 8 años en el fraccionamie",
-          "likes": 2423,
-          "views": 443715,
-          "shares": 121,
-          "comments": 111,
-          "engagement_score": 47203
+          "url": "https://www.facebook.com/reel/2063038180912810/",
+          "text": "En #GómezPalacio un motociclista andaba siguiendo a dos soldados del ejército Mexicano, al percatarse intentó detenerlo, aunque la gente solicitó apoyo a la policía municipal de Gómez Palacio, nadie l",
+          "likes": 1053,
+          "views": 145177,
+          "shares": 110,
+          "comments": 117,
+          "engagement_score": 15966
         },
         {
           "platform": "facebook",
-          "url": "https://www.facebook.com/CruzPerezCuellarCh/videos/1451957116397542/",
-          "text": "¡El trabajo por Juárez no se detiene! 🏗️💪🏼 Aunque hoy es día de descanso, nuestra meta es clara: seguir transformando cada rincón de nuestra ciudad. Ya estamos listos en nuestra Conferencia de Prensa ",
-          "likes": 2747,
-          "views": 403758,
-          "shares": 23,
-          "comments": 32,
-          "engagement_score": 43217
-        },
-        {
-          "platform": "facebook",
-          "url": "https://www.facebook.com/reel/1424677865495326/",
-          "text": "Este fin de semana, Juárez recibió a más de mil jóvenes atletas en el Duna Bowl 2026. 🏈💪🏽\n\nNuestra ciudad sigue consolidándose como sede de grandes eventos deportivos y como un espacio donde la juvent",
-          "likes": 2837,
-          "views": 389860,
-          "shares": 12,
+          "url": "https://www.facebook.com/reel/1392869516215501/",
+          "text": "¡Ubican artefacto explosivo en Gómez Palacio; causó gran alarma! ‼",
+          "likes": 1077,
+          "views": 146171,
+          "shares": 102,
           "comments": 26,
-          "engagement_score": 41886
+          "engagement_score": 15937
         },
         {
           "platform": "facebook",
-          "url": "https://www.facebook.com/CruzPerezCuellarCh/posts/pfbid032BfLYUg5hEpKaCSJPeKB4nd5g6XQfEz8exoxoMYjHM475XoCnGchR5f1KD8gPxmYl",
-          "text": "En nuestra rueda de prensa semanal anunciamos que Juárez será sede de la Copa SOCCA AmeriCup 2026, un torneo internacional de fútbol rápido que se llevará a cabo del 20 al 24 de mayo y que pondrá a nu",
-          "likes": 2648,
-          "views": 345110,
-          "shares": 9,
-          "comments": 17,
-          "engagement_score": 37202
+          "url": "https://www.facebook.com/aztecalag/posts/pfbid0wYTaXesb1tapAJoeFbNUcstbmGFeFcnTHC5Qb16AhaSw2V5Q4tN7RVFAvf46RDfQl",
+          "text": "🚨 Se registra una fuerte movilización y calles cerradas en #GómezPalacio tras el reporte del hallazgo de un presunto misil en la zona. 🚧🚓 Entérate de lo que sabemos hasta el momento y qué vialidades e",
+          "likes": 929,
+          "views": 126636,
+          "shares": 78,
+          "comments": 67,
+          "engagement_score": 13849
         },
         {
           "platform": "tiktok",
-          "url": "https://www.tiktok.com/@ross03105/video/7617726998424734996",
-          "text": "@Richard Ahumada 😍 @Richard Ahumada  Lo mejor #richardahumada🔥🎵 #ciudadjuarez ",
-          "likes": 9805,
-          "views": 192732,
-          "shares": 103,
-          "comments": 20,
-          "engagement_score": 29314
+          "url": "https://www.tiktok.com/@telediarioradio.torreon/video/7616558630988516628",
+          "text": "#EnRedes Joven graba estrella en un cerro del Paso,Texas 🇺🇸 e internautas le aseguran que es es en Gómez Palacio, Dgo 🇲🇽 solo porque hay una igual 😂 #fyp #Viral #gomezpalacio #elpaso 📹 Alejandro Gonzá",
+          "likes": 3780,
+          "views": 92357,
+          "shares": 309,
+          "comments": 83,
+          "engagement_score": 13758
+        },
+        {
+          "platform": "facebook",
+          "url": "https://www.facebook.com/mileniotorreon/posts/pfbid0cbuzu1zcYhwrps3Ljesj4HkbVqVrnmYttvXs6C8tZevXVvHgu8eDtPqJtcLWRgUvl",
+          "text": "Vuelca camioneta con empleados de seguridad privada en Gómez Palacio; dos mueren en el lugar 🚨",
+          "likes": 843,
+          "views": 112775,
+          "shares": 33,
+          "comments": 50,
+          "engagement_score": 12262
+        },
+        {
+          "platform": "facebook",
+          "url": "https://www.facebook.com/permalink.php?story_fbid=pfbid02oSJr5wqexEmEzZ5xycDAjeviZkUuNEkYmJfwJ4h5pkD8noHZPHCc6gYHvVZLbrrrl&id=100064447973961",
+          "text": "Lo 4pl4stó parte de un cerro y le quitó la vid4🚨⚠️\n\nEl señor Genaro Beltrán Galindo, quien tuviera 55 años de edad y su domicilio en la colonia Tierra y Libertad, de Gómez Palacio, Durango, ayer como ",
+          "likes": 724,
+          "views": 99595,
+          "shares": 71,
+          "comments": 17,
+          "engagement_score": 10851
+        },
+        {
+          "platform": "facebook",
+          "url": "https://www.facebook.com/reel/1200262382188589/",
+          "text": "El Plan Integral de Transformación Sanitaria continúa en marcha. Hoy supervisamos los trabajos en el cárcamo de Urbi Villas, una obra que permitirá mejorar el drenaje pluvial y reducir riesgos de inun",
+          "likes": 651,
+          "views": 94146,
+          "shares": 79,
+          "comments": 107,
+          "engagement_score": 10384
+        },
+        {
+          "platform": "facebook",
+          "url": "https://www.facebook.com/BetzabeMtzA/posts/pfbid0Wk41cKFyTeXPFt16BYqeneQYsxhSaZnKRzaZDgpr1We9LUTvwPBae4M5u3snDoJtl",
+          "text": "Así como ustedes, mi principal preocupación también es el drenaje. Y porque sé que es urgente lo estamos atendiendo de manera prioritaria.\nHoy revisé los trabajos del cárcamo en la colonia Urbi Villas",
+          "likes": 626,
+          "views": 86326,
+          "shares": 114,
+          "comments": 159,
+          "engagement_score": 9725
+        },
+        {
+          "platform": "facebook",
+          "url": "https://www.facebook.com/BetzabeMtzA/posts/pfbid0T7iNKye3RKco2gCdC1nL5HhTd4NGRDUhbzVw8jgi1jKpEAHkHB9u5vGDyuGVWwB6l",
+          "text": "La transformación no solo está en los grandes proyectos. La transformación también está en cada calle que rehabilitamos, en cada obra que mejora la vida cotidiana de nuestra gente.\n\nLa pavimentación d",
+          "likes": 538,
+          "views": 72697,
+          "shares": 90,
+          "comments": 123,
+          "engagement_score": 8172
         }
       ],
       "topPersonasMencionadas": [
         {
-          "name": "aztecanoticias",
-          "mentions": 17681
+          "name": "Betzabé Martínez Arango",
+          "mentions": 171
         },
         {
-          "name": "n.mas",
-          "mentions": 5920
+          "name": "Claudia Sheinbaum Pardo",
+          "mentions": 14
         },
         {
-          "name": "netnoticias.mx",
-          "mentions": 3757
+          "name": "Harfuch",
+          "mentions": 9
         },
         {
-          "name": "CdjrzMexico",
-          "mentions": 3384
+          "name": "Luis Bañuelos Garza",
+          "mentions": 8
         },
         {
-          "name": "caslper",
-          "mentions": 2101
+          "name": "Marisol Rosso",
+          "mentions": 7
         },
         {
-          "name": "Juarez-al-100",
-          "mentions": 1890
+          "name": "Genaro Beltrán Galindo",
+          "mentions": 5
         },
         {
-          "name": "nortedigital.mx",
-          "mentions": 1500
+          "name": "Leticia Herrera",
+          "mentions": 2
         },
         {
-          "name": "reynaldolaraazteca",
-          "mentions": 1064
+          "name": "Paco Bueno",
+          "mentions": 2
         },
         {
-          "name": "eldiariodejuarez",
-          "mentions": 995
+          "name": "Luis Juárez",
+          "mentions": 2
         },
         {
-          "name": "netnoticiasJRZ",
-          "mentions": 947
+          "name": "Héctor Iván Guajardo Zabaleta",
+          "mentions": 2
         }
       ],
-      "topDependenciasMencionadas": [],
-      "topOrganizaciones": [],
-      "topTemas": [],
+      "topDependenciasMencionadas": [
+        {
+          "name": "Ayuntamiento de Gómez Palacio",
+          "mentions": 37
+        },
+        {
+          "name": "Dirección de Seguridad Pública Municipal de Gómez Palacio",
+          "mentions": 32
+        },
+        {
+          "name": "Ejército Mexicano",
+          "mentions": 24
+        },
+        {
+          "name": "Morena",
+          "mentions": 18
+        },
+        {
+          "name": "Dirección de Salud Municipal",
+          "mentions": 12
+        },
+        {
+          "name": "IMSS",
+          "mentions": 10
+        },
+        {
+          "name": "Universidad Juárez del Estado de Durango",
+          "mentions": 9
+        },
+        {
+          "name": "Dirección de Ecología y Protección al Ambiente",
+          "mentions": 5
+        },
+        {
+          "name": "Dirección de Servicios Públicos",
+          "mentions": 4
+        },
+        {
+          "name": "DIF Gómez Palacio",
+          "mentions": 4
+        }
+      ],
+      "topOrganizaciones": [
+        {
+          "name": "Ayuntamiento Gomez Palacio",
+          "mentions": 37
+        },
+        {
+          "name": "Direccion Seguridad Publica Municipal",
+          "mentions": 32
+        },
+        {
+          "name": "Ejercito Mexicano",
+          "mentions": 24
+        },
+        {
+          "name": "Morena",
+          "mentions": 18
+        },
+        {
+          "name": "Direccion Salud Municipal",
+          "mentions": 12
+        },
+        {
+          "name": "Imss",
+          "mentions": 10
+        },
+        {
+          "name": "Ujed",
+          "mentions": 9
+        },
+        {
+          "name": "Direccion Ecologia",
+          "mentions": 5
+        },
+        {
+          "name": "Heroico Cuerpo Bomberos Gomez Palacio",
+          "mentions": 4
+        },
+        {
+          "name": "Dif Gomez Palacio",
+          "mentions": 4
+        }
+      ],
+      "topTemas": [
+        {
+          "tema": "Seguridad Publica",
+          "mentions": 56
+        },
+        {
+          "tema": "Obras Publicas",
+          "mentions": 26
+        },
+        {
+          "tema": "Empoderamiento Femenino",
+          "mentions": 20
+        },
+        {
+          "tema": "Hallazgo Craneo Humano",
+          "mentions": 16
+        },
+        {
+          "tema": "Pavimentacion Calles",
+          "mentions": 15
+        },
+        {
+          "tema": "Drenaje Pluvial",
+          "mentions": 15
+        },
+        {
+          "tema": "Capacitacion Policial",
+          "mentions": 14
+        },
+        {
+          "tema": "Panteon Municipal",
+          "mentions": 11
+        },
+        {
+          "tema": "Aumento Salarial Policias",
+          "mentions": 11
+        },
+        {
+          "tema": "Hallazgo Objeto Explosivo",
+          "mentions": 10
+        },
+        {
+          "tema": "Comedores Escolares",
+          "mentions": 10
+        },
+        {
+          "tema": "Fumigacion Plagas",
+          "mentions": 8
+        },
+        {
+          "tema": "Abuso De Poder",
+          "mentions": 8
+        },
+        {
+          "tema": "Extorsion Policial",
+          "mentions": 7
+        },
+        {
+          "tema": "Areas Verdes",
+          "mentions": 6
+        }
+      ],
+      "topEventos": [
+        {
+          "evento": "Curso Tacticas Tecnicas Reaccion",
+          "mentions": 9
+        },
+        {
+          "evento": "Desfile Identidad Universitaria Ujed 2026",
+          "mentions": 9
+        },
+        {
+          "evento": "Hallazgo Presunto Misil Miravalle",
+          "mentions": 8
+        },
+        {
+          "evento": "Construccion Panteon Municipal El Vergel",
+          "mentions": 7
+        },
+        {
+          "evento": "Reunion Nacional Seguridad Sheinbaum",
+          "mentions": 5
+        },
+        {
+          "evento": "Inicio Rehabilitacion Calle Nacional",
+          "mentions": 4
+        },
+        {
+          "evento": "Volcadura Carretera Jimenez Gomez Palacio",
+          "mentions": 3
+        },
+        {
+          "evento": "Pelea Motociclista Soldado Gomez Palacio",
+          "mentions": 3
+        },
+        {
+          "evento": "Clausura Curso Tacticas Tacticas",
+          "mentions": 2
+        },
+        {
+          "evento": "Entrega Pavimentacion Calle Cascada",
+          "mentions": 2
+        },
+        {
+          "evento": "Jornadas Pueblo Colonia Centenario",
+          "mentions": 1
+        },
+        {
+          "evento": "Sesion Ordinaria Cabildo Marzo 2026",
+          "mentions": 1
+        },
+        {
+          "evento": "Bailaton Dia Mujer Valle Chapala",
+          "mentions": 1
+        },
+        {
+          "evento": "Balacera Simulacro",
+          "mentions": 1
+        },
+        {
+          "evento": "Hallazgo Objeto Explosivo",
+          "mentions": 1
+        }
+      ],
       "topPeople": [
         {
-          "name": "@aztecanoticias (Tiktok)",
-          "mentions": 17681
+          "name": "@mmtv.laguna (Facebook)",
+          "mentions": 3000
         },
         {
-          "name": "@n.mas (Tiktok)",
-          "mentions": 5920
+          "name": "@lajornadaonline (Twitter)",
+          "mentions": 2707
         },
         {
-          "name": "@netnoticias.mx (Tiktok)",
-          "mentions": 3757
+          "name": "@elsiglo.mx (Facebook)",
+          "mentions": 846
         },
         {
-          "name": "@CdjrzMexico (Facebook)",
-          "mentions": 3384
+          "name": "@elsoldelalagunaMX (Facebook)",
+          "mentions": 688
         },
         {
-          "name": "@caslper (Tiktok)",
-          "mentions": 2101
+          "name": "@Alerta-roja-en-la-Laguna (Facebook)",
+          "mentions": 623
         },
         {
-          "name": "@Juarez-al-100 (Facebook)",
-          "mentions": 1890
+          "name": "@elpulsooficial (Tiktok)",
+          "mentions": 582
         },
         {
-          "name": "@nortedigital.mx (Facebook)",
-          "mentions": 1500
+          "name": "@EnVivoTeVe (Facebook)",
+          "mentions": 552
         },
         {
-          "name": "@reynaldolaraazteca (Tiktok)",
-          "mentions": 1064
+          "name": "@aztecalag (Facebook)",
+          "mentions": 541
         },
         {
-          "name": "@eldiariodejuarez (Facebook)",
-          "mentions": 995
+          "name": "@aztecalaguna (Tiktok)",
+          "mentions": 477
         },
         {
-          "name": "@netnoticiasJRZ (Facebook)",
-          "mentions": 947
+          "name": "@RevistaDurangoInformativo (Facebook)",
+          "mentions": 447
         },
         {
-          "name": "@GobiernoCdJuarez (Facebook)",
-          "mentions": 876
+          "name": "@joestarcarolina (Instagram)",
+          "mentions": 304
         },
         {
-          "name": "@CruzPerezCuellarCh (Facebook)",
-          "mentions": 579
+          "name": "@mileniotorreon (Facebook)",
+          "mentions": 290
         },
         {
-          "name": "@ILoveJuarez (Facebook)",
-          "mentions": 490
+          "name": "@código-rojo-Gómez-Palacio (Facebook)",
+          "mentions": 212
         },
         {
-          "name": "@enblancoynegro.com.mx (Facebook)",
-          "mentions": 484
+          "name": "@AnguloInforma (Facebook)",
+          "mentions": 206
         },
         {
-          "name": "@juarezal100 (Tiktok)",
-          "mentions": 388
+          "name": "@torreon (Twitter)",
+          "mentions": 200
         },
         {
-          "name": "@fronteranumberone (Facebook)",
-          "mentions": 386
+          "name": "@vanguardiamx (Twitter)",
+          "mentions": 199
         },
         {
-          "name": "@la_jefa_cirquerita (Tiktok)",
-          "mentions": 345
+          "name": "@marearojalaguna (Facebook)",
+          "mentions": 105
         },
         {
-          "name": "@Haronews (Facebook)",
-          "mentions": 311
+          "name": "@NoticiasRegionalesenDurango (Facebook)",
+          "mentions": 103
         },
         {
-          "name": "@AytoCancun (Facebook)",
-          "mentions": 237
+          "name": "@oralequechiquito (Tiktok)",
+          "mentions": 91
         },
         {
-          "name": "@themexicopost.mx (Instagram)",
-          "mentions": 158
+          "name": "@elchilangolagunero (Tiktok)",
+          "mentions": 81
         }
       ],
       "botsVsReal": {
         "bots": 15,
         "real": 85
       },
-      "followersActual": 268,
+      "followersActual": 150,
       "usuariosInternos": [
         {
           "platform": "facebook",
-          "username": "CdjrzMexico",
-          "full_name": "Cdjrz",
-          "followers": 141000
+          "username": "BetzabeMtzA",
+          "full_name": "Betzabé  Martínez Arango",
+          "followers": 57000
         },
         {
-          "platform": "instagram",
-          "username": "cruzperezcuellar",
-          "full_name": "Cruz Pérez Cuéllar",
-          "followers": 118517
+          "platform": "facebook",
+          "username": "ayuntamientogp",
+          "full_name": "Ayuntamiento de Gómez Palacio",
+          "followers": 47000
         },
         {
           "platform": "tiktok",
-          "username": "municipiocdjuarez",
-          "full_name": "Ciudad Juárez",
-          "followers": 4473
+          "username": "betzabemtza",
+          "full_name": "Betzabé Martínez Arango",
+          "followers": 24089
         },
         {
           "platform": "instagram",
-          "username": "heroicaciudadjuarez",
-          "full_name": "Ciudad Juárez",
-          "followers": 4298
+          "username": "betzabemtza",
+          "full_name": "Betzabé Martínez Arango",
+          "followers": 20588
+        },
+        {
+          "platform": "instagram",
+          "username": "ayuntamientogp",
+          "full_name": "Ayuntamiento Gómez Palacio",
+          "followers": 1705
         }
       ],
       "seguidoresTrend": [
         {
           "date": "11 Mar",
-          "followers": 249
+          "followers": 142
         },
         {
           "date": "12 Mar",
-          "followers": 253
+          "followers": 144
         },
         {
           "date": "13 Mar",
-          "followers": 257
+          "followers": 146
         },
         {
           "date": "14 Mar",
-          "followers": 260
+          "followers": 148
         },
         {
           "date": "15 Mar",
-          "followers": 264
-        },
-        {
-          "date": "16 Mar",
-          "followers": 268
+          "followers": 150
         }
       ],
       "postsByHour": [
         {
           "hour": 0,
-          "posts": 5
+          "posts": 4
         },
         {
           "hour": 1,
@@ -1626,204 +1816,214 @@
         },
         {
           "hour": 2,
-          "posts": 3
+          "posts": 5
         },
         {
           "hour": 3,
-          "posts": 1
+          "posts": 0
         },
         {
           "hour": 4,
-          "posts": 2
+          "posts": 1
         },
         {
           "hour": 5,
-          "posts": 3
+          "posts": 0
         },
         {
           "hour": 6,
-          "posts": 7
+          "posts": 2
         },
         {
           "hour": 7,
-          "posts": 9
+          "posts": 3
         },
         {
           "hour": 8,
-          "posts": 15
+          "posts": 10
         },
         {
           "hour": 9,
-          "posts": 13
+          "posts": 25
         },
         {
           "hour": 10,
-          "posts": 23
+          "posts": 25
         },
         {
           "hour": 11,
-          "posts": 29
+          "posts": 18
         },
         {
           "hour": 12,
-          "posts": 17
+          "posts": 33
         },
         {
           "hour": 13,
-          "posts": 20
+          "posts": 31
         },
         {
           "hour": 14,
-          "posts": 17
+          "posts": 33
         },
         {
           "hour": 15,
-          "posts": 19
+          "posts": 31
         },
         {
           "hour": 16,
-          "posts": 21
+          "posts": 27
         },
         {
           "hour": 17,
-          "posts": 11
+          "posts": 36
         },
         {
           "hour": 18,
-          "posts": 21
+          "posts": 22
         },
         {
           "hour": 19,
-          "posts": 21
+          "posts": 22
         },
         {
           "hour": 20,
-          "posts": 21
-        },
-        {
-          "hour": 21,
           "posts": 23
         },
         {
-          "hour": 22,
+          "hour": 21,
           "posts": 13
         },
         {
+          "hour": 22,
+          "posts": 17
+        },
+        {
           "hour": 23,
-          "posts": 14
+          "posts": 23
         }
       ],
       "contentTypes": [
         {
-          "type": "video",
-          "count": 152,
-          "pct": 34
-        },
-        {
-          "type": "news",
-          "count": 111,
-          "pct": 25
-        },
-        {
           "type": "post",
-          "count": 103,
-          "pct": 23
+          "count": 141,
+          "pct": 30
         },
         {
           "type": "album",
-          "count": 58,
+          "count": 125,
+          "pct": 27
+        },
+        {
+          "type": "video",
+          "count": 81,
+          "pct": 17
+        },
+        {
+          "type": "news",
+          "count": 63,
           "pct": 13
         },
         {
-          "type": "reel",
-          "count": 11,
-          "pct": 2
+          "type": "tweet",
+          "count": 20,
+          "pct": 4
+        },
+        {
+          "type": "image",
+          "count": 18,
+          "pct": 4
         },
         {
           "type": "album_item",
-          "count": 7,
+          "count": 12,
+          "pct": 3
+        },
+        {
+          "type": "reel",
+          "count": 10,
           "pct": 2
         }
       ],
-      "newsCount": 111,
+      "newsCount": 63,
       "top5MediosRecurrentes": [
         {
           "nombre": "oem.com.mx",
-          "menciones": 21
+          "menciones": 15
         },
         {
-          "nombre": "juarez.gob.mx",
-          "menciones": 19
+          "nombre": "elsiglodetorreon.com.mx",
+          "menciones": 11
         },
         {
-          "nombre": "adiario.mx",
+          "nombre": "yodeportivo.com",
           "menciones": 7
         },
         {
-          "nombre": "nmas.com.mx",
-          "menciones": 6
+          "nombre": "noticierosgrem.com.mx",
+          "menciones": 7
         },
         {
-          "nombre": "puentelibre.mx",
-          "menciones": 6
+          "nombre": "milenio.com",
+          "menciones": 5
         }
       ]
     },
     "reconocimientos": {
       "reconocimientosTemas": [
         {
-          "alcance": 45,
-          "titulo": "Orgullo fronterizo, hospitalidad y promoción turística de Ciudad Juárez",
-          "metricas": {
-            "likes": 23295,
-            "views": 1192124
-          },
-          "descripcion": "Las publicaciones retratan a Ciudad Juárez como “la mejor frontera de México” y “puerta al mundo”, combinando trámites en el Consulado Norteamericano con turismo, hotelería, museos y vida nocturna. Se resaltan la Misión de Nuestra Señora de Guadalupe, vistas con dron y la calidez de la gente juarense, incluidos contenidos virales de baile que humanizan y celebran la identidad fronteriza."
-        },
-        {
           "alcance": 29,
-          "titulo": "Ciudad Juárez como sede de grandes eventos deportivos y torneos internacionales",
+          "titulo": "Apoyo a la niñez y fortalecimiento del entorno educativo",
           "metricas": {
-            "likes": 6593,
-            "views": 794613
+            "likes": 2651,
+            "views": 210565
           },
-          "descripcion": "Las publicaciones destacan a Ciudad Juárez como sede del Duna Bowl 2026, que reunió a más de mil jóvenes atletas de flag football, y de la Copa SOCCA AmeriCup 2026 de fútbol rápido. Se suman rodeos, el equipo de béisbol Indios, competencias de armwrestling y la delegación juarense en los Interteresianos, proyectando una ciudad deportiva, dinámica y atractiva para visitantes."
+          "descripcion": "El programa municipal “Transformando a Pasitos”, encabezado por Betzabé Martínez, entrega tenis y calzado escolar en la primaria José Santos Valdez, en San Alberto, combinando apoyo material con educación ambiental. La comunidad del CETis No. 88 agradece específicamente a la presidenta por rehabilitar cinco luminarias, colocar boyas e intervenir la barda perimetral, acciones que mejoran seguridad y entorno escolar, percibiéndose un gobierno cercano a niñas, niños y estudiantes."
         },
         {
-          "alcance": 15,
-          "titulo": "Mejoras rápidas en movilidad e infraestructura vial para miles de juarenses",
+          "alcance": 21,
+          "titulo": "Liderazgo en seguridad y profesionalización policial con mejoras laborales",
           "metricas": {
-            "likes": 3611,
-            "views": 393677
+            "likes": 1308,
+            "views": 148953
           },
-          "descripcion": "Se reconoce la intervención en la Av. Camino a Las Águilas, terminada en solo 72 horas, como un logro que transforma la movilidad de más de 100 mil personas al hacer más ágil, seguro y eficiente el acceso de entrada y salida a Juárez. Además, se anuncia la inversión del presupuesto de seguridad en semaforización de avenidas y calles para fortalecer la seguridad vial."
+          "descripcion": "La administración de Betzabé convierte a Gómez Palacio en el primer municipio del país en recibir certificación federal en Técnicas y Tácticas de Reacción, con cursos intensivos de 180 horas impartidos por la SSPC. Durante la clausura anuncia un aumento salarial del 30% a policías, incremento del seguro de vida de 300 a 500 mil pesos, acceso a créditos hipotecarios y una beca mensual de 10 mil pesos para aspirantes, reforzando profesionalización y condiciones laborales."
         },
         {
-          "alcance": 8,
-          "titulo": "Ciudad Juárez como polo cultural y de espectáculos de alto nivel",
+          "alcance": 19,
+          "titulo": "Mejora de vialidades y entrega de calles dignas en colonias",
           "metricas": {
-            "likes": 4584,
-            "views": 207330
+            "likes": 1217,
+            "views": 140058
           },
-          "descripcion": "La ciudad es presentada como una plaza clave para el entretenimiento: llegan shows como ‘Divas Despechadas’ desde CDMX, el musical ‘Mentiras’, el Icónica Tour de Yuri en el Gimnasio Universitario, circos, rodeos, festivales country, funciones de box como Ring Royal y presentaciones de artistas como Larry Hernández. Esto posiciona a Ciudad Juárez como referente cultural y de ocio en la frontera."
+          "descripcion": "Se reconoce a Betzabé Martínez por vincular la transformación con obras cotidianas: la pavimentación de la avenida Nacional en la colonia Felipe Ángeles y la calle La Cascada en Ampliación Santa Rosa, así como el bacheo en la calle 21 de Filadelfia. Además, se comunican jornadas permanentes de rehabilitación de calles en diversos sectores, destacando entregas en tiempo y forma para beneficio directo de las familias."
         },
         {
-          "alcance": 2,
-          "titulo": "Participación comunitaria y mejora del entorno con ‘Juárez Amanece Limpio’",
+          "alcance": 18,
+          "titulo": "Atención prioritaria al drenaje, saneamiento y limpieza de la ciudad",
           "metricas": {
-            "likes": 853,
-            "views": 55257
+            "likes": 1567,
+            "views": 125540
           },
-          "descripcion": "El programa ‘Juárez Amanece Limpio’ es reconocido por involucrar a vecinas, vecinos y autoridades en jornadas de limpieza en colonias como División del Norte, El Vergel y Parques Praderas del Pacífico, además de otras 10 colonias. Las publicaciones resaltan el trabajo hombro a hombro, la recuperación de espacios y el orgullo de ver a Juárez “amanecer impecable”."
+          "descripcion": "La presidenta Betzabé Martínez asume el drenaje como principal preocupación ciudadana, supervisando personalmente el cárcamo de Urbi Villas dentro del Plan Integral de Transformación Sanitaria. Anuncia más de 50 metros de nueva tubería pluvial, acciones de desazolve en distintos puntos y la modernización del servicio de recolección de basura, posicionando un Gómez Palacio más limpio y con menor riesgo de inundaciones."
         },
         {
-          "alcance": 1,
-          "titulo": "Respuesta policial efectiva y protección a la niñez en situaciones de riesgo",
+          "alcance": 7,
+          "titulo": "Agenda de género: empoderamiento de mujeres y prevención de la violencia",
           "metricas": {
-            "likes": 483,
-            "views": 40230
+            "likes": 474,
+            "views": 47655
           },
-          "descripcion": "Diversas publicaciones narran una persecución policial en la zona de Las Torres tras la denuncia ciudadana por la presunta privación de la libertad de una menor. Agentes de la Policía Municipal de Ciudad Juárez rastrean un Kia Río rojo hasta lograr el rescate de la niña y la detención de un implicado, reforzando la percepción de capacidad de respuesta y protección a la niñez."
+          "descripcion": "Bajo el gobierno de Betzabé Martínez se impulsa un trabajo transversal en favor de las mujeres: conferencias motivacionales como “Creencias que te limitan” para trabajadoras municipales, el Bazar Impulsa Mujer con 66 emprendedoras, jornadas de baile fitness y bailatones, formación de moños morados con instituciones educativas y programas del DIF e Instituto Municipal de la Mujer orientados a nuevas masculinidades y prevención integral de la violencia contra niñas y mujeres."
+        },
+        {
+          "alcance": 6,
+          "titulo": "Cuidado de espacios públicos, salud comunitaria y servicios para la vida diaria",
+          "metricas": {
+            "likes": 510,
+            "views": 46227
+          },
+          "descripcion": "La gestión municipal de Betzabé es reconocida por dignificar espacios donde viven y conviven las familias: construcción de 125 fosas de tres niveles y un columbario con 500 nichos en el Panteón Municipal y en el ejido El Vergel; mantenimiento y limpieza de la Plaza Inmaculada y del Centro Deportivo Galindo; huertos familiares en la Villa de Gregorio García; campañas de salud visual gratuita, protección del Área Natural Protegida del Sarnoso y atracción de eventos deportivos de alto nivel como funciones de box WBC."
         }
       ],
       "resumenOportunidades": {
@@ -1833,27 +2033,27 @@
         "recomendacion": ""
       },
       "topOportunidades": [],
-      "newsCount": 111,
+      "newsCount": 63,
       "top5MediosRecurrentes": [
         {
           "nombre": "oem.com.mx",
-          "menciones": 21
+          "menciones": 15
         },
         {
-          "nombre": "juarez.gob.mx",
-          "menciones": 19
+          "nombre": "elsiglodetorreon.com.mx",
+          "menciones": 11
         },
         {
-          "nombre": "adiario.mx",
+          "nombre": "yodeportivo.com",
           "menciones": 7
         },
         {
-          "nombre": "nmas.com.mx",
-          "menciones": 6
+          "nombre": "noticierosgrem.com.mx",
+          "menciones": 7
         },
         {
-          "nombre": "puentelibre.mx",
-          "menciones": 6
+          "nombre": "milenio.com",
+          "menciones": 5
         }
       ]
     }

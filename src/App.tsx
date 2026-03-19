@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import TabTOC from './components/tabs/TabTOC';
 import TabScorecard from './components/tabs/TabScorecard';
-import TabSentimiento from './components/tabs/TabSentimiento';
 import TabAlcance from './components/tabs/TabAlcance';
 import TabAprobacion from './components/tabs/TabAprobacion';
 import TabReconocimientosTransparencia from './components/tabs/TabReconocimientosTransparencia';
@@ -14,7 +13,6 @@ import { useReportContext } from './context/ReportContext';
 const TABS = [
   { id: 'toc',             label: 'Tabla de Contenidos',          Component: TabTOC },
   { id: 'scorecard',       label: 'Scorecard',                    Component: TabScorecard, hidden: true },
-  { id: 'sentimiento',     label: 'Sentimiento',                  Component: TabSentimiento },
   { id: 'aprobacion',      label: 'Aprobación Ciudadana',         Component: TabAprobacion },
   { id: 'alcance',         label: 'Alcance y Cobertura',             Component: TabAlcance },
   { id: 'reconocimientos', label: 'Reconocimientos y Transparencia', Component: TabReconocimientosTransparencia },

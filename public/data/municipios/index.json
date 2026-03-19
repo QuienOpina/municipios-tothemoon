@@ -1,12 +1,6 @@
 {
   "municipios": [
     {
-      "slug": "gomez-palacio",
-      "nombre": "Gómez Palacio",
-      "periodo": "11–16 Mar 2026",
-      "report_id": "d2c4d142-9aec-4a57-bf16-ae9135066b65"
-    },
-    {
       "slug": "leon",
       "nombre": "León",
       "periodo": "11–16 Mar 2026",
@@ -17,6 +11,12 @@
       "nombre": "Ciudad Juárez",
       "periodo": "11–16 Mar 2026",
       "report_id": "645c8d5c-7e65-4f75-8d17-60f6d7693a8a"
+    },
+    {
+      "slug": "gomez-palacio",
+      "nombre": "Gómez Palacio",
+      "periodo": "11–16 Mar 2026",
+      "report_id": "d2c4d142-9aec-4a57-bf16-ae9135066b65"
     }
   ]
 }

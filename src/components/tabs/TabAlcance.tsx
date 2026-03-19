@@ -2,9 +2,10 @@ import { useMemo } from 'react';
 import ChartJSWrapper from '../charts/ChartJSWrapper';
 import { useReport } from '../../data/dgoData';
 
-const GOLD = '#e8a020';
-const GREEN = '#1a9650';
-const ORANGE = '#e85d20';
+const GOLD    = '#e8a020';
+const GREEN   = '#1a9650';
+const ORANGE  = '#e85d20';
+const TEAL    = '#0d7377';
 
 const MENTION_SOURCES_STYLE: { icon: string; bg: string; barColor?: string }[] = [
   { icon: '📸', bg: '#fce4ec', barColor: '#e91e8c' },
@@ -15,7 +16,7 @@ const MENTION_SOURCES_STYLE: { icon: string; bg: string; barColor?: string }[] =
 ];
 
 export default function TabAlcance() {
-  const { mentionsBySource, top5MediosRecurrentes, topPersonasMencionadas, topDependenciasMencionadas, topPublicacionesImpacto, botsVsReal, followersActual, scorecardPeriodoAnterior, seguidoresTrend, periodo } = useReport()
+  const { mentionsBySource, top5MediosRecurrentes, topPersonasMencionadas, topDependenciasMencionadas, topPublicacionesImpacto, botsVsReal, followersActual, scorecardPeriodoAnterior, seguidoresTrend, periodo, topTemas, topEventos } = useReport()
   const totalMentions = mentionsBySource.reduce((s, m) => s + m.mentions, 0);
 
   const chartPersonas = useMemo(
@@ -70,6 +71,60 @@ export default function TabAlcance() {
       },
     }),
     []
+  );
+
+  const chartTemas = useMemo(
+    () => ({
+      type: 'bar' as const,
+      data: {
+        labels: topTemas.map((t) => t.tema),
+        datasets: [
+          {
+            label: 'Menciones',
+            data: topTemas.map((t) => t.mentions),
+            backgroundColor: TEAL + 'cc',
+            borderRadius: 4,
+          },
+        ],
+      },
+      options: {
+        indexAxis: 'y' as const,
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { color: '#f0f2f5' }, border: { dash: [4, 4] } },
+          y: { grid: { display: false }, ticks: { maxRotation: 0, autoSkip: false } },
+        },
+      },
+    }),
+    [topTemas]
+  );
+
+  const chartEventos = useMemo(
+    () => ({
+      type: 'bar' as const,
+      data: {
+        labels: topEventos.map((e) => e.evento),
+        datasets: [
+          {
+            label: 'Menciones',
+            data: topEventos.map((e) => e.mentions),
+            backgroundColor: GOLD + 'cc',
+            borderRadius: 4,
+          },
+        ],
+      },
+      options: {
+        indexAxis: 'y' as const,
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { color: '#f0f2f5' }, border: { dash: [4, 4] } },
+          y: { grid: { display: false }, ticks: { maxRotation: 0, autoSkip: false } },
+        },
+      },
+    }),
+    [topEventos]
   );
 
   const chartBotsVsReal = useMemo(
@@ -217,7 +272,7 @@ export default function TabAlcance() {
       <div className="mentions-grid" style={{ marginBottom: 24 }}>
         <div className="card">
           <div className="card-header">
-            <div className="card-title">Top Personas del Municipio más mencionadas</div>
+            <div className="card-title">Personas</div>
             <div className="card-question">¿Qué figuras públicas y actores aparecen más en la conversación?</div>
           </div>
           <div className="card-body">
@@ -229,12 +284,39 @@ export default function TabAlcance() {
 
         <div className="card">
           <div className="card-header mid">
-            <div className="card-title">Top Dependencias del Municipio más mencionadas</div>
+            <div className="card-title">Organizaciones</div>
             <div className="card-question">¿Qué áreas y dependencias municipales concentran más menciones?</div>
           </div>
           <div className="card-body">
             <div className="chart-wrap chart-wrap-tall">
               <ChartJSWrapper config={chartDependencias} />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Top Temas + Top Eventos */}
+      <div className="mentions-grid" style={{ marginBottom: 24 }}>
+        <div className="card">
+          <div className="card-header">
+            <div className="card-title">Top Temas del período</div>
+            <div className="card-question">¿Sobre qué temas está hablando la ciudadanía?</div>
+          </div>
+          <div className="card-body">
+            <div className="chart-wrap chart-wrap-tall">
+              <ChartJSWrapper config={chartTemas} />
+            </div>
+          </div>
+        </div>
+
+        <div className="card">
+          <div className="card-header mid">
+            <div className="card-title">Top Eventos del período</div>
+            <div className="card-question">¿Qué eventos concentraron más conversación?</div>
+          </div>
+          <div className="card-body">
+            <div className="chart-wrap chart-wrap-tall">
+              <ChartJSWrapper config={chartEventos} />
             </div>
           </div>
         </div>
