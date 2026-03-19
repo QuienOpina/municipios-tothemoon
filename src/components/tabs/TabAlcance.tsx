@@ -16,7 +16,7 @@ const MENTION_SOURCES_STYLE: { icon: string; bg: string; barColor?: string }[] =
 ];
 
 export default function TabAlcance() {
-  const { mentionsBySource, top5MediosRecurrentes, topPersonasMencionadas, topDependenciasMencionadas, topPublicacionesImpacto, botsVsReal, followersActual, scorecardPeriodoAnterior, seguidoresTrend, periodo, topTemas, topEventos } = useReport()
+  const { mentionsBySource, top5MediosRecurrentes, topPersonasMencionadas, topDependenciasMencionadas, topPublicacionesImpacto, botsVsReal, followersActual, seguidoresTrend, periodo, topTemas, topEventos } = useReport()
   const totalMentions = mentionsBySource.reduce((s, m) => s + m.mentions, 0);
 
   const chartPersonas = useMemo(
