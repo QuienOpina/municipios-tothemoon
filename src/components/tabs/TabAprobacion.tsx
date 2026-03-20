@@ -65,8 +65,6 @@ export default function TabAprobacion() {
   const diffPositivo = prevPositivo !== undefined ? positivoActual - prevPositivo : positivoActual;
   const diffNegativo = prevNegativo !== undefined ? negativoActual - prevNegativo : negativoActual;
   const diffNeutral = prevNeutral !== undefined ? neutralActual - prevNeutral : neutralActual;
-  
-  const diffAprobacion = citizenApproval - scorecardPeriodoAnterior.citizenApproval;
 
   // Determinar qué plataformas y datos usar (JSON dinámico con fallback)
   const hasSentimentByPlatform = Object.keys(sentimentByPlatform).length > 0;
