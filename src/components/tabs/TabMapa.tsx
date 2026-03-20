@@ -221,7 +221,7 @@ export default function TabMapa() {
                 <button
                   onClick={() => setSelectedCat(null)}
                   style={{
-                    background: 'none', border: 'none', cursor: 'pointer',
+                    border: 'none', cursor: 'pointer',
                     fontSize: '10px', color: '#1565c0', fontWeight: 700,
                     padding: '2px 6px', borderRadius: 8,
                     background: '#e3f0ff',

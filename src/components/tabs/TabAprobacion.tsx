@@ -48,7 +48,7 @@ const FALLBACK_SENTIMENT_BY_PLATFORM: Record<string, { positive: number; neutral
 };
 
 export default function TabAprobacion() {
-  const { citizenApproval, scorecardPeriodoAnterior, approvalTrend, serviceApprovals, sentimentKPI, periodo, sentimentByPlatform } = useReport()
+  const { scorecardPeriodoAnterior, approvalTrend, serviceApprovals, sentimentKPI, periodo, sentimentByPlatform } = useReport()
   const [hoveredCard, setHoveredCard] = useState<'positive' | 'negative' | 'neutral' | null>(null);
   
   // Valores actuales del sentimiento (suman 100%)
