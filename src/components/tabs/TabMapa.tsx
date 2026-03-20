@@ -67,6 +67,10 @@ function buildPopupHtml(item: QuejaUbicacion): string {
       ? `<p style="margin:6px 0 0;font-size:11px;color:#888;">+${item.posts.length - 5} quejas más en esta ubicación</p>`
       : '';
 
+  const categoriaLabel = item.categoria
+    ? `<p style="margin:0 0 6px;font-size:10px;color:#888;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">${item.categoria}</p>`
+    : '';
+
   return (
     `<div style="max-width:340px;font-family:Outfit,sans-serif;padding:4px 0;">` +
     `<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">` +
@@ -74,6 +78,7 @@ function buildPopupHtml(item: QuejaUbicacion): string {
     `font-size:11px;font-weight:700;text-transform:uppercase;">${nivelLabel}</span>` +
     `<span style="font-size:11px;color:#6b7d8c;">${item.count} queja${item.count !== 1 ? 's' : ''}</span>` +
     `</div>` +
+    categoriaLabel +
     `<p style="margin:0 0 4px;font-size:12px;font-weight:600;color:#1a2c3d;">${item.location_original}</p>` +
     postsHtml +
     moreLabel +
@@ -89,7 +94,7 @@ declare global {
 }
 
 export default function TabMapa() {
-  const { quejasPorUbicacion, quejasPorCategoria } = useReport();
+  const { quejasPorUbicacion, quejasPorCategoria, quejasSinCoordenadas } = useReport();
   const mapRef         = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<google.maps.Map | null>(null);
 
@@ -198,6 +203,41 @@ export default function TabMapa() {
                 </div>
               );
             })}
+
+            {/* Nivel de marcador */}
+            <div style={{ marginTop: 12, paddingTop: 10, borderTop: '1px solid #e8edf2' }}>
+              <h3 style={{ margin: '0 0 8px', fontSize: '11px', fontWeight: 700, color: '#1a2c3d' }}>
+                Nivel de queja
+              </h3>
+              {Object.entries(NIVEL_COLOR).map(([nivel, hex]) => (
+                <div key={nivel} className="map-legend-item">
+                  <span className="map-legend-dot" style={{ background: hex }} />
+                  <span style={{ textTransform: 'capitalize', fontSize: '11px' }}>{nivel}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Quejas sin geolocalizar */}
+            {quejasSinCoordenadas.length > 0 && (
+              <div style={{ marginTop: 10, paddingTop: 10, borderTop: '1px solid #e8edf2' }}>
+                <h3 style={{ margin: '0 0 6px', fontSize: '11px', fontWeight: 700, color: '#6b7d8c' }}>
+                  Sin geolocalizar
+                </h3>
+                {quejasSinCoordenadas.map((c) => (
+                  <div
+                    key={c.categoria}
+                    style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px', gap: '8px' }}
+                  >
+                    <span style={{ fontSize: '10px', color: '#6b7d8c', flex: 1, lineHeight: 1.3 }}>
+                      {c.categoria}
+                    </span>
+                    <span style={{ fontSize: '10px', color: '#9aaab4', fontWeight: 700, flexShrink: 0 }}>
+                      {c.count}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
           </>
         ) : (
           <>

@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import ChartJSWrapper from '../charts/ChartJSWrapper';
 import { useReport } from '../../data/dgoData';
 
@@ -12,6 +12,32 @@ const PLATFORM_ORDER_CHART = PLATFORM_ORDER.filter((p) => p !== 'Google News');
 // Etiqueta a mostrar en la gráfica (X en vez de Twitter/X)
 const PLATFORM_LABEL: Record<string, string> = { 'Twitter/X': 'X' };
 
+// Comentarios hardcodeados para los tooltips de sentimiento
+const SENTIMENT_COMMENTS = {
+  positive: [
+    "Usuarios valoran programas municipales que entregan calzado escolar y mensajes ambientales, percibiendo apoyo directo a niñas, niños y educación.",
+    "El aumento salarial, seguro de vida mejorado y capacitación policial generan percepción de dignificación laboral y fortalecimiento de la seguridad.",
+    "Comentarios resaltan a Betzabé Martínez como presidenta trabajadora, cercana a la gente, con carisma hacia infancia y presencia constante.",
+    "Se reconoce el impulso municipal a mujeres mediante conferencias motivacionales, actividades recreativas y símbolos colectivos de lucha y unión.",
+    "La coordinación con gobierno federal y programas como La Escuela es Nuestra se perciben como respaldo importante al desarrollo local.",
+    "La participación conjunta de ciudadanía, diputaciones y ayuntamiento en obras como luminarias refuerza percepción de comunidad organizada y responsable.",
+  ],
+  negative: [
+    "Frecuentes quejas por baches, drenajes colapsados y alcantarillas deficientes alimentan percepción de abandono urbano y mala gestión básica.",
+    "Habitantes reportan desabasto prolongado de agua potable en colonias específicas, exigiendo priorizar soluciones hidráulicas sobre obras cosméticas.",
+    "Noticias de balaceras, amenazas en escuelas, objetos explosivos y actividad de punteros refuerzan sensación de inseguridad persistente en Gómez Palacio.",
+    "Comentarios acusan corrupción municipal y policial, mencionando cuotas a transportistas, extorsiones, abusos en moteles y desconfianza hacia servidores públicos.",
+    "Algunos consideran que la presidenta prioriza publicidad, fotografías y lealtad partidista, mientras persisten problemas de infraestructura, servicios y rezago urbano.",
+    "Denuncias sobre maltrato en control canino y presunta negligencia médica local generan críticas a supervisión municipal en salud y bienestar.",
+  ],
+  neutral: [
+    "Varios usuarios comparten notas policiacas, accidentes y hallazgos extraños en Gómez Palacio solo como información, sin emitir juicios explícitos.",
+    "Hay comentarios que formulan peticiones específicas sobre carreteras, turnos escolares o servicios, manteniendo tono respetuoso y expectativa moderada de respuesta.",
+    "Algunos comparan Gómez Palacio con municipios vecinos en infraestructura y prestaciones laborales, describiendo diferencias sin culpar directamente a autoridades actuales.",
+    "Relatos sobre atención en instituciones de salud locales mezclan experiencias favorables y críticas, generando evaluación matizada del contexto médico municipal.",
+  ],
+};
+
 // Fallback hardcodeado — se usa solo si sentimentByPlatform viene vacío del JSON
 const FALLBACK_SENTIMENT_BY_PLATFORM: Record<string, { positive: number; neutral: number; negative: number }> = {
   Instagram:    { positive: 83, neutral: 12, negative: 5  },
@@ -23,6 +49,23 @@ const FALLBACK_SENTIMENT_BY_PLATFORM: Record<string, { positive: number; neutral
 
 export default function TabAprobacion() {
   const { citizenApproval, scorecardPeriodoAnterior, approvalTrend, serviceApprovals, sentimentKPI, periodo, sentimentByPlatform } = useReport()
+  const [hoveredCard, setHoveredCard] = useState<'positive' | 'negative' | 'neutral' | null>(null);
+  
+  // Valores actuales del sentimiento (suman 100%)
+  const positivoActual = Math.round(sentimentKPI.positive);
+  const negativoActual = Math.round(sentimentKPI.negative);
+  const neutralActual = Math.round(sentimentKPI.neutral);
+  
+  // Comparaciones con período anterior
+  // Si no hay datos del período anterior (undefined), la diferencia será el valor actual completo
+  const prevPositivo = scorecardPeriodoAnterior.sentimentPositive;
+  const prevNegativo = scorecardPeriodoAnterior.sentimentNegative;
+  const prevNeutral = scorecardPeriodoAnterior.sentimentNeutral;
+  
+  const diffPositivo = prevPositivo !== undefined ? positivoActual - prevPositivo : positivoActual;
+  const diffNegativo = prevNegativo !== undefined ? negativoActual - prevNegativo : negativoActual;
+  const diffNeutral = prevNeutral !== undefined ? neutralActual - prevNeutral : neutralActual;
+  
   const diffAprobacion = citizenApproval - scorecardPeriodoAnterior.citizenApproval;
 
   // Determinar qué plataformas y datos usar (JSON dinámico con fallback)
@@ -43,15 +86,17 @@ export default function TabAprobacion() {
     return max > 0 && max <= 10 ? 10 : 1;
   }, [platformDataKeys, byPlatform]);
 
-  // Derivar tabla de áreas desde serviceApprovals — solo áreas con quejas reales (neg > 0)
+  // Derivar tabla de áreas desde serviceApprovals — solo áreas con quejas reales (count > 0)
+  // Ordenadas de mayor a menor count (las más mencionadas primero)
+  const maxCount = serviceApprovals.reduce((m, s) => Math.max(m, s.count ?? 0), 1);
   const ACTORS_SHORT = serviceApprovals
     .map((s) => ({
-      name: s.service,
-      pos: Math.round(s.approval),
-      neg: Math.round(100 - s.approval),
+      name:  s.service,
+      neg:   Math.round(100 - s.approval),
+      count: s.count ?? 0,
     }))
-    .filter((a) => a.neg > 0)
-    .sort((a, b) => b.pos - a.pos);
+    .filter((a) => a.count > 0)
+    .sort((a, b) => b.count - a.count);
 
   const chartAprobacionTrend = useMemo(
     () => ({
@@ -142,25 +187,167 @@ export default function TabAprobacion() {
       <div className="section-label">Aprobación Ciudadana · {periodo}</div>
 
       <div className="grid g3" style={{ marginBottom: 24 }}>
-        <div className="kpi-card accent-green">
-          <div className="kpi-label">Aprobación (entre quienes opinan)</div>
-          <div className="kpi-value">{Math.round(citizenApproval)}%</div>
-          <span className={`kpi-delta ${diffAprobacion >= 0 ? 'up' : 'down'}`}>
-            {diffAprobacion >= 0 ? '▲' : '▼'} {Math.round(Math.abs(diffAprobacion))} pts
-          </span>
-          <span className="kpi-period">vs. período anterior</span>
+        <div 
+          style={{ position: 'relative', overflow: 'visible' }}
+          onMouseEnter={() => setHoveredCard('positive')}
+          onMouseLeave={() => setHoveredCard(null)}
+        >
+          <div 
+            className="kpi-card accent-green"
+            style={{ cursor: 'pointer' }}
+          >
+            <div className="kpi-label">Positivo</div>
+            <div className="kpi-value">{positivoActual}%</div>
+            <span className={`kpi-delta ${diffPositivo >= 0 ? 'up' : 'down'}`}>
+              {diffPositivo >= 0 ? '▲' : '▼'} {Math.round(Math.abs(diffPositivo))} pts
+            </span>
+            <span className="kpi-period">vs. período anterior</span>
+          </div>
+          {hoveredCard === 'positive' && (
+            <div
+              style={{
+                position: 'absolute',
+                top: '100%',
+                left: 0,
+                right: 0,
+                marginTop: '8px',
+                background: 'var(--card)',
+                border: '1px solid var(--border)',
+                borderRadius: '8px',
+                padding: '16px',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                zIndex: 1000,
+              }}
+            >
+              <div
+                style={{
+                  color: 'var(--positive)',
+                  fontSize: '14px',
+                  fontWeight: 600,
+                  marginBottom: '12px',
+                  paddingBottom: '8px',
+                  borderBottom: '1px solid var(--border)',
+                }}
+              >
+                Comentarios Positivos:
+              </div>
+              <ul style={{ margin: 0, paddingLeft: '20px' }}>
+                {SENTIMENT_COMMENTS.positive.map((comment, idx) => (
+                  <li key={idx} style={{ marginBottom: '10px', fontSize: '13px', lineHeight: '1.6', color: 'var(--text)' }}>
+                    {comment}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
-        <div className="kpi-card accent-red">
-          <div className="kpi-label">Rechazo (entre quienes opinan)</div>
-          <div className="kpi-value">{Math.round(100 - citizenApproval)}%</div>
-          <span className="kpi-delta down">▼ pico último día</span>
-          <span className="kpi-period">del período</span>
+        <div 
+          style={{ position: 'relative', overflow: 'visible' }}
+          onMouseEnter={() => setHoveredCard('negative')}
+          onMouseLeave={() => setHoveredCard(null)}
+        >
+          <div 
+            className="kpi-card accent-red"
+            style={{ cursor: 'pointer' }}
+          >
+            <div className="kpi-label">Negativo</div>
+            <div className="kpi-value">{negativoActual}%</div>
+            <span className={`kpi-delta ${diffNegativo >= 0 ? 'up' : 'down'}`}>
+              {diffNegativo >= 0 ? '▲' : '▼'} {Math.round(Math.abs(diffNegativo))} pts
+            </span>
+            <span className="kpi-period">vs. período anterior</span>
+          </div>
+          {hoveredCard === 'negative' && (
+            <div
+              style={{
+                position: 'absolute',
+                top: '100%',
+                left: 0,
+                right: 0,
+                marginTop: '8px',
+                background: 'var(--card)',
+                border: '1px solid var(--border)',
+                borderRadius: '8px',
+                padding: '16px',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                zIndex: 1000,
+              }}
+            >
+              <div
+                style={{
+                  color: 'var(--negative)',
+                  fontSize: '14px',
+                  fontWeight: 600,
+                  marginBottom: '12px',
+                  paddingBottom: '8px',
+                  borderBottom: '1px solid var(--border)',
+                }}
+              >
+                Comentarios Negativos:
+              </div>
+              <ul style={{ margin: 0, paddingLeft: '20px' }}>
+                {SENTIMENT_COMMENTS.negative.map((comment, idx) => (
+                  <li key={idx} style={{ marginBottom: '10px', fontSize: '13px', lineHeight: '1.6', color: 'var(--text)' }}>
+                    {comment}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
-        <div className="kpi-card accent-gold">
-          <div className="kpi-label">Sin Opinión (neutral)</div>
-          <div className="kpi-value">{Math.round(sentimentKPI.neutral)}%</div>
-          <span className="kpi-delta neutral">→ mayoría del total</span>
-          <span className="kpi-period">del total de menciones</span>
+        <div 
+          style={{ position: 'relative', overflow: 'visible' }}
+          onMouseEnter={() => setHoveredCard('neutral')}
+          onMouseLeave={() => setHoveredCard(null)}
+        >
+          <div 
+            className="kpi-card accent-gold"
+            style={{ cursor: 'pointer' }}
+          >
+            <div className="kpi-label">Neutral</div>
+            <div className="kpi-value">{neutralActual}%</div>
+            <span className={`kpi-delta ${diffNeutral >= 0 ? 'up' : 'down'}`}>
+              {diffNeutral >= 0 ? '▲' : '▼'} {Math.round(Math.abs(diffNeutral))} pts
+            </span>
+            <span className="kpi-period">vs. período anterior</span>
+          </div>
+          {hoveredCard === 'neutral' && (
+            <div
+              style={{
+                position: 'absolute',
+                top: '100%',
+                left: 0,
+                right: 0,
+                marginTop: '8px',
+                background: 'var(--card)',
+                border: '1px solid var(--border)',
+                borderRadius: '8px',
+                padding: '16px',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                zIndex: 1000,
+              }}
+            >
+              <div
+                style={{
+                  color: 'var(--gold)',
+                  fontSize: '14px',
+                  fontWeight: 600,
+                  marginBottom: '12px',
+                  paddingBottom: '8px',
+                  borderBottom: '1px solid var(--border)',
+                }}
+              >
+                Comentarios Neutrales:
+              </div>
+              <ul style={{ margin: 0, paddingLeft: '20px' }}>
+                {SENTIMENT_COMMENTS.neutral.map((comment, idx) => (
+                  <li key={idx} style={{ marginBottom: '10px', fontSize: '13px', lineHeight: '1.6', color: 'var(--text)' }}>
+                    {comment}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
 
@@ -176,9 +363,8 @@ export default function TabAprobacion() {
                 <tr>
                   <th style={{ width: 36 }}>#</th>
                   <th>Área / Dependencia</th>
-                  <th className="bar-cell">Distribución (a favor / en contra)</th>
-                  <th>A favor</th>
-                  <th>En contra</th>
+                  <th className="bar-cell">Quejas ciudadanas</th>
+                  <th>Quejas</th>
                 </tr>
               </thead>
               <tbody>
@@ -189,16 +375,15 @@ export default function TabAprobacion() {
                       <span className="actor-name">{a.name}</span>
                     </td>
                     <td className="bar-cell">
-                      <div className="bar-track bar-track-stacked">
-                        <div className="bar-fill pos" style={{ width: `${a.pos}%` }} />
-                        <div className="bar-fill neg" style={{ width: `${a.neg}%` }} />
+                      <div className="bar-track">
+                        <div
+                          className="bar-fill neg"
+                          style={{ width: `${Math.round((a.count / maxCount) * 100)}%` }}
+                        />
                       </div>
                     </td>
                     <td>
-                      <span className="pct-badge pos">{a.pos}%</span>
-                    </td>
-                    <td>
-                      <span className="pct-badge neg">{a.neg}%</span>
+                      <span className="pct-badge neg">{a.count}</span>
                     </td>
                   </tr>
                 ))}

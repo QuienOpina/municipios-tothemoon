@@ -68,6 +68,7 @@ export interface ApprovalTrend {
 export interface ServiceApproval {
   service: string;
   approval: number;
+  count?: number;
 }
 
 export interface Actor {
@@ -102,6 +103,7 @@ export interface QuejaUbicacion {
   lat?: number;
   lng?: number;
   count: number;
+  categoria?: string;
   posts: QuejaPost[];
 }
 
@@ -160,6 +162,10 @@ export function useReport() {
     const _dia = t.scorecard?.scorecardDiaAnterior as Record<string, number> | undefined;
     const scorecardPeriodoAnterior = {
       sentimentPositive: _dia?.sentimentPositive ?? sentimentKPI.positive,
+      // Usar los valores del período anterior si están disponibles, de lo contrario undefined
+      // Esto permite que el frontend detecte cuando no hay datos previos
+      sentimentNegative: _dia?.sentimentNegative,
+      sentimentNeutral: _dia?.sentimentNeutral,
       socialMentions:    _dia?.socialMentions    ?? socialMentions,
       interactionRate:   _dia?.interactionRate   ?? interactionRate,
       citizenApproval:   _dia?.citizenApproval   ?? citizenApproval,
@@ -196,6 +202,8 @@ export function useReport() {
       (t.mapa?.quejasPorUbicacion ?? []) as QuejaUbicacion[];
     const quejasPorCategoria: QuejaCategoria[] =
       (t.mapa?.quejasPorCategoria ?? []) as QuejaCategoria[];
+    const quejasSinCoordenadas: QuejaCategoria[] =
+      (t.mapa?.quejasSinCoordenadas ?? []) as QuejaCategoria[];
 
     // ── Reconocimientos ────────────────────────────────────────────────
     const reconocimientosTemas: ReconocimientoTema[] =
@@ -218,7 +226,7 @@ export function useReport() {
       mentionsBySource, topPublicacionesImpacto, topPersonasMencionadas,
       topDependenciasMencionadas, top5MediosRecurrentes, botsVsReal, topPeople,
       topTemas, topEventos,
-      quejasPorUbicacion, quejasPorCategoria,
+      quejasPorUbicacion, quejasPorCategoria, quejasSinCoordenadas,
       reconocimientosTemas, resumenOportunidades,
     };
   }, [rawData]);
