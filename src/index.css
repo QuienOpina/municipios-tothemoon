@@ -180,6 +180,45 @@
   .chart-wrap canvas { max-height: 220px; }
   .chart-wrap-tall canvas { max-height: 300px; }
 
+  /* % Bots vs Reales — barra apilada 100% (sin Chart.js) */
+  .bots-vs-real-visual {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .bots-vs-real-split {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 52px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px rgba(27, 79, 98, 0.1);
+  }
+  .bots-vs-real-split-seg {
+    height: 100%;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  }
+  .bots-vs-real-axis {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    padding: 0 4px;
+    letter-spacing: 0.02em;
+  }
+
   .sentiment-bar {
     display: flex;
     border-radius: 6px;
@@ -263,14 +302,26 @@
   .pct-badge.pos { background: #e8f5ec; color: var(--positive); }
   .pct-badge.neg { background: #fde8e8; color: var(--negative); }
 
-  .toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    align-items: stretch;
+  }
   .toc-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    width: 100%;
+    align-self: stretch;
     background: var(--card);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.18s, box-shadow 0.18s;
+    box-sizing: border-box;
   }
   .toc-card:hover {
     transform: translateY(-3px);
@@ -282,6 +333,8 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    flex-shrink: 0;
+    min-height: 4.5rem;
   }
   .toc-header.mid { background: var(--teal-mid); }
   .toc-header.light { background: #2e7f8f; }
@@ -293,8 +346,21 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 13px; font-weight: 700; color: #fff; flex-shrink: 0;
   }
-  .toc-card-title { font-size: 15px; font-weight: 700; color: #fff; }
-  .toc-body { padding: 16px 20px; }
+  .toc-card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    text-align: left;
+  }
+  .toc-body {
+    padding: 16px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    text-align: left;
+  }
   .toc-desc { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 12px; }
   .toc-links { display: flex; flex-direction: column; gap: 6px; }
   .toc-link {

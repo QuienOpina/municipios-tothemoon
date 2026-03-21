@@ -3,7 +3,7 @@ import { useReport } from '../../data/dgoData'
 type TabId = 'toc' | 'scorecard' | 'alcance' | 'aprobacion' | 'reconocimientos' | 'mapa'
 
 const TOC_INDEX: { id: Exclude<TabId, 'toc' | 'scorecard'>; num: number; title: string; desc: string; bullets: string[] }[] = [
-  { id: 'aprobacion', num: 1, title: 'Aprobación Ciudadana', desc: 'Niveles de aprobación y rechazo por área municipal según la percepción en redes y medios.', bullets: ['Áreas municipales (mayor a menor aprobación)', 'Comparativo a favor / en contra', 'Tendencia de aprobación', 'Sentimiento por red social'] },
+  { id: 'aprobacion', num: 1, title: 'Aprobación Ciudadana', desc: 'Niveles de aprobación y rechazo por área municipal según la percepción en redes y medios.', bullets: ['Quejas ciudadanas por categoría detectada', 'Comparativo a favor / en contra', 'Tendencia de aprobación', 'Sentimiento por red social'] },
   { id: 'alcance', num: 2, title: 'Alcance y Cobertura', desc: 'Volumen de menciones distribuido por red social y medio de comunicación, incluyendo noticias y cobertura periodística.', bullets: ['Menciones por red social', 'Menciones en medios y noticias', 'Evolución del alcance'] },
   { id: 'reconocimientos', num: 3, title: 'Reconocimientos y Transparencia', desc: 'Temas de reconocimiento ciudadano y oportunidades de comunicación.', bullets: ['Temas de reconocimiento', 'Oportunidades', 'Transparencia'] },
   { id: 'mapa', num: 4, title: 'Mapa de Quejas', desc: 'Quejas ciudadanas geolocalizadas y distribución por categoría.', bullets: ['Quejas por ubicación', 'Categorías de quejas', 'Nivel de queja'] },
@@ -14,7 +14,7 @@ export default function TabTOC({
 }: {
   onSwitchTab: (id: TabId) => void
 }) {
-  const { socialMentions, interactionRate, citizenApproval, agentSummary, municipio, periodo } = useReport()
+  const { socialMentions, sentimentKPI, totalQuejas, newsCount, agentSummary, municipio, periodo } = useReport()
   return (
     <>
       <div className="toc-hero">
@@ -30,12 +30,16 @@ export default function TabTOC({
             <div className="lbl">Menciones totales</div>
           </div>
           <div className="toc-hero-kpi">
-            <div className="val gold-accent">{interactionRate}%</div>
-            <div className="lbl">Tasa de interacción</div>
+            <div className="val">{Math.round(sentimentKPI.positive)}%</div>
+            <div className="lbl">Aprobación ciudadana</div>
           </div>
           <div className="toc-hero-kpi">
-            <div className="val">{Math.round(citizenApproval)}%</div>
-            <div className="lbl">Aprobación ciudadana</div>
+            <div className="val gold-accent">{totalQuejas}</div>
+            <div className="lbl">Número de quejas</div>
+          </div>
+          <div className="toc-hero-kpi">
+            <div className="val gold-accent">{newsCount}</div>
+            <div className="lbl">Número de noticias</div>
           </div>
         </div>
       </div>

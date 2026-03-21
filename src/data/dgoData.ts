@@ -63,6 +63,7 @@ export interface InteractionTrend {
 export interface ApprovalTrend {
   month: string;
   approval: number;
+  rejection?: number;
 }
 
 export interface ServiceApproval {
@@ -107,9 +108,15 @@ export interface QuejaUbicacion {
   posts: QuejaPost[];
 }
 
+export interface QuejaSinCoordsItem {
+  texto: string;
+  posts: QuejaPost[];
+}
+
 export interface QuejaCategoria {
   categoria: string;
   count: number;
+  items?: QuejaSinCoordsItem[];
 }
 
 export interface ReconocimientoTema {
@@ -125,6 +132,9 @@ export interface ResumenOportunidades {
   posts_analizados: number;
   recomendacion: string;
 }
+
+/** Máximo de ítems en Alcance (personas, orgs, temas, eventos). */
+const TOP_ALCANCE_RANKING = 10;
 
 // ─── Hook principal ────────────────────────────────────────────────────────
 
@@ -152,12 +162,43 @@ export function useReport() {
     const agentSummary: AgentSummary  = t.toc?.agentSummary     ?? { bullets: [], narrativa: '' };
 
     // ── Scorecard ──────────────────────────────────────────────────────
-    const followersActual: number = t.scorecard?.followersActual ?? 0;
-    const newsCount: number       = t.scorecard?.newsCount ?? (t.alcance?.newsCount ?? 0);
+    const newsCount: number = t.scorecard?.newsCount ?? (t.alcance?.newsCount ?? 0);
+
+    // Calcular seguidores por red desde usuariosInternos (ignorar el campo followersActual que puede ser hardcodeado)
+    type UsuarioInterno = { platform: string; username?: string; followers: number };
+    const usuariosInternos: UsuarioInterno[] = (t.scorecard?.usuariosInternos ?? []) as UsuarioInterno[];
+
+    const _redMap: Record<string, number> = {};
+    for (const u of usuariosInternos) {
+      _redMap[u.platform] = (_redMap[u.platform] ?? 0) + u.followers;
+    }
+    const followersPorRed: { platform: string; followers: number }[] = Object.entries(_redMap)
+      .map(([platform, followers]) => ({ platform, followers }))
+      .sort((a, b) => b.followers - a.followers);
+
+    const followersTotal: number = followersPorRed.reduce((s, r) => s + r.followers, 0);
+    // Mantener followersActual como alias calculado (usado en Scorecard)
+    const followersActual: number = followersTotal > 0 ? Math.round(followersTotal / 1000) : (t.scorecard?.followersActual ?? 0);
 
     const interactionTrendData: InteractionTrend[] = t.scorecard?.interactionTrendData ?? [];
     const seguidoresTrend: { date: string; followers: number }[] = t.scorecard?.seguidoresTrend ?? [];
     const socialMentionsTrend: { date: string; mentions: number }[] = t.scorecard?.socialMentionsTrend ?? [];
+
+    type TrendPorRedEntry = { date: string; facebook?: number; tiktok?: number; instagram?: number; twitter?: number; [key: string]: number | string | undefined };
+    const seguidoresTrendPorRed: TrendPorRedEntry[] = (t.scorecard?.seguidoresTrendPorRed ?? []) as TrendPorRedEntry[];
+
+    // Ganancia por red = último valor - primer valor del trend
+    const _redes = ['facebook', 'tiktok', 'instagram', 'twitter'] as const;
+    const gananciaPorRed: Record<string, number> = {};
+    if (seguidoresTrendPorRed.length >= 2) {
+      const first = seguidoresTrendPorRed[0];
+      const last  = seguidoresTrendPorRed[seguidoresTrendPorRed.length - 1];
+      for (const red of _redes) {
+        const v0 = first[red] as number | undefined;
+        const v1 = last[red]  as number | undefined;
+        if (v0 != null && v1 != null) gananciaPorRed[red] = v1 - v0;
+      }
+    }
 
     const _dia = t.scorecard?.scorecardDiaAnterior as Record<string, number> | undefined;
     const scorecardPeriodoAnterior = {
@@ -172,6 +213,11 @@ export function useReport() {
       newsCount,
       followers:         _dia?.followers         ?? followersActual,
     };
+
+    const _followersAnterior = _dia?.followers ?? 0;
+    const deltaFollowers: number | null = (_followersAnterior > 0 && followersActual > 0)
+      ? Math.round(((followersActual - _followersAnterior) / _followersAnterior) * 1000) / 10
+      : null;
 
     // ── Sentimiento ────────────────────────────────────────────────────
     const sentimentTrend: TrendPoint[] = t.sentimiento?.sentimentTrend ?? [];
@@ -189,13 +235,17 @@ export function useReport() {
     // ── Alcance ────────────────────────────────────────────────────────
     const mentionsBySource: SourceMention[]          = t.alcance?.mentionsBySource          ?? [];
     const topPublicacionesImpacto: TopPostImpacto[]  = (t.alcance?.topPublicacionesImpacto  ?? []) as TopPostImpacto[];
-    const topPersonasMencionadas: TopPerson[]        = t.alcance?.topPersonasMencionadas    ?? [];
-    const topDependenciasMencionadas: TopEntity[]    = t.alcance?.topDependenciasMencionadas ?? [];
+    const topPersonasMencionadas: TopPerson[] =
+      (t.alcance?.topPersonasMencionadas ?? []).slice(0, TOP_ALCANCE_RANKING);
+    const topDependenciasMencionadas: TopEntity[] =
+      (t.alcance?.topDependenciasMencionadas ?? []).slice(0, TOP_ALCANCE_RANKING);
     const top5MediosRecurrentes: { nombre: string; menciones: number }[] = t.alcance?.top5MediosRecurrentes ?? [];
     const botsVsReal: { bots: number; real: number } = t.alcance?.botsVsReal ?? { bots: 15, real: 85 };
     const topPeople: TopPerson[]                     = (t.alcance?.topPeople ?? []) as TopPerson[];
-    const topTemas: { tema: string; mentions: number }[]   = t.alcance?.topTemas   ?? [];
-    const topEventos: { evento: string; mentions: number }[] = t.alcance?.topEventos ?? [];
+    const topTemas: { tema: string; mentions: number }[] =
+      (t.alcance?.topTemas ?? []).slice(0, TOP_ALCANCE_RANKING);
+    const topEventos: { evento: string; mentions: number }[] =
+      (t.alcance?.topEventos ?? []).slice(0, TOP_ALCANCE_RANKING);
 
     // ── Mapa ───────────────────────────────────────────────────────────
     const quejasPorUbicacion: QuejaUbicacion[] =
@@ -204,6 +254,7 @@ export function useReport() {
       (t.mapa?.quejasPorCategoria ?? []) as QuejaCategoria[];
     const quejasSinCoordenadas: QuejaCategoria[] =
       (t.mapa?.quejasSinCoordenadas ?? []) as QuejaCategoria[];
+    const totalQuejas: number = quejasPorCategoria.reduce((s, q) => s + (q.count ?? 0), 0);
 
     // ── Reconocimientos ────────────────────────────────────────────────
     const reconocimientosTemas: ReconocimientoTema[] =
@@ -219,14 +270,16 @@ export function useReport() {
     return {
       municipio, periodo,
       socialMentions, sentimentKPI, interactionRate, citizenApproval, agentSummary,
-      followersActual, newsCount, interactionTrendData, seguidoresTrend, socialMentionsTrend,
+      followersActual, followersTotal, followersPorRed, deltaFollowers,
+      seguidoresTrendPorRed, gananciaPorRed,
+      newsCount, interactionTrendData, seguidoresTrend, socialMentionsTrend,
       scorecardPeriodoAnterior,
       sentimentTrend, sentimentByPlatform, topKeywords,
       approvalTrend, serviceApprovals, alliedActors, hostileActors, actorsBalance,
       mentionsBySource, topPublicacionesImpacto, topPersonasMencionadas,
       topDependenciasMencionadas, top5MediosRecurrentes, botsVsReal, topPeople,
       topTemas, topEventos,
-      quejasPorUbicacion, quejasPorCategoria, quejasSinCoordenadas,
+      quejasPorUbicacion, quejasPorCategoria, quejasSinCoordenadas, totalQuejas,
       reconocimientosTemas, resumenOportunidades,
     };
   }, [rawData]);

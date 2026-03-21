@@ -49,17 +49,36 @@ export function ReportProvider({ children }: { children: ReactNode }) {
       .catch(() => {});
   }, []);
 
-  // Cargar report.json del municipio activo cuando cambia la selección
+  // Cargar report.json del municipio activo y fusionar overrides.json si existe
   useEffect(() => {
     if (!activeMunicipio) return;
     setLoading(true);
-    fetch(`/data/municipios/${activeMunicipio}/report.json`)
-      .then((r) => {
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        return r.json();
-      })
-      .then((data) => {
-        setRawData(data as RawReport);
+
+    const reportP  = fetch(`/data/municipios/${activeMunicipio}/report.json`).then((r) => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json();
+    });
+    // overrides.json es opcional — si no existe simplemente se ignora
+    const overrideP = fetch(`/data/municipios/${activeMunicipio}/overrides.json`)
+      .then((r) => (r.ok ? r.json() : null))
+      .catch(() => null);
+
+    Promise.all([reportP, overrideP])
+      .then(([report, overrides]) => {
+        if (overrides?.tabs) {
+          // Fusión superficial por sección de tabs
+          const merged = { ...report };
+          merged.tabs = { ...(report.tabs ?? {}) };
+          for (const [section, values] of Object.entries(overrides.tabs as Record<string, unknown>)) {
+            merged.tabs[section] = {
+              ...(merged.tabs[section] as object ?? {}),
+              ...(values as object),
+            };
+          }
+          setRawData(merged as RawReport);
+        } else {
+          setRawData(report as RawReport);
+        }
         setLoading(false);
       })
       .catch(() => {

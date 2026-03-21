@@ -158,27 +158,33 @@
       "approvalTrend": [
         {
           "month": "11 Mar",
-          "approval": 85
+          "approval": 33,
+          "rejection": 6
         },
         {
           "month": "12 Mar",
-          "approval": 82
+          "approval": 41,
+          "rejection": 9
         },
         {
           "month": "13 Mar",
-          "approval": 67
+          "approval": 24,
+          "rejection": 12
         },
         {
           "month": "14 Mar",
-          "approval": 70
+          "approval": 9,
+          "rejection": 4
         },
         {
           "month": "15 Mar",
-          "approval": 38
+          "approval": 4,
+          "rejection": 7
         },
         {
           "month": "16 Mar",
-          "approval": 50
+          "approval": 11,
+          "rejection": 11
         }
       ],
       "serviceApprovals": [
@@ -241,168 +247,6 @@
     },
     "mapa": {
       "quejasPorUbicacion": [
-        {
-          "location": "Salud Municipal, Gómez Palacio",
-          "location_original": "Salud Municipal, Gómez Palacio",
-          "count": 11,
-          "categoria": "Abuso de Poder, Corrupción y Gestión Municipal",
-          "posts": [
-            {
-              "text": "Empleados del área de Control Canino denuncian abuso de poder y represalias del director de Salud Municipal Luis Bañuelos, con renuncias masivas durante casi 4 meses sin atención de la presidenta Betzabé",
-              "url": "https://www.facebook.com/joshuas78/posts/pfbid0gShiPE1kancBxA7jpnFp2ETTqTqXUv6qJkQZ8zGaad2SoUJaZZrXxdEmiz9iGDJnl",
-              "platform": "Facebook",
-              "username": "Anna Mattel",
-              "nivel": "alto",
-              "emotions": [
-                "enojo",
-                "frustracion",
-                "indignacion",
-                "decepcion",
-                "preocupacion"
-              ]
-            },
-            {
-              "text": "Empleados del área de Control Canino denuncian abuso de poder y represalias del director de Salud Municipal Luis Bañuelos, con renuncias masivas durante casi 4 meses sin atención de la presidenta Betzabé",
-              "url": "https://www.facebook.com/joshuas78/posts/pfbid0gShiPE1kancBxA7jpnFp2ETTqTqXUv6qJkQZ8zGaad2SoUJaZZrXxdEmiz9iGDJnl",
-              "platform": "Facebook",
-              "username": "Anna Mattel",
-              "nivel": "alto",
-              "emotions": [
-                "enojo",
-                "frustracion",
-                "indignacion",
-                "decepcion",
-                "preocupacion"
-              ]
-            },
-            {
-              "text": "Empleados del área de Control Canino denuncian abuso de poder y represalias del director de Salud Municipal Luis Bañuelos, con renuncias masivas durante casi 4 meses sin atención de la presidenta Betzabé",
-              "url": "https://www.facebook.com/reel/1259752282212397/",
-              "platform": "Facebook",
-              "username": "Anna Mattel",
-              "nivel": "alto",
-              "emotions": [
-                "enojo",
-                "frustracion",
-                "indignacion",
-                "preocupacion",
-                "decepcion"
-              ]
-            },
-            {
-              "text": "Empleados del área de Control Canino denuncian abuso de poder y represalias del director de Salud Municipal Luis Bañuelos, con renuncias masivas durante casi 4 meses sin atención de la presidenta Betzabé",
-              "url": "https://www.facebook.com/reel/1259752282212397/",
-              "platform": "Facebook",
-              "username": "Anna Mattel",
-              "nivel": "alto",
-              "emotions": [
-                "enojo",
-                "frustracion",
-                "indignacion",
-                "preocupacion",
-                "decepcion"
-              ]
-            },
-            {
-              "text": "Empleados del área de Control Canino denuncian abuso de poder y represalias del director de Salud Municipal Luis Bañuelos, con renuncias masivas durante casi 4 meses sin atención de la presidenta Betzabé",
-              "url": "https://www.facebook.com/reel/1259752282212397/",
-              "platform": "Facebook",
-              "username": "Anna Mattel",
-              "nivel": "alto",
-              "emotions": [
-                "enojo",
-                "frustracion",
-                "indignacion",
-                "preocupacion",
-                "decepcion"
-              ]
-            },
-            {
-              "text": "Empleados del área de Control Canino denuncian abuso de poder y represalias del director de Salud Municipal Luis Bañuelos, con renuncias masivas durante casi 4 meses sin atención de la presidenta Betzabé",
-              "url": "https://www.facebook.com/DiarioExpresion.net/posts/pfbid02Qc2WCPvXYaxr3TzSER9Xj2wQes8RXyAWYdeUuHWuyhcauK9eAGwwGEfLZ6dtbdERl",
-              "platform": "Facebook",
-              "username": "Anna Mattel",
-              "nivel": "alto",
-              "emotions": [
-                "enojo",
-                "frustracion",
-                "indignacion",
-                "preocupacion",
-                "decepcion"
-              ]
-            },
-            {
-              "text": "Empleados del área de Control Canino denuncian abuso de poder y represalias del director de Salud Municipal Luis Bañuelos, con renuncias masivas durante casi 4 meses sin atención de la presidenta Betzabé",
-              "url": "https://www.facebook.com/DiarioExpresion.net/posts/pfbid02Qc2WCPvXYaxr3TzSER9Xj2wQes8RXyAWYdeUuHWuyhcauK9eAGwwGEfLZ6dtbdERl",
-              "platform": "Facebook",
-              "username": "Anna Mattel",
-              "nivel": "alto",
-              "emotions": [
-                "enojo",
-                "frustracion",
-                "indignacion",
-                "preocupacion",
-                "decepcion"
-              ]
-            },
-            {
-              "text": "Empleados del área de Control Canino denuncian abuso de poder y represalias del director de Salud Municipal Luis Bañuelos, con renuncias masivas durante casi 4 meses sin atención de la presidenta Betzabé",
-              "url": "https://www.facebook.com/DiarioExpresion.net/posts/pfbid02Qc2WCPvXYaxr3TzSER9Xj2wQes8RXyAWYdeUuHWuyhcauK9eAGwwGEfLZ6dtbdERl",
-              "platform": "Facebook",
-              "username": "Anna Mattel",
-              "nivel": "alto",
-              "emotions": [
-                "enojo",
-                "frustracion",
-                "indignacion",
-                "preocupacion",
-                "decepcion"
-              ]
-            },
-            {
-              "text": "Empleados del área de Control Canino denuncian abuso de poder y represalias del director de Salud Municipal Luis Bañuelos, con renuncias masivas durante casi 4 meses sin atención de la presidenta Betzabé",
-              "url": "https://www.facebook.com/RevistaDurangoInformativo/posts/pfbid02CgHmWhS3Fb88DrCoQugfLJ1oZWfATZtcymuCvLfyRhbCZTfktvkt8M9nS71225iCl",
-              "platform": "Facebook",
-              "username": "Anna Mattel",
-              "nivel": "alto",
-              "emotions": [
-                "enojo",
-                "frustracion",
-                "indignacion",
-                "preocupacion",
-                "decepcion"
-              ]
-            },
-            {
-              "text": "Trabajadores del departamento de Salud Municipal acusan al director Bañuelos de dar de baja a elementos sin investigación y tolerar a personal con antecedentes que presuntamente robó cableado en las instalaciones",
-              "url": "https://www.facebook.com/reel/1259752282212397/",
-              "platform": "Facebook",
-              "username": "Anna Mattel",
-              "nivel": "alto",
-              "emotions": [
-                "enojo",
-                "frustracion",
-                "indignacion",
-                "preocupacion",
-                "decepcion"
-              ]
-            },
-            {
-              "text": "Trabajadores del departamento de Salud Municipal acusan al director Bañuelos de dar de baja a elementos sin investigación y tolerar a personal con antecedentes que presuntamente robó cableado en las instalaciones",
-              "url": "https://www.facebook.com/reel/26046317285010120/",
-              "platform": "Facebook",
-              "username": "Anna Mattel",
-              "nivel": "alto",
-              "emotions": [
-                "enojo",
-                "frustracion",
-                "indignacion",
-                "preocupacion",
-                "decepcion"
-              ]
-            }
-          ]
-        },
         {
           "location": "Gómez Palacio",
           "location_original": "Gómez Palacio",
@@ -497,39 +341,6 @@
           "lng": -103.494779
         },
         {
-          "location": "ISSSTE de Gómez Palacio",
-          "location_original": "ISSSTE de Gómez Palacio",
-          "count": 2,
-          "categoria": "Salud Pública",
-          "posts": [
-            {
-              "text": "Múltiples denuncias de negligencia en el ISSSTE de Gómez Palacio reportan abandono de pacientes en terapia intensiva sin atención médica y con varios fallecimientos",
-              "url": "https://www.facebook.com/permalink.php?story_fbid=pfbid0MhQachWfaLWhD3tdpphyqpBeJdtC4RmeJJu8kDU7dHYP7H11w2cr5JEkqjigL56pl&id=100090957070936",
-              "platform": "Facebook",
-              "username": "código-rojo-Gómez-Palacio",
-              "nivel": "alto",
-              "emotions": [
-                "enojo",
-                "miedo",
-                "preocupacion",
-                "indignacion"
-              ]
-            },
-            {
-              "text": "Múltiples denuncias de negligencia en el ISSSTE de Gómez Palacio reportan abandono de pacientes en terapia intensiva sin atención médica y con varios fallecimientos",
-              "url": "https://www.facebook.com/permalink.php?story_fbid=pfbid0MhQachWfaLWhD3tdpphyqpBeJdtC4RmeJJu8kDU7dHYP7H11w2cr5JEkqjigL56pl&id=100090957070936",
-              "platform": "Facebook",
-              "username": "Gálvezz Nancy",
-              "nivel": "alto",
-              "emotions": [
-                "tristeza",
-                "decepcion",
-                "frustracion"
-              ]
-            }
-          ]
-        },
-        {
           "location": "el refugio, Gómez Palacio, Durango, México",
           "location_original": "el refugio",
           "count": 1,
@@ -549,45 +360,6 @@
           ],
           "lat": 25.6818166,
           "lng": -103.4303731
-        },
-        {
-          "location": "bulevares San Carlos en Gómez palacio - campanario 2",
-          "location_original": "bulevares San Carlos en Gómez palacio - campanario 2",
-          "count": 1,
-          "categoria": "Infraestructura y Servicios Públicos",
-          "posts": [
-            {
-              "text": "Vecinos reportan drenajes colapsados y agua sucia en la superficie en colonias San Alberto, El Refugio y fraccionamiento Campanario 2 sobre bulevar San Carlos",
-              "url": "https://www.tiktok.com/@betzabemtza/video/7616227222080212245",
-              "platform": "TikTok",
-              "username": "ingydra",
-              "nivel": "alto",
-              "emotions": [
-                "frustracion",
-                "preocupacion",
-                "enojo"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "Calzada Conquistadores y calle Benito, Miravalle, Gómez Palacio, Durango, México",
-          "location_original": "Calzada Conquistadores y calle Benito, Miravalle",
-          "count": 1,
-          "categoria": "Infraestructura y Servicios Públicos",
-          "posts": [
-            {
-              "text": "Ciudadanos exigen atención al drenaje en Calzada Conquistadores y calle Benito en Miravalle, sin respuesta del municipio",
-              "url": "https://www.facebook.com/ayuntamientogp/posts/pfbid02MytxWqwNV6f2mfT6KfcXGsU5awGDCSLYK8upKGPgpBUxmdv56c69cCKczyYEeaEel",
-              "platform": "Facebook",
-              "username": "Iilyzabit RV",
-              "nivel": "medio",
-              "emotions": [
-                "frustracion",
-                "preocupacion"
-              ]
-            }
-          ]
         },
         {
           "location": "Calle 27 de marzo, Gómez Palacio, Durango, México",
@@ -610,87 +382,6 @@
           ],
           "lat": 25.5600851,
           "lng": -103.4877421
-        },
-        {
-          "location": "La Jaramillo, Gómez Palacio, Durango, México",
-          "location_original": "La Jaramillo",
-          "count": 1,
-          "categoria": "Infraestructura y Servicios Públicos",
-          "posts": [
-            {
-              "text": "Solicitan urgente atención al drenaje y agua potable en calle 27 de marzo y zona La Jaramillo sin atención municipal",
-              "url": "https://www.tiktok.com/@betzabemtza/video/7616227222080212245",
-              "platform": "TikTok",
-              "username": "karladelatorre_0103",
-              "nivel": "medio",
-              "emotions": [
-                "tristeza",
-                "esperanza",
-                "preocupacion"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "fraccionamiento Morelos 1, Gómez Palacio, Durango, México",
-          "location_original": "fraccionamiento Morelos 1",
-          "count": 1,
-          "categoria": "Infraestructura y Servicios Públicos",
-          "posts": [
-            {
-              "text": "Fraccionamiento Morelos 1 acumula años de abandono con lámparas fundidas, baches, aguas negras y áreas verdes llenas de escombro sin atención municipal",
-              "url": "https://www.facebook.com/reel/1592845912006272/",
-              "platform": "Facebook",
-              "username": "Jesus Amaton Grajeda",
-              "nivel": "alto",
-              "emotions": [
-                "enojo",
-                "frustracion",
-                "decepcion",
-                "preocupacion",
-                "indignacion"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "Fracc San Vicente, Gómez Palacio",
-          "location_original": "Fracc San Vicente, Gómez Palacio",
-          "count": 1,
-          "categoria": "Infraestructura y Servicios Públicos",
-          "posts": [
-            {
-              "text": "Basura acumulada durante más de un mes en fraccionamiento San Vicente tras labores de limpieza sin retiro de residuos por parte del municipio",
-              "url": "https://www.facebook.com/ayuntamientogp/posts/pfbid02Sw7tj6XjwGzAsVf3KqBGsioA785BGaFgmk2ymj9Re9hTiHBAJzGThUn9dVkjMM3Fl",
-              "platform": "Facebook",
-              "username": "Crownd JM",
-              "nivel": "medio",
-              "emotions": [
-                "frustracion",
-                "preocupacion"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "Fraccionamiento Morelos 2 - Colonia 15 de Diciembre, Gómez Palacio, Durango, México",
-          "location_original": "Fraccionamiento Morelos 2 - Colonia 15 de Diciembre",
-          "count": 1,
-          "categoria": "Infraestructura y Servicios Públicos",
-          "posts": [
-            {
-              "text": "Colonias fraccionamiento Morelos 2 y 15 de Diciembre llevan semanas esperando fumigación municipal sin respuesta definitiva entre dependencias",
-              "url": "https://www.facebook.com/ayuntamientogp/posts/pfbid0BXnHRG4MU5DQBpqMmYGDGsAwCuNEJk7EPQyBgWZzHx4xEQgKhrcet9DXMREqKV81l",
-              "platform": "Facebook",
-              "username": "NormaPatricia RodriguezMartinez",
-              "nivel": "medio",
-              "emotions": [
-                "frustracion",
-                "enojo",
-                "preocupacion"
-              ]
-            }
-          ]
         },
         {
           "location": "Torremolinos, Gómez Palacio, Durango, México",
@@ -737,26 +428,6 @@
           "lng": -103.5080474
         },
         {
-          "location": "Colonia Felipe angeles, Gómez Palacio, Durango, México",
-          "location_original": "Colonia Felipe angeles",
-          "count": 1,
-          "categoria": "Infraestructura y Servicios Públicos",
-          "posts": [
-            {
-              "text": "Calles en pésimas condiciones en colonia Felipe Ángeles y baches generalizados en diversas zonas de Gómez Palacio sin atención",
-              "url": "https://www.tiktok.com/@betzabemtza/video/7616227222080212245",
-              "platform": "TikTok",
-              "username": "fernandalope65",
-              "nivel": "medio",
-              "emotions": [
-                "frustracion",
-                "indignacion",
-                "preocupacion"
-              ]
-            }
-          ]
-        },
-        {
           "location": "carretera jabonoso-esmeralda, Gómez Palacio, Durango, México",
           "location_original": "carretera jabonoso-esmeralda",
           "count": 1,
@@ -779,68 +450,8 @@
           "lng": -103.4600803
         },
         {
-          "location": "Carretera Arcinas Valle de Eruka, Gómez Palacio, Durango, México",
-          "location_original": "Carretera Arcinas Valle de Eruka",
-          "count": 1,
-          "categoria": "Infraestructura y Servicios Públicos",
-          "posts": [
-            {
-              "text": "Vecinos piden atención urgente a la carretera Jabonoso-Esmeralda y Arcinas-Valle de Eruka, deterioradas por varias administraciones sin solución definitiva",
-              "url": "https://www.tiktok.com/@betzabemtza/video/7616602116848635156",
-              "platform": "TikTok",
-              "username": "user12onnn",
-              "nivel": "medio",
-              "emotions": [
-                "frustracion",
-                "esperanza"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "Periférico en Gómez, Gómez Palacio, Durango, México",
-          "location_original": "Periférico en Gómez",
-          "count": 1,
-          "categoria": "Infraestructura y Servicios Públicos",
-          "posts": [
-            {
-              "text": "Quema de llantas sobre el Periférico de Gómez Palacio genera tráfico y humo afectando a conductores en la zona",
-              "url": "https://www.tiktok.com/@aztecalaguna/video/7617175517430631687",
-              "platform": "TikTok",
-              "username": "aztecalaguna",
-              "nivel": "alto",
-              "emotions": [
-                "preocupacion",
-                "sorpresa"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "Salud Municipal, Gómez Palacio, Durango, México",
-          "location_original": "Salud Municipal",
-          "count": 1,
-          "categoria": "Abuso de Poder, Corrupción y Gestión Municipal",
-          "posts": [
-            {
-              "text": "Empleados del área de Control Canino denuncian abuso de poder y represalias del director de Salud Municipal Luis Bañuelos, con renuncias masivas durante casi 4 meses sin atención de la presidenta Betzabé",
-              "url": "https://www.facebook.com/35mm.mx/posts/pfbid031jZRBa1k8k1iyHYQjKhc1SXj5o52Toe98Dz43JzwFiTTim2hpkDbv7XtuqSVEadfl",
-              "platform": "Facebook",
-              "username": "Anna Mattel",
-              "nivel": "alto",
-              "emotions": [
-                "enojo",
-                "frustracion",
-                "indignacion",
-                "preocupacion",
-                "decepcion"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "Control Canino, Gómez Palacio - Salud Municipal, Gómez Palacio - Veterinaria, Gómez Palacio",
-          "location_original": "Control Canino, Gómez Palacio - Salud Municipal, Gómez Palacio - Veterinaria, Gómez Palacio",
+          "location": "Veterinaria, Gómez Palacio",
+          "location_original": "Veterinaria, Gómez Palacio",
           "count": 1,
           "categoria": "Abuso de Poder, Corrupción y Gestión Municipal",
           "posts": [
@@ -858,7 +469,9 @@
                 "decepcion"
               ]
             }
-          ]
+          ],
+          "lat": 25.5625646,
+          "lng": -103.5049363
         },
         {
           "location": "Libramiento, Gómez Palacio",
@@ -880,12 +493,12 @@
               ]
             }
           ],
-          "lat": 25.6573214,
-          "lng": -103.3842561
+          "lat": 25.6550676,
+          "lng": -103.4412796
         },
         {
-          "location": "Colonia Tierra Blanca, Gómez Palacio - Colonia 5 de Mayo, Gómez Palacio - Calle Escobedo, Gómez Palacio - Calle Juan Almonte, Gómez Palacio",
-          "location_original": "Colonia Tierra Blanca, Gómez Palacio - Colonia 5 de Mayo, Gómez Palacio - Calle Escobedo, Gómez Palacio - Calle Juan Almonte, Gómez Palacio",
+          "location": "Calle Juan Almonte, Gómez Palacio",
+          "location_original": "Calle Juan Almonte, Gómez Palacio",
           "count": 1,
           "categoria": "Seguridad Pública",
           "posts": [
@@ -901,169 +514,9 @@
                 "ansiedad"
               ]
             }
-          ]
-        },
-        {
-          "location": "Puente peatonal del bulevar Ejército Mexicano, Gómez Palacio - Plaza Fundadores, Gómez Palacio",
-          "location_original": "Puente peatonal del bulevar Ejército Mexicano, Gómez Palacio - Plaza Fundadores, Gómez Palacio",
-          "count": 1,
-          "categoria": "Seguridad Pública",
-          "posts": [
-            {
-              "text": "Hallan cráneo humano con mensaje esotérico en puente peatonal del bulevar Ejército Mexicano, días después de caso similar en Plaza Fundadores",
-              "url": "https://twitter.com/AlCafepolitico/status/2033392798590804430",
-              "platform": "Twitter/X",
-              "username": "AlCafepolitico",
-              "nivel": "alto",
-              "emotions": [
-                "preocupacion",
-                "sorpresa",
-                "miedo"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "Colonia Fidel Velázquez, Gómez Palacio",
-          "location_original": "Colonia Fidel Velázquez, Gómez Palacio",
-          "count": 1,
-          "categoria": "Seguridad Pública",
-          "posts": [
-            {
-              "text": "Hallan cráneo humano con mensaje esotérico en puente peatonal del bulevar Ejército Mexicano, días después de caso similar en Plaza Fundadores",
-              "url": "https://twitter.com/pilaraguilarm/status/2033539090105131193",
-              "platform": "Twitter/X",
-              "username": "pilaraguilarm",
-              "nivel": "alto",
-              "emotions": [
-                "sorpresa",
-                "miedo"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "Miravalles, Gómez Palacio",
-          "location_original": "Miravalles, Gómez Palacio",
-          "count": 1,
-          "categoria": "Seguridad Pública",
-          "posts": [
-            {
-              "text": "Artefacto explosivo lanzado desde avioneta cae en Miravalles, Gómez Palacio sin detonar; Ejército resguarda el artefacto",
-              "url": "https://twitter.com/lajornadaonline/status/2032602815168680204",
-              "platform": "Twitter/X",
-              "username": "lajornadaonline",
-              "nivel": "alto",
-              "emotions": [
-                "miedo",
-                "preocupacion",
-                "sorpresa"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "escuela de Gómez Palacio",
-          "location_original": "escuela de Gómez Palacio",
-          "count": 1,
-          "categoria": "Seguridad Pública",
-          "posts": [
-            {
-              "text": "Reportan amenaza de tiroteo en escuela de Gómez Palacio generando alarma entre padres de familia y comunidad escolar",
-              "url": "https://twitter.com/period_victoria/status/2032598329465458786",
-              "platform": "Twitter/X",
-              "username": "period_victoria",
-              "nivel": "alto",
-              "emotions": [
-                "miedo",
-                "preocupacion",
-                "indignacion"
-              ]
-            }
           ],
-          "lat": 25.5686969,
-          "lng": -103.502543
-        },
-        {
-          "location": "Mercado municipal de Gómez Palacio, Durango",
-          "location_original": "Mercado municipal de Gómez Palacio, Durango",
-          "count": 1,
-          "categoria": "Seguridad Pública",
-          "posts": [
-            {
-              "text": "Ciudadanos solicitaron apoyo a la policía municipal de Gómez Palacio ante seguimiento de motociclista a soldados en el mercado municipal y ninguna unidad llegó",
-              "url": "https://www.facebook.com/reel/1462181188907408/",
-              "platform": "Facebook",
-              "username": "La-Sombra-de-Durango-of",
-              "nivel": "alto",
-              "emotions": [
-                "preocupacion",
-                "miedo",
-                "ansiedad"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "Escuela 18 de Marzo - Subsecretaría de Educación, Gómez Palacio",
-          "location_original": "Escuela 18 de Marzo - Subsecretaría de Educación, Gómez Palacio",
-          "count": 1,
-          "categoria": "Educación y Programas Sociales",
-          "posts": [
-            {
-              "text": "Padres de familia de escuela 18 de Marzo toman Subsecretaría de Educación en Gómez Palacio tras 3 semanas sin clases presenciales exigiendo revisión del edificio",
-              "url": "https://www.tiktok.com/@aztecalaguna/video/7616594986255027477",
-              "platform": "TikTok",
-              "username": "aztecalaguna",
-              "nivel": "alto",
-              "emotions": [
-                "frustracion",
-                "indignacion",
-                "preocupacion"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "Primaria José Santos Valdez, Gómez Palacio",
-          "location_original": "Primaria José Santos Valdez, Gómez Palacio",
-          "count": 1,
-          "categoria": "Educación y Programas Sociales",
-          "posts": [
-            {
-              "text": "Tenis y zapatos de programa municipal no fueron entregados en el turno de la tarde en múltiples escuelas de Gómez Palacio",
-              "url": "https://instagram.com/p/DVz-3nCDq77",
-              "platform": "Instagram",
-              "username": "kary_marquin",
-              "nivel": "medio",
-              "emotions": [
-                "frustracion",
-                "decepcion",
-                "preocupacion"
-              ]
-            }
-          ]
-        },
-        {
-          "location": "Jose Santos Valdez, Gómez Palacio, Durango, México",
-          "location_original": "Jose Santos Valdez",
-          "count": 1,
-          "categoria": "Educación y Programas Sociales",
-          "posts": [
-            {
-              "text": "Escuelas José Santos Valdez, Poetisa Adela Ayala y José Vasconcelos denuncian no haber recibido visitas ni beneficios del programa municipal a diferencia de otras instituciones",
-              "url": "https://www.tiktok.com/@betzabemtza/video/7616602116848635156",
-              "platform": "TikTok",
-              "username": "alexvinculacuenta",
-              "nivel": "medio",
-              "emotions": [
-                "frustracion",
-                "preocupacion"
-              ]
-            }
-          ],
-          "lat": 25.564062,
-          "lng": -103.5127731
+          "lat": 25.5778516,
+          "lng": -103.4866421
         }
       ],
       "quejasPorCategoria": [
@@ -1090,16 +543,564 @@
       ],
       "quejasSinCoordenadas": [
         {
+          "categoria": "Infraestructura y Servicios Públicos",
+          "count": 5,
+          "items": [
+            {
+              "texto": "Ciudadanos exigen atención al drenaje en Calzada Conquistadores y calle Benito en Miravalle, sin respuesta del municipio",
+              "posts": [
+                {
+                  "text": "Ciudadanos exigen atención al drenaje en Calzada Conquistadores y calle Benito en Miravalle, sin respuesta del municipio",
+                  "url": "https://www.facebook.com/ayuntamientogp/posts/pfbid02MytxWqwNV6f2mfT6KfcXGsU5awGDCSLYK8upKGPgpBUxmdv56c69cCKczyYEeaEel",
+                  "platform": "Facebook",
+                  "username": "Iilyzabit RV",
+                  "nivel": "medio",
+                  "emotions": [
+                    "frustracion",
+                    "preocupacion"
+                  ]
+                }
+              ]
+            },
+            {
+              "texto": "Fraccionamiento Morelos 1 acumula años de abandono con lámparas fundidas, baches, aguas negras y áreas verdes llenas de escombro sin atención municipal",
+              "posts": [
+                {
+                  "text": "Fraccionamiento Morelos 1 acumula años de abandono con lámparas fundidas, baches, aguas negras y áreas verdes llenas de escombro sin atención municipal",
+                  "url": "https://www.facebook.com/reel/1592845912006272/",
+                  "platform": "Facebook",
+                  "username": "Jesus Amaton Grajeda",
+                  "nivel": "alto",
+                  "emotions": [
+                    "enojo",
+                    "frustracion",
+                    "decepcion",
+                    "preocupacion",
+                    "indignacion"
+                  ]
+                }
+              ]
+            },
+            {
+              "texto": "Basura acumulada durante más de un mes en fraccionamiento San Vicente tras labores de limpieza sin retiro de residuos por parte del municipio",
+              "posts": [
+                {
+                  "text": "Basura acumulada durante más de un mes en fraccionamiento San Vicente tras labores de limpieza sin retiro de residuos por parte del municipio",
+                  "url": "https://www.facebook.com/ayuntamientogp/posts/pfbid02Sw7tj6XjwGzAsVf3KqBGsioA785BGaFgmk2ymj9Re9hTiHBAJzGThUn9dVkjMM3Fl",
+                  "platform": "Facebook",
+                  "username": "Crownd JM",
+                  "nivel": "medio",
+                  "emotions": [
+                    "frustracion",
+                    "preocupacion"
+                  ]
+                }
+              ]
+            },
+            {
+              "texto": "Colonias fraccionamiento Morelos 2 y 15 de Diciembre llevan semanas esperando fumigación municipal sin respuesta definitiva entre dependencias",
+              "posts": [
+                {
+                  "text": "Colonias fraccionamiento Morelos 2 y 15 de Diciembre llevan semanas esperando fumigación municipal sin respuesta definitiva entre dependencias",
+                  "url": "https://www.facebook.com/ayuntamientogp/posts/pfbid0BXnHRG4MU5DQBpqMmYGDGsAwCuNEJk7EPQyBgWZzHx4xEQgKhrcet9DXMREqKV81l",
+                  "platform": "Facebook",
+                  "username": "NormaPatricia RodriguezMartinez",
+                  "nivel": "medio",
+                  "emotions": [
+                    "frustracion",
+                    "enojo",
+                    "preocupacion"
+                  ]
+                }
+              ]
+            },
+            {
+              "texto": "Quema de llantas sobre el Periférico de Gómez Palacio genera tráfico y humo afectando a conductores en la zona",
+              "posts": [
+                {
+                  "text": "Quema de llantas sobre el Periférico de Gómez Palacio genera tráfico y humo afectando a conductores en la zona",
+                  "url": "https://www.tiktok.com/@aztecalaguna/video/7617175517430631687",
+                  "platform": "TikTok",
+                  "username": "aztecalaguna",
+                  "nivel": "alto",
+                  "emotions": [
+                    "preocupacion",
+                    "sorpresa"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
           "categoria": "Abuso de Poder, Corrupción y Gestión Municipal",
-          "count": 3
+          "count": 5,
+          "items": [
+            {
+              "texto": "Trabajadores del departamento de Salud Municipal acusan al director Bañuelos de dar de baja a elementos sin investigación y tolerar a personal con antecedentes que presuntamente robó cableado en las instalaciones",
+              "posts": [
+                {
+                  "text": "Trabajadores del departamento de Salud Municipal acusan al director Bañuelos de dar de baja a elementos sin investigación y tolerar a personal con antecedentes que presuntamente robó cableado en las instalaciones",
+                  "url": "https://www.facebook.com/elsiglo.mx/posts/pfbid02yjMqsvyYMEB4F7n98zWpPyGSeQxXzW2m8tPfhKuuzYLMG7ubsLNK8hsp5XK7jZrvl",
+                  "platform": "Facebook",
+                  "username": "Anna Mattel",
+                  "nivel": "alto",
+                  "emotions": [
+                    "enojo",
+                    "indignacion",
+                    "frustracion",
+                    "preocupacion"
+                  ]
+                },
+                {
+                  "text": "Trabajadores del departamento de Salud Municipal acusan al director Bañuelos de dar de baja a elementos sin investigación y tolerar a personal con antecedentes que presuntamente robó cableado en las instalaciones",
+                  "url": "https://www.facebook.com/reel/1259752282212397/",
+                  "platform": "Facebook",
+                  "username": "Anna Mattel",
+                  "nivel": "alto",
+                  "emotions": [
+                    "enojo",
+                    "frustracion",
+                    "indignacion",
+                    "preocupacion",
+                    "decepcion"
+                  ]
+                },
+                {
+                  "text": "Trabajadores del departamento de Salud Municipal acusan al director Bañuelos de dar de baja a elementos sin investigación y tolerar a personal con antecedentes que presuntamente robó cableado en las instalaciones",
+                  "url": "https://www.facebook.com/reel/26046317285010120/",
+                  "platform": "Facebook",
+                  "username": "Anna Mattel",
+                  "nivel": "alto",
+                  "emotions": [
+                    "enojo",
+                    "frustracion",
+                    "indignacion",
+                    "preocupacion",
+                    "decepcion"
+                  ]
+                },
+                {
+                  "text": "Trabajadores del departamento de Salud Municipal acusan al director Bañuelos de dar de baja a elementos sin investigación y tolerar a personal con antecedentes que presuntamente robó cableado en las instalaciones",
+                  "url": "https://www.facebook.com/35mm.mx/posts/pfbid031jZRBa1k8k1iyHYQjKhc1SXj5o52Toe98Dz43JzwFiTTim2hpkDbv7XtuqSVEadfl",
+                  "platform": "Facebook",
+                  "username": "Anna Mattel",
+                  "nivel": "alto",
+                  "emotions": [
+                    "enojo",
+                    "frustracion",
+                    "indignacion"
+                  ]
+                }
+              ]
+            },
+            {
+              "texto": "Tránsitos de Gómez Palacio acusados de extorsionar a conductores argumentando infracciones falsas y grabando videos sin respaldo reglamentario",
+              "posts": [
+                {
+                  "text": "Tránsitos de Gómez Palacio acusados de extorsionar a conductores argumentando infracciones falsas y grabando videos sin respaldo reglamentario",
+                  "url": "https://twitter.com/rezzaca/status/2032469005777191359",
+                  "platform": "Twitter/X",
+                  "username": "rezzaca",
+                  "nivel": "medio",
+                  "emotions": [
+                    "enojo",
+                    "frustracion",
+                    "indignacion"
+                  ]
+                },
+                {
+                  "text": "Tránsitos de Gómez Palacio acusados de extorsionar a conductores argumentando infracciones falsas y grabando videos sin respaldo reglamentario",
+                  "url": "https://www.tiktok.com/@anthonyalvarez646/video/7616119034760760607",
+                  "platform": "TikTok",
+                  "username": "leticiamtz02",
+                  "nivel": "medio",
+                  "emotions": [
+                    "preocupacion",
+                    "frustracion"
+                  ]
+                },
+                {
+                  "text": "Tránsitos de Gómez Palacio acusados de extorsionar a conductores argumentando infracciones falsas y grabando videos sin respaldo reglamentario",
+                  "url": "https://twitter.com/Naviaelo/status/2033417007995957315",
+                  "platform": "Twitter/X",
+                  "username": "Naviaelo",
+                  "nivel": "alto",
+                  "emotions": [
+                    "enojo",
+                    "indignacion",
+                    "frustracion",
+                    "disgusto"
+                  ]
+                }
+              ]
+            },
+            {
+              "texto": "Ciudadanos acusan que el municipio gasta recursos en publicidad y propaganda en lugar de atender baches y drenaje, cuestionando la gestión de la presidenta",
+              "posts": [
+                {
+                  "text": "Ciudadanos acusan que el municipio gasta recursos en publicidad y propaganda en lugar de atender baches y drenaje, cuestionando la gestión de la presidenta",
+                  "url": "https://www.facebook.com/DiarioExpresion.net/posts/pfbid02Qc2WCPvXYaxr3TzSER9Xj2wQes8RXyAWYdeUuHWuyhcauK9eAGwwGEfLZ6dtbdERl",
+                  "platform": "Facebook",
+                  "username": "Eleazar De la Cruz",
+                  "nivel": "alto",
+                  "emotions": [
+                    "enojo",
+                    "indignacion",
+                    "decepcion",
+                    "frustracion"
+                  ]
+                },
+                {
+                  "text": "Ciudadanos acusan que el municipio gasta recursos en publicidad y propaganda en lugar de atender baches y drenaje, cuestionando la gestión de la presidenta",
+                  "url": "https://www.facebook.com/elsiglo.mx/posts/pfbid02yjMqsvyYMEB4F7n98zWpPyGSeQxXzW2m8tPfhKuuzYLMG7ubsLNK8hsp5XK7jZrvl",
+                  "platform": "Facebook",
+                  "username": "Xavier Gallegos",
+                  "nivel": "medio",
+                  "emotions": [
+                    "indignacion",
+                    "enojo",
+                    "desgusto",
+                    "frustracion"
+                  ]
+                }
+              ]
+            },
+            {
+              "texto": "Vecinos denuncian corrupción dentro del municipio señalando que delincuentes operan desde el interior de la administración sin que la presidenta tome medidas",
+              "posts": [
+                {
+                  "text": "Vecinos denuncian corrupción dentro del municipio señalando que delincuentes operan desde el interior de la administración sin que la presidenta tome medidas",
+                  "url": "https://www.facebook.com/DiarioExpresion.net/posts/pfbid02Qc2WCPvXYaxr3TzSER9Xj2wQes8RXyAWYdeUuHWuyhcauK9eAGwwGEfLZ6dtbdERl",
+                  "platform": "Facebook",
+                  "username": "Ing Reyes",
+                  "nivel": "alto",
+                  "emotions": [
+                    "enojo",
+                    "indignacion",
+                    "frustracion"
+                  ]
+                },
+                {
+                  "text": "Vecinos denuncian corrupción dentro del municipio señalando que delincuentes operan desde el interior de la administración sin que la presidenta tome medidas",
+                  "url": "https://www.facebook.com/DiarioExpresion.net/posts/pfbid02Qc2WCPvXYaxr3TzSER9Xj2wQes8RXyAWYdeUuHWuyhcauK9eAGwwGEfLZ6dtbdERl",
+                  "platform": "Facebook",
+                  "username": "Angel Barrera",
+                  "nivel": "alto",
+                  "emotions": [
+                    "indignacion",
+                    "enojo",
+                    "frustracion",
+                    "decepcion"
+                  ]
+                }
+              ]
+            },
+            {
+              "texto": "Cuestionan la efectividad del instituto municipal para prevención de violencia señalando fricciones internas entre funcionarias encargadas del área",
+              "posts": [
+                {
+                  "text": "Cuestionan la efectividad del instituto municipal para prevención de violencia señalando fricciones internas entre funcionarias encargadas del área",
+                  "url": "https://www.facebook.com/35mm.mx/posts/pfbid031jZRBa1k8k1iyHYQjKhc1SXj5o52Toe98Dz43JzwFiTTim2hpkDbv7XtuqSVEadfl",
+                  "platform": "Facebook",
+                  "username": "Alejandro Manjarrez A",
+                  "nivel": "bajo",
+                  "emotions": [
+                    "enojo",
+                    "frustracion",
+                    "indignacion"
+                  ]
+                }
+              ]
+            }
+          ]
         },
         {
           "categoria": "Seguridad Pública",
-          "count": 1
+          "count": 5,
+          "items": [
+            {
+              "texto": "Hallan cráneo humano con mensaje esotérico en puente peatonal del bulevar Ejército Mexicano, días después de caso similar en Plaza Fundadores",
+              "posts": [
+                {
+                  "text": "Hallan cráneo humano con mensaje esotérico en puente peatonal del bulevar Ejército Mexicano, días después de caso similar en Plaza Fundadores",
+                  "url": "https://twitter.com/AlCafepolitico/status/2033392798590804430",
+                  "platform": "Twitter/X",
+                  "username": "AlCafepolitico",
+                  "nivel": "alto",
+                  "emotions": [
+                    "preocupacion",
+                    "sorpresa",
+                    "miedo"
+                  ]
+                },
+                {
+                  "text": "Hallan cráneo humano con mensaje esotérico en puente peatonal del bulevar Ejército Mexicano, días después de caso similar en Plaza Fundadores",
+                  "url": "https://twitter.com/pilaraguilarm/status/2033539090105131193",
+                  "platform": "Twitter/X",
+                  "username": "pilaraguilarm",
+                  "nivel": "alto",
+                  "emotions": [
+                    "sorpresa",
+                    "miedo"
+                  ]
+                }
+              ]
+            },
+            {
+              "texto": "Artefacto explosivo lanzado desde avioneta cae en Miravalles, Gómez Palacio sin detonar; Ejército resguarda el artefacto",
+              "posts": [
+                {
+                  "text": "Artefacto explosivo lanzado desde avioneta cae en Miravalles, Gómez Palacio sin detonar; Ejército resguarda el artefacto",
+                  "url": "https://twitter.com/lajornadaonline/status/2032602815168680204",
+                  "platform": "Twitter/X",
+                  "username": "lajornadaonline",
+                  "nivel": "alto",
+                  "emotions": [
+                    "miedo",
+                    "preocupacion",
+                    "sorpresa"
+                  ]
+                }
+              ]
+            },
+            {
+              "texto": "Reportan amenaza de tiroteo en escuela de Gómez Palacio generando alarma entre padres de familia y comunidad escolar",
+              "posts": [
+                {
+                  "text": "Reportan amenaza de tiroteo en escuela de Gómez Palacio generando alarma entre padres de familia y comunidad escolar",
+                  "url": "https://twitter.com/period_victoria/status/2032598329465458786",
+                  "platform": "Twitter/X",
+                  "username": "period_victoria",
+                  "nivel": "alto",
+                  "emotions": [
+                    "miedo",
+                    "preocupacion",
+                    "indignacion"
+                  ]
+                }
+              ]
+            },
+            {
+              "texto": "Ciudadanos solicitaron apoyo a la policía municipal de Gómez Palacio ante seguimiento de motociclista a soldados en el mercado municipal y ninguna unidad llegó",
+              "posts": [
+                {
+                  "text": "Ciudadanos solicitaron apoyo a la policía municipal de Gómez Palacio ante seguimiento de motociclista a soldados en el mercado municipal y ninguna unidad llegó",
+                  "url": "https://www.facebook.com/reel/2063038180912810/",
+                  "platform": "Facebook",
+                  "username": "Alerta-roja-en-la-Laguna",
+                  "nivel": "alto",
+                  "emotions": [
+                    "preocupacion",
+                    "frustracion"
+                  ]
+                },
+                {
+                  "text": "Ciudadanos solicitaron apoyo a la policía municipal de Gómez Palacio ante seguimiento de motociclista a soldados en el mercado municipal y ninguna unidad llegó",
+                  "url": "https://www.facebook.com/reel/1462181188907408/",
+                  "platform": "Facebook",
+                  "username": "La-Sombra-de-Durango-of",
+                  "nivel": "alto",
+                  "emotions": [
+                    "preocupacion",
+                    "miedo",
+                    "ansiedad"
+                  ]
+                }
+              ]
+            },
+            {
+              "texto": "Vecinos cuestionan capacidad y actitud de elementos policiales municipales de Gómez Palacio señalando que no sirven para proteger a la ciudadanía",
+              "posts": [
+                {
+                  "text": "Vecinos cuestionan capacidad y actitud de elementos policiales municipales de Gómez Palacio señalando que no sirven para proteger a la ciudadanía",
+                  "url": "https://www.facebook.com/reel/1238284908284608/",
+                  "platform": "Facebook",
+                  "username": "Jose Flores",
+                  "nivel": "alto",
+                  "emotions": [
+                    "enojo",
+                    "indignacion",
+                    "disgusto"
+                  ]
+                },
+                {
+                  "text": "Vecinos cuestionan capacidad y actitud de elementos policiales municipales de Gómez Palacio señalando que no sirven para proteger a la ciudadanía",
+                  "url": "https://www.facebook.com/reel/26046317285010120/",
+                  "platform": "Facebook",
+                  "username": "Gonzalez Angel",
+                  "nivel": "medio",
+                  "emotions": [
+                    "enojo",
+                    "frustracion",
+                    "indignacion"
+                  ]
+                },
+                {
+                  "text": "Vecinos cuestionan capacidad y actitud de elementos policiales municipales de Gómez Palacio señalando que no sirven para proteger a la ciudadanía",
+                  "url": "https://www.facebook.com/reel/1472623984532869/",
+                  "platform": "Facebook",
+                  "username": "RG Roga Gp",
+                  "nivel": "alto",
+                  "emotions": [
+                    "preocupacion",
+                    "miedo"
+                  ]
+                }
+              ]
+            }
+          ]
         },
         {
-          "categoria": "Infraestructura y Servicios Públicos",
-          "count": 1
+          "categoria": "Educación y Programas Sociales",
+          "count": 3,
+          "items": [
+            {
+              "texto": "Padres de familia de escuela 18 de Marzo toman Subsecretaría de Educación en Gómez Palacio tras 3 semanas sin clases presenciales exigiendo revisión del edificio",
+              "posts": [
+                {
+                  "text": "Padres de familia de escuela 18 de Marzo toman Subsecretaría de Educación en Gómez Palacio tras 3 semanas sin clases presenciales exigiendo revisión del edificio",
+                  "url": "https://www.tiktok.com/@aztecalaguna/video/7616594986255027477",
+                  "platform": "TikTok",
+                  "username": "aztecalaguna",
+                  "nivel": "alto",
+                  "emotions": [
+                    "frustracion",
+                    "indignacion",
+                    "preocupacion"
+                  ]
+                }
+              ]
+            },
+            {
+              "texto": "Tenis y zapatos de programa municipal no fueron entregados en el turno de la tarde en múltiples escuelas de Gómez Palacio",
+              "posts": [
+                {
+                  "text": "Tenis y zapatos de programa municipal no fueron entregados en el turno de la tarde en múltiples escuelas de Gómez Palacio",
+                  "url": "https://instagram.com/p/DVz-3nCDq77",
+                  "platform": "Instagram",
+                  "username": "kary_marquin",
+                  "nivel": "medio",
+                  "emotions": [
+                    "frustracion",
+                    "decepcion",
+                    "preocupacion"
+                  ]
+                },
+                {
+                  "text": "Tenis y zapatos de programa municipal no fueron entregados en el turno de la tarde en múltiples escuelas de Gómez Palacio",
+                  "url": "https://www.tiktok.com/@betzabemtza/video/7616227222080212245",
+                  "platform": "TikTok",
+                  "username": "paola.danna84",
+                  "nivel": "medio",
+                  "emotions": [
+                    "preocupacion",
+                    "esperanza"
+                  ]
+                }
+              ]
+            },
+            {
+              "texto": "Escuelas José Santos Valdez, Poetisa Adela Ayala y José Vasconcelos denuncian no haber recibido visitas ni beneficios del programa municipal a diferencia de otras instituciones",
+              "posts": [
+                {
+                  "text": "Escuelas José Santos Valdez, Poetisa Adela Ayala y José Vasconcelos denuncian no haber recibido visitas ni beneficios del programa municipal a diferencia de otras instituciones",
+                  "url": "https://www.tiktok.com/@betzabemtza/video/7616602116848635156",
+                  "platform": "TikTok",
+                  "username": "alexvinculacuenta",
+                  "nivel": "medio",
+                  "emotions": [
+                    "frustracion",
+                    "preocupacion"
+                  ]
+                },
+                {
+                  "text": "Escuelas José Santos Valdez, Poetisa Adela Ayala y José Vasconcelos denuncian no haber recibido visitas ni beneficios del programa municipal a diferencia de otras instituciones",
+                  "url": "https://www.tiktok.com/@betzabemtza/video/7616602116848635156",
+                  "platform": "TikTok",
+                  "username": "beln40699",
+                  "nivel": "medio",
+                  "emotions": [
+                    "frustracion",
+                    "enojo",
+                    "decepcion"
+                  ]
+                },
+                {
+                  "text": "Escuelas José Santos Valdez, Poetisa Adela Ayala y José Vasconcelos denuncian no haber recibido visitas ni beneficios del programa municipal a diferencia de otras instituciones",
+                  "url": "https://www.tiktok.com/@betzabemtza/video/7616602116848635156",
+                  "platform": "TikTok",
+                  "username": "aliss5609",
+                  "nivel": "medio",
+                  "emotions": [
+                    "frustracion",
+                    "decepcion"
+                  ]
+                },
+                {
+                  "text": "Escuelas José Santos Valdez, Poetisa Adela Ayala y José Vasconcelos denuncian no haber recibido visitas ni beneficios del programa municipal a diferencia de otras instituciones",
+                  "url": "https://www.tiktok.com/@betzabemtza/video/7616602116848635156",
+                  "platform": "TikTok",
+                  "username": "nicol.chairez7",
+                  "nivel": "medio",
+                  "emotions": [
+                    "frustracion",
+                    "decepcion",
+                    "enojo"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "categoria": "Salud Pública",
+          "count": 1,
+          "items": [
+            {
+              "texto": "Múltiples denuncias de negligencia en el ISSSTE de Gómez Palacio reportan abandono de pacientes en terapia intensiva sin atención médica y con varios fallecimientos",
+              "posts": [
+                {
+                  "text": "Múltiples denuncias de negligencia en el ISSSTE de Gómez Palacio reportan abandono de pacientes en terapia intensiva sin atención médica y con varios fallecimientos",
+                  "url": "https://www.facebook.com/permalink.php?story_fbid=pfbid0MhQachWfaLWhD3tdpphyqpBeJdtC4RmeJJu8kDU7dHYP7H11w2cr5JEkqjigL56pl&id=100090957070936",
+                  "platform": "Facebook",
+                  "username": "código-rojo-Gómez-Palacio",
+                  "nivel": "alto",
+                  "emotions": [
+                    "enojo",
+                    "miedo",
+                    "preocupacion",
+                    "indignacion"
+                  ]
+                },
+                {
+                  "text": "Múltiples denuncias de negligencia en el ISSSTE de Gómez Palacio reportan abandono de pacientes en terapia intensiva sin atención médica y con varios fallecimientos",
+                  "url": "https://www.facebook.com/permalink.php?story_fbid=pfbid0MhQachWfaLWhD3tdpphyqpBeJdtC4RmeJJu8kDU7dHYP7H11w2cr5JEkqjigL56pl&id=100090957070936",
+                  "platform": "Facebook",
+                  "username": "Gálvezz Nancy",
+                  "nivel": "alto",
+                  "emotions": [
+                    "tristeza",
+                    "decepcion",
+                    "frustracion"
+                  ]
+                },
+                {
+                  "text": "Múltiples denuncias de negligencia en el ISSSTE de Gómez Palacio reportan abandono de pacientes en terapia intensiva sin atención médica y con varios fallecimientos",
+                  "url": "https://www.facebook.com/permalink.php?story_fbid=pfbid0MhQachWfaLWhD3tdpphyqpBeJdtC4RmeJJu8kDU7dHYP7H11w2cr5JEkqjigL56pl&id=100090957070936",
+                  "platform": "Facebook",
+                  "username": "Noreyna Court",
+                  "nivel": "alto",
+                  "emotions": [
+                    "indignacion",
+                    "enojo",
+                    "frustracion",
+                    "tristeza"
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "alertasReputacionales": [

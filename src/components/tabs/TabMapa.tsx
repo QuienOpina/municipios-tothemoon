@@ -1,6 +1,6 @@
 /// <reference types="@types/google.maps" />
 import { useEffect, useRef, useState, useMemo } from 'react';
-import { useReport, type QuejaUbicacion } from '../../data/dgoData';
+import { useReport, type QuejaUbicacion, type QuejaPost, type QuejaSinCoordsItem } from '../../data/dgoData';
 
 // Paleta de colores por categoría (rota por índice)
 const CAT_COLORS = [
@@ -200,11 +200,40 @@ export default function TabMapa() {
     }
   }, [selectedCat]);
 
+  // geocodificadas[cat] = total_items[cat] - sin_geolocalizar[cat]
+  // Esto es lo que el mapa REALMENTE muestra por categoría.
+  const geocodificadasPorCat = useMemo(() => {
+    const sinMap: Record<string, number> = {};
+    for (const s of quejasSinCoordenadas) sinMap[s.categoria] = s.count;
+    const result: Record<string, number> = {};
+    for (const cat of quejasPorCategoria) {
+      result[cat.categoria] = Math.max(0, cat.count - (sinMap[cat.categoria] ?? 0));
+    }
+    return result;
+  }, [quejasPorCategoria, quejasSinCoordenadas]);
+
   const sortedCats = useMemo(
     () => [...quejasPorCategoria].sort((a, b) => b.count - a.count),
     [quejasPorCategoria]
   );
-  const maxCat = sortedCats.length > 0 ? sortedCats[0].count : 1;
+  const maxCat = Math.max(
+    1,
+    ...Object.values(geocodificadasPorCat),
+  );
+
+  // Datos para el panel de detalle (aparece al seleccionar una categoría)
+  const panelData = useMemo(() => {
+    if (!selectedCat) return null;
+    const color = catColorMap[selectedCat] ?? FALLBACK_COLOR;
+    const geocodCount = geocodificadasPorCat[selectedCat] ?? 0;
+    const sinEntry = quejasSinCoordenadas.find(s => s.categoria === selectedCat);
+    const sinCount = sinEntry?.count ?? 0;
+    const sinItems: QuejaSinCoordsItem[] = sinEntry?.items ?? [];
+    const geocodLocations = quejasPorUbicacion.filter(
+      q => q.categoria === selectedCat && q.lat != null && q.lng != null
+    );
+    return { color, geocodCount, sinCount, sinItems, geocodLocations };
+  }, [selectedCat, catColorMap, geocodificadasPorCat, quejasSinCoordenadas, quejasPorUbicacion]);
 
   return (
     <div id="map-container">
@@ -233,10 +262,11 @@ export default function TabMapa() {
             </div>
 
             {sortedCats.map((cat) => {
-              const color   = catColorMap[cat.categoria] ?? FALLBACK_COLOR;
-              const pct     = Math.round((cat.count / maxCat) * 100);
-              const active  = selectedCat === cat.categoria;
-              const dimmed  = selectedCat !== null && !active;
+              const color       = catColorMap[cat.categoria] ?? FALLBACK_COLOR;
+              const geocodCount = geocodificadasPorCat[cat.categoria] ?? 0;
+              const pct         = Math.round((geocodCount / maxCat) * 100);
+              const active      = selectedCat === cat.categoria;
+              const dimmed      = selectedCat !== null && !active;
 
               return (
                 <div
@@ -264,7 +294,7 @@ export default function TabMapa() {
                       </span>
                     </div>
                     <span style={{ fontSize: '11px', color: '#6b7d8c', fontWeight: 700, flexShrink: 0 }}>
-                      {cat.count}
+                      {geocodCount}
                     </span>
                   </div>
                   <div style={{ background: '#e8edf2', borderRadius: '4px', height: '5px', overflow: 'hidden' }}>
@@ -316,6 +346,238 @@ export default function TabMapa() {
           </h3>
         )}
       </div>
+
+      {/* Panel de detalle: aparece al seleccionar una categoría */}
+      {panelData && selectedCat && (
+        <div
+          style={{
+            position: 'absolute',
+            top: 12,
+            right: 12,
+            width: 320,
+            maxHeight: 'calc(100% - 24px)',
+            overflowY: 'auto',
+            background: '#fff',
+            borderRadius: 12,
+            boxShadow: '0 4px 24px rgba(0,0,0,0.18)',
+            zIndex: 10,
+            fontFamily: 'Outfit, sans-serif',
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
+          {/* Encabezado */}
+          <div style={{
+            padding: '12px 14px 10px',
+            borderBottom: '1px solid #e8edf2',
+            position: 'sticky',
+            top: 0,
+            background: '#fff',
+            borderRadius: '12px 12px 0 0',
+            zIndex: 1,
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
+                <span style={{
+                  display: 'inline-block', width: 10, height: 10,
+                  borderRadius: '50%', background: panelData.color, flexShrink: 0,
+                }} />
+                <span style={{ fontSize: '13px', fontWeight: 700, color: '#1a2c3d' }}>
+                  {selectedCat}
+                </span>
+              </div>
+              <button
+                onClick={() => setSelectedCat(null)}
+                style={{
+                  border: 'none', background: '#f1f3f5', cursor: 'pointer',
+                  borderRadius: 20, width: 22, height: 22, fontSize: 13,
+                  color: '#6b7d8c', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontWeight: 700, flexShrink: 0,
+                } as React.CSSProperties}
+                title="Cerrar panel"
+              >
+                ×
+              </button>
+            </div>
+            <div style={{ display: 'flex', gap: 8 }}>
+              <span style={{
+                fontSize: '11px', padding: '2px 8px', borderRadius: 10,
+                background: `${panelData.color}20`, color: panelData.color, fontWeight: 700,
+              }}>
+                📍 {panelData.geocodCount} en mapa
+              </span>
+              <span style={{
+                fontSize: '11px', padding: '2px 8px', borderRadius: 10,
+                background: '#f1f3f5', color: '#6b7d8c', fontWeight: 700,
+              }}>
+                📭 {panelData.sinCount} sin ubicar
+              </span>
+            </div>
+          </div>
+
+          <div style={{ padding: '10px 14px 14px', flex: 1 }}>
+
+            {/* Sección: Geocodificadas (en el mapa) */}
+            {panelData.geocodLocations.length > 0 && (
+              <div style={{ marginBottom: 14 }}>
+                <p style={{ margin: '0 0 8px', fontSize: '11px', fontWeight: 700, color: panelData.color, textTransform: 'uppercase', letterSpacing: '0.4px' }}>
+                  📍 En el mapa ({panelData.geocodCount})
+                </p>
+                {panelData.geocodLocations.map((loc, li) => (
+                  <LocationCard key={li} loc={loc} color={panelData.color} />
+                ))}
+              </div>
+            )}
+
+            {/* Separador */}
+            {panelData.geocodLocations.length > 0 && panelData.sinItems.length > 0 && (
+              <div style={{ borderTop: '1px solid #e8edf2', marginBottom: 14 }} />
+            )}
+
+            {/* Sección: Sin geolocalizar */}
+            {panelData.sinItems.length > 0 && (
+              <div>
+                <p style={{ margin: '0 0 8px', fontSize: '11px', fontWeight: 700, color: '#6b7d8c', textTransform: 'uppercase', letterSpacing: '0.4px' }}>
+                  📭 Sin geolocalizar ({panelData.sinCount})
+                </p>
+                {panelData.sinItems.map((item, ii) => (
+                  <SinCoordsCard key={ii} item={item} color={panelData.color} />
+                ))}
+              </div>
+            )}
+
+            {panelData.geocodLocations.length === 0 && panelData.sinItems.length === 0 && (
+              <p style={{ margin: 0, fontSize: '12px', color: '#9aaab4', textAlign: 'center', paddingTop: 12 }}>
+                Sin datos disponibles
+              </p>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── Subcomponentes del panel ────────────────────────────────────────────────
+
+function PostRow({ post }: { post: QuejaPost }) {
+  const emoji = PLATFORM_EMOJI[post.platform] ?? '💬';
+  return (
+    <div style={{ marginBottom: 6, paddingBottom: 6, borderBottom: '1px solid #f1f3f5' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 4, marginBottom: 2 }}>
+        <span style={{ fontSize: '11px' }}>{emoji}</span>
+        <span style={{ fontSize: '10px', color: '#6b7d8c' }}>{post.platform}</span>
+        {post.username && (
+          <span style={{ fontSize: '10px', color: '#9aaab4' }}>· @{post.username}</span>
+        )}
+        {post.nivel && post.nivel !== 'desconocido' && (
+          <span style={{
+            marginLeft: 'auto', fontSize: '9px', padding: '1px 5px', borderRadius: 6,
+            background: post.nivel === 'alto' ? '#fde8e8' : post.nivel === 'medio' ? '#fff3e0' : '#e8f5e9',
+            color: post.nivel === 'alto' ? '#c62828' : post.nivel === 'medio' ? '#e65100' : '#2e7d32',
+            fontWeight: 700, textTransform: 'uppercase' as const,
+          }}>
+            {post.nivel}
+          </span>
+        )}
+      </div>
+      {post.text && (
+        <p style={{ margin: '0 0 2px', fontSize: '11px', color: '#1a2c3d', lineHeight: 1.4 }}>
+          {post.text.length > 160 ? post.text.slice(0, 157) + '…' : post.text}
+        </p>
+      )}
+      {post.emotions.length > 0 && (
+        <p style={{ margin: '2px 0 0', fontSize: '10px', color: '#9aaab4' }}>
+          {post.emotions.slice(0, 3).join(' · ')}
+        </p>
+      )}
+      {post.url && (
+        <a
+          href={post.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ fontSize: '10px', color: '#1565c0', fontWeight: 700, textDecoration: 'none' }}
+        >
+          Ver post →
+        </a>
+      )}
+    </div>
+  );
+}
+
+function LocationCard({ loc, color }: { loc: QuejaUbicacion; color: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div style={{
+      marginBottom: 6, borderRadius: 7, border: `1px solid ${color}30`,
+      background: `${color}08`, overflow: 'hidden',
+    }}>
+      <button
+        onClick={() => setOpen(o => !o)}
+        style={{
+          width: '100%', background: 'none', border: 'none', cursor: 'pointer',
+          padding: '6px 10px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6,
+        } as React.CSSProperties}
+      >
+        <span style={{ fontSize: '11px', fontWeight: 600, color: '#1a2c3d', textAlign: 'left', flex: 1 }}>
+          📌 {loc.location_original}
+        </span>
+        <span style={{ fontSize: '10px', color: color, fontWeight: 700, flexShrink: 0 }}>
+          {loc.count} queja{loc.count !== 1 ? 's' : ''} {open ? '▲' : '▼'}
+        </span>
+      </button>
+      {open && (
+        <div style={{ padding: '0 10px 8px' }}>
+          {loc.posts.slice(0, 3).map((p, pi) => <PostRow key={pi} post={p} />)}
+          {loc.posts.length > 3 && (
+            <p style={{ margin: '4px 0 0', fontSize: '10px', color: '#9aaab4' }}>
+              +{loc.posts.length - 3} posts más
+            </p>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SinCoordsCard({ item, color }: { item: QuejaSinCoordsItem; color: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div style={{
+      marginBottom: 6, borderRadius: 7, border: '1px solid #e8edf2',
+      background: '#fafbfc', overflow: 'hidden',
+    }}>
+      <button
+        onClick={() => setOpen(o => !o)}
+        style={{
+          width: '100%', background: 'none', border: 'none', cursor: 'pointer',
+          padding: '6px 10px', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 6,
+        } as React.CSSProperties}
+      >
+        <span style={{ fontSize: '11px', color: '#1a2c3d', textAlign: 'left', flex: 1, lineHeight: 1.4 }}>
+          {item.texto
+            ? (item.texto.length > 100 ? item.texto.slice(0, 97) + '…' : item.texto)
+            : '(sin descripción)'}
+        </span>
+        <span style={{ fontSize: '10px', color: '#9aaab4', flexShrink: 0, marginTop: 2 }}>
+          {open ? '▲' : '▼'}
+        </span>
+      </button>
+      {open && item.posts.length > 0 && (
+        <div style={{ padding: '0 10px 8px' }}>
+          {item.posts.slice(0, 3).map((p, pi) => <PostRow key={pi} post={p} />)}
+          {item.posts.length > 3 && (
+            <p style={{ margin: '4px 0 0', fontSize: '10px', color: '#9aaab4' }}>
+              +{item.posts.length - 3} posts más
+            </p>
+          )}
+        </div>
+      )}
+      {open && item.posts.length === 0 && (
+        <p style={{ margin: '0 10px 8px', fontSize: '10px', color: '#9aaab4' }}>
+          Sin posts asociados
+        </p>
+      )}
     </div>
   );
 }

@@ -121,8 +121,8 @@ export default function TabScorecard() {
           </span>
           <span className="kpi-period">vs. periodo anterior</span>
         </div>
-        <div className="kpi-card accent-red">
-          <div className="kpi-label">Sentimiento Positivo</div>
+        <div className="kpi-card accent-green">
+          <div className="kpi-label">Aprobación</div>
           <div className="kpi-value">{Math.round(sentimentKPI.positive)}%</div>
           <span className={`kpi-delta ${diffSentimiento >= 0 ? 'up' : 'down'}`}>
             {diffSentimiento >= 0 ? '▲' : '▼'} {diffSentimiento >= 0 ? '+' : ''}{Math.round(diffSentimiento)} pts
@@ -190,8 +190,8 @@ export default function TabScorecard() {
 
         <div className="card">
           <div className="card-header">
-            <div className="card-title">Distribución de Sentimiento</div>
-            <div className="card-question">¿Cuál es la proporción de menciones positivas, neutrales y negativas este mes?</div>
+            <div className="card-title">Aprobación, rechazo y sin opinión</div>
+            <div className="card-question">¿Cuál es la proporción de menciones de aprobación, rechazo y sin opinión en el período?</div>
           </div>
           <div className="card-body">
             <div className="sentiment-bar">
@@ -211,18 +211,18 @@ export default function TabScorecard() {
             <div className="sentiment-legend">
               <div className="leg-item">
                 <div className="leg-dot" style={{ background: 'var(--positive)' }} />
-                Positivo — {Math.round(sentimentKPI.positive)}%{' '}
+                Aprobación — {Math.round(sentimentKPI.positive)}%{' '}
                 <strong style={{ marginLeft: 4, color: 'var(--negative)' }}>
                   ▼ {Math.round(diffSentimiento)} pts
                 </strong>
               </div>
               <div className="leg-item">
                 <div className="leg-dot" style={{ background: 'var(--neutral)' }} />
-                Neutral — {sentimentKPI.neutral}%
+                Sin opinión — {sentimentKPI.neutral}%
               </div>
               <div className="leg-item">
                 <div className="leg-dot" style={{ background: 'var(--negative)' }} />
-                Negativo — {Math.round(sentimentKPI.negative)}%
+                Rechazo — {Math.round(sentimentKPI.negative)}%
               </div>
             </div>
           </div>

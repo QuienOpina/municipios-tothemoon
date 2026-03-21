@@ -1,0 +1,20 @@
+{
+  "tabs": {
+    "scorecard": {
+      "usuariosInternos": [
+        { "platform": "facebook",  "username": "BetzabeMtzA", "full_name": "Betzabé Martínez Arango", "followers": 58048 },
+        { "platform": "tiktok",    "username": "betzabemtza", "full_name": "Betzabé Martínez Arango", "followers": 24000 },
+        { "platform": "instagram", "username": "betzabemtza", "full_name": "Betzabé Martínez Arango", "followers": 20600 },
+        { "platform": "twitter",   "username": "BetzabeMtzA", "full_name": "Betzabé Martínez Arango", "followers": 6300  }
+      ],
+      "seguidoresTrendPorRed": [
+        { "date": "11 Mar", "facebook": 57464, "tiktok": 23851, "instagram": 20460, "twitter": 6240 },
+        { "date": "12 Mar", "facebook": 57507, "tiktok": 23878, "instagram": 20487, "twitter": 6252 },
+        { "date": "13 Mar", "facebook": 57554, "tiktok": 23908, "instagram": 20514, "twitter": 6264 },
+        { "date": "14 Mar", "facebook": 57588, "tiktok": 23943, "instagram": 20540, "twitter": 6276 },
+        { "date": "15 Mar", "facebook": 57599, "tiktok": 23970, "instagram": 20568, "twitter": 6288 },
+        { "date": "16 Mar", "facebook": 57613, "tiktok": 24000, "instagram": 20600, "twitter": 6300 }
+      ]
+    }
+  }
+}

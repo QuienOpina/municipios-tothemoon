@@ -74,15 +74,9 @@ export default function TabAprobacion() {
   const platformDataKeys = PLATFORM_ORDER_CHART;
   const platformLabels = platformDataKeys.map((p) => PLATFORM_LABEL[p] ?? p);
 
-  // Normalizar datos que vengan en escala 0–10 a 0–100 para el gráfico
-  const platformScale = useMemo(() => {
-    const all = platformDataKeys.flatMap((p) => {
-      const e = byPlatform[p];
-      return e ? [e.positive, e.negative] : [];
-    });
-    const max = all.length ? Math.max(...all) : 0;
-    return max > 0 && max <= 10 ? 10 : 1;
-  }, [platformDataKeys, byPlatform]);
+  // Los valores de sentimentByPlatform vienen ya en 0–100 desde el pipeline
+  // (get_sentiment_by_platform_from_platforms). No aplicar escala ×10: si todos
+  // los % eran ≤10, eso inflaba erróneamente porcentajes reales (ej. 8% → 80%).
 
   // Derivar tabla de áreas desde serviceApprovals — solo áreas con quejas reales (count > 0)
   // Ordenadas de mayor a menor count (las más mencionadas primero)
@@ -95,6 +89,16 @@ export default function TabAprobacion() {
     }))
     .filter((a) => a.count > 0)
     .sort((a, b) => b.count - a.count);
+
+  // Máximo entre positivo y negativo de todos los días para escalar el eje Y
+  // y dejar espacio visual (el eje no va siempre a 100% si los valores son bajos)
+  const maxApprovalValue = useMemo(() => {
+    const allValues = approvalTrend.flatMap((d) => [
+      d.approval,
+      d.rejection ?? 0,
+    ]);
+    return Math.min(100, Math.max(10, ...allValues) + 10);
+  }, [approvalTrend]);
 
   const chartAprobacionTrend = useMemo(
     () => ({
@@ -113,7 +117,8 @@ export default function TabAprobacion() {
           },
           {
             label: 'Rechazo',
-            data: approvalTrend.map((d) => 100 - d.approval),
+            // rejection viene del backend (neg/total); fallback a 100-approval para JSON viejo
+            data: approvalTrend.map((d) => d.rejection ?? (100 - d.approval)),
             borderColor: RED,
             backgroundColor: RED + '11',
             fill: true,
@@ -129,7 +134,7 @@ export default function TabAprobacion() {
           x: { grid: { display: false } },
           y: {
             min: 0,
-            max: 100,
+            max: maxApprovalValue,
             grid: { color: '#f0f2f5' },
             border: { dash: [4, 4] },
             ticks: {
@@ -143,7 +148,7 @@ export default function TabAprobacion() {
         },
       },
     }),
-    [approvalTrend]
+    [approvalTrend, maxApprovalValue]
   );
 
   // Gráfica de sentimiento por red social — sin neutral (solo positivo y negativo)
@@ -153,12 +158,15 @@ export default function TabAprobacion() {
       data: {
         labels: platformLabels,
         datasets: [
-          { label: 'Positivo', data: platformDataKeys.map((p) => (byPlatform[p]?.positive ?? 0) * platformScale), backgroundColor: GREEN + 'cc', borderRadius: 4 },
-          { label: 'Negativo', data: platformDataKeys.map((p) => (byPlatform[p]?.negative ?? 0) * platformScale), backgroundColor: RED + 'cc', borderRadius: 4 },
+          { label: 'Aprobación', data: platformDataKeys.map((p) => byPlatform[p]?.positive ?? 0), backgroundColor: GREEN + 'cc', borderRadius: 4 },
+          { label: 'Rechazo', data: platformDataKeys.map((p) => byPlatform[p]?.negative ?? 0), backgroundColor: RED + 'cc', borderRadius: 4 },
         ],
       },
       options: {
         responsive: true,
+        plugins: {
+          legend: { position: 'top' as const, labels: { boxWidth: 12, padding: 16 } },
+        },
         scales: {
           x: { grid: { display: false }, stacked: false },
           y: {
@@ -177,7 +185,7 @@ export default function TabAprobacion() {
         },
       },
     }),
-    [platformLabels, platformDataKeys, byPlatform, platformScale]
+    [platformLabels, platformDataKeys, byPlatform]
   );
 
   return (
@@ -194,7 +202,7 @@ export default function TabAprobacion() {
             className="kpi-card accent-green"
             style={{ cursor: 'pointer' }}
           >
-            <div className="kpi-label">Positivo</div>
+            <div className="kpi-label">Aprobación</div>
             <div className="kpi-value">{positivoActual}%</div>
             <span className={`kpi-delta ${diffPositivo >= 0 ? 'up' : 'down'}`}>
               {diffPositivo >= 0 ? '▲' : '▼'} {Math.round(Math.abs(diffPositivo))} pts
@@ -227,7 +235,7 @@ export default function TabAprobacion() {
                   borderBottom: '1px solid var(--border)',
                 }}
               >
-                Comentarios Positivos:
+                Comentarios de aprobación:
               </div>
               <ul style={{ margin: 0, paddingLeft: '20px' }}>
                 {SENTIMENT_COMMENTS.positive.map((comment, idx) => (
@@ -248,7 +256,7 @@ export default function TabAprobacion() {
             className="kpi-card accent-red"
             style={{ cursor: 'pointer' }}
           >
-            <div className="kpi-label">Negativo</div>
+            <div className="kpi-label">Rechazo</div>
             <div className="kpi-value">{negativoActual}%</div>
             <span className={`kpi-delta ${diffNegativo >= 0 ? 'up' : 'down'}`}>
               {diffNegativo >= 0 ? '▲' : '▼'} {Math.round(Math.abs(diffNegativo))} pts
@@ -281,7 +289,7 @@ export default function TabAprobacion() {
                   borderBottom: '1px solid var(--border)',
                 }}
               >
-                Comentarios Negativos:
+                Comentarios de rechazo:
               </div>
               <ul style={{ margin: 0, paddingLeft: '20px' }}>
                 {SENTIMENT_COMMENTS.negative.map((comment, idx) => (
@@ -302,7 +310,7 @@ export default function TabAprobacion() {
             className="kpi-card accent-gold"
             style={{ cursor: 'pointer' }}
           >
-            <div className="kpi-label">Neutral</div>
+            <div className="kpi-label">Sin opinión</div>
             <div className="kpi-value">{neutralActual}%</div>
             <span className={`kpi-delta ${diffNeutral >= 0 ? 'up' : 'down'}`}>
               {diffNeutral >= 0 ? '▲' : '▼'} {Math.round(Math.abs(diffNeutral))} pts
@@ -335,7 +343,7 @@ export default function TabAprobacion() {
                   borderBottom: '1px solid var(--border)',
                 }}
               >
-                Comentarios Neutrales:
+                Comentarios sin opinión:
               </div>
               <ul style={{ margin: 0, paddingLeft: '20px' }}>
                 {SENTIMENT_COMMENTS.neutral.map((comment, idx) => (
@@ -352,15 +360,15 @@ export default function TabAprobacion() {
       <div className="grid g2">
         <div className="card">
           <div className="card-header">
-            <div className="card-title">Áreas Municipales · Aprobación Ciudadana</div>
-            <div className="card-question">¿Qué áreas y servicios del municipio tienen mayor aprobación ciudadana?</div>
+            <div className="card-title">Quejas ciudadanas por categoría</div>
+            <div className="card-question">Número de quejas detectadas en cada categoría durante el período</div>
           </div>
           <div className="card-body" style={{ padding: '14px 20px' }}>
             <table className="actors-table">
               <thead>
                 <tr>
                   <th style={{ width: 36 }}>#</th>
-                  <th>Área / Dependencia</th>
+                  <th>Categoría</th>
                   <th className="bar-cell">Quejas ciudadanas</th>
                   <th>Quejas</th>
                 </tr>
@@ -407,7 +415,7 @@ export default function TabAprobacion() {
         <div className="card">
           <div className="card-header">
             <div className="card-title">Sentimiento por Red Social</div>
-            <div className="card-question">¿En qué plataformas se concentra el mayor sentimiento positivo o negativo?</div>
+            <div className="card-question">¿En qué plataformas se concentra más la aprobación y el rechazo?</div>
           </div>
           <div className="card-body">
             <div className="chart-wrap chart-wrap-tall">
