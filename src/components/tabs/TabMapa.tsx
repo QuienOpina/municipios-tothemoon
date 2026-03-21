@@ -544,8 +544,8 @@ function SinCoordsCard({ item, color }: { item: QuejaSinCoordsItem; color: strin
   const [open, setOpen] = useState(false);
   return (
     <div style={{
-      marginBottom: 6, borderRadius: 7, border: '1px solid #e8edf2',
-      background: '#fafbfc', overflow: 'hidden',
+      marginBottom: 6, borderRadius: 7, border: `1px solid ${color}35`,
+      background: `${color}0a`, overflow: 'hidden',
     }}>
       <button
         onClick={() => setOpen(o => !o)}
