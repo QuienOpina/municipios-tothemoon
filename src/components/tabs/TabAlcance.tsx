@@ -1,32 +1,40 @@
 import { useMemo } from 'react';
 import ChartJSWrapper from '../charts/ChartJSWrapper';
+import AlcanceRankedBarTable from '../charts/AlcanceRankedBarTable';
 import { useReport } from '../../data/dgoData';
 
-const GOLD    = '#e8a020';
 const GREEN   = '#1a9650';
-const ORANGE  = '#e85d20';
-const TEAL    = '#0d7377';
+
+/** Un color por gráfica (barra + pastilla más oscura) — Top personas / org / temas / eventos */
+const ALCANCE_RANK_CHART = {
+  personas: { bar: '#1a9650', badge: '#14532d' },
+  org: { bar: '#e85d20', badge: '#9a3412' },
+  temas: { bar: '#247a8a', badge: '#155e75' },
+  eventos: { bar: '#e8a020', badge: '#a16207' },
+} as const;
 
 /** Estilo por nombre de fuente (menciones por red en Alcance) */
 const MENTION_SOURCE_BY_NAME: Record<string, { abbr: string; bg: string; barColor?: string }> = {
   Instagram: { abbr: 'IG', bg: '#fce4ec', barColor: '#e91e8c' },
-  Facebook: { abbr: 'FB', bg: '#e8f5e9' },
+  Facebook: { abbr: 'FB', bg: '#e8eef8' },
   'Google News': { abbr: 'MC', bg: '#fff3e0', barColor: 'var(--gold)' },
-  TikTok: { abbr: 'TT', bg: '#e8eaf6', barColor: '#5c6bc0' },
-  'Twitter/X': { abbr: 'X', bg: '#e7f3ff' },
-  Twitter: { abbr: 'X', bg: '#e7f3ff' },
+  TikTok: { abbr: 'TT', bg: '#f0f0f0', barColor: '#5c6bc0' },
+  'Twitter/X': { abbr: 'X', bg: '#e8f6fd' },
+  Twitter: { abbr: 'X', bg: '#e8f6fd' },
+};
+
+/** Colores por plataforma: X en casi negro para contrastar con el azul Facebook (líneas, chips, barras). */
+const DEFAULT_ALCANCE_PLATFORM_COLORS: Record<string, string> = {
+  facebook: '#1877f2',
+  tiktok: '#2b2b2b',
+  instagram: '#e1306c',
+  /** Azul claro tipo Twitter (distinto del gris oscuro de TikTok y del azul Facebook) */
+  twitter: '#1da1f2',
+  youtube: '#ff0000',
 };
 
 const mentionSourceDisplayName = (source: string) =>
   source === 'Google News' ? 'Medios de comunicación' : source;
-
-const PLATFORM_META: Record<string, { label: string; color: string }> = {
-  facebook:  { label: 'Facebook',  color: '#1877f2' },
-  tiktok:    { label: 'TikTok',    color: '#010101' },
-  instagram: { label: 'Instagram', color: '#e1306c' },
-  twitter:   { label: 'X',         color: '#1da1f2' },
-  youtube:   { label: 'YouTube',   color: '#ff0000' },
-};
 
 const fmtFollowers = (n: number) => {
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1).replace(/\.0$/, '')}M`;
@@ -35,123 +43,59 @@ const fmtFollowers = (n: number) => {
 };
 
 export default function TabAlcance() {
-  const { mentionsBySource, top5MediosRecurrentes, topPersonasMencionadas, topDependenciasMencionadas, topPublicacionesImpacto, botsVsReal, followersTotal, followersPorRed, deltaFollowers, seguidoresTrendPorRed, gananciaPorRed, periodo, topTemas, topEventos } = useReport()
+  const {
+    mentionsBySource,
+    top5MediosRecurrentes,
+    topPersonasMencionadas,
+    topDependenciasMencionadas,
+    topPublicacionesImpacto,
+    botsVsReal,
+    followersTotal,
+    followersPorRed,
+    deltaFollowers,
+    seguidoresTrendPorRed,
+    gananciaPorRed,
+    platformColors: platformColorsOverride,
+    periodo,
+    topTemas,
+    topEventos,
+  } = useReport();
   const totalMentions = mentionsBySource.reduce((s, m) => s + m.mentions, 0);
 
-  const chartPersonas = useMemo(
-    () => ({
-      type: 'bar' as const,
-      data: {
-        labels: topPersonasMencionadas.map((p) => p.name),
-        datasets: [
-          {
-            label: 'Menciones',
-            data: topPersonasMencionadas.map((p) => p.mentions),
-            backgroundColor: GREEN + 'cc',
-            borderRadius: 4,
-          },
-        ],
-      },
-      options: {
-        indexAxis: 'y' as const,
-        responsive: true,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { grid: { color: '#f0f2f5' }, border: { dash: [4, 4] } },
-          y: { grid: { display: false }, ticks: { maxRotation: 0, autoSkip: false } },
-        },
-      },
-    }),
-    [topPersonasMencionadas]
+  const alcanceColors = useMemo(
+    () => ({ ...DEFAULT_ALCANCE_PLATFORM_COLORS, ...platformColorsOverride }),
+    [platformColorsOverride]
   );
 
-  const chartDependencias = useMemo(
+  const platformMeta: Record<string, { label: string; color: string }> = useMemo(
     () => ({
-      type: 'bar' as const,
-      data: {
-        labels: topDependenciasMencionadas.map((d) => d.name),
-        datasets: [
-          {
-            label: 'Menciones',
-            data: topDependenciasMencionadas.map((d) => d.mentions),
-            backgroundColor: ORANGE + 'cc',
-            borderRadius: 4,
-          },
-        ],
-      },
-      options: {
-        indexAxis: 'y' as const,
-        responsive: true,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { grid: { color: '#f0f2f5' }, border: { dash: [4, 4] } },
-          y: { grid: { display: false }, ticks: { maxRotation: 0, autoSkip: false } },
-        },
-      },
+      facebook: { label: 'Facebook', color: alcanceColors.facebook },
+      tiktok: { label: 'TikTok', color: alcanceColors.tiktok },
+      instagram: { label: 'Instagram', color: alcanceColors.instagram },
+      twitter: { label: 'X', color: alcanceColors.twitter },
+      youtube: { label: 'YouTube', color: alcanceColors.youtube },
     }),
-    [topDependenciasMencionadas]
+    [alcanceColors]
   );
 
-  const chartTemas = useMemo(
-    () => ({
-      type: 'bar' as const,
-      data: {
-        labels: topTemas.map((t) => t.tema),
-        datasets: [
-          {
-            label: 'Menciones',
-            data: topTemas.map((t) => t.mentions),
-            backgroundColor: TEAL + 'cc',
-            borderRadius: 4,
-          },
-        ],
-      },
-      options: {
-        indexAxis: 'y' as const,
-        responsive: true,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { grid: { color: '#f0f2f5' }, border: { dash: [4, 4] } },
-          y: { grid: { display: false }, ticks: { maxRotation: 0, autoSkip: false } },
-        },
-      },
-    }),
-    [topTemas]
+  const REDES_TREND = useMemo(
+    () =>
+      [
+        { key: 'facebook' as const, color: alcanceColors.facebook, label: 'Facebook' },
+        { key: 'tiktok' as const, color: alcanceColors.tiktok, label: 'TikTok' },
+        { key: 'instagram' as const, color: alcanceColors.instagram, label: 'Instagram' },
+        { key: 'twitter' as const, color: alcanceColors.twitter, label: 'X' },
+      ] as const,
+    [alcanceColors]
   );
 
-  const chartEventos = useMemo(
-    () => ({
-      type: 'bar' as const,
-      data: {
-        labels: topEventos.map((e) => e.evento),
-        datasets: [
-          {
-            label: 'Menciones',
-            data: topEventos.map((e) => e.mentions),
-            backgroundColor: GOLD + 'cc',
-            borderRadius: 4,
-          },
-        ],
-      },
-      options: {
-        indexAxis: 'y' as const,
-        responsive: true,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { grid: { color: '#f0f2f5' }, border: { dash: [4, 4] } },
-          y: { grid: { display: false }, ticks: { maxRotation: 0, autoSkip: false } },
-        },
-      },
-    }),
-    [topEventos]
-  );
-
-  const REDES_TREND = [
-    { key: 'facebook',  color: '#1877f2', label: 'Facebook'  },
-    { key: 'tiktok',    color: '#333333', label: 'TikTok'    },
-    { key: 'instagram', color: '#e1306c', label: 'Instagram' },
-    { key: 'twitter',   color: '#1da1f2', label: 'X' },
-  ] as const;
+  const mentionBarFill = (source: string, fallback?: string) => {
+    if (source === 'Facebook') return alcanceColors.facebook;
+    if (source === 'Twitter/X' || source === 'Twitter') return alcanceColors.twitter;
+    if (source === 'TikTok') return alcanceColors.tiktok;
+    if (source === 'Instagram') return alcanceColors.instagram;
+    return fallback ?? 'var(--teal-mid)';
+  };
 
   const chartSeguidores = useMemo(() => {
     const labels = seguidoresTrendPorRed.map((d) => d.date);
@@ -161,13 +105,17 @@ export default function TabAlcance() {
       seguidoresTrendPorRed.some((d) => (d as Record<string, unknown>)[r.key] != null)
     ).map((r) => {
       const base = (seguidoresTrendPorRed[0] as Record<string, unknown>)[r.key] as number ?? 0;
+      const fill = r.color.length === 7 ? `${r.color}18` : r.color;
       return {
         label: r.label,
         data: seguidoresTrendPorRed.map((d) =>
           ((d as Record<string, unknown>)[r.key] as number ?? base) - base
         ),
         borderColor: r.color,
-        backgroundColor: r.color + '18',
+        backgroundColor: fill,
+        pointBackgroundColor: '#ffffff',
+        pointBorderColor: r.color,
+        pointBorderWidth: 2,
         fill: false,
         tension: 0.35,
         pointRadius: 4,
@@ -213,7 +161,7 @@ export default function TabAlcance() {
         },
       },
     };
-  }, [seguidoresTrendPorRed]);
+  }, [seguidoresTrendPorRed, REDES_TREND]);
 
   const maxMedios = top5MediosRecurrentes[0]?.menciones ?? 1;
   const formatViews = (n: number) => (n >= 1000 ? `${(n / 1000).toFixed(0)}K` : String(n));
@@ -248,7 +196,10 @@ export default function TabAlcance() {
                       <div className="mention-bar">
                         <div
                           className="mention-bar-fill"
-                          style={{ width: `${pct}%`, background: style.barColor ?? 'var(--teal-mid)' }}
+                          style={{
+                            width: `${pct}%`,
+                            background: mentionBarFill(m.source, style.barColor),
+                          }}
                         />
                       </div>
                     </div>
@@ -299,9 +250,12 @@ export default function TabAlcance() {
             <div className="card-question">¿Qué figuras públicas y actores aparecen más en la conversación?</div>
           </div>
           <div className="card-body">
-            <div className="chart-wrap chart-wrap-tall">
-              <ChartJSWrapper config={chartPersonas} />
-            </div>
+            <AlcanceRankedBarTable
+              rows={topPersonasMencionadas.map((p) => ({ label: p.name, value: p.mentions }))}
+              entityHeader="Persona"
+              barColor={ALCANCE_RANK_CHART.personas.bar}
+              badgeColor={ALCANCE_RANK_CHART.personas.badge}
+            />
           </div>
         </div>
 
@@ -311,9 +265,12 @@ export default function TabAlcance() {
             <div className="card-question">¿Qué áreas y dependencias municipales concentran más menciones?</div>
           </div>
           <div className="card-body">
-            <div className="chart-wrap chart-wrap-tall">
-              <ChartJSWrapper config={chartDependencias} />
-            </div>
+            <AlcanceRankedBarTable
+              rows={topDependenciasMencionadas.map((d) => ({ label: d.name, value: d.mentions }))}
+              entityHeader="Organización"
+              barColor={ALCANCE_RANK_CHART.org.bar}
+              badgeColor={ALCANCE_RANK_CHART.org.badge}
+            />
           </div>
         </div>
       </div>
@@ -326,9 +283,12 @@ export default function TabAlcance() {
             <div className="card-question">¿Sobre qué temas está hablando la ciudadanía?</div>
           </div>
           <div className="card-body">
-            <div className="chart-wrap chart-wrap-tall">
-              <ChartJSWrapper config={chartTemas} />
-            </div>
+            <AlcanceRankedBarTable
+              rows={topTemas.map((t) => ({ label: t.tema, value: t.mentions }))}
+              entityHeader="Tema"
+              barColor={ALCANCE_RANK_CHART.temas.bar}
+              badgeColor={ALCANCE_RANK_CHART.temas.badge}
+            />
           </div>
         </div>
 
@@ -338,9 +298,12 @@ export default function TabAlcance() {
             <div className="card-question">¿Qué eventos concentraron más conversación?</div>
           </div>
           <div className="card-body">
-            <div className="chart-wrap chart-wrap-tall">
-              <ChartJSWrapper config={chartEventos} />
-            </div>
+            <AlcanceRankedBarTable
+              rows={topEventos.map((e) => ({ label: e.evento, value: e.mentions }))}
+              entityHeader="Evento"
+              barColor={ALCANCE_RANK_CHART.eventos.bar}
+              badgeColor={ALCANCE_RANK_CHART.eventos.badge}
+            />
           </div>
         </div>
       </div>
@@ -431,16 +394,20 @@ export default function TabAlcance() {
               {followersPorRed.map((r) => {
                 const p = r.platform.toLowerCase();
                 const meta =
-                  PLATFORM_META[p] ??
+                  platformMeta[p] ??
                   { label: p === 'twitter' ? 'X' : r.platform, color: '#999' };
                 const ganancia = gananciaPorRed[p] ?? null;
+                /** X: azul más visible en tarjeta (el resto sigue con tinte suave) */
+                const chipBg = p === 'twitter' ? `${meta.color}38` : `${meta.color}14`;
+                const chipBorder =
+                  p === 'twitter' ? `1px solid ${meta.color}70` : `1px solid ${meta.color}44`;
                 return (
                   <div
                     key={r.platform}
                     style={{
                       flex: '1 1 120px',
-                      background: meta.color + '14',
-                      border: `1px solid ${meta.color}44`,
+                      background: chipBg,
+                      border: chipBorder,
                       borderRadius: 10,
                       padding: '10px 14px',
                       minWidth: 0,

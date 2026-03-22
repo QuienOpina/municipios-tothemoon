@@ -187,6 +187,10 @@ export function useReport() {
     type TrendPorRedEntry = { date: string; facebook?: number; tiktok?: number; instagram?: number; twitter?: number; [key: string]: number | string | undefined };
     const seguidoresTrendPorRed: TrendPorRedEntry[] = (t.scorecard?.seguidoresTrendPorRed ?? []) as TrendPorRedEntry[];
 
+    /** Hex por plataforma (opcional en report / overrides) para chips y gráfica de seguidores en Alcance */
+    const platformColors: Record<string, string> =
+      (t.scorecard?.platformColors as Record<string, string> | undefined) ?? {};
+
     // Ganancia por red = último valor - primer valor del trend
     const _redes = ['facebook', 'tiktok', 'instagram', 'twitter'] as const;
     const gananciaPorRed: Record<string, number> = {};
@@ -271,7 +275,7 @@ export function useReport() {
       municipio, periodo,
       socialMentions, sentimentKPI, interactionRate, citizenApproval, agentSummary,
       followersActual, followersTotal, followersPorRed, deltaFollowers,
-      seguidoresTrendPorRed, gananciaPorRed,
+      seguidoresTrendPorRed, gananciaPorRed, platformColors,
       newsCount, interactionTrendData, seguidoresTrend, socialMentionsTrend,
       scorecardPeriodoAnterior,
       sentimentTrend, sentimentByPlatform, topKeywords,
