@@ -47,6 +47,79 @@ const FALLBACK_SENTIMENT_BY_PLATFORM: Record<string, { positive: number; neutral
   Facebook:     { positive: 10, neutral: 6,  negative: 84 },
 };
 
+/** Hardcode temporal (report_emotions_stats / all_platforms). Reemplazar por `useReport` cuando exista en JSON. */
+const HARDCODE_EMOCION_STATS = {
+  ranking: [
+    { key: 'satisfaccion', count: 213 },
+    { key: 'esperanza', count: 162 },
+    { key: 'alegria', count: 154 },
+    { key: 'orgullo', count: 137 },
+    { key: 'gratitud', count: 122 },
+    { key: 'frustracion', count: 92 },
+    { key: 'preocupacion', count: 82 },
+    { key: 'enojo', count: 80 },
+    { key: 'indignacion', count: 75 },
+    { key: 'emocion', count: 50 },
+    { key: 'decepcion', count: 35 },
+    { key: 'amor', count: 33 },
+    { key: 'sorpresa', count: 22 },
+    { key: 'disgusto', count: 20 },
+    { key: 'miedo', count: 18 },
+    { key: 'tristeza', count: 11 },
+    { key: 'confusion', count: 9 },
+    { key: 'ansiedad', count: 5 },
+    { key: 'nostalgia', count: 4 },
+    { key: 'desgusto', count: 2 },
+  ] as const,
+};
+
+const EMOTION_LABEL_ES: Record<string, string> = {
+  satisfaccion: 'Satisfacción',
+  esperanza: 'Esperanza',
+  alegria: 'Alegría',
+  orgullo: 'Orgullo',
+  gratitud: 'Gratitud',
+  frustracion: 'Frustración',
+  preocupacion: 'Preocupación',
+  enojo: 'Enojo',
+  indignacion: 'Indignación',
+  emocion: 'Emoción',
+  decepcion: 'Decepción',
+  amor: 'Amor',
+  sorpresa: 'Sorpresa',
+  disgusto: 'Disgusto',
+  miedo: 'Miedo',
+  tristeza: 'Tristeza',
+  confusion: 'Confusión',
+  ansiedad: 'Ansiedad',
+  nostalgia: 'Nostalgia',
+  desgusto: 'Desgusto',
+};
+
+/** Una tonalidad por emoción (20 entradas = ranking completo sin «Otros») */
+const POLAR_EMOTION_COLORS = [
+  'rgba(26, 150, 80, 0.82)',
+  'rgba(56, 178, 172, 0.82)',
+  'rgba(234, 179, 8, 0.82)',
+  'rgba(36, 122, 138, 0.82)',
+  'rgba(232, 160, 32, 0.82)',
+  'rgba(214, 39, 40, 0.72)',
+  'rgba(168, 85, 247, 0.75)',
+  'rgba(59, 130, 246, 0.78)',
+  'rgba(107, 114, 128, 0.75)',
+  'rgba(20, 184, 166, 0.8)',
+  'rgba(249, 115, 22, 0.78)',
+  'rgba(236, 72, 153, 0.76)',
+  'rgba(99, 102, 241, 0.78)',
+  'rgba(14, 165, 233, 0.78)',
+  'rgba(180, 83, 9, 0.78)',
+  'rgba(190, 24, 93, 0.72)',
+  'rgba(5, 150, 105, 0.78)',
+  'rgba(124, 58, 237, 0.75)',
+  'rgba(8, 145, 178, 0.78)',
+  'rgba(71, 85, 105, 0.78)',
+];
+
 export default function TabAprobacion() {
   const { scorecardPeriodoAnterior, approvalTrend, serviceApprovals, sentimentKPI, periodo, sentimentByPlatform } = useReport()
   const [hoveredCard, setHoveredCard] = useState<'positive' | 'negative' | 'neutral' | null>(null);
@@ -187,6 +260,55 @@ export default function TabAprobacion() {
     }),
     [platformLabels, platformDataKeys, byPlatform]
   );
+
+  /** Gráfica polar: todas las emociones del ranking (sin «Otros»); % suman 100 % del total de menciones */
+  const chartEmocionesPolar = useMemo(() => {
+    const ranking = HARDCODE_EMOCION_STATS.ranking;
+    const labels = ranking.map((e) => EMOTION_LABEL_ES[e.key] ?? e.key);
+    const data = ranking.map((e) => e.count);
+    const total = data.reduce((s, v) => s + v, 0);
+    const backgroundColor = ranking.map((_, i) => POLAR_EMOTION_COLORS[i] ?? 'rgba(100,116,139,0.75)');
+    return {
+      type: 'polarArea' as const,
+      data: {
+        labels,
+        datasets: [
+          {
+            data,
+            backgroundColor,
+            borderColor: '#ffffff',
+            borderWidth: 2,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'bottom' as const,
+            labels: { boxWidth: 10, padding: 8, font: { size: 9 } },
+          },
+          tooltip: {
+            callbacks: {
+              label(ctx: { parsed: { r: number }; label: string }) {
+                const v = ctx.parsed.r;
+                const pct = total ? ((v / total) * 100).toFixed(1) : '0';
+                return ` ${ctx.label}: ${v.toLocaleString()} (${pct}% del total)`;
+              },
+            },
+          },
+        },
+        scales: {
+          r: {
+            beginAtZero: true,
+            ticks: { backdropColor: 'transparent' as const },
+            grid: { color: '#e8ecf0' },
+          },
+        },
+      },
+    };
+  }, []);
 
   return (
     <>
@@ -357,6 +479,32 @@ export default function TabAprobacion() {
         </div>
       </div>
 
+      <div className="grid g2" style={{ marginBottom: 24 }}>
+        <div className="card">
+          <div className="card-header mid">
+            <div className="card-title">Tendencia de Aprobación General</div>
+            <div className="card-question">¿Cómo ha evolucionado la aprobación ciudadana en los últimos meses?</div>
+          </div>
+          <div className="card-body">
+            <div className="chart-wrap chart-wrap-tall">
+              <ChartJSWrapper config={chartAprobacionTrend} />
+            </div>
+          </div>
+        </div>
+
+        <div className="card">
+          <div className="card-header">
+            <div className="card-title">Sentimiento por Red Social</div>
+            <div className="card-question">¿En qué plataformas se concentra más la aprobación y el rechazo?</div>
+          </div>
+          <div className="card-body">
+            <div className="chart-wrap chart-wrap-tall">
+              <ChartJSWrapper config={chartSentimientoRedes} />
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="grid g2">
         <div className="card">
           <div className="card-header">
@@ -400,26 +548,14 @@ export default function TabAprobacion() {
 
         <div className="card">
           <div className="card-header mid">
-            <div className="card-title">Tendencia de Aprobación General</div>
-            <div className="card-question">¿Cómo ha evolucionado la aprobación ciudadana en los últimos meses?</div>
-          </div>
-          <div className="card-body">
-            <div className="chart-wrap chart-wrap-tall">
-              <ChartJSWrapper config={chartAprobacionTrend} />
+            <div className="card-title">Emociones en la conversación</div>
+            <div className="card-question">
+              ¿Qué emociones aparecen con más frecuencia en publicaciones y comentarios del período?
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className="grid g2" style={{ marginTop: 24 }}>
-        <div className="card">
-          <div className="card-header">
-            <div className="card-title">Sentimiento por Red Social</div>
-            <div className="card-question">¿En qué plataformas se concentra más la aprobación y el rechazo?</div>
-          </div>
           <div className="card-body">
-            <div className="chart-wrap chart-wrap-tall">
-              <ChartJSWrapper config={chartSentimientoRedes} />
+            <div style={{ position: 'relative', height: 300 }}>
+              <ChartJSWrapper config={chartEmocionesPolar} />
             </div>
           </div>
         </div>

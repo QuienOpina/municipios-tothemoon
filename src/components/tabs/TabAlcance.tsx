@@ -170,6 +170,147 @@ export default function TabAlcance() {
     <>
       <div className="section-label">Alcance y Cobertura · {periodo}</div>
 
+      {/* Scorecards de seguidores por red (mismo patrón que Indicadores clave) */}
+      <div className="grid g-auto" style={{ marginBottom: 14 }}>
+        {followersPorRed.map((r) => {
+          const p = r.platform.toLowerCase();
+          const meta =
+            platformMeta[p] ??
+            { label: p === 'twitter' ? 'X' : r.platform, color: '#999' };
+          const ganancia = gananciaPorRed[p] ?? null;
+          return (
+            <div
+              key={r.platform}
+              className="kpi-card"
+              style={{ borderTop: `3px solid ${meta.color}` }}
+            >
+              <div className="kpi-label">{meta.label}</div>
+              <div className="kpi-value">{fmtFollowers(r.followers)}</div>
+              {ganancia !== null && ganancia > 0 ? (
+                <span className="kpi-delta up">+{ganancia.toLocaleString()} este período</span>
+              ) : (
+                <span className="kpi-period">Seguidores actuales</span>
+              )}
+            </div>
+          );
+        })}
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 10,
+          flexWrap: 'wrap',
+          marginBottom: 24,
+        }}
+      >
+        <span style={{ fontSize: 13, color: 'var(--muted)', fontWeight: 600 }}>Total seguidores:</span>
+        <span style={{ fontSize: 20, fontWeight: 700, color: 'var(--teal-dark)' }}>
+          {fmtFollowers(followersTotal)}
+        </span>
+        {deltaFollowers !== null && (
+          <span className={`kpi-delta ${deltaFollowers >= 0 ? 'up' : 'down'}`}>
+            {deltaFollowers >= 0 ? '▲' : '▼'} {Math.abs(deltaFollowers)}% vs. período anterior
+          </span>
+        )}
+      </div>
+
+      {/* % Bots vs Reales + solo gráfica de evolución de seguidores */}
+      <div className="mentions-grid" style={{ marginBottom: 24 }}>
+        <div
+          className="card"
+          style={{ display: 'flex', flexDirection: 'column', minHeight: 0, height: '100%' }}
+        >
+          <div className="card-header">
+            <div className="card-title">% Bots vs Reales</div>
+            <div className="card-question">¿Qué proporción de la interacción proviene de cuentas reales frente a posibles bots o coordinación?</div>
+          </div>
+          <div
+            className="card-body"
+            style={{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'stretch',
+              gap: 0,
+              minHeight: 0,
+            }}
+          >
+            <div className="bots-vs-real-visual" role="img" aria-label={`Interacción ${botsVsReal.real}% reales y ${botsVsReal.bots}% bots o coordinados`}>
+              <div className="bots-vs-real-split">
+                <div
+                  className="bots-vs-real-split-seg"
+                  style={{
+                    flex: `0 0 ${botsVsReal.real}%`,
+                    background: GREEN,
+                    minWidth: botsVsReal.real > 0 ? 6 : 0,
+                  }}
+                >
+                  {botsVsReal.real >= 14 ? `${botsVsReal.real}%` : ''}
+                </div>
+                <div
+                  className="bots-vs-real-split-seg"
+                  style={{
+                    flex: `0 0 ${botsVsReal.bots}%`,
+                    background: '#7a7a7a',
+                    minWidth: botsVsReal.bots > 0 ? 6 : 0,
+                  }}
+                >
+                  {botsVsReal.bots >= 14 ? `${botsVsReal.bots}%` : ''}
+                </div>
+              </div>
+              <div className="bots-vs-real-axis" aria-hidden>
+                <span>0%</span>
+                <span>25%</span>
+                <span>50%</span>
+                <span>75%</span>
+                <span>100%</span>
+              </div>
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  gap: 28,
+                  flexWrap: 'wrap',
+                  fontSize: 15,
+                  fontWeight: 600,
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                  <div style={{ width: 14, height: 14, borderRadius: 3, flexShrink: 0, background: GREEN }} />
+                  <span>{botsVsReal.real}% Reales</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                  <div style={{ width: 14, height: 14, borderRadius: 3, flexShrink: 0, background: '#7a7a7a' }} />
+                  <span>{botsVsReal.bots}% Bots / coordinados</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="card">
+          <div className="card-header mid">
+            <div className="card-title">Evolución del crecimiento por red</div>
+            <div className="card-question">
+              Ganancia acumulada de seguidores día a día durante el período (por plataforma)
+            </div>
+          </div>
+          <div className="card-body">
+            {seguidoresTrendPorRed.length > 1 ? (
+              <div style={{ position: 'relative', height: 240 }}>
+                <ChartJSWrapper config={chartSeguidores} />
+              </div>
+            ) : (
+              <p style={{ margin: 0, fontSize: 13, color: 'var(--muted)' }}>
+                No hay serie temporal de seguidores para graficar en este período.
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+
       <div className="mentions-grid" style={{ marginBottom: 24 }}>
         <div className="card">
           <div className="card-header">
@@ -304,150 +445,6 @@ export default function TabAlcance() {
               barColor={ALCANCE_RANK_CHART.eventos.bar}
               badgeColor={ALCANCE_RANK_CHART.eventos.badge}
             />
-          </div>
-        </div>
-      </div>
-
-      {/* % Bots vs Reales + Incremento en Seguidores */}
-      <div className="mentions-grid" style={{ marginBottom: 24 }}>
-        <div
-          className="card"
-          style={{ display: 'flex', flexDirection: 'column', minHeight: 0, height: '100%' }}
-        >
-          <div className="card-header">
-            <div className="card-title">% Bots vs Reales</div>
-            <div className="card-question">¿Qué proporción de la interacción proviene de cuentas reales frente a posibles bots o coordinación?</div>
-          </div>
-          <div
-            className="card-body"
-            style={{
-              flex: 1,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'stretch',
-              gap: 0,
-              minHeight: 0,
-            }}
-          >
-            <div className="bots-vs-real-visual" role="img" aria-label={`Interacción ${botsVsReal.real}% reales y ${botsVsReal.bots}% bots o coordinados`}>
-              <div className="bots-vs-real-split">
-                <div
-                  className="bots-vs-real-split-seg"
-                  style={{
-                    flex: `0 0 ${botsVsReal.real}%`,
-                    background: GREEN,
-                    minWidth: botsVsReal.real > 0 ? 6 : 0,
-                  }}
-                >
-                  {botsVsReal.real >= 14 ? `${botsVsReal.real}%` : ''}
-                </div>
-                <div
-                  className="bots-vs-real-split-seg"
-                  style={{
-                    flex: `0 0 ${botsVsReal.bots}%`,
-                    background: '#7a7a7a',
-                    minWidth: botsVsReal.bots > 0 ? 6 : 0,
-                  }}
-                >
-                  {botsVsReal.bots >= 14 ? `${botsVsReal.bots}%` : ''}
-                </div>
-              </div>
-              <div className="bots-vs-real-axis" aria-hidden>
-                <span>0%</span>
-                <span>25%</span>
-                <span>50%</span>
-                <span>75%</span>
-                <span>100%</span>
-              </div>
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  gap: 28,
-                  flexWrap: 'wrap',
-                  fontSize: 15,
-                  fontWeight: 600,
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                  <div style={{ width: 14, height: 14, borderRadius: 3, flexShrink: 0, background: GREEN }} />
-                  <span>{botsVsReal.real}% Reales</span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                  <div style={{ width: 14, height: 14, borderRadius: 3, flexShrink: 0, background: '#7a7a7a' }} />
-                  <span>{botsVsReal.bots}% Bots / coordinados</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="card">
-          <div className="card-header mid">
-            <div className="card-title">Crecimiento de Seguidores</div>
-            <div className="card-question">¿Cuántos seguidores ganó cada red oficial durante el período?</div>
-          </div>
-          <div className="card-body">
-            {/* Chips por red: total actual + ganancia del período */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 16 }}>
-              {followersPorRed.map((r) => {
-                const p = r.platform.toLowerCase();
-                const meta =
-                  platformMeta[p] ??
-                  { label: p === 'twitter' ? 'X' : r.platform, color: '#999' };
-                const ganancia = gananciaPorRed[p] ?? null;
-                /** X: azul más visible en tarjeta (el resto sigue con tinte suave) */
-                const chipBg = p === 'twitter' ? `${meta.color}38` : `${meta.color}14`;
-                const chipBorder =
-                  p === 'twitter' ? `1px solid ${meta.color}70` : `1px solid ${meta.color}44`;
-                return (
-                  <div
-                    key={r.platform}
-                    style={{
-                      flex: '1 1 120px',
-                      background: chipBg,
-                      border: chipBorder,
-                      borderRadius: 10,
-                      padding: '10px 14px',
-                      minWidth: 0,
-                    }}
-                  >
-                    <div style={{ fontSize: 12, color: 'var(--muted)', marginBottom: 4, fontWeight: 600 }}>
-                      {meta.label}
-                    </div>
-                    <div style={{ fontSize: 20, fontWeight: 700, color: 'var(--teal-dark)', lineHeight: 1 }}>
-                      {fmtFollowers(r.followers)}
-                    </div>
-                    {ganancia !== null && ganancia > 0 && (
-                      <div style={{ fontSize: 11, color: '#1a9650', fontWeight: 600, marginTop: 3 }}>
-                        +{ganancia.toLocaleString()} este período
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Total + delta global */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
-              <span style={{ fontSize: 13, color: 'var(--muted)' }}>Total:</span>
-              <span style={{ fontSize: 16, fontWeight: 700, color: 'var(--teal-dark)' }}>
-                {fmtFollowers(followersTotal)}
-              </span>
-              {deltaFollowers !== null && (
-                <span className={`kpi-delta ${deltaFollowers >= 0 ? 'up' : 'down'}`}>
-                  {deltaFollowers >= 0 ? '▲' : '▼'} {Math.abs(deltaFollowers)}% vs. período anterior
-                </span>
-              )}
-            </div>
-
-            {/* Gráfico multi-línea: ganancia acumulada por red día a día */}
-            {seguidoresTrendPorRed.length > 1 && (
-              <div style={{ position: 'relative', height: 180 }}>
-                <ChartJSWrapper config={chartSeguidores} />
-              </div>
-            )}
           </div>
         </div>
       </div>
