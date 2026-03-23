@@ -56,6 +56,7 @@ export default function TabAlcance() {
     seguidoresTrendPorRed,
     gananciaPorRed,
     platformColors: platformColorsOverride,
+    municipio,
     periodo,
     topTemas,
     topEventos,
@@ -169,6 +170,24 @@ export default function TabAlcance() {
   return (
     <>
       <div className="section-label">Alcance y Cobertura · {periodo}</div>
+
+      <p
+        style={{
+          fontSize: 13,
+          color: 'var(--muted)',
+          lineHeight: 1.55,
+          margin: '0 0 14px',
+          maxWidth: '48rem',
+        }}
+      >
+        <strong style={{ color: 'var(--text)' }}>Betzabé Martínez Arango</strong>
+        {' — '}
+        Los seguidores mostrados corresponden a las{' '}
+        <strong style={{ color: 'var(--text)' }}>cuentas oficiales de la alcaldesa</strong> de{' '}
+        <strong style={{ color: 'var(--text)' }}>{municipio}</strong>
+        {' '}
+        en cada red social.
+      </p>
 
       {/* Scorecards de seguidores por red (mismo patrón que Indicadores clave) */}
       <div className="grid g-auto" style={{ marginBottom: 14 }}>
